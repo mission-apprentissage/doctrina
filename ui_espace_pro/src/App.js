@@ -38,6 +38,9 @@ import OptOutUnsubscribe from "./pages/OptOutUnsubscribe";
 import PremiumForm from "./pages/PremiumForm";
 import Accessibilite from "./pages/Accessibilite";
 import MentionsLegales from "./pages/MentionsLegales";
+import {ScrollToTop} from "./components/ScrollToTop";
+import AppointmentFollowUpPage from "./pages/AppointmentFollowUpPage";
+import {CfaCandidatInformationPage} from "./pages/CfaCandidatInformationPage";
 
 function RedirectTo404() {
   useEffect(() => {
