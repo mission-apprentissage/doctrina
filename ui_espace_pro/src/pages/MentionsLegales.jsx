@@ -1,30 +1,30 @@
-import React from "react";
-import { Box, Container, Heading, Text } from "@chakra-ui/react";
-import { Breadcrumb } from "../common/components/Breadcrumb";
-import Layout from "../common/components/Layout";
-import { setTitle } from "../common/utils/pageUtils";
+import React from 'react'
+import { Box, Container, Heading, Text } from '@chakra-ui/react'
+import { Breadcrumb } from '../common/components/Breadcrumb'
+import Layout from '../common/components/Layout'
+import { setTitle } from '../common/utils/pageUtils'
 
 /**
  * @description Legal terms component.
  * @return {JSX.Element}
  */
 export default () => {
-  const title = "Mentions Légales";
-  setTitle(title);
+  const title = 'Mentions Légales'
+  setTitle(title)
 
   return (
     <Layout>
-      <Box w="100%" pt={[4, 8]} px={[1, 1, 12, 24]}>
-        <Container maxW="xl">
-          <Breadcrumb pages={[{ title: "Accueil", to: "/" }, { title: title }]} />
-          <Heading textStyle="h2" color="grey.800" mt={5}>
+      <Box w='100%' pt={[4, 8]} px={[1, 1, 12, 24]}>
+        <Container maxW='xl'>
+          <Breadcrumb pages={[{ title: 'Accueil', to: '/' }, { title: title }]} />
+          <Heading textStyle='h2' color='grey.800' mt={5}>
             {title}
           </Heading>
           <Box pt={1} pb={16}>
             <Box>
               <Text>Mentions légales « Plateforme de digitalisation »</Text>
               <Box mt={4}>
-                <Heading as={"h3"} textStyle="h6" mb={2}>
+                <Heading as={'h3'} textStyle='h6' mb={2}>
                   Éditeur du site
                 </Heading>
                 <Text>
@@ -35,7 +35,7 @@ export default () => {
                 </Text>
               </Box>
               <Box mt={4}>
-                <Heading as={"h3"} textStyle="h6" mb={2}>
+                <Heading as={'h3'} textStyle='h6' mb={2}>
                   L'hébergement du Site internet est assuré par
                 </Heading>
                 <Text>
@@ -59,7 +59,7 @@ export default () => {
                 75007 PARIS
               </Box>
               <Box mt={4}>
-                <Heading as={"h3"} textStyle="h6" mb={2}>
+                <Heading as={'h3'} textStyle='h6' mb={2}>
                   Sécurité
                 </Heading>
                 <Text>
@@ -75,5 +75,5 @@ export default () => {
         </Container>
       </Box>
     </Layout>
-  );
-};
+  )
+}

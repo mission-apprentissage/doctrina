@@ -1,24 +1,24 @@
-import React from "react";
-import { Box, Container, Heading, Link, ListItem, Text, UnorderedList } from "@chakra-ui/react";
-import { Breadcrumb } from "../common/components/Breadcrumb";
-import Layout from "../common/components/Layout";
-import { setTitle } from "../common/utils/pageUtils";
-import { ExternalLinkLine } from "../theme/components/icons";
+import React from 'react'
+import { Box, Container, Heading, Link, ListItem, Text, UnorderedList } from '@chakra-ui/react'
+import { Breadcrumb } from '../common/components/Breadcrumb'
+import Layout from '../common/components/Layout'
+import { setTitle } from '../common/utils/pageUtils'
+import { ExternalLinkLine } from '../theme/components/icons'
 
 /**
  * @description Accessibility component.
  * @return {JSX.Element}
  */
 export default () => {
-  const title = "Accessibilité";
-  setTitle(title);
+  const title = 'Accessibilité'
+  setTitle(title)
 
   return (
     <Layout>
-      <Box w="100%" pt={[4, 8]} px={[1, 1, 12, 24]}>
-        <Container maxW="xl">
-          <Breadcrumb pages={[{ title: "Accueil", to: "/" }, { title: title }]} />
-          <Heading textStyle="h2" mt={5}>
+      <Box w='100%' pt={[4, 8]} px={[1, 1, 12, 24]}>
+        <Container maxW='xl'>
+          <Breadcrumb pages={[{ title: 'Accueil', to: '/' }, { title: title }]} />
+          <Heading textStyle='h2' mt={5}>
             {title}
           </Heading>
           <Box pt={4} pb={16}>
@@ -47,13 +47,13 @@ export default () => {
                 <br />
                 <br />
                 Le site Catalogue de l’offre de formation en apprentissage est en cours d'optimisation afin de le rendre
-                conforme au{" "}
+                conforme au{' '}
                 <Link
-                  href={"https://www.numerique.gouv.fr/publications/rgaa-accessibilite"}
-                  textDecoration={"underline"}
+                  href={'https://www.numerique.gouv.fr/publications/rgaa-accessibilite'}
+                  textDecoration={'underline'}
                   isExternal
                 >
-                  RGAA v3 <ExternalLinkLine w={"0.75rem"} h={"0.75rem"} mb={"0.125rem"} />
+                  RGAA v3 <ExternalLinkLine w={'0.75rem'} h={'0.75rem'} mb={'0.125rem'} />
                 </Link>
                 .
                 <br />
@@ -61,7 +61,7 @@ export default () => {
               </Text>
             </Box>
             <Box mt={4}>
-              <Heading as={"h3"} textStyle="h6" mb={2}>
+              <Heading as={'h3'} textStyle='h6' mb={2}>
                 Nos engagements
               </Heading>
               <Text>
@@ -81,19 +81,19 @@ export default () => {
             </Box>
             <Box mt={4}>
               <Text>
-                Pour en savoir plus sur la politique d’accessibilité numérique de l’État :{" "}
+                Pour en savoir plus sur la politique d’accessibilité numérique de l’État :{' '}
                 <Link
-                  href={"https://www.numerique.gouv.fr/publications/rgaa-accessibilite/"}
-                  textDecoration={"underline"}
+                  href={'https://www.numerique.gouv.fr/publications/rgaa-accessibilite/'}
+                  textDecoration={'underline'}
                   isExternal
                 >
-                  https://www.numerique.gouv.fr/publications/rgaa-accessibilite/{" "}
-                  <ExternalLinkLine w={"0.75rem"} h={"0.75rem"} mb={"0.125rem"} />
+                  https://www.numerique.gouv.fr/publications/rgaa-accessibilite/{' '}
+                  <ExternalLinkLine w={'0.75rem'} h={'0.75rem'} mb={'0.125rem'} />
                 </Link>
               </Text>
             </Box>
             <Box mt={4}>
-              <Heading as={"h3"} textStyle="h6" mb={2}>
+              <Heading as={'h3'} textStyle='h6' mb={2}>
                 Voie de recours
               </Heading>
               <Box>
@@ -103,22 +103,22 @@ export default () => {
                 <br />
                 <br />
                 Vous pouvez :
-                <UnorderedList stylePosition="inside">
+                <UnorderedList stylePosition='inside'>
                   <ListItem>
-                    Écrire un message au{" "}
-                    <Link href={"https://formulaire.defenseurdesdroits.fr/"} textDecoration={"underline"} isExternal>
-                      Défenseur des droits <ExternalLinkLine w={"0.75rem"} h={"0.75rem"} mb={"0.125rem"} />
+                    Écrire un message au{' '}
+                    <Link href={'https://formulaire.defenseurdesdroits.fr/'} textDecoration={'underline'} isExternal>
+                      Défenseur des droits <ExternalLinkLine w={'0.75rem'} h={'0.75rem'} mb={'0.125rem'} />
                     </Link>
                   </ListItem>
                   <ListItem>
-                    Contacter le délégué du{" "}
+                    Contacter le délégué du{' '}
                     <Link
-                      href={"https://www.defenseurdesdroits.fr/saisir/delegues"}
-                      textDecoration={"underline"}
+                      href={'https://www.defenseurdesdroits.fr/saisir/delegues'}
+                      textDecoration={'underline'}
                       isExternal
                     >
-                      Défenseur des droits dans votre région{" "}
-                      <ExternalLinkLine w={"0.75rem"} h={"0.75rem"} mb={"0.125rem"} />
+                      Défenseur des droits dans votre région{' '}
+                      <ExternalLinkLine w={'0.75rem'} h={'0.75rem'} mb={'0.125rem'} />
                     </Link>
                   </ListItem>
                   <ListItem>
@@ -134,5 +134,5 @@ export default () => {
         </Container>
       </Box>
     </Layout>
-  );
-};
+  )
+}
