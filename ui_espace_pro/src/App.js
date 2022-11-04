@@ -29,6 +29,15 @@ import {
 } from './pages/Authentification'
 import { DepotRapide_AjouterVoeux, DepotRapide_AjouterVoeuxMiseEnRelation, DepotRapide_Fin } from './pages/Formulaire'
 import { PropositionOffreId } from './pages/Proposition/Offre/PropositionOffreId'
+import LoginPage from "./pages/LoginPage";
+import ResetPasswordPage from "./pages/Password/ResetPasswordPage";
+import ForgottenPasswordPage from "./pages/Password/ForgottenPasswordPage";
+import {FormCreatePage} from "./pages/Candidat/FormCreatePage";
+import {FormRecapPage} from "./pages/Candidat/FormRecapPage";
+import OptOutUnsubscribe from "./pages/OptOutUnsubscribe";
+import PremiumForm from "./pages/PremiumForm";
+import Accessibilite from "./pages/Accessibilite";
+import MentionsLegales from "./pages/MentionsLegales";
 
 function RedirectTo404() {
   useEffect(() => {
@@ -52,12 +61,14 @@ function PrivateRoute({ children }) {
 function AdminRoute({ children }) {
   let [auth] = useAuth()
 
+
   return auth.permissions.isAdmin ? children : <Navigate to='/' />
 }
 
 const App = () => {
   return (
     <AnimatePresence>
+      <ScrollToTop />
       <ReactQueryDevtoolsPanel />
       <Helmet>
         <script
@@ -127,6 +138,29 @@ const App = () => {
         <Route path='/' element={<RedirectToLba />} />
         <Route path='/offre/:idOffre/:option' element={<MailActionsOnOffre />} />
         <Route path='/widget/:origine' element={<CreationCompte type={AUTHTYPE.ENTREPRISE} widget={true} />} />
+        <Route exact path="/" component={HomePage} />
+        <Route exact path="/login" component={LoginPage} />
+        <Route exact path="/reset-password" component={ResetPasswordPage} />
+        <Route exact path="/forgotten-password" component={ForgottenPasswordPage} />
+        <Route exact path="/form" component={FormCreatePage} />
+        <Route exact path="/form/confirm/:id" component={FormRecapPage} />
+        <Route exact path="/form/opt-out/unsubscribe/:id" component={OptOutUnsubscribe} />
+        <Route exact path="/form/premium/:id" component={PremiumForm} />
+        <Route exact path="/informations" component={FAQ} />
+        <Route exact path="/accessibilite" component={Accessibilite} />
+        <Route exact path="/mentions-legales" component={MentionsLegales} />
+        <Route exact path="/cookies" component={Cookies} />
+        <Route
+            exact
+            path="/appointment/candidat/follow-up/:id/:action(confirm|resend)"
+            component={AppointmentFollowUpPage}
+        />
+        <Route exact path="/widget/tutorial" component={Widget} />
+        <Route
+            exact
+            path="/establishment/:establishmentId/appointments/:appointmentId"
+            component={CfaCandidatInformationPage}
+        />
         <Route path='*' element={<RedirectTo404 />} />
       </Routes>
     </AnimatePresence>
