@@ -14,7 +14,8 @@
     "build": "react-scripts build",
     "serve": "ws --port 3000 -d build --log.format dev --spa index.html",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "eslint:fix": "eslint --fix src/**/*.{jsx,js}"
   },
   "dependencies": {
     "@appbaseio/reactivesearch": "3.30.3",
@@ -83,6 +84,7 @@
   },
   "devDependencies": {
     "eslint": "7.22.0",
+    "eslint-config-react-app": "7.0.1",
     "eslint-config-airbnb": "18.2.0",
     "eslint-config-prettier": "8.1.0",
     "eslint-plugin-import": "2.22.0",
