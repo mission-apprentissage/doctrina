@@ -1,8 +1,8 @@
 import crypto from "crypto";
 import config from "../../config.js";
 
-const secretLba = Buffer.alloc(32, config.secretUpdateRomesMetiers || "1234");
-const secret1j1s = Buffer.alloc(32, config.secret1j1s || "5678");
+const secretLba = Buffer.alloc(32, config.secretUpdateRomesMetiers);
+const secret1j1s = Buffer.alloc(32, config.secret1j1s);
 
 const algo = "aes-256-ctr";
 const inputEncoding = "utf8";
