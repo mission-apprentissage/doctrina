@@ -13,18 +13,13 @@ const getAllApplications = async (options) => {
   let params = { page, limit, query };
   logger.debug(`Requesting LBA with parameters`, params);
 
-  const response = await axios.get(
-    `https://labonnealternance${
-      config.env === "production" ? "" : "-recette"
-    }.apprentissage.beta.gouv.fr/api/application/search`,
-    {
-      headers: {
-        Application: config.lba.application,
-        "API-key": config.lba.apiKey,
-      },
-      params,
-    }
-  );
+  const response = await axios.get(`${config.publicUrl}/api/application/search`, {
+    headers: {
+      Application: config.lba.application,
+      "API-key": config.lba.apiKey,
+    },
+    params,
+  });
 
   const { data, pagination } = response.data;
   allCandidature = allCandidature.concat(data); // Should be properly exploded, function should be pure

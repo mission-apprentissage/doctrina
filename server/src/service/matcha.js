@@ -1,14 +1,12 @@
 import axios from "axios";
-import { itemModel } from "../model/itemModel.js";
-import config from "../config.js";
-import { trackApiCall } from "../common/utils/sendTrackingEvent.js";
-import { manageApiError } from "../common/utils/errorManager.js";
 import { encryptMailWithIV } from "../common/utils/encryptString.js";
+import { manageApiError } from "../common/utils/errorManager.js";
+import { trackApiCall } from "../common/utils/sendTrackingEvent.js";
+import config from "../config.js";
+import { itemModel } from "../model/itemModel.js";
 import filterJobsByOpco from "./filterJobsByOpco.js";
 
-const matchaApiEndpoint = `https://matcha${
-  config.env === "production" ? "" : "-recette"
-}.apprentissage.beta.gouv.fr/api/formulaire`;
+const matchaApiEndpoint = `${config.publicUrl}/api/formulaire`;
 const matchaSearchEndPoint = `${matchaApiEndpoint}/search`;
 const matchaJobEndPoint = `${matchaApiEndpoint}/offre`;
 
