@@ -47,9 +47,6 @@ const config = {
   secretAkto: env.get("LBA_SECRET_AKTO").default("1234").asString(), //TODO: rearrange
   jobSlackWebhook: env.get("LBA_JOB_SLACK_WEBHOOK").default("https://hooks.slack.com/services").asString(),
   allowedSources: env.get("LBA_ALLOWED_SOURCES").default("allowed").asString(),
-  lbb: {
-    score50Level: env.get("LBA_LBB_SCORE_50").default(1).asFloatPositive(), //TODO: rename
-  },
   smtp: {
     host: env.get("LBA_SMTP_HOST").default("smtp").asString(),
     port: env.get("LBA_SMTP_PORT").default("1025").asString(),
