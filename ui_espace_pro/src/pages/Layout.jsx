@@ -1,15 +1,16 @@
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { Box, Link, Flex, Menu, MenuButton, MenuItem, MenuList } from '@chakra-ui/react'
 import useAuth from '../common/hooks/useAuth'
 import { UserLogo } from '../theme/components/icons'
 import Layout from '../common/components/Layout'
 
 const Layout2 = (props) => {
-  let [auth, setAuth] = useAuth()
-  let history = useHistory()
-  let logout = () => {
+  const [auth, setAuth] = useAuth()
+  const navigate = useNavigate()
+
+  const logout = () => {
     setAuth(null)
-    history.push('/login')
+    navigate('/login')
   }
 
   const subAnonymous = 'anonymous'

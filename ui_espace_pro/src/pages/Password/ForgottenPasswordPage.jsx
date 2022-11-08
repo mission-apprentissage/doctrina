@@ -1,13 +1,13 @@
 import * as Yup from "yup";
 import { Box, Container, Input, Button, Text } from "@chakra-ui/react";
 import { Formik, Field, Form } from "formik";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import useAuth from "../../common/hooks/useAuth";
 import { _post } from "../../common/httpClient";
 
 const ForgottenPasswordPage = () => {
   let [, setAuth] = useAuth();
-  let history = useHistory();
+  const navigate = useNavigate()
 
   let showError = (meta) => {
     return meta.touched && meta.error
@@ -23,7 +23,7 @@ const ForgottenPasswordPage = () => {
       let { token } = await _post("/api/password/forgotten-password", { ...values });
       setAuth(token);
       setStatus({ message: "Un email vous a été envoyé." });
-      setTimeout(() => history.push("/"), 1500);
+      setTimeout(() => navigate("/"), 1500);
     } catch (e) {
       console.error(e);
       setStatus({ error: e.prettyMessage });

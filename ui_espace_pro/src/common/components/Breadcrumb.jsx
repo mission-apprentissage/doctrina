@@ -1,7 +1,7 @@
 import React from "react";
 import { BreadcrumbItem, BreadcrumbLink, Breadcrumb as ChakraBreadcrumb } from "@chakra-ui/react";
 import { NavLink } from "react-router-dom";
-import { ArrowDropRightLine } from "../../theme-beta/components/icons";
+import { ArrowDropRightLine } from "../../theme/components/icons";
 
 /**
  * @description Breadcrumb components.

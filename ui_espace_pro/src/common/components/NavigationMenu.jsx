@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { Box, Container, Flex, Link, Text } from "@chakra-ui/react";
-import { MenuFill, Close } from "../../theme-beta/components/icons";
+import { MenuFill, Close } from "../../theme/components/icons";
 
 const NavigationMenu = ({ ...props }) => {
   const [isOpen, setIsOpen] = useState(false);

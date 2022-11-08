@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { Field, Form, Formik } from "formik";
-import { useHistory } from "react-router";
 import { Box, Button, Container, Heading, Input, Text, useToast } from "@chakra-ui/react";
 import { Breadcrumb } from "../../../../common/components/Breadcrumb";
 import { setTitle } from "../../../../common/utils/pageUtils";
+import {useNavigate} from "react-router-dom";
 
 const SearchPage = () => {
   const [searchKeyword, setSearchKeyword] = useState("");
   const [loading, setLoading] = useState(false);
-  const history = useHistory();
+  const navigate = useNavigate()
   const toast = useToast();
 
   const title = "Rechercher";
@@ -43,7 +43,7 @@ const SearchPage = () => {
           position: "bottom-right",
         });
       } else {
-        history.push(`/admin/widget-parameters/edit/${catalogueResult.formations[0].etablissement_formateur_siret}`);
+        navigate(`/admin/widget-parameters/edit/${catalogueResult.formations[0].etablissement_formateur_siret}`);
       }
     } catch (e) {
       toast({

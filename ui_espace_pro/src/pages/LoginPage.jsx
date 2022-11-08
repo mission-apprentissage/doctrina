@@ -1,6 +1,6 @@
 import * as Yup from 'yup'
 import { Formik, Field, Form } from 'formik'
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { Box, Container, Input, Button, Link, Text, Flex, Heading } from '@chakra-ui/react'
 import useAuth from '../common/hooks/useAuth'
 import { _post } from '../common/httpClient'
@@ -11,7 +11,7 @@ import { setTitle } from '../common/utils/pageUtils'
 
 const LoginPage = () => {
   let [, setAuth] = useAuth()
-  let history = useHistory()
+  const navigate = useNavigate()
 
   const title = 'Authentification'
   setTitle(title)
@@ -29,7 +29,7 @@ const LoginPage = () => {
     try {
       let { token } = await _post('/api/login', values)
       setAuth(token)
-      history.push('/admin')
+      navigate('/admin')
     } catch (e) {
       console.error(e)
       setStatus({ error: e.prettyMessage })

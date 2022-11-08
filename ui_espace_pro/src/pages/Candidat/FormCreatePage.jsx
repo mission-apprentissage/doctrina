@@ -3,7 +3,7 @@ import { Field, Form, Formik } from "formik";
 import * as Yup from "yup";
 import * as emailValidator from "email-validator";
 import * as qs from "query-string";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Input, Button, Box, Spinner, Text, Center, Flex } from "@chakra-ui/react";
 import { ContactCfaComponent } from "./layout/ContactCfaComponent";
 import { FormLayoutComponent } from "./layout/FormLayoutComponent";
@@ -18,7 +18,7 @@ import { _post } from "../../common/httpClient";
 export const FormCreatePage = (props) => {
   const plausibleFeebackEnum = { OUI: "Oui", NON: "Non" };
 
-  const history = useHistory();
+  const navigate = useNavigate()
   const [data, setData] = useState();
   const [submitLoading, setSubmitLoading] = useState(false);
   const [plausibleFeedback, setPlausibleFeedback] = useState("Non renseigné");
@@ -118,7 +118,7 @@ export const FormCreatePage = (props) => {
       }
 
       sendPlausibleFeedback(plausibleFeedback);
-      history.push(`/form/confirm/${appointment._id}`);
+      navigate(`/form/confirm/${appointment._id}`);
       setTimeout(() => window.scroll({ top: 0, behavior: "smooth" }), 500);
     } catch (e) {
       setStatus({ error: e.prettyMessage });
