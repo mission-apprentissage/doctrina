@@ -100,7 +100,7 @@ const LocationDetail = ({ item, isCfa }) => {
                 className={`c-nice-link font-weight-normal gtm${capitalizeFirstLetter(kind)} gtmPathLink`}
                 url={getCompanyPathLink(item)}
                 title="Obtenir l'itinéraire"
-                withPic={<img className="mt-n1" src="/images/square_link.svg" alt="Ouverture dans un nouvel onglet" />}
+                withPic={<img className="mt-n1 ml-1" src="/images/square_link.svg" alt="Ouverture dans un nouvel onglet" />}
               />
             </span>
           </div>
@@ -139,7 +139,7 @@ const LocationDetail = ({ item, isCfa }) => {
               className={`c-nice-link font-weight-normal gtm${capitalizeFirstLetter(kind)} gtmPathLink`}
               url={getPathLink(item)}
               title="Obtenir l'itinéraire"
-              withPic={<img className="mt-n1" src="/images/square_link.svg" alt="Ouverture dans un nouvel onglet" />}
+              withPic={<img className="mt-n1 ml-1" src="/images/square_link.svg" alt="Ouverture dans un nouvel onglet" />}
             />
           </span>
         </div>
@@ -185,7 +185,7 @@ const LocationDetail = ({ item, isCfa }) => {
               />
             </div>
             <div className="c-locationdetail-line mt-3">
-              <a href="https://media.giphy.com/media/l3vR4IfRCoz8Qz9oA/giphy.gif" classname="c-nice-link font-weight-normal" target="_blank">
+              <a href="https://media.giphy.com/media/l3vR4IfRCoz8Qz9oA/giphy.gif" className="c-nice-link font-weight-normal" target="_blank" rel="noreferrer">
                   En savoir plus
               </a>
             </div>
@@ -241,7 +241,7 @@ const LocationDetail = ({ item, isCfa }) => {
                   className="c-nice-link gtmGoogleLink"
                   url={`https://www.google.fr/search?q=${getGoogleSearchParameters()}`}
                   title={item.company.name}
-                  withPic={<img className="mt-n1" src="/images/square_link.svg" alt="Ouverture dans un nouvel onglet" />}
+                  withPic={<img className="mt-n1 ml-1" src="/images/square_link.svg" alt="Ouverture dans un nouvel onglet" />}
                 />
               </span>
             </div>
