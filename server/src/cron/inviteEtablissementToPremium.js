@@ -42,7 +42,7 @@ export const inviteEtablissementToPremium = async ({ etablissements, mailer }) =
           linkToForm: `${config.publicUrl}/form/premium/${etablissement._id}`,
         },
       },
-      from: config.private.rdvEmail,
+      from: config.rdvEmail,
     });
 
     await etablissements.updateOne(

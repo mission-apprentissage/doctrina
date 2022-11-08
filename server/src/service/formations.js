@@ -621,7 +621,7 @@ const getLbfQueryParams = (params) => {
 
   let queryParams = `user=LBA&uid=${params.id}&timestamp=${date}`;
 
-  var hmac = crypto.createHmac("md5", config.private.laBonneFormationPassword);
+  var hmac = crypto.createHmac("md5", config.laBonneFormationPassword);
   const data = hmac.update(queryParams);
   const signature = data.digest("hex");
 

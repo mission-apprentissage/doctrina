@@ -18,7 +18,7 @@ const aadTokenUrl = "https://login.microsoftonline.com/0285c9cb-dd17-4c1e-9621-c
 const grantType = "client_credentials";
 const clientId = "c6a6b396-82b9-4ab1-acc0-21b1c0ad8ae3";
 const scope = "api://ef286853-e767-4dd1-8de3-67116195eaad/.default";
-const clientSecret = config.private.secretAkto;
+const clientSecret = config.secretAkto;
 const opcoDumpUrl = "https://api.akto.fr/referentiel/api/v1/Dump/Adherents";
 
 let i = 0;

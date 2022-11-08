@@ -50,7 +50,7 @@ const config = {
     },
     awsAccessKeyId: env.get("LBA_AWS_ACCESS_KEY_ID").default("1234").asString(),
     awsSecretAccessKey: env.get("LBA_AWS_SECRET_ACCESS_KEY").default("1234").asString(),
-    catalogueUrl: env.get("LBA_CATALOGUE_URL").default("https://catalogue.intercariforef.org").asString(),
+    catalogueUrl: env.get("LBA_CATALOGUE_URL").default("https://catalogue.apprentissage.education.gouv.fr").asString(),
     matcha: {
       apiKey: env.get("LBA_MATCHA_ACCESS_KEY").default("1234").asString(),
     },

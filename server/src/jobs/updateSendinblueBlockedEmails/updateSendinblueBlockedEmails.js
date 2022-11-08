@@ -43,7 +43,7 @@ const updateBlockedEmails = async ({ query }) => {
 
   let defaultClient = SibApiV3Sdk.ApiClient.instance;
   let apiKey = defaultClient.authentications["api-key"];
-  apiKey.apiKey = config.private.smtp.sendinblueApiKey;
+  apiKey.apiKey = config.smtp.sendinblueApiKey;
 
   let apiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
 

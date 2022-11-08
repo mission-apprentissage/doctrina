@@ -76,7 +76,7 @@ export default ({ etablissements, mailer, widgetParameters, appointments }) => {
           },
           activationDate: dayjs().format("DD/MM"),
         },
-        from: config.private.rdvEmail,
+        from: config.rdvEmail,
       });
 
       const [widgetParametersFound] = await Promise.all([
@@ -154,7 +154,7 @@ export default ({ etablissements, mailer, widgetParameters, appointments }) => {
           },
           activationDate: dayjs().format("DD/MM"),
         },
-        from: config.private.rdvEmail,
+        from: config.rdvEmail,
       });
 
       await etablissements.findOneAndUpdate(
@@ -242,7 +242,7 @@ export default ({ etablissements, mailer, widgetParameters, appointments }) => {
         etablissement = await etablissements.findById(req.params.id);
 
         await mailer.sendEmail({
-          to: config.private.rdvEmail,
+          to: config.rdvEmail,
           subject: `Un CFA se pose une question concernant l'opt-out"`,
           template: path.join(
             currentDirname,
@@ -307,7 +307,7 @@ export default ({ etablissements, mailer, widgetParameters, appointments }) => {
             destinataireEmail: etablissement.email_decisionnaire,
           },
         },
-        from: config.private.rdvEmail,
+        from: config.rdvEmail,
       });
 
       await etablissements.findOneAndUpdate(

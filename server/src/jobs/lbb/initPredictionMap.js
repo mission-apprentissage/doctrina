@@ -7,7 +7,7 @@ import __dirname from "../../common/dirname.js";
 const currentDirname = __dirname(import.meta.url);
 const filePath = path.join(currentDirname, "./assets/predictions.csv");
 
-const seuilElimination = config.private.lbb.score50Level;
+const seuilElimination = config.lbb.score50Level;
 
 let predictionMap = {};
 let count = 0;

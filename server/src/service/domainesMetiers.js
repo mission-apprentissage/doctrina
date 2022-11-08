@@ -329,7 +329,7 @@ const removeDuplicateDiplomas = (diplomas) => {
 const updateRomesMetiersQuery = async (query) => {
   if (!query.secret) {
     return { error: "secret_missing" };
-  } else if (query.secret !== config.private.secretUpdateRomesMetiers) {
+  } else if (query.secret !== config.secretUpdateRomesMetiers) {
     return { error: "wrong_secret" };
   } else {
     try {
@@ -348,7 +348,7 @@ const updateRomesMetiersQuery = async (query) => {
 const getMissingRNCPs = async (query) => {
   if (!query.secret) {
     return { error: "secret_missing" };
-  } else if (query.secret !== config.private.secretUpdateRomesMetiers) {
+  } else if (query.secret !== config.secretUpdateRomesMetiers) {
     return { error: "wrong_secret" };
   } else {
     try {

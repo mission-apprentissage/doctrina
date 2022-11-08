@@ -131,7 +131,7 @@ const getEmailTemplates = (applicationType) => {
 const sendApplication = async ({ scan, mailer, query, referer, shouldCheckSecret }) => {
   if (shouldCheckSecret && !query.secret) {
     return { error: "secret_missing" };
-  } else if (shouldCheckSecret && query.secret !== config.private.secretUpdateRomesMetiers) {
+  } else if (shouldCheckSecret && query.secret !== config.secretUpdateRomesMetiers) {
     return { error: "wrong_secret" };
   } else if (!validateCaller({ caller: query.caller, referer })) {
     return { error: "missing_caller" };
@@ -355,7 +355,7 @@ const findApplicationByTypeAndMessageId = async ({ messageId, type, email }) => 
 const debugUpdateApplicationStatus = async ({ mailer, query, shouldCheckSecret }) => {
   if (shouldCheckSecret && !query.secret) {
     logger.error("Debugging sendinblue webhook : secret missing");
-  } else if (shouldCheckSecret && query.secret !== config.private.secretUpdateRomesMetiers) {
+  } else if (shouldCheckSecret && query.secret !== config.secretUpdateRomesMetiers) {
     logger.error("Debugging sendinblue webhook : wrong secret");
   } else {
     updateApplicationStatus({ payload: { ...query, secret: "" }, mailer });
@@ -407,7 +407,7 @@ const notifyHardbounceToApplicant = async ({ mailer, application }) => {
 
 const warnMatchaTeamAboutBouncedEmail = async ({ application, mailer }) => {
   mailer.sendEmail({
-    to: config.private.matchaEmail,
+    to: config.matchaEmail,
     subject: `Hardbounce détecté pour ${application.company_name}`,
     template: getEmailTemplate("mail-matcha-hardbounce"),
     data: { ...application._doc, ...images },
@@ -504,7 +504,7 @@ const addEmailToBlacklist = async (email, source) => {
 const sendTestMail = async ({ mailer, query }) => {
   if (!query.secret) {
     return { error: "secret_missing" };
-  } else if (query.secret !== config.private.secretUpdateRomesMetiers) {
+  } else if (query.secret !== config.secretUpdateRomesMetiers) {
     return { error: "wrong_secret" };
   } else {
     try {
@@ -536,7 +536,7 @@ const getEmailTemplate = (type = "mail-candidat") => {
 const updateBlockedEmails = async ({ query, shouldCheckSecret }) => {
   if (shouldCheckSecret && (!query || !query.secret)) {
     logger.error("Debugging sendinblue webhook : secret missing");
-  } else if (shouldCheckSecret && query.secret !== config.private.secretUpdateRomesMetiers) {
+  } else if (shouldCheckSecret && query.secret !== config.secretUpdateRomesMetiers) {
     logger.error("Debugging sendinblue webhook : wrong secret");
   } else {
     await updateSendinblueBlockedEmails({ query });

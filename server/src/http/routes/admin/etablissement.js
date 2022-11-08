@@ -134,7 +134,7 @@ export default ({ etablissements, mailer }) => {
               destinataireEmail: etablissement.email_decisionnaire,
             },
           },
-          from: config.private.rdvEmail,
+          from: config.rdvEmail,
         });
 
         await Etablissement.updateOne(

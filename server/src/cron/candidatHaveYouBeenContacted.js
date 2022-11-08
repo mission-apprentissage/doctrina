@@ -108,7 +108,7 @@ export const candidatHaveYouBeenContacted = async ({
             referrer: referrerObj.full_name,
           },
         },
-        from: config.private.rdvEmail,
+        from: config.rdvEmail,
       }),
     ]);
 
