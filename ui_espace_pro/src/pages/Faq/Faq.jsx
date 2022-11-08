@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Box, Container, Stack, SkeletonText, Flex, Link, Center, Icon } from "@chakra-ui/react";
-import { NavLink, useLocation, useRouteMatch } from "react-router-dom";
+import { NavLink, useLocation, useMatch } from "react-router-dom";
 import { NotionRenderer } from "react-notion-x";
 import Layout from "../../common/components/Layout";
 import "react-notion-x/src/styles.css";
@@ -64,7 +64,7 @@ const NavItem = ({ icon, children, to, shoudBeActive, isSubItem, ...rest }) => {
 };
 
 export default () => {
-  let { params } = useRouteMatch();
+  let { params } = useMatch();
   const pageId = mapId[params.id] || "7e8a9c1a1ef54cb399f8ae50620f95ce";
 
   const [isLoading, setIsLoading] = useState(true);

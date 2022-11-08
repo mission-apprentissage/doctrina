@@ -49,6 +49,7 @@ import WidgetParametersSearchPage from './pages/Admin/widgetParameters/pages/Sea
 import BulkPage from './pages/Admin/widgetParameters/pages/BulkPage'
 import Widget from './pages/Widget'
 import Cookies from './pages/Cookies'
+import FAQ from './pages/Faq/Faq'
 
 function RedirectTo404() {
   useEffect(() => {
@@ -149,7 +150,7 @@ const App = () => {
         <Route path='/' element={<RedirectToLba />} />
         <Route path='/offre/:idOffre/:option' element={<MailActionsOnOffre />} />
         <Route path='/widget/:origine' element={<CreationCompte type={AUTHTYPE.ENTREPRISE} widget={true} />} />
-        <Route exact path='/' component={HomePage} />
+        {/*<Route exact path='/' component={HomePage} />*/}
         <Route exact path='/login' component={LoginPage} />
         <Route exact path='/reset-password' component={ResetPasswordPage} />
         <Route exact path='/forgotten-password' component={ForgottenPasswordPage} />
@@ -172,13 +173,13 @@ const App = () => {
           path='/establishment/:establishmentId/appointments/:appointmentId'
           component={CfaCandidatInformationPage}
         />
-        <PrivateRoute exact path='/admin'>
-          <Route exact path='/admin' component={DashboardPage} />
-          <Route exact path='/admin/widget-parameters' component={WidgetParametersPage} />
-          <Route exact path='/admin/widget-parameters/search' component={WidgetParametersSearchPage} />
-          <Route exact path='/admin/widget-parameters/edit/:id' component={WidgetParametersEditPage} />
-          <Route exact path='/admin/widget-parameters/bulk' component={BulkPage} />
-        </PrivateRoute>
+        {/*<PrivateRoute exact path='/admin'>*/}
+        <Route exact path='/admin' component={DashboardPage} />
+        <Route exact path='/admin/widget-parameters' component={WidgetParametersPage} />
+        <Route exact path='/admin/widget-parameters/search' component={WidgetParametersSearchPage} />
+        <Route exact path='/admin/widget-parameters/edit/:id' component={WidgetParametersEditPage} />
+        <Route exact path='/admin/widget-parameters/bulk' component={BulkPage} />
+        {/*</PrivateRoute>*/}
         <Route path='*' element={<RedirectTo404 />} />
       </Routes>
     </AnimatePresence>
