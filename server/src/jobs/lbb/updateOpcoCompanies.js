@@ -1,15 +1,15 @@
-import fs from "fs";
-import fetch from "node-fetch";
-import config from "../../config.js";
 import axios from "axios";
-import path from "path";
-import { oleoduc, readLineByLine, transformData, writeData } from "oleoduc";
-import { Opco } from "../../common/model/index.js";
+import fs from "fs";
 import _ from "lodash-es";
+import fetch from "node-fetch";
+import { oleoduc, readLineByLine, transformData, writeData } from "oleoduc";
+import path from "path";
+import { Opco } from "../../common/model/index.js";
 import { logMessage } from "../../common/utils/logMessage.js";
+import config from "../../config.js";
 //const opcoAktoSirenFilePath = path.join(__dirname, "./assets/20220301-Akto_SIREN.csv");
-import { notifyToSlack } from "../../common/utils/slackUtils.js";
 import __dirname from "../../common/dirname.js";
+import { notifyToSlack } from "../../common/utils/slackUtils.js";
 const currentDirname = __dirname(import.meta.url);
 
 const opcoSirenFile = path.join(currentDirname, "./assets/opco_sirens.csv");

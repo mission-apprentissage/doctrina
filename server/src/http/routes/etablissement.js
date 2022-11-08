@@ -2,12 +2,12 @@ import Boom from "boom";
 import express from "express";
 import Joi from "joi";
 import path from "path";
-import { tryCatch } from "../middlewares/tryCatchMiddleware.js";
-import { dayjs } from "../../common/utils/dayjs.js";
-import { referrers } from "../../common/model/constants/referrers.js";
-import { mailType } from "../../common/model/constants/etablissement.js";
-import config from "../../config.js";
 import __dirname from "../../common/dirname.js";
+import { mailType } from "../../common/model/constants/etablissement.js";
+import { referrers } from "../../common/model/constants/referrers.js";
+import { dayjs } from "../../common/utils/dayjs.js";
+import config from "../../config.js";
+import { tryCatch } from "../middlewares/tryCatchMiddleware.js";
 const currentDirname = __dirname(import.meta.url);
 
 const optOutUnsubscribeSchema = Joi.object({

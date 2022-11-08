@@ -1,32 +1,33 @@
-import config from "../config.js";
 import Sentry from "@sentry/node";
-import path from "path";
 import { ObjectId } from "mongodb";
-import { prepareMessageForMail } from "../common/utils/fileUtils.js";
+import { oleoduc, writeData } from "oleoduc";
+import path from "path";
+import __dirname from "../common/dirname.js";
+import { logger } from "../common/logger.js";
+import { Application, BonnesBoites, EmailBlacklist } from "../common/model/index.js";
+import { decryptWithIV, encryptIdWithIV } from "../common/utils/encryptString.js";
 import { manageApiError } from "../common/utils/errorManager.js";
-import { encryptIdWithIV, decryptWithIV } from "../common/utils/encryptString.js";
-import { Application, EmailBlacklist, BonnesBoites } from "../common/model/index.js";
+import { prepareMessageForMail } from "../common/utils/fileUtils.js";
+import config from "../config.js";
 import updateSendinblueBlockedEmails from "../jobs/updateSendinblueBlockedEmails/updateSendinblueBlockedEmails.js";
+import { validateCaller } from "./queryValidators.js";
 import {
-  validateSendApplication,
+  checkUserApplicationCount,
   validateCompanyEmail,
   validateFeedbackApplication,
   validateFeedbackApplicationComment,
-  validatePermanentEmail,
   validateFileContent,
-  checkUserApplicationCount,
+  validatePermanentEmail,
+  validateSendApplication,
 } from "./validateSendApplication.js";
-import { validateCaller } from "./queryValidators.js";
-import { logger } from "../common/logger.js";
-import { oleoduc, writeData } from "oleoduc";
-import __dirname from "../common/dirname.js";
 const currentDirname = __dirname(import.meta.url);
 
 const publicUrl = config.publicUrl;
 
-const matchaApiEndpoint = `https://matcha${config.env === "production" ? "" : "-recette"}.apprentissage.beta.gouv.fr`;
+// const matchaApiEndpoint = `https://matcha${config.env === "production" ? "" : "-recette"}.apprentissage.beta.gouv.fr`;
+const matchaApiEndpoint = `https://doctrina${config.env === "production" ? "" : "-recette"}.apprentissage.beta.gouv.fr`;
 
-const imagePath = "https://labonnealternance-recette.apprentissage.beta.gouv.fr/images/emails/";
+const imagePath = "https://doctrina-recette.apprentissage.beta.gouv.fr/images/emails/";
 
 const images = {
   images: {

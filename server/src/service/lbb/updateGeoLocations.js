@@ -1,7 +1,7 @@
+import Sentry from "@sentry/node";
 import _ from "lodash-es";
 import config from "../../config.js";
 import updateGeoLocationJob from "../../jobs/lbb/updateGeoLocations.js";
-import Sentry from "@sentry/node";
 
 const updateGeoLocations = async (query) => {
   if (!query.secret) {

@@ -1,7 +1,7 @@
+import Sentry from "@sentry/node";
 import _ from "lodash-es";
 import config from "../../config.js";
 import updateOpcoJob from "../../jobs/lbb/updateOpcoCompanies.js";
-import Sentry from "@sentry/node";
 
 const updateOpcos = async (query) => {
   if (!query.secret) {

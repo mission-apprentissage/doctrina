@@ -1,8 +1,8 @@
 import axios from "axios";
 import { compose } from "oleoduc";
 import queryString from "query-string";
-import { logger } from "../logger.js";
 import config from "../../config.js";
+import { logger } from "../logger.js";
 import { fetchStream } from "../utils/httpUtils.js";
 import { streamJsonArray } from "../utils/streamUtils.js";
 

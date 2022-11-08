@@ -8,8 +8,7 @@ const contentType = "application/x-www-form-urlencoded";
 const headers = { headers: { "Content-Type": contentType }, timeout: 3000 };
 
 const clientId = config.esdClientId === "1234" ? process.env.ESD_CLIENT_ID : config.esdClientId;
-const clientSecret =
-  config.esdClientSecret === "1234" ? process.env.ESD_CLIENT_SECRET : config.esdClientSecret;
+const clientSecret = config.esdClientSecret === "1234" ? process.env.ESD_CLIENT_SECRET : config.esdClientSecret;
 
 const scopeApisPE = `application_${clientId}%20`;
 

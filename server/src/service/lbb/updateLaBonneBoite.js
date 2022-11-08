@@ -1,7 +1,7 @@
+import Sentry from "@sentry/node";
 import _ from "lodash-es";
 import config from "../../config.js";
 import updateLaBonneBoiteJob from "../../jobs/lbb/updateLaBonneBoite.js";
-import Sentry from "@sentry/node";
 
 const updateLaBonneBoite = async (query) => {
   if (!query.secret) {

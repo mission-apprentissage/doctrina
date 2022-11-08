@@ -1,8 +1,8 @@
-import config from "../../config.js";
 import _ from "lodash-es";
+import { BonnesBoites, EmailBlacklist } from "../../common/model/index.js";
 import { logMessage } from "../../common/utils/logMessage.js";
 import { notifyToSlack } from "../../common/utils/slackUtils.js";
-import { EmailBlacklist, BonnesBoites } from "../../common/model/index.js";
+import config from "../../config.js";
 
 import SibApiV3Sdk from "sib-api-v3-sdk";
 
