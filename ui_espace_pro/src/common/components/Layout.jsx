@@ -1,25 +1,23 @@
-import React from "react";
-import { Box, Container } from "@chakra-ui/react";
-import Footer from "./Footer";
-import Header from "./Header";
-import NavigationMenu from "./NavigationMenu";
+import React from 'react'
+import { Box, Container } from '@chakra-ui/react'
+import Footer from './Footer'
+import Header from './Header'
+import NavigationMenu from './NavigationMenu'
 
 /**
  * @description Beta layout component.
  * @param {JSX.Element} children
  * @return {JSX.Element}
  */
-const Layout = ({ children, ...rest }) => {
+const Layout = ({ children }) => {
   return (
-    <Container maxW="full" minH="100vh" d="flex" flexDirection="column" p={0} {...rest}>
+    <Container maxW='full'>
       <Header />
       <NavigationMenu />
-      <Box minH={"60vh"} flexGrow="1">
-        {children}
-      </Box>
+      <Box minH={'60vh'}>{children}</Box>
       <Footer />
     </Container>
-  );
-};
+  )
+}
 
-export default Layout;
+export default Layout

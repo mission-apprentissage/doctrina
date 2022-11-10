@@ -15,20 +15,18 @@ const DashboardPage = () => {
 
   return (
     <Box w='100%' pt={[4, 8]} px={[1, 1, 12, 24]} pb={40}>
-      <Container maxW='xl' mb={20}>
-        <Breadcrumb pages={[{ title: 'Administration', to: '/admin' }, { title: title }]} />
-        <Heading textStyle='h2' mt={5}>
-          {title}
-        </Heading>
-        {loading ? (
-          <Spinner />
-        ) : (
-          <>
-            <KpisComponent />
-            <RequestsBoardComponent appointments={appointments} />
-          </>
-        )}
-      </Container>
+      <Breadcrumb pages={[{ title: 'Administration', to: '/espace-pro/admin' }, { title: title }]} />
+      <Heading textStyle='h2' mt={5}>
+        {title}
+      </Heading>
+      {loading ? (
+        <Spinner />
+      ) : (
+        <>
+          <KpisComponent />
+          <RequestsBoardComponent appointments={appointments} />
+        </>
+      )}
     </Box>
   )
 }

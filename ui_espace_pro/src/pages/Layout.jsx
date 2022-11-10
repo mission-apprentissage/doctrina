@@ -26,13 +26,13 @@ const Layout2 = (props) => {
                 <Menu isLazy>
                   <MenuButton>Paramètres</MenuButton>
                   <MenuList>
-                    <Link href='/admin/widget-parameters'>
+                    <Link href='/espace-pro/admin/widget-parameters'>
                       <MenuItem>Liste</MenuItem>
                     </Link>
-                    <Link href='/admin/widget-parameters/search'>
+                    <Link href='/espace-pro/admin/widget-parameters/search'>
                       <MenuItem>Ajouter - Via recherche</MenuItem>
                     </Link>
-                    <Link href='/admin/widget-parameters/bulk'>
+                    <Link href='/espace-pro/admin/widget-parameters/bulk'>
                       <MenuItem>Actions groupés</MenuItem>
                     </Link>
                   </MenuList>

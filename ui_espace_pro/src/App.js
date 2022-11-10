@@ -43,6 +43,7 @@ import WidgetParametersEditPage from './pages/Admin/widgetParameters/pages/EditP
 import WidgetParametersSearchPage from './pages/Admin/widgetParameters/pages/SearchPage'
 import BulkPage from './pages/Admin/widgetParameters/pages/BulkPage'
 import LoginPage from './pages/LoginPage'
+import Layout2 from './pages/Layout'
 
 function RedirectTo404() {
   useEffect(() => {
@@ -73,7 +74,7 @@ const AdminRdvaRoute = ({ children }) => {
   const [auth] = useAuth()
   const isAdmin = isUserAdmin(auth)
 
-  return isAdmin ? children : <Navigate to='/admin/login' />
+  return isAdmin ? <Layout2>{children}</Layout2> : <Navigate to='/admin/login' />
 }
 
 const App = () => {
