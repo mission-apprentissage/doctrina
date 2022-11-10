@@ -1,8 +1,8 @@
 {
-  "name": "matcha-ui",
+  "name": "ui_espace_pro",
   "version": "0.8.0",
-  "description": "[MNA] Matcha",
-  "repository": "https://github.com/mission-apprentissage/matcha.git",
+  "description": "Interface de gestion pour les entreprises, organismes de formation et candidats en apprentissage",
+  "repository": "https://github.com/mission-apprentissage/doctrina.git",
   "private": false,
   "author": "MNA",
   "license": "MIT",
@@ -12,7 +12,7 @@
     "analyze": "source-map-explorer 'build/static/js/*.js'",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "serve": "ws --port 3000 -d build --log.format dev --spa index.html",
+    "serve": "ws --port 3001 -d build --log.format dev --spa index.html",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "eslint:fix": "eslint --fix src/**/*.{jsx,js}"
