@@ -33,7 +33,7 @@ export const syncEtablissementsAndFormations = async ({ etablissements, widgetPa
   do {
     const page = response?.pagination?.page ? Number(response?.pagination?.page) + 1 : 1;
 
-    logger.debug(`Fetch catalogue page: ${page} / ${response?.pagination?.nombre_de_page}`);
+    logger.info(`Fetch catalogue page: ${page} / ${response?.pagination?.nombre_de_page}`);
     response = await getFormations({}, page, batchSize, false);
 
     await Promise.all(

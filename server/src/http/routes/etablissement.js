@@ -62,9 +62,9 @@ export default ({ etablissements, mailer, widgetParameters, appointments }) => {
         template: path.join(currentDirname, `../../../assets/templates/mail-cfa-premium-start.mjml.ejs`),
         data: {
           images: {
-            logoCandidat: `${config.publicUrl}/assets/logo-lba-recruteur-candidat.png?raw=true`,
-            logoCfa: `${config.publicUrl}/assets/logo-lba-recruteur-cfa.png?raw=true`,
-            logoFooter: `${config.publicUrl}/assets/logo-republique-francaise.png?raw=true`,
+            logoCandidat: `${config.publicUrl}/espace-pro/assets/logo-lba-recruteur-candidat.png?raw=true`,
+            logoCfa: `${config.publicUrl}/espace-pro/assets/logo-lba-recruteur-cfa.png?raw=true`,
+            logoFooter: `${config.publicUrl}/espace-pro/assets/logo-republique-francaise.png?raw=true`,
           },
           etablissement: {
             name: etablissement.raison_sociale,
@@ -139,10 +139,10 @@ export default ({ etablissements, mailer, widgetParameters, appointments }) => {
         template: path.join(currentDirname, `../../../assets/templates/mail-cfa-premium-refused.mjml.ejs`),
         data: {
           images: {
-            informationIcon: `${config.publicUrl}/assets/icon-information-blue.png?raw=true`,
-            logoCandidat: `${config.publicUrl}/assets/logo-lba-recruteur-candidat.png?raw=true`,
-            logoCfa: `${config.publicUrl}/assets/logo-lba-recruteur-cfa.png?raw=true`,
-            logoFooter: `${config.publicUrl}/assets/logo-republique-francaise.png?raw=true`,
+            informationIcon: `${config.publicUrl}/espace-pro/assets/icon-information-blue.png?raw=true`,
+            logoCandidat: `${config.publicUrl}/espace-pro/assets/logo-lba-recruteur-candidat.png?raw=true`,
+            logoCfa: `${config.publicUrl}/espace-pro/assets/logo-lba-recruteur-cfa.png?raw=true`,
+            logoFooter: `${config.publicUrl}/espace-pro/assets/logo-republique-francaise.png?raw=true`,
           },
           etablissement: {
             name: etablissement.raison_sociale,
@@ -250,8 +250,8 @@ export default ({ etablissements, mailer, widgetParameters, appointments }) => {
           ),
           data: {
             images: {
-              logoCfa: `${config.publicUrl}/assets/logo-lba-recruteur-cfa.png?raw=true`,
-              logoFooter: `${config.publicUrl}/assets/logo-republique-francaise.png?raw=true`,
+              logoCfa: `${config.publicUrl}/espace-pro/assets/logo-lba-recruteur-cfa.png?raw=true`,
+              logoFooter: `${config.publicUrl}/espace-pro/assets/logo-republique-francaise.png?raw=true`,
             },
             etablissement: {
               name: etablissement.raison_sociale,
@@ -293,8 +293,8 @@ export default ({ etablissements, mailer, widgetParameters, appointments }) => {
         template: path.join(currentDirname, `../../../assets/templates/mail-cfa-optout-unsubscription.mjml.ejs`),
         data: {
           images: {
-            logoCfa: `${config.publicUrl}/assets/logo-lba-recruteur-cfa.png?raw=true`,
-            logoFooter: `${config.publicUrl}/assets/logo-republique-francaise.png?raw=true`,
+            logoCfa: `${config.publicUrl}/espace-pro/assets/logo-lba-recruteur-cfa.png?raw=true`,
+            logoFooter: `${config.publicUrl}/espace-pro/assets/logo-republique-francaise.png?raw=true`,
           },
           etablissement: {
             name: etablissement.raison_sociale,

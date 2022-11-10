@@ -18,12 +18,12 @@ const config = {
   mongodb: {
     uri: env
       .get("LBA_MONGODB_URI")
-      .default("mongodb://127.0. .1:27017/labonnealternance?retryWrites=true&w=majority")
+      .default("mongodb://mongodb:27017/labonnealternance?retryWrites=true&w=majority")
       .asString(),
   },
   apiKey: env.get("LBA_API_KEY").default("12345").asString(), //TODO: check usefulness
   laBonneFormationPassword: env.get("LBA_LABONNEFORMATION_PASSWORD").default("12345").asString(),
-  catalogueUrl: env.get("LBA_CATALOGUE_URL").default("https://catalogue.intercariforef.org").asString(),
+  catalogueUrl: env.get("LBA_CATALOGUE_URL").default("https://catalogue-apprentissage.intercariforef.org").asString(),
   matcha: {
     apiKey: env.get("LBA_MATCHA_ACCESS_KEY").default("1234").asString(),
   },

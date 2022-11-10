@@ -118,9 +118,9 @@ export default ({ etablissements, mailer }) => {
           template: path.join(currentDirname, `../../../assets/templates/mail-cfa-optout-invitation.mjml.ejs`),
           data: {
             images: {
-              peopleLaptop: `${config.publicUrl}/assets/girl_laptop.png?raw=true`,
-              optOutLbaIntegrationExample: `${config.publicUrl}/assets/exemple_integration_lba.png?raw=true`,
-              gouvernementLogo: `${config.publicUrl}/assets/gouvernement_logo.png?raw=true`,
+              peopleLaptop: `${config.publicUrl}/espace-pro/assets/girl_laptop.png?raw=true`,
+              optOutLbaIntegrationExample: `${config.publicUrl}/espace-pro/assets/exemple_integration_lba.png?raw=true`,
+              gouvernementLogo: `${config.publicUrl}/espace-pro/assets/gouvernement_logo.png?raw=true`,
             },
             etablissement: {
               name: etablissement.raison_sociale,
@@ -128,7 +128,7 @@ export default ({ etablissements, mailer }) => {
               postalCode: etablissement.code_postal,
               ville: etablissement.localite,
               optOutActivatedAtDate: optOutWillBeActivatedAtDayjs.format("DD/MM"),
-              linkToUnsubscribe: `${config.publicUrl}/form/opt-out/unsubscribe/${etablissement._id}`,
+              linkToUnsubscribe: `${config.publicUrl}/espace-pro/form/opt-out/unsubscribe/${etablissement._id}`,
             },
             user: {
               destinataireEmail: etablissement.email_decisionnaire,

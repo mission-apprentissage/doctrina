@@ -283,13 +283,13 @@ export default ({ users, appointments, mailer, widgetParameters, etablissements 
         appointment: {
           referrerLink: referrerObj.url,
           referrer: referrerObj.full_name,
-          link: `${config.publicUrl}/establishment/${etablissement._id}/appointments/${createdAppointement._id}?utm_source=mail`,
+          link: `${config.publicUrl}/espace-pro/establishment/${etablissement._id}/appointments/${createdAppointement._id}?utm_source=mail`,
         },
         images: {
-          logoCandidat: `${config.publicUrl}/assets/logo-lba-recruteur-candidat.png?raw=true`,
-          logoCfa: `${config.publicUrl}/assets/logo-lba-recruteur-cfa.png?raw=true`,
-          logoFooter: `${config.publicUrl}/assets/logo-republique-francaise.png?raw=true`,
-          peopleLaptop: `${config.publicUrl}/assets/people-laptop.png?raw=true`,
+          logoCandidat: `${config.publicUrl}/espace-pro/assets/logo-lba-recruteur-candidat.png?raw=true`,
+          logoCfa: `${config.publicUrl}/espace-pro/assets/logo-lba-recruteur-cfa.png?raw=true`,
+          logoFooter: `${config.publicUrl}/espace-pro/assets/logo-republique-francaise.png?raw=true`,
+          peopleLaptop: `${config.publicUrl}/espace-pro/assets/people-laptop.png?raw=true`,
         },
       };
 
@@ -460,7 +460,7 @@ export default ({ users, appointments, mailer, widgetParameters, etablissements 
               referrer: referrerObj.full_name,
             },
             images: {
-              peopleLaptop: `${config.publicUrl}/assets/girl_laptop.png?raw=true`,
+              peopleLaptop: `${config.publicUrl}/espace-pro/assets/girl_laptop.png?raw=true`,
             },
           },
         });

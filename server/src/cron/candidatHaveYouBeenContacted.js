@@ -48,8 +48,8 @@ export const candidatHaveYouBeenContacted = async ({
         template: path.join(currentDirname, `../assets/templates/mail-candidat-rdv-have-you-been-contacted.mjml.ejs`),
         data: {
           images: {
-            logoCandidat: `${config.publicUrl}/assets/logo-lba-recruteur-candidat.png?raw=true`,
-            logoFooter: `${config.publicUrl}/assets/logo-republique-francaise.png?raw=true`,
+            logoCandidat: `${config.publicUrl}/espace-pro/assets/logo-lba-recruteur-candidat.png?raw=true`,
+            logoFooter: `${config.publicUrl}/espace-pro/assets/logo-republique-francaise.png?raw=true`,
           },
           etablissement: {
             name: etablissement.raison_sociale,
@@ -72,8 +72,8 @@ export const candidatHaveYouBeenContacted = async ({
             referrer: referrerObj.full_name,
           },
           links: {
-            confirm: `${config.publicUrl}/appointment/candidat/follow-up/${appointment._id}/confirm`,
-            resend: `${config.publicUrl}/appointment/candidat/follow-up/${appointment._id}/resend`,
+            confirm: `${config.publicUrl}/espace-pro/appointment/candidat/follow-up/${appointment._id}/confirm`,
+            resend: `${config.publicUrl}/espace-pro/appointment/candidat/follow-up/${appointment._id}/resend`,
           },
         },
       }),
@@ -83,8 +83,8 @@ export const candidatHaveYouBeenContacted = async ({
         template: path.join(currentDirname, `../assets/templates/mail-cfa-relance-demande-de-contact.mjml.ejs`),
         data: {
           images: {
-            logoCfa: `${config.publicUrl}/assets/logo-lba-recruteur-candidat.png?raw=true`,
-            logoFooter: `${config.publicUrl}/assets/logo-republique-francaise.png?raw=true`,
+            logoCfa: `${config.publicUrl}/espace-pro/assets/logo-lba-recruteur-candidat.png?raw=true`,
+            logoFooter: `${config.publicUrl}/espace-pro/assets/logo-republique-francaise.png?raw=true`,
           },
           etablissement: {
             name: etablissement.raison_sociale,
