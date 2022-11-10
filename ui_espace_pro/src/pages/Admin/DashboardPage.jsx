@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Container, Heading, Spinner } from '@chakra-ui/react'
+import { Box, Heading, Spinner } from '@chakra-ui/react'
 import { useFetch } from '../../common/hooks/useFetch'
 import { KpisComponent } from './KpiContainer'
 import { RequestsBoardComponent } from './RequestsBoardComponent'
@@ -7,7 +7,7 @@ import { Breadcrumb } from '../../common/components/Breadcrumb'
 import { setTitle } from '../../common/utils/pageUtils'
 
 const DashboardPage = () => {
-  const [data, loading] = useFetch('api/appointment/appointments/details?limit=500')
+  const [data, loading] = useFetch('/api/appointment/appointments/details?limit=500')
   const appointments = data === null ? [] : data.appointments
 
   const title = 'Tableau de bord'

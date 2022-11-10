@@ -1,5 +1,5 @@
 import React, { createRef, useEffect, useState } from 'react'
-import * as _ from 'lodash'
+import _ from 'lodash'
 import { useParams } from 'react-router-dom'
 import * as emailValidator from 'email-validator'
 import { ExternalLinkIcon } from '@chakra-ui/icons'
@@ -20,7 +20,6 @@ import {
   EditableInput,
   EditablePreview,
   Heading,
-  Container,
 } from '@chakra-ui/react'
 import { _get, _post, _put, _patch } from '../../../../common/httpClient'
 import EtablissementComponent from '../components/EtablissementComponent'
