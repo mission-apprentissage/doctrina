@@ -50,13 +50,13 @@ const contact = () => (
               </a>
             </p>
             <p>
-              <b>Vous êtes une entreprise recevant des candidatures spontanées,</b> écrivez-nous en cliquant sur ce {" "}
+              <b>Vous êtes une entreprise recevant des candidatures spontanées,</b> écrivez-nous en cliquant sur ce{" "}
               <a href="mailto:labonnealternance@apprentissage.beta.gouv.fr?subject=Page%20Contact%20-%20Entreprise%20-%20Candidature%20spontanée">
                 lien vers notre adresse email
               </a>
             </p>
             <p>
-              <b>Vous êtes une entreprise intéressée par notre service de dépôt d&apos;offre simplifié,</b> écrivez-nous en cliquant sur ce {" "}
+              <b>Vous êtes une entreprise intéressée par notre service de dépôt d&apos;offre simplifié,</b> écrivez-nous en cliquant sur ce{" "}
               <a href="mailto:labonnealternance@apprentissage.beta.gouv.fr?subject=Page%20Contact%20-%20Entreprise%20-%20Depot%20offre">
                 lien vers notre adresse email
               </a>
