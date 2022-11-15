@@ -104,7 +104,7 @@ const MentionsLegales = () => (
 
           <p>
             Vous pouvez nous aider à améliorer l&apos;accessibilité du site en nous signalant les problèmes éventuels que
-            vous rencontrez : <a aria-label="Envoi d'un email à labonnealternance@apprentissage.beta.gouv.fr" href="mailto:labonnealternance@apprentissage.beta.gouv.fr">Contactez-nous</a>.
+            vous rencontrez : <a aria-label="Envoi d'un email à labonnealternance@apprentissage.beta.gouv.fr" href="mailto:labonnealternance@apprentissage.beta.gouv.fr?subject=CGU%20-%20Améliorer%20accessibilité">Contactez-nous</a>.
           </p>
 
           <p>
