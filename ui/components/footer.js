@@ -34,20 +34,20 @@ const Footer = (props) => {
               <div>La bonne alternance. Trouvez votre alternance.</div>
               <div className="mt-4">La bonne alternance est proposée par les services suivants :</div>
               <div className="mt-4 c-footer-official-links">
-                <ExternalLink className="c-footer-official-link" url="https://pole-emploi.fr" aria-label="Accès à pole-emploi.fr" title="pole-emploi.fr" />
+                <ExternalLink className="c-footer-official-link" url="https://pole-emploi.fr" aria-label="Accès au site de Pôle emploi" title="pole-emploi.fr" />
                 <ExternalLink
                   className="c-footer-official-link"
                   url="https://gouvernement.fr"
-                  aria-label="Accès à gouvernement.fr"
+                  aria-label="Accès au site gouvernement.fr"
                   title="gouvernement.fr"
                 />
                 <ExternalLink
                   className="c-footer-official-link"
                   url="https://service-public.fr"
-                  aria-label="Accès à service-public.fr"
+                  aria-label="Accès au site service-public.fr"
                   title="service-public.fr"
                 />
-                <ExternalLink className="c-footer-official-link" url="https://data.gouv.fr" aria-label="Accès à data.gouv.fr" title="data.gouv.fr" />
+                <ExternalLink className="c-footer-official-link" url="https://data.gouv.fr" aria-label="Accès au site data.gouv" title="data.gouv.fr" />
               </div>
             </Col>
           </Row>
@@ -143,7 +143,7 @@ const Footer = (props) => {
                 Sauf mention contraire, tous les contenus de ce site sont sous licence{" "}
                 <ExternalLink
                   url="https://www.etalab.gouv.fr/licence-version-2-0-de-la-licence-ouverte-suite-a-la-consultation-et-presentation-du-decret"
-                  aria-label="Accès à etalab-2.0"
+                  aria-label="Accès au site Etalab"
                   title="etalab-2.0"
                   withPic={<img className="ml-1" src="/images/square_link.svg" alt="Ouverture dans un nouvel onglet" />}
                 />
