@@ -12,6 +12,7 @@ const OffresGratuites = () => {
           <Box variant="homeEditorialText">
             Elles sont mises en ligne sur les sites les plus visités par les candidats en recherche d’alternance :{" "}
             <Link variant="homeEditorialLink"
+              aria-label="Accès au site La bonne alternance"
               href="https://labonnealternance.pole-emploi.fr"
               isExternal
             >
@@ -19,6 +20,7 @@ const OffresGratuites = () => {
               </Link>
             ,{" "}
             <Link variant="homeEditorialLink"
+              aria-label="Accès au site 1 jeune 1 solution"
               href="https://www.1jeune1solution.gouv.fr"
               isExternal
               >
@@ -26,6 +28,7 @@ const OffresGratuites = () => {
               </Link>
             ,{" "}
             <Link variant="homeEditorialLink" 
+              aria-label="Accès au site Parcoursup"
               href="https://www.parcoursup.fr" 
               isExternal >
               parcoursup
