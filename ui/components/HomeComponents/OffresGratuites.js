@@ -20,7 +20,7 @@ const OffresGratuites = () => {
               </Link>
             ,{" "}
             <Link variant="homeEditorialLink"
-              aria-label="Accès au site 1 jeune 1 solution"
+              aria-label="Accès au site un jeune une solution"
               href="https://www.1jeune1solution.gouv.fr"
               isExternal
               >
