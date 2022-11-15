@@ -8,8 +8,7 @@ import { createUser } from "./jobs/lba_recruteur/formulaire/createUser.js";
 import { relanceFormulaire } from "./jobs/lba_recruteur/formulaire/relanceFormulaire.js";
 import { generateIndexes } from "./jobs/lba_recruteur/indexes/generateIndexes.js";
 import { relanceOpco } from "./jobs/lba_recruteur/opco/relanceOpco.js";
-import { createOffreCollection } from "./jobs/lba_recruteur/seed/createOffre";
-import { migrate } from "./jobs/migrate.js";
+import { createOffreCollection } from "./jobs/lba_recruteur/seed/createOffre.js";
 
 cli.addHelpText("after");
 
@@ -27,9 +26,9 @@ cli
   .requiredOption("-email_valide, <email_valide>", "email valide", true)
   .description("Permet de créer un accès utilisateur à l'espace partenaire")
   .action((prenom, nom, email, scope, raison_sociale, siret, telephone, adresse, options) => {
-    runScript(({ users }) => {
+    runScript(({ usersRecruteur }) => {
       createUser(
-        users,
+        usersRecruteur,
         {
           prenom,
           nom,
@@ -56,7 +55,7 @@ cli
   .command("reset-api-user <email>")
   .description("Permet de réinitialiser la clé API d'un utilisateur")
   .action((email) => {
-    runScript(({ users }) => resetApiKey(users, email));
+    runScript(({ usersRecruteur }) => resetApiKey(users, email));
   });
 
 cli
@@ -92,16 +91,6 @@ cli
   .description("Relance les opco avec le nombre d'utilisateur en attente de validation")
   .action(() => {
     runScript(({ mailer }) => relanceOpco(mailer));
-  });
-
-cli
-  .command("migrate")
-  .description("Execute les scripts de migration")
-  .option("--dropIndexes", "Supprime les anciens indexes")
-  .action((options) => {
-    runScript(() => {
-      return migrate(options);
-    });
   });
 
 cli.parse(process.argv);

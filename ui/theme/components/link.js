@@ -23,6 +23,18 @@ const Link = {
       _focus: { boxShadow: 'none', outlineColor: 'none' },
       display: 'block',
     },
+    editorialContentLink: {
+      color: 'info',
+      textDecoration: 'underline',
+      _hover: { color: 'bluefrance.500' },
+      _focus: { boxShadow: 'none', outlineColor: 'none' },
+    },
+    homeEditorialLink: {
+      color: '#161616',
+      textDecoration: 'underline',
+      _hover: { color: '#2A2A2A' },
+      _focus: { boxShadow: 'none', outlineColor: 'none' },
+    }
   },
 }
 
