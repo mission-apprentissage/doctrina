@@ -1,14 +1,12 @@
 import Boom from "boom";
 import express from "express";
 import Joi from "joi";
-import path from "path";
-import __dirname from "../../common/dirname.js";
 import { mailType } from "../../common/model/constants/etablissement.js";
 import { referrers } from "../../common/model/constants/referrers.js";
 import { dayjs } from "../../common/utils/dayjs.js";
 import config from "../../config.js";
 import { tryCatch } from "../middlewares/tryCatchMiddleware.js";
-const currentDirname = __dirname(import.meta.url);
+import { mailTemplate } from "../../assets/index.js";
 
 const optOutUnsubscribeSchema = Joi.object({
   opt_out_question: Joi.string().optional(),
@@ -59,7 +57,7 @@ export default ({ etablissements, mailer, widgetParameters, appointments }) => {
       const { messageId } = await mailer.sendEmail({
         to: etablissement.email_decisionnaire,
         subject: `Activation du service “RDV Apprentissage” sur Parcoursup`,
-        template: path.join(currentDirname, `../../../assets/templates/mail-cfa-premium-start.mjml.ejs`),
+        template: mailTemplate["mail-cfa-premium-start"],
         data: {
           images: {
             logoCandidat: `${config.publicUrl}/espace-pro/assets/logo-lba-recruteur-candidat.png?raw=true`,
@@ -136,7 +134,7 @@ export default ({ etablissements, mailer, widgetParameters, appointments }) => {
       const { messageId } = await mailer.sendEmail({
         to: etablissement.email_decisionnaire,
         subject: `Le service “RDV Apprentissage” ne sera pas activé sur Parcoursup`,
-        template: path.join(currentDirname, `../../../assets/templates/mail-cfa-premium-refused.mjml.ejs`),
+        template: mailTemplate["mail-cfa-premium-refused"],
         data: {
           images: {
             informationIcon: `${config.publicUrl}/espace-pro/assets/icon-information-blue.png?raw=true`,
@@ -244,10 +242,7 @@ export default ({ etablissements, mailer, widgetParameters, appointments }) => {
         await mailer.sendEmail({
           to: config.rdvEmail,
           subject: `Un CFA se pose une question concernant l'opt-out"`,
-          template: path.join(
-            currentDirname,
-            `../../../assets/templates/mail-rdva-optout-unsubscription-question.mjml.ejs`
-          ),
+          template: mailTemplate["mail-rdva-optout-unsubscription-question"],
           data: {
             images: {
               logoCfa: `${config.publicUrl}/espace-pro/assets/logo-lba-recruteur-cfa.png?raw=true`,
@@ -290,7 +285,7 @@ export default ({ etablissements, mailer, widgetParameters, appointments }) => {
       const { messageId } = await mailer.sendEmail({
         to: etablissement.email_decisionnaire,
         subject: `Désincription au service “RDV Apprentissage”`,
-        template: path.join(currentDirname, `../../../assets/templates/mail-cfa-optout-unsubscription.mjml.ejs`),
+        template: mailTemplate["mail-cfa-optout-unsubscription"],
         data: {
           images: {
             logoCfa: `${config.publicUrl}/espace-pro/assets/logo-lba-recruteur-cfa.png?raw=true`,
