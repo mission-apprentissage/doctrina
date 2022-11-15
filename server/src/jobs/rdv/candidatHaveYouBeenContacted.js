@@ -1,9 +1,9 @@
-import { logger } from "../common/logger.js";
-import { mailType } from "../common/model/constants/appointments.js";
-import { getReferrerById } from "../common/model/constants/referrers.js";
-import { dayjs } from "../common/utils/dayjs.js";
-import config from "../config.js";
-import { mailTemplate } from "../assets/index.js";
+import { logger } from "../../common/logger.js";
+import { mailType } from "../../common/model/constants/appointments.js";
+import { getReferrerById } from "../../common/model/constants/referrers.js";
+import { dayjs } from "../../common/utils/dayjs.js";
+import config from "../../config.js";
+import { mailTemplate } from "../../assets/index.js";
 
 /**
  * @description Sends a mail to the candidat in order to know if he has been contacter or not.
