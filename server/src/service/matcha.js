@@ -1,9 +1,9 @@
 import axios from "axios"
-import { itemModel } from "../model/itemModel.js"
-import config from "../config.js"
-import { trackApiCall } from "../common/utils/sendTrackingEvent.js"
-import { manageApiError } from "../common/utils/errorManager.js"
 import { encryptMailWithIV } from "../common/utils/encryptString.js"
+import { manageApiError } from "../common/utils/errorManager.js"
+import { trackApiCall } from "../common/utils/sendTrackingEvent.js"
+import config from "../config.js"
+import { itemModel } from "../model/itemModel.js"
 import filterJobsByOpco from "./filterJobsByOpco.js"
 
 const matchaApiEndpoint = `https://matcha${
@@ -18,7 +18,7 @@ import { matchaMock, matchaMockMandataire, matchasMock } from "../mocks/matchas-
 
 const getMatchaJobs = async ({ romes, radius, latitude, longitude, api, opco, caller, useMock }) => {
   try {
-    const hasLocation = latitude === undefined ? false : true
+    const hasLocation = latitude === "" || latitude === undefined ? false : true
 
     let distance = hasLocation ? radius || 10 : 21000
 

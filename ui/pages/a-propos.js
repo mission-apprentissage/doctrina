@@ -1,19 +1,19 @@
+import { NextSeo } from "next-seo"
 import React from "react"
+import Breadcrumb from "../components/breadcrumb"
 import Navigation from "../components/navigation"
 import ScrollToTop from "../components/ScrollToTop"
-import Breadcrumb from "../components/breadcrumb"
-import logoPrdv from "../public/images/logo_prdv.svg"
-import logoMatcha from "../public/images/logo_matcha.svg"
 import logoCatalogue from "../public/images/logo_catalogue.svg"
-import { NextSeo } from "next-seo"
+import logoMatcha from "../public/images/logo_matcha.svg"
+import logoPrdv from "../public/images/logo_prdv.svg"
 
+import logoAvril from "../public/images/logo-avril.svg"
 import logoLbb from "../public/images/logo-lbb.svg"
 import logoMaintenant from "../public/images/logo-maintenant.svg"
-import logoAvril from "../public/images/logo-avril.svg"
 
 import Footer from "../components/footer"
 
-import { Box, Container, Divider, Flex, Grid, GridItem, Image, SimpleGrid, Text, Link, VStack } from "@chakra-ui/react"
+import { Box, Container, Divider, Flex, Grid, GridItem, Image, Link, SimpleGrid, Text, VStack } from "@chakra-ui/react"
 
 const ServiceCard = ({ logo, title, text, url, mt, mb, imageMT, imageML }) => {
   return (
@@ -35,7 +35,7 @@ const ServiceCard = ({ logo, title, text, url, mt, mb, imageMT, imageML }) => {
             {title}
           </Text>
           <Text color="grey.600">{text}</Text>
-          <Link textDecoration="underline" color="grey.600" href={url} isExternal>
+          <Link textDecoration="underline" color="grey.600" aria-label={`Accès au site ${url}`} href={url} isExternal>
             En savoir plus
           </Link>
         </Box>
@@ -101,7 +101,7 @@ const APropos = () => (
         <GridItem px={4} colSpan={[12, 12, 12, 5]}>
           <Text variant="editorialContentH1" as="h1">
             <Text as="span" color="black">
-              A propos de
+              A propos de{" "}
             </Text>
             <br />
             La bonne alternance
@@ -143,7 +143,12 @@ const APropos = () => (
             La bonne alternance est d’abord une start-up interne de Pôle emploi créée et développée par des conseillers.{" "}
             <br />
             Reprise par la{" "}
-            <Link variant="editorialContentLink" href="https://mission-apprentissage.gitbook.io/general/" isExternal>
+            <Link
+              variant="editorialContentLink"
+              aria-label="Accès au Gitbook de la mission apprentissage"
+              href="https://mission-apprentissage.gitbook.io/general/"
+              isExternal
+            >
               Mission apprentissage
             </Link>{" "}
             en 2020, le site ajoute désormais des informations sur les formations en apprentissage et les offres
@@ -185,20 +190,33 @@ const APropos = () => (
             imageML="4px"
           />
 
-          <Text variant="editorialContentH2" as="h2">
-            Autres services de Pôle Emploi
-          </Text>
-
           <SimpleGrid columns={[1, 1, 2]}>
             <StartupCard
               logoUrl={logoLbb}
               url="https://labonneboite.pole-emploi.fr/"
+              aria-label="Accès au site La bonne boite"
               title="Trouver des entreprises qui recrutent sans déposer d'offres d'emploi"
             />
             <StartupCard
               logoUrl={logoMaintenant}
               url="https://maintenant.pole-emploi.fr/"
+              aria-label="Accès au site Maintenant"
               title="Vous valez plus qu'un CV ! Trouvez le bon job en moins de 5 minutes"
+            />
+          </SimpleGrid>
+
+          <SimpleGrid columns={[1, 1, 2]}>
+            <StartupCard
+              logoUrl="/images/logo-memo.png"
+              url="https://memo.pole-emploi.fr/"
+              aria-label="Accès au site Mémo"
+              title="Organiser votre recherche d'emploi avec notre tableau de bord"
+            />
+            <StartupCard
+              logoUrl={logoAvril}
+              url="https://avril.pole-emploi.fr/"
+              aria-label="Accès au site Avril"
+              title="Trouvez une formation en fonction de votre profil ET du marché du travail"
             />
           </SimpleGrid>
 
@@ -222,38 +240,51 @@ const APropos = () => (
           <VStack>
             <ServiceLink
               url="https://diagoriente.beta.gouv.fr/"
+              aria-label="Accès au site Diagoriente"
               text="Outil d'orientation complet qui permet d'accéder à des pistes métiers en adéquation avec ses intérêts."
               title="Diagoriente"
             />
 
             <ServiceLink
               url="https://www.parcoursup.fr/index.php?desc=formations_apprentissage"
+              aria-label="Accès au site Parcoursup et ses conseils pour entrer en apprentissage"
               text="Les conseils de parcoursup pour entrer en apprentissage."
               title="Parcoursup"
             />
 
             <ServiceLink
               url="https://www.parcoursup.fr/index.php?desc=services_numeriques"
+              aria-label="Accès au site Parcoursup et son service d'aide à l'orientation"
               text="Les services d’aide à l’orientation vers les études supérieures proposés par Parcoursup."
               title="Parcoursup"
             />
 
             <ServiceLink
               url="https://www.myjobglasses.com/"
+              aria-label="Accès au site My job glasses"
               text="Myjobglasses vous aide à identifier le métier qui vous correspond."
               title="Myjobglasses"
             />
 
             <ServiceLink
               url="https://media.giphy.com/media/3oz8xzYXuCWF1IXv68/giphy.gif"
+              aria-label="Easter egg"
               text="The one vous aide dans toutes vos démarches de recherche d'une alternance."
               title="The one"
             />
 
             <ServiceLink
               url="https://openclassrooms.com/fr/courses/6003601-decouvrez-lalternance"
+              aria-label="Accès au site Openclassroom"
               text="Profitez d’un cours en ligne gratuit pour découvrir l'alternance."
               title="Openclassrooms"
+            />
+
+            <ServiceLink
+              url="https://www.1jeune1solution.gouv.fr/"
+              aria-label="Accès au site un jeune une solution"
+              text="Je suis jeune, je découvre toutes les solutions pour préparer mon avenir."
+              title="#1jeune1solution"
             />
 
             <ServiceLink

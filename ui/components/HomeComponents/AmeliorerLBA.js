@@ -20,6 +20,7 @@ const AmeliorerLBA = () => {
           <div className="mt-3">
             <ExternalLink
               className="c-homecomponent-link c-homecomponent-link__clear mt-3"
+              aria-label="Planifier un échange avec l'équipe"
               url="https://calendly.com/rdv-labonnealternance/discussion-labonnealternance"
               title="Je participe à l'étude"
             />

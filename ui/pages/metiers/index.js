@@ -1,12 +1,12 @@
-import React from "react"
+import Breadcrumb from "components/breadcrumb"
 import Navigation from "components/navigation"
 import ScrollToTop from "components/ScrollToTop"
-import Breadcrumb from "components/breadcrumb"
+import React from "react"
 
 import Footer from "components/footer"
 
-import { getStaticMetiers, getStaticVilles } from "utils/getStaticData"
 import { NextSeo } from "next-seo"
+import { getStaticMetiers, getStaticVilles } from "utils/getStaticData"
 
 export default function Catalog(props) {
   return (
@@ -43,7 +43,11 @@ export default function Catalog(props) {
             <div key={index} className="mb-2 mb-lg-0">
               <span className="d-block d-lg-inline">Emploi en alternance et formation en alternance en </span>
               <span className="d-block d-lg-inline">
-                <a href={`/metiers/${job.slug}`} className="c-catalog-link">
+                <a
+                  href={`/metiers/${job.slug}`}
+                  className="c-catalog-link"
+                  aria-label={`Lancement d'une recherche sur le métier ${job.name}`}
+                >
                   {job.name}
                 </a>
               </span>

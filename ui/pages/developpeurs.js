@@ -1,12 +1,12 @@
+import { NextSeo } from "next-seo"
 import React from "react"
+import Breadcrumb from "../components/breadcrumb"
 import Navigation from "../components/navigation"
 import ScrollToTop from "../components/ScrollToTop"
-import Breadcrumb from "../components/breadcrumb"
-import { NextSeo } from "next-seo"
 
 import Footer from "../components/footer"
 
-import { Box, Container, Divider, Grid, GridItem, Text, Link } from "@chakra-ui/react"
+import { Box, Container, Divider, Grid, GridItem, Link, Text } from "@chakra-ui/react"
 
 const developpeurs = () => (
   <div>
@@ -32,6 +32,7 @@ const developpeurs = () => (
           </Text>
           <Link
             variant="editorialContentLink"
+            aria-label="Accès au site Github"
             href="https://github.com/mission-apprentissage/labonnealternance"
             isExternal
           >
@@ -47,7 +48,12 @@ const developpeurs = () => (
           <Text as="p" mb={4}>
             Testez le widget et les API et accédez à leur documentation sur le site API.gouv
           </Text>
-          <Link variant="editorialContentLink" href="https://api.gouv.fr/les-api/api-la-bonne-alternance" isExternal>
+          <Link
+            variant="editorialContentLink"
+            aria-label="Accès au site api.gouv"
+            href="https://api.gouv.fr/les-api/api-la-bonne-alternance"
+            isExternal
+          >
             https://api.gouv.fr/les-api/api-la-bonne-alternance
           </Link>
         </GridItem>
