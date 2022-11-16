@@ -6,6 +6,7 @@ import config from "../../config.js";
 import { mailTemplate } from "../../assets/index.js";
 
 /**
+ * This cron has been "temporay" not trigger. This flow, is generating lots of emails to CFA.
  * @description Sends a mail to the candidat in order to know if he has been contacter or not.
  * @returns {Promise<void>}
  */
