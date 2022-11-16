@@ -61,15 +61,6 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "prettier": {
-    "tabWidth": 2,
-    "bracketSpacing": true,
-    "printWidth": 120,
-    "singleQuote": true,
-    "trailingComma": "es5",
-    "semi": false,
-    "jsxSingleQuote": true
-  },
   "browserslist": {
     "production": [
       ">0.2%",
