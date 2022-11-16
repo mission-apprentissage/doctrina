@@ -5,7 +5,6 @@ import createComponents from "./common/components/components.js"
 
 process.on("unhandledRejection", (e) => logger.error(e, "An unexpected error occurred"))
 process.on("uncaughtException", (e) => logger.error(e, "An unexpected error occurred"))
-
 ;(async function () {
   const components = await createComponents() // using older version with mongoose
 
