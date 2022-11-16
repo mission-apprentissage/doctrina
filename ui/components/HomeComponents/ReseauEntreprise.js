@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 const ReseauEntreprise = () => {
   return (
@@ -20,7 +20,7 @@ const ReseauEntreprise = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default ReseauEntreprise;
+export default ReseauEntreprise

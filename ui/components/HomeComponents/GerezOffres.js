@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 const GerezOffres = () => {
   return (
@@ -20,11 +20,13 @@ const GerezOffres = () => {
             d&apos;emploi.
           </div>
           <h2 className="c-homecomponent-title__small mb-3 mt-4">Consultez et gérez vos candidatures</h2>
-          <div>Vérifiez d&apos;un coup d&apos;œil la progression des candidatures pour définir les prochaines étapes.</div>
+          <div>
+            Vérifiez d&apos;un coup d&apos;œil la progression des candidatures pour définir les prochaines étapes.
+          </div>
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default GerezOffres;
+export default GerezOffres

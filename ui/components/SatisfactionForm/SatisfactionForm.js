@@ -1,37 +1,37 @@
-import React, { useEffect, useState } from "react";
-import * as Yup from "yup";
-import { useFormik } from "formik";
-import submitCommentaire from "./services/submitCommentaire.js";
-import SatisfactionFormSuccess from "./SatisfactionFormSuccess.js";
-import SatisfactionFormNavigation from "./SatisfactionFormNavigation.js";
-import { isNonEmptyString } from "../../utils/strutils";
+import React, { useEffect, useState } from "react"
+import * as Yup from "yup"
+import { useFormik } from "formik"
+import submitCommentaire from "./services/submitCommentaire.js"
+import SatisfactionFormSuccess from "./SatisfactionFormSuccess.js"
+import SatisfactionFormNavigation from "./SatisfactionFormNavigation.js"
+import { isNonEmptyString } from "../../utils/strutils"
 
-import { getValueFromPath } from "../../utils/tools";
-import { testingParameters } from "../../utils/testingParameters";
-import { useRouter } from "next/router";
+import { getValueFromPath } from "../../utils/tools"
+import { testingParameters } from "../../utils/testingParameters"
+import { useRouter } from "next/router"
 
-let iv = null;
-let id = null;
-let intention = null;
+let iv = null
+let id = null
+let intention = null
 
 const SatisfactionForm = ({ formType }) => {
-  const router = useRouter();
+  const router = useRouter()
 
   const initParametersFromPath = () => {
-    iv = getValueFromPath("iv");
-    id = getValueFromPath("id");
-    intention = getValueFromPath("intention");
-  };
+    iv = getValueFromPath("iv")
+    id = getValueFromPath("id")
+    intention = getValueFromPath("intention")
+  }
 
-  const readIntention = () => {  
-    const { intention } = router?.query ? router.query : { intention: "intention" };
-    return intention;
-  };
+  const readIntention = () => {
+    const { intention } = router?.query ? router.query : { intention: "intention" }
+    return intention
+  }
 
   const getFeedbackText = () => {
-    const { intention, fn, ln } = router?.query ? router.query : { intention: "intention", fn: "prénom", ln: "nom" };
-    let firstName = fn;
-    let lastName = ln;
+    const { intention, fn, ln } = router?.query ? router.query : { intention: "intention", fn: "prénom", ln: "nom" }
+    let firstName = fn
+    let lastName = ln
     let text = (
       <div className="mb-4">
         <p className="pt-4">Merci beaucoup pour votre réponse.</p>
@@ -81,25 +81,25 @@ const SatisfactionForm = ({ formType }) => {
           ""
         )}
       </div>
-    );
+    )
 
-    return text;
-  };
+    return text
+  }
 
   useEffect(() => {
     // enregistrement en state des params provenant du path
-    initParametersFromPath();
-  }, []);
+    initParametersFromPath()
+  }, [])
 
-  const [sendingState, setSendingState] = useState("not_sent");
+  const [sendingState, setSendingState] = useState("not_sent")
 
   const getValidationSchema = () => {
-    const { intention } = router?.query ? router.query : { intention: "intention" };
-    let res = Yup.object({});
+    const { intention } = router?.query ? router.query : { intention: "intention" }
+    let res = Yup.object({})
     if (intention === "refus") {
       res = Yup.object({
         comment: Yup.string().nullable().required("Veuillez remplir le message"),
-      });
+      })
     } else {
       res = Yup.object({
         comment: Yup.string().required("Veuillez remplir le message"),
@@ -107,10 +107,10 @@ const SatisfactionForm = ({ formType }) => {
         phone: Yup.string()
           .matches(/^[0-9]{10}$/, "⚠ Le numéro de téléphone doit avoir exactement 10 chiffres")
           .required("⚠ Le téléphone est obligatoire"),
-      });
+      })
     }
-    return res;
-  };
+    return res
+  }
 
   const formik = useFormik({
     initialValues: { comment: "" },
@@ -127,51 +127,51 @@ const SatisfactionForm = ({ formType }) => {
           formType,
         },
         setSendingState
-      );
+      )
     },
-  });
+  })
 
   const getFieldError = () => {
-    let errorMsg = "";
+    let errorMsg = ""
     if (formik.touched.comment && formik.errors.comment) {
-      errorMsg = <div className="c-candidature-erreur mb-2 visible">{formik.errors.comment}</div>;
+      errorMsg = <div className="c-candidature-erreur mb-2 visible">{formik.errors.comment}</div>
     } else if (sendingState === "not_sent_because_of_errors") {
       errorMsg = (
         <div className="c-candidature-erreur mb-2 visible">
           Une erreur technique empêche l&apos;enregistrement de votre avis. Merci de réessayer ultérieurement
         </div>
-      );
+      )
     } else {
-      errorMsg = <div className="c-candidature-erreur invisible">{"pas d'erreur"}</div>;
+      errorMsg = <div className="c-candidature-erreur invisible">{"pas d'erreur"}</div>
     }
-    return errorMsg;
-  };
+    return errorMsg
+  }
 
   const getPlaceHolderText = () => {
-    const { intention } = router?.query ? router.query : { intention: "intention" };
-    let res = "";
+    const { intention } = router?.query ? router.query : { intention: "intention" }
+    let res = ""
     if (intention === "ne_sais_pas") {
       res =
-        "Bonjour, Merci pour l'intérêt que vous portez à notre établissement. Votre candidature a retenu toute notre attention mais nous ne sommes actuellement pas ...";
+        "Bonjour, Merci pour l'intérêt que vous portez à notre établissement. Votre candidature a retenu toute notre attention mais nous ne sommes actuellement pas ..."
     } else if (intention === "entretien") {
       res =
-        "Bonjour, Merci pour l'intérêt que vous portez à notre établissement. Votre candidature a retenu toute notre attention et nous souhaiterions échanger avec vous. Seriez-vous disponible le ...";
+        "Bonjour, Merci pour l'intérêt que vous portez à notre établissement. Votre candidature a retenu toute notre attention et nous souhaiterions échanger avec vous. Seriez-vous disponible le ..."
     } else {
       res =
-        "Bonjour, Merci pour l'intérêt que vous portez à notre établissement. Nous ne sommes malheureusement pas en mesure de donner une suite favorable à votre candidature car ...";
+        "Bonjour, Merci pour l'intérêt que vous portez à notre établissement. Nous ne sommes malheureusement pas en mesure de donner une suite favorable à votre candidature car ..."
     }
-    return res;
-  };
+    return res
+  }
 
   const getErrorClassFor = (formikObj, target) => {
-    let res = "is-not-validated";
+    let res = "is-not-validated"
     if (formikObj.errors[target]) {
-      res = "is-valid-false";
+      res = "is-valid-false"
     } else if (formikObj.values[target]) {
-      res = "is-valid-true";
+      res = "is-valid-true"
     }
-    return res;
-  };
+    return res
+  }
 
   return (
     <div className="c-formulaire-satisfaction">
@@ -281,7 +281,7 @@ const SatisfactionForm = ({ formType }) => {
         <SatisfactionFormSuccess />
       )}
     </div>
-  );
-};
+  )
+}
 
-export default SatisfactionForm;
+export default SatisfactionForm

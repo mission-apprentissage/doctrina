@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 const CandidatureSpontaneeMandataireMessage = ({ item }) => {
   return item?.company?.mandataire ? (
@@ -23,7 +23,7 @@ const CandidatureSpontaneeMandataireMessage = ({ item }) => {
     </div>
   ) : (
     ""
-  );
-};
+  )
+}
 
-export default CandidatureSpontaneeMandataireMessage;
+export default CandidatureSpontaneeMandataireMessage

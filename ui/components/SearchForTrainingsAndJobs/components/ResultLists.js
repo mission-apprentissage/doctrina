@@ -1,38 +1,38 @@
-import React, { useState, useContext } from "react";
-import { ErrorMessage } from "../../../components";
-import { filterLayers } from "../../../utils/mapTools";
-import ExtendedSearchButton from "./ExtendedSearchButton";
-import ResultListsCounter from "./ResultListsCounter";
-import NoJobResult from "./NoJobResult";
-import { ScopeContext } from "../../../context/ScopeContext";
-import { SearchResultContext } from "../../../context/SearchResultContextProvider";
-import { DisplayContext } from "../../../context/DisplayContextProvider";
-import { mergeJobs, mergeOpportunities } from "../../../utils/itemListUtils";
-import { isCfaEntreprise } from "../../../services/cfaEntreprise";
+import React, { useState, useContext } from "react"
+import { ErrorMessage } from "../../../components"
+import { filterLayers } from "../../../utils/mapTools"
+import ExtendedSearchButton from "./ExtendedSearchButton"
+import ResultListsCounter from "./ResultListsCounter"
+import NoJobResult from "./NoJobResult"
+import { ScopeContext } from "../../../context/ScopeContext"
+import { SearchResultContext } from "../../../context/SearchResultContextProvider"
+import { DisplayContext } from "../../../context/DisplayContextProvider"
+import { mergeJobs, mergeOpportunities } from "../../../utils/itemListUtils"
+import { isCfaEntreprise } from "../../../services/cfaEntreprise"
 
-import { renderJob, renderTraining, renderLbb } from "../services/renderOneResult";
-import hasAlsoEmploi from "../../ItemDetail/ItemDetailServices/hasAlsoEmploi";
+import { renderJob, renderTraining, renderLbb } from "../services/renderOneResult"
+import hasAlsoEmploi from "../../ItemDetail/ItemDetailServices/hasAlsoEmploi"
 
 const ResultLists = (props) => {
-  const scopeContext = useContext(ScopeContext);
+  const scopeContext = useContext(ScopeContext)
 
-  let [extendedSearch, hasSearch, isFormVisible] = [false, false, false];
+  let [extendedSearch, hasSearch, isFormVisible] = [false, false, false]
 
-  ({ isFormVisible } = useContext(DisplayContext));
-  ({ extendedSearch, hasSearch } = useContext(SearchResultContext));
+  ;({ isFormVisible } = useContext(DisplayContext))
+  ;({ extendedSearch, hasSearch } = useContext(SearchResultContext))
 
   if (props.isTestMode) {
-    [extendedSearch, hasSearch, isFormVisible] = [
+    ;[extendedSearch, hasSearch, isFormVisible] = [
       props.stubbedExtendedSearch,
       props.stubbedHasSearch,
       props.stubbedIsFormVisible,
-    ];
+    ]
   }
 
   const filterButtonClicked = (filterButton) => {
-    props.setActiveFilter(filterButton);
-    filterLayers(filterButton);
-  };
+    props.setActiveFilter(filterButton)
+    filterLayers(filterButton)
+  }
 
   const getTrainingResult = () => {
     if (hasSearch && scopeContext.isTraining && (props.activeFilter === "all" || props.activeFilter === "trainings")) {
@@ -42,11 +42,11 @@ const ResultLists = (props) => {
             {getTrainingList()}
           </div>
         </>
-      );
+      )
     } else {
-      return "";
+      return ""
     }
-  };
+  }
 
   const getTrainingList = () => {
     if (props.trainings.length) {
@@ -60,12 +60,12 @@ const ResultLists = (props) => {
             ""
           )}
           {props.trainings.map((training, idx) => {
-            const isCfa = isCfaEntreprise(training?.company?.siret, training?.company?.headquarter?.siret);
+            const isCfa = isCfaEntreprise(training?.company?.siret, training?.company?.headquarter?.siret)
             const hasAlsoJob = hasAlsoEmploi({
               isCfa,
               searchedMatchaJobs: props.jobs?.matchas,
               company: training?.company,
-            });
+            })
 
             return renderTraining(
               props.isTestMode,
@@ -75,28 +75,28 @@ const ResultLists = (props) => {
               props.searchForJobsOnNewCenter,
               hasAlsoJob,
               isCfa
-            );
+            )
           })}
         </>
-      );
+      )
     } else if (!props.isTrainingSearchLoading) {
-      return <ErrorMessage message="Problème momentané d'accès aux offres de formation" />;
+      return <ErrorMessage message="Problème momentané d'accès aux offres de formation" />
     }
-  };
+  }
 
   const getJobResult = () => {
     if (hasSearch && !props.isJobSearchLoading && (props.activeFilter === "all" || props.activeFilter === "jobs")) {
-      if (props.allJobSearchError) return "";
+      if (props.allJobSearchError) return ""
 
-      const jobCount = getJobCount(props.jobs);
+      const jobCount = getJobCount(props.jobs)
 
       if (jobCount) {
         if (extendedSearch) {
-          const mergedJobList = getMergedJobList();
-          return <div className="jobResult">{mergedJobList ? <>{mergedJobList}</> : ""}</div>;
+          const mergedJobList = getMergedJobList()
+          return <div className="jobResult">{mergedJobList ? <>{mergedJobList}</> : ""}</div>
         } else {
-          const jobList = getJobList();
-          const lbbCompanyList = getLbbCompanyList();
+          const jobList = getJobList()
+          const lbbCompanyList = getLbbCompanyList()
           return (
             <div className="jobResult">
               {jobList || lbbCompanyList ? (
@@ -123,10 +123,10 @@ const ResultLists = (props) => {
                 </>
               )}
             </div>
-          );
+          )
         }
       } else {
-        if (extendedSearch) return <NoJobResult />;
+        if (extendedSearch) return <NoJobResult />
         else
           return (
             <>
@@ -137,41 +137,41 @@ const ResultLists = (props) => {
                 handleExtendedSearch={props.handleExtendedSearch}
               />
             </>
-          );
+          )
       }
     } else {
-      return "";
+      return ""
     }
-  };
+  }
 
   const getJobCount = (jobs) => {
-    let jobCount = 0;
+    let jobCount = 0
 
     if (jobs) {
-      if (jobs.peJobs) jobCount += jobs.peJobs.length;
-      if (jobs.matchas) jobCount += jobs.matchas.length;
-      if (jobs.lbbCompanies) jobCount += jobs.lbbCompanies.length;
-      if (jobs.lbaCompanies) jobCount += jobs.lbaCompanies.length;
+      if (jobs.peJobs) jobCount += jobs.peJobs.length
+      if (jobs.matchas) jobCount += jobs.matchas.length
+      if (jobs.lbbCompanies) jobCount += jobs.lbbCompanies.length
+      if (jobs.lbaCompanies) jobCount += jobs.lbaCompanies.length
     }
 
-    return jobCount;
-  };
+    return jobCount
+  }
 
   const getJobList = () => {
-    const mergedJobs = mergeJobs(props.jobs);
+    const mergedJobs = mergeJobs(props.jobs)
     if (mergedJobs.length) {
       return (
         <>
           {mergedJobs.map((job, idx) => {
-            return renderJob(props.isTestMode, idx, job, props.handleSelectItem, props.searchForTrainingsOnNewCenter);
+            return renderJob(props.isTestMode, idx, job, props.handleSelectItem, props.searchForTrainingsOnNewCenter)
           })}
         </>
-      );
-    } else return "";
-  };
+      )
+    } else return ""
+  }
 
   const getLbbCompanyList = () => {
-    const mergedLbaLbbCompanies = mergeOpportunities(props.jobs, "onlyLbbLba");
+    const mergedLbaLbbCompanies = mergeOpportunities(props.jobs, "onlyLbbLba")
     if (mergedLbaLbbCompanies.length) {
       return (
         <>
@@ -182,16 +182,16 @@ const ResultLists = (props) => {
               company,
               props.handleSelectItem,
               props.searchForTrainingsOnNewCenter
-            );
+            )
           })}
         </>
-      );
-    } else return "";
-  };
+      )
+    } else return ""
+  }
 
   // retourne le bloc construit des items lbb, lba, matcha et pe triés par ordre de distance
   const getMergedJobList = () => {
-    const mergedOpportunities = mergeOpportunities(props.jobs);
+    const mergedOpportunities = mergeOpportunities(props.jobs)
 
     if (mergedOpportunities.length) {
       return (
@@ -204,7 +204,7 @@ const ResultLists = (props) => {
                 opportunity,
                 props.handleSelectItem,
                 props.searchForTrainingsOnNewCenter
-              );
+              )
             } else {
               return renderLbb(
                 props.isTestMode,
@@ -212,15 +212,15 @@ const ResultLists = (props) => {
                 opportunity,
                 props.handleSelectItem,
                 props.searchForTrainingsOnNewCenter
-              );
+              )
             }
           })}
         </>
-      );
+      )
     } else {
-      return "";
+      return ""
     }
-  };
+  }
 
   // construit le bloc formaté avec les erreurs remontées
   const getErrorMessages = () => {
@@ -231,13 +231,13 @@ const ResultLists = (props) => {
         {props.trainingSearchError ? <ErrorMessage message={props.trainingSearchError} /> : ""}
         {props.jobSearchError ? <ErrorMessage message={props.jobSearchError} /> : ""}
       </>
-    );
-  };
+    )
+  }
 
-  const [displayCount, setDisplayCount] = useState(true);
+  const [displayCount, setDisplayCount] = useState(true)
   const handleScroll = () => {
-    setDisplayCount(document.querySelector(".c-result-list__text").scrollTop < 30);
-  };
+    setDisplayCount(document.querySelector(".c-result-list__text").scrollTop < 30)
+  }
 
   return (
     <div
@@ -271,7 +271,7 @@ const ResultLists = (props) => {
         {getJobResult()}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ResultLists;
+export default ResultLists

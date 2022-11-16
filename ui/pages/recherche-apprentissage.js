@@ -1,19 +1,19 @@
-import React, { useEffect } from "react";
-import SearchForTrainingsAndJobs from "../components/SearchForTrainingsAndJobs";
-import { useRouter } from "next/router";
-import { initParametersFromQuery } from "services/config";
-import { ScopeContextProvider } from "context/ScopeContext.js";
-import { NextSeo } from "next-seo";
-import { ParameterContext } from "../context/ParameterContextProvider";
+import React, { useEffect } from "react"
+import SearchForTrainingsAndJobs from "../components/SearchForTrainingsAndJobs"
+import { useRouter } from "next/router"
+import { initParametersFromQuery } from "services/config"
+import { ScopeContextProvider } from "context/ScopeContext.js"
+import { NextSeo } from "next-seo"
+import { ParameterContext } from "../context/ParameterContextProvider"
 
 const RechercheApprentissage = () => {
-  const router = useRouter();
+  const router = useRouter()
 
-  const parameterContext = React.useContext(ParameterContext);
+  const parameterContext = React.useContext(ParameterContext)
 
   useEffect(() => {
-    initParametersFromQuery({ router, parameterContext });
-  }, []);
+    initParametersFromQuery({ router, parameterContext })
+  }, [])
 
   return (
     <>
@@ -25,7 +25,7 @@ const RechercheApprentissage = () => {
         <SearchForTrainingsAndJobs />
       </ScopeContextProvider>
     </>
-  );
-};
+  )
+}
 
-export default RechercheApprentissage;
+export default RechercheApprentissage

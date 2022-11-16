@@ -1,6 +1,6 @@
-import React from "react";
-import SatisfactionForm from "components/SatisfactionForm/SatisfactionForm";
-import { NextSeo } from "next-seo";
+import React from "react"
+import SatisfactionForm from "components/SatisfactionForm/SatisfactionForm"
+import { NextSeo } from "next-seo"
 
 const FormulaireSatisfaction = () => {
   return (
@@ -11,7 +11,7 @@ const FormulaireSatisfaction = () => {
       />
       <SatisfactionForm formType="avis" />
     </>
-  );
- };
+  )
+}
 
-export default FormulaireSatisfaction;
+export default FormulaireSatisfaction

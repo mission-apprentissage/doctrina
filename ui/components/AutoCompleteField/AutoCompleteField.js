@@ -1,24 +1,24 @@
-import React, { useState, useEffect } from "react";
-import { useFormikContext } from "formik";
-import { useCombobox } from "downshift"; //https://github.com/downshift-js/downshift/tree/master/src/hooks/useCombobox
-import { debounce } from "lodash";
-import onInputValueChangeService from "./onInputValueChangeService";
-import highlightItem from "../../services/hightlightItem";
-import ReactHtmlParser from "react-html-parser";
-import { Spinner } from "reactstrap";
-import findExactItemRank from "./findExactItemRank";
+import React, { useState, useEffect } from "react"
+import { useFormikContext } from "formik"
+import { useCombobox } from "downshift" //https://github.com/downshift-js/downshift/tree/master/src/hooks/useCombobox
+import { debounce } from "lodash"
+import onInputValueChangeService from "./onInputValueChangeService"
+import highlightItem from "../../services/hightlightItem"
+import ReactHtmlParser from "react-html-parser"
+import { Spinner } from "reactstrap"
+import findExactItemRank from "./findExactItemRank"
 
-let debouncedOnInputValueChange = null;
+let debouncedOnInputValueChange = null
 
 // Permet de sélectionner un élément dans la liste d'items correspondant à un texte entré au clavier
 export const compareAutoCompleteValues = (items, value) => {
-  return items.findIndex((element) => (element?.label ? element.label.toLowerCase() === value.toLowerCase() : false));
-};
+  return items.findIndex((element) => (element?.label ? element.label.toLowerCase() === value.toLowerCase() : false))
+}
 
 // indique l'attribut de l'objet contenant le texte de l'item sélectionné à afficher
 export const autoCompleteToStringFunction = (item) => {
-  return item?.label?.toString() ?? "";
-};
+  return item?.label?.toString() ?? ""
+}
 
 export const AutoCompleteField = ({
   kind,
@@ -39,7 +39,7 @@ export const AutoCompleteField = ({
 }) => {
   useEffect(() => {
     if (!initialized && initialSelectedItem) {
-      setInitialized(true);
+      setInitialized(true)
 
       // provoque un appel pour charger la liste des valeurs en fonction de la value de l'input text
       onInputValueChangeService({
@@ -55,32 +55,32 @@ export const AutoCompleteField = ({
         initialSelectedItem,
         setFieldValue,
         setInputTextValue,
-      });
+      })
     }
-  }, [initialSelectedItem?.label]);
+  }, [initialSelectedItem?.label])
 
-  const { setFieldValue } = useFormikContext();
+  const { setFieldValue } = useFormikContext()
 
-  const [inputTextValue, setInputTextValue] = useState("");
-  const [inputItems, setInputItems] = useState(items);
-  const [initialized, setInitialized] = useState(false);
-  const [loadingState, setLoadingState] = useState("loading");
+  const [inputTextValue, setInputTextValue] = useState("")
+  const [inputItems, setInputItems] = useState(items)
+  const [initialized, setInitialized] = useState(false)
+  const [loadingState, setLoadingState] = useState("loading")
 
   const itemToString = (item) => {
-    if (itemToStringFunction) return item ? itemToStringFunction(item) : "";
-    else return item;
-  };
+    if (itemToStringFunction) return item ? itemToStringFunction(item) : ""
+    else return item
+  }
 
   const buildInputItems = () => {
     /* le bloc ci-dessous n'est valable que si le paramètre splitItemByTypes est renseigné, il permet de construire des titres de catégories d'items */
-    let currentTitleCnt = 0;
-    let currentType = "";
+    let currentTitleCnt = 0
+    let currentType = ""
     const returnTitleLi = (item) => {
-      let res = "";
+      let res = ""
       if (splitItemsByTypes && item.type !== currentType && currentTitleCnt < splitItemsByTypes.length) {
         while (item.type !== currentType && currentTitleCnt < splitItemsByTypes.length) {
-          currentType = splitItemsByTypes[currentTitleCnt].type;
-          currentTitleCnt++;
+          currentType = splitItemsByTypes[currentTitleCnt].type
+          currentTitleCnt++
         }
         res = (
           <li
@@ -89,11 +89,11 @@ export const AutoCompleteField = ({
           >
             {splitItemsByTypes[currentTitleCnt - 1].typeLabel}
           </li>
-        );
+        )
       }
 
-      return res;
-    };
+      return res
+    }
     /*fin*/
 
     return inputItems
@@ -112,31 +112,31 @@ export const AutoCompleteField = ({
               {ReactHtmlParser(highlightItem(item.label, inputValue))}
             </li>
           </React.Fragment>
-        );
-      });
-  };
+        )
+      })
+  }
 
   // hack pour scroller un champ autocomplete dont les valeurs pourraient être cachées par le clavier du mobile
   const onFocusTriggered = (e) => {
     if (typeof window !== "undefined") {
       if (window.innerHeight < 750) {
-        let target = e.currentTarget;
+        let target = e.currentTarget
         setTimeout(() => {
           if (scrollParentId) {
-            let ancestor = target.closest(`#${scrollParentId}`);
+            let ancestor = target.closest(`#${scrollParentId}`)
 
             if (ancestor) {
-              ancestor.scrollTop = ancestor.scrollTop + 150;
+              ancestor.scrollTop = ancestor.scrollTop + 150
             }
           } else {
-            const closest = target.closest(".c-input-work-container");
-            const y = closest.getBoundingClientRect().top + window.pageYOffset - 20;
-            window.scrollTo({ top: y, behavior: "smooth" });
+            const closest = target.closest(".c-input-work-container")
+            const y = closest.getBoundingClientRect().top + window.pageYOffset - 20
+            window.scrollTo({ top: y, behavior: "smooth" })
           }
-        }, 350);
+        }, 350)
       }
     }
-  };
+  }
 
   const {
     isOpen,
@@ -159,17 +159,17 @@ export const AutoCompleteField = ({
     onSelectedItemChange: ({ selectedItem }) => {
       // modifie les valeurs sélectionnées du formulaire en fonction de l'item sélectionné
       if (onSelectedItemChangeFunction) {
-        onSelectedItemChangeFunction(selectedItem, setFieldValue);
+        onSelectedItemChangeFunction(selectedItem, setFieldValue)
       }
     },
     onInputValueChange: async ({ inputValue }) => {
       if (loadingState === "done") {
-        setLoadingState("loading");
+        setLoadingState("loading")
       }
       if (!debouncedOnInputValueChange) {
-        debouncedOnInputValueChange = debounce(onInputValueChangeService, 300);
+        debouncedOnInputValueChange = debounce(onInputValueChangeService, 300)
       }
-      setInputTextValue(inputValue);
+      setInputTextValue(inputValue)
       debouncedOnInputValueChange({
         inputValue,
         inputItems,
@@ -180,12 +180,12 @@ export const AutoCompleteField = ({
         onInputValueChangeFunction,
         compareItemFunction,
         setFieldValue,
-      });
+      })
     },
-  });
+  })
 
-  const classesOfContainer = props?.isHome ? "" : "c-logobar-formgroup";
-  const classesOfInsider = props?.isHome ? "form-control-lg w-100 c-input-work" : "c-logobar-field";
+  const classesOfContainer = props?.isHome ? "" : "c-logobar-formgroup"
+  const classesOfInsider = props?.isHome ? "form-control-lg w-100 c-input-work" : "c-logobar-field"
 
   return (
     <div className="">
@@ -195,9 +195,9 @@ export const AutoCompleteField = ({
           {...getInputProps({
             onFocus: (e) => {
               if (!isOpen) {
-                openMenu();
+                openMenu()
               }
-              onFocusTriggered(e);
+              onFocusTriggered(e)
             },
           })}
           disabled={isDisabled}
@@ -219,29 +219,29 @@ export const AutoCompleteField = ({
                 <li key={`placeholder`} className="c-autocomplete-neutral">
                   {searchPlaceholder}
                 </li>
-              );
+              )
             } else if (loadingState === "loading") {
               return (
                 <li key={`spinner`} className="c-autocomplete-neutral">
                   <Spinner color="primary" className="c-spinner" />
                   &nbsp;Veuillez patienter
                 </li>
-              );
+              )
             } else if (inputValue.length > 0 && inputItems?.length === 0) {
-              let message = "Pas de résultat, veuillez modifier votre recherche";
+              let message = "Pas de résultat, veuillez modifier votre recherche"
               if (name === "jobField") {
                 message =
-                  "Nous ne parvenons pas à identifier le métier que vous cherchez, veuillez reformuler votre recherche";
+                  "Nous ne parvenons pas à identifier le métier que vous cherchez, veuillez reformuler votre recherche"
               }
               if (name === "placeField") {
                 message =
-                  "Nous ne parvenons pas à identifier le lieu que vous cherchez, veuillez reformuler votre recherche";
+                  "Nous ne parvenons pas à identifier le lieu que vous cherchez, veuillez reformuler votre recherche"
               }
               return (
                 <li key={`noresult`} className="c-autocomplete-neutral">
                   {message}
                 </li>
-              );
+              )
             } else {
               return (
                 <>
@@ -250,13 +250,13 @@ export const AutoCompleteField = ({
                   </li>
                   {buildInputItems()}
                 </>
-              );
+              )
             }
           }
         })()}
       </ul>
     </div>
-  );
-};
+  )
+}
 
-export default AutoCompleteField;
+export default AutoCompleteField

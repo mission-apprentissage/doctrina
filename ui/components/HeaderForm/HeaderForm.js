@@ -1,54 +1,54 @@
-import React, { useState, useEffect } from "react";
-import glassImage from "../../public/images/glass_white.svg";
-import { Formik, Form } from "formik";
-import { AutoCompleteField } from "..";
-import { buildAvailableDiplomasOptions } from "../../services/buildAvailableDiplomas";
-import { buildRayonsOptions } from "../../services/buildRayons";
-import { Input } from "reactstrap";
-import { partialRight } from "lodash";
-import { DomainError } from "../../components";
+import React, { useState, useEffect } from "react"
+import glassImage from "../../public/images/glass_white.svg"
+import { Formik, Form } from "formik"
+import { AutoCompleteField } from ".."
+import { buildAvailableDiplomasOptions } from "../../services/buildAvailableDiplomas"
+import { buildRayonsOptions } from "../../services/buildRayons"
+import { Input } from "reactstrap"
+import { partialRight } from "lodash"
+import { DomainError } from "../../components"
 
-import domainChanged from "../../services/domainChanged";
-import updateValuesFromJobAutoComplete from "../../services/updateValuesFromJobAutoComplete";
-import formikUpdateValue from "../../services/formikUpdateValue";
-import handleSelectChange from "../../services/handleSelectChange";
+import domainChanged from "../../services/domainChanged"
+import updateValuesFromJobAutoComplete from "../../services/updateValuesFromJobAutoComplete"
+import formikUpdateValue from "../../services/formikUpdateValue"
+import handleSelectChange from "../../services/handleSelectChange"
 
-import { fetchAddresses } from "../../services/baseAdresse";
-import { autoCompleteToStringFunction, compareAutoCompleteValues } from "../../services/autoCompleteUtilities";
-import validateFormik from "../../services/validateFormik";
-import { ParameterContext } from "../../context/ParameterContextProvider";
-import { DisplayContext } from "../../context/DisplayContextProvider";
+import { fetchAddresses } from "../../services/baseAdresse"
+import { autoCompleteToStringFunction, compareAutoCompleteValues } from "../../services/autoCompleteUtilities"
+import validateFormik from "../../services/validateFormik"
+import { ParameterContext } from "../../context/ParameterContextProvider"
+import { DisplayContext } from "../../context/DisplayContextProvider"
 
 const HeaderForm = ({ handleSearchSubmit, isHome }) => {
-  const { widgetParameters } = React.useContext(ParameterContext);
-  const { formValues } = React.useContext(DisplayContext);
+  const { widgetParameters } = React.useContext(ParameterContext)
+  const { formValues } = React.useContext(DisplayContext)
 
-  const [locationRadius, setLocationRadius] = useState(30);
-  
+  const [locationRadius, setLocationRadius] = useState(30)
+
   useEffect(() => {
-    setLocationRadius(contextFormValues?.radius ?? 30);
-    setDiploma(contextFormValues?.diploma ?? "");
-  }, [widgetParameters?.applyFormValues]);
+    setLocationRadius(contextFormValues?.radius ?? 30)
+    setDiploma(contextFormValues?.diploma ?? "")
+  }, [widgetParameters?.applyFormValues])
 
   const contextFormValues =
-    widgetParameters?.applyFormValues && widgetParameters?.formValues ? widgetParameters.formValues : formValues;
+    widgetParameters?.applyFormValues && widgetParameters?.formValues ? widgetParameters.formValues : formValues
 
-  const [diplomas, setDiplomas] = useState([]);
-  const [diploma, setDiploma] = useState("");
-  const [domainError, setDomainError] = useState(false);
-  const [diplomaError, setDiplomaError] = useState(false);
+  const [diplomas, setDiplomas] = useState([])
+  const [diploma, setDiploma] = useState("")
+  const [domainError, setDomainError] = useState(false)
+  const [diplomaError, setDiplomaError] = useState(false)
 
   const jobChanged = async function (val, setLoadingState) {
-    let res = await domainChanged(val, setDomainError);
-    setLoadingState("done");
-    return res;
-  };
+    let res = await domainChanged(val, setDomainError)
+    setLoadingState("done")
+    return res
+  }
 
   const addressChanged = async function (val, setLoadingState) {
-    let res = await fetchAddresses(val);
-    setLoadingState("done");
-    return res;
-  };
+    let res = await fetchAddresses(val)
+    setLoadingState("done")
+    return res
+  }
 
   const renderFormik = () => {
     return (
@@ -145,8 +145,8 @@ const HeaderForm = ({ handleSearchSubmit, isHome }) => {
           </Form>
         )}
       </Formik>
-    );
-  };
+    )
+  }
 
   return (
     <div className="c-logobar">
@@ -156,7 +156,7 @@ const HeaderForm = ({ handleSearchSubmit, isHome }) => {
         renderFormik()
       )}
     </div>
-  );
-};
+  )
+}
 
-export default HeaderForm;
+export default HeaderForm

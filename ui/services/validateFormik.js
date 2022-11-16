@@ -1,5 +1,5 @@
 export default function validateFormik(values, widgetParameters) {
-  const errors = {};
+  const errors = {}
 
   if (
     !(
@@ -9,8 +9,8 @@ export default function validateFormik(values, widgetParameters) {
     ) &&
     (!values.job || !values.job.label || !values.job.romes || !values.job.romes.length > 0)
   ) {
-    errors.job = "Veuillez sélectionner un métier proposé";
+    errors.job = "Veuillez sélectionner un métier proposé"
   }
 
-  return errors;
+  return errors
 }

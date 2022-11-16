@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 const GerezOffresCFA = () => {
   return (
@@ -24,7 +24,7 @@ const GerezOffresCFA = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default GerezOffresCFA;
+export default GerezOffresCFA

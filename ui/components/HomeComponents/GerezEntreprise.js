@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 const GerezEntreprise = () => {
   return (
@@ -18,7 +18,7 @@ const GerezEntreprise = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default GerezEntreprise;
+export default GerezEntreprise

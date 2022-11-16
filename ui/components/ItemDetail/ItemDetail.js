@@ -1,76 +1,76 @@
-import React, { useState, useEffect, useContext } from "react";
-import PeJobDetail from "./PeJobDetail";
-import MatchaDetail from "./MatchaDetail";
-import LbbCompanyDetail from "./LbbCompanyDetail";
-import TrainingDetail from "./TrainingDetail";
-import { defaultTo } from "lodash";
-import { amongst } from "../../utils/arrayutils";
-import { capitalizeFirstLetter } from "../../utils/strutils";
-import { isCfaEntreprise } from "../../services/cfaEntreprise";
-import { filterLayers } from "../../utils/mapTools";
-import ExternalLink from "../externalLink";
-import { SearchResultContext } from "../../context/SearchResultContextProvider";
+import React, { useState, useEffect, useContext } from "react"
+import PeJobDetail from "./PeJobDetail"
+import MatchaDetail from "./MatchaDetail"
+import LbbCompanyDetail from "./LbbCompanyDetail"
+import TrainingDetail from "./TrainingDetail"
+import { defaultTo } from "lodash"
+import { amongst } from "../../utils/arrayutils"
+import { capitalizeFirstLetter } from "../../utils/strutils"
+import { isCfaEntreprise } from "../../services/cfaEntreprise"
+import { filterLayers } from "../../utils/mapTools"
+import ExternalLink from "../externalLink"
+import { SearchResultContext } from "../../context/SearchResultContextProvider"
 
-import LocationDetail from "./LocationDetail";
-import DidYouKnow from "./DidYouKnow";
-import CandidatureSpontanee from "./CandidatureSpontanee/CandidatureSpontanee";
-import isCandidatureSpontanee from "./CandidatureSpontanee/services/isCandidatureSpontanee";
-import getSurtitre from "./ItemDetailServices/getSurtitre";
-import hasAlsoEmploi from "./ItemDetailServices/hasAlsoEmploi";
-import getSoustitre from "./ItemDetailServices/getSoustitre";
-import getActualTitle from "./ItemDetailServices/getActualTitle";
-import getCurrentList from "./ItemDetailServices/getCurrentList";
-import getTags from "./ItemDetailServices/getTags";
+import LocationDetail from "./LocationDetail"
+import DidYouKnow from "./DidYouKnow"
+import CandidatureSpontanee from "./CandidatureSpontanee/CandidatureSpontanee"
+import isCandidatureSpontanee from "./CandidatureSpontanee/services/isCandidatureSpontanee"
+import getSurtitre from "./ItemDetailServices/getSurtitre"
+import hasAlsoEmploi from "./ItemDetailServices/hasAlsoEmploi"
+import getSoustitre from "./ItemDetailServices/getSoustitre"
+import getActualTitle from "./ItemDetailServices/getActualTitle"
+import getCurrentList from "./ItemDetailServices/getCurrentList"
+import getTags from "./ItemDetailServices/getTags"
 import {
   buttonJePostuleShouldBeDisplayed,
   buttonPRDVShouldBeDisplayed,
   buildPrdvButton,
   getNavigationButtons,
   BuildSwipe,
-} from "./ItemDetailServices/getButtons";
+} from "./ItemDetailServices/getButtons"
 
-import GoingToContactQuestion, { getGoingtoId } from "./GoingToContactQuestion";
-import gotoIcon from "../../public/images/icons/goto.svg";
-import { SendPlausibleEvent } from "../../utils/plausible";
+import GoingToContactQuestion, { getGoingtoId } from "./GoingToContactQuestion"
+import gotoIcon from "../../public/images/icons/goto.svg"
+import { SendPlausibleEvent } from "../../utils/plausible"
 
 const ItemDetail = ({ selectedItem, handleClose, displayNavbar, handleSelectItem, activeFilter }) => {
-  const kind = selectedItem?.ideaType;
+  const kind = selectedItem?.ideaType
 
-  const isCfa = isCfaEntreprise(selectedItem?.company?.siret, selectedItem?.company?.headquarter?.siret);
-  const isMandataire = selectedItem?.company?.mandataire;
+  const isCfa = isCfaEntreprise(selectedItem?.company?.siret, selectedItem?.company?.headquarter?.siret)
+  const isMandataire = selectedItem?.company?.mandataire
 
-  const [seeInfo, setSeeInfo] = useState(false);
+  const [seeInfo, setSeeInfo] = useState(false)
 
   useEffect(() => {
-    setSeeInfo(false);
+    setSeeInfo(false)
     try {
-      filterLayers(activeFilter);
+      filterLayers(activeFilter)
     } catch (err) {
       //notice: gère des erreurs qui se présentent à l'initialisation de la page quand mapbox n'est pas prêt.
     }
-  }, [selectedItem?.id, selectedItem?.company?.siret, selectedItem?.job?.id]);
+  }, [selectedItem?.id, selectedItem?.company?.siret, selectedItem?.job?.id])
 
-  let actualTitle = getActualTitle({ kind, selectedItem });
+  let actualTitle = getActualTitle({ kind, selectedItem })
 
-  const { trainings, jobs, extendedSearch } = useContext(SearchResultContext);
-  const hasAlsoJob = hasAlsoEmploi({ isCfa, company: selectedItem?.company, searchedMatchaJobs: jobs?.matchas });
-  const currentList = getCurrentList({ store: { trainings, jobs }, activeFilter, extendedSearch });
+  const { trainings, jobs, extendedSearch } = useContext(SearchResultContext)
+  const hasAlsoJob = hasAlsoEmploi({ isCfa, company: selectedItem?.company, searchedMatchaJobs: jobs?.matchas })
+  const currentList = getCurrentList({ store: { trainings, jobs }, activeFilter, extendedSearch })
 
-  const { swipeHandlers, goNext, goPrev } = BuildSwipe({ currentList, handleSelectItem, selectedItem });
+  const { swipeHandlers, goNext, goPrev } = BuildSwipe({ currentList, handleSelectItem, selectedItem })
 
-  const [collapseHeader, setCollapseHeader] = useState(false);
-  const maxScroll = 100;
+  const [collapseHeader, setCollapseHeader] = useState(false)
+  const maxScroll = 100
   const handleScroll = () => {
-    let currentScroll = document.querySelector(".c-detail").scrollTop;
-    currentScroll += collapseHeader ? 100 : -100;
-    setCollapseHeader(currentScroll > maxScroll);
-  };
+    let currentScroll = document.querySelector(".c-detail").scrollTop
+    currentScroll += collapseHeader ? 100 : -100
+    setCollapseHeader(currentScroll > maxScroll)
+  }
 
   const postuleSurPoleEmploi = () => {
     SendPlausibleEvent("Clic Postuler - Fiche entreprise Offre PE", {
       info_fiche: selectedItem.job.id,
-    });
-  };
+    })
+  }
 
   return (
     <>
@@ -85,8 +85,8 @@ const ItemDetail = ({ selectedItem, handleClose, displayNavbar, handleSelectItem
           <nav
             className="c-detail-stickynav"
             onClick={() => {
-              setSeeInfo(false);
-              handleClose();
+              setSeeInfo(false)
+              handleClose()
             }}
           >
             <span className="mr-3">←</span> {actualTitle}
@@ -247,7 +247,7 @@ const ItemDetail = ({ selectedItem, handleClose, displayNavbar, handleSelectItem
         )}
       </section>
     </>
-  );
-};
+  )
+}
 
-export default ItemDetail;
+export default ItemDetail

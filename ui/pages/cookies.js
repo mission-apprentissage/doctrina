@@ -1,21 +1,21 @@
-import React from "react";
-import Navigation from "../components/navigation";
-import ScrollToTop from "../components/ScrollToTop";
-import Breadcrumb from "../components/breadcrumb";
-import { NextSeo } from "next-seo";
+import React from "react"
+import Navigation from "../components/navigation"
+import ScrollToTop from "../components/ScrollToTop"
+import Breadcrumb from "../components/breadcrumb"
+import { NextSeo } from "next-seo"
 
-import Footer from "../components/footer";
-import ExternalLink from "../components/externalLink";
+import Footer from "../components/footer"
+import ExternalLink from "../components/externalLink"
 
 const handleTagCo = (e) => {
-  e.preventDefault();
+  e.preventDefault()
   if (tC?.privacyCenter?.showPrivacyCenter) {
-    tC.privacyCenter.showPrivacyCenter();
+    tC.privacyCenter.showPrivacyCenter()
   } else {
-    console.log("Privacy center was required by user.");
+    console.log("Privacy center was required by user.")
   }
-  return false;
-};
+  return false
+}
 
 const Cookies = () => (
   <div>
@@ -88,9 +88,9 @@ const Cookies = () => (
             <span className="d-block">
               Des cookies sont utilisés sur le site{" "}
               <ExternalLink url="https://labonnealternance.pole-emploi.fr/" title="La bonne alternance" /> afin
-              d’effectuer de la mesure d’audience, des analyses statistiques dans le but d&apos;améliorer l&apos;expérience
-              utilisateur et la performance du site internet. Ces cookies sont déposés par des tiers pour le compte de
-              Pôle emploi.
+              d’effectuer de la mesure d’audience, des analyses statistiques dans le but d&apos;améliorer
+              l&apos;expérience utilisateur et la performance du site internet. Ces cookies sont déposés par des tiers
+              pour le compte de Pôle emploi.
             </span>
           </p>
           <p>
@@ -143,7 +143,7 @@ const Cookies = () => (
               consentement via{" "}
               <a href="#" onClick={handleTagCo}>
                 {" "}
-                 ce lien dédié{" "}
+                ce lien dédié{" "}
               </a>
               .
             </span>
@@ -211,6 +211,6 @@ const Cookies = () => (
     <div className="mb-3">&nbsp;</div>
     <Footer />
   </div>
-);
+)
 
-export default Cookies;
+export default Cookies

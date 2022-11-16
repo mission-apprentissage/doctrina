@@ -1,9 +1,9 @@
-import React from "react";
-import Navigation from "components/navigation";
-import ScrollToTop from "components/ScrollToTop";
-import Breadcrumb from "components/breadcrumb";
+import React from "react"
+import Navigation from "components/navigation"
+import ScrollToTop from "components/ScrollToTop"
+import Breadcrumb from "components/breadcrumb"
 
-import Footer from "components/footer";
+import Footer from "components/footer"
 
 const stats2 = () => (
   <div>
@@ -103,6 +103,6 @@ const stats2 = () => (
     <div className="mb-3">&nbsp;</div>
     <Footer />
   </div>
-);
+)
 
-export default stats2;
+export default stats2

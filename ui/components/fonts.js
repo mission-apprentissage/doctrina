@@ -1,7 +1,7 @@
-import React from "react";
+import React from "react"
 
 const Fonts = () => {
-  const url = "https://labonnealternance-recette.apprentissage.beta.gouv.fr";
+  const url = "https://labonnealternance-recette.apprentissage.beta.gouv.fr"
 
   const getFontPreloadLinks = () => {
     return (
@@ -28,10 +28,10 @@ const Fonts = () => {
           crossOrigin="anonymous"
         ></link>
       </>
-    );
-  };
+    )
+  }
 
-  return <>{getFontPreloadLinks()}</>;
-};
+  return <>{getFontPreloadLinks()}</>
+}
 
-export default Fonts;
+export default Fonts

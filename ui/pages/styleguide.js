@@ -1,14 +1,14 @@
-import React from "react";
-import Navigation from "../components/navigation";
-import microAjax from "utils/microAjax";
-import baseUrl from "utils/baseUrl";
+import React from "react"
+import Navigation from "../components/navigation"
+import microAjax from "utils/microAjax"
+import baseUrl from "utils/baseUrl"
 
 const Styleguide = () => {
   if (typeof window !== "undefined") {
     microAjax({
       url: baseUrl + "/api/version",
       success: (res) => console.log(`version : ${JSON.parse(res).version}`),
-    });
+    })
   }
   return (
     <div className="c-styleguide">
@@ -271,7 +271,7 @@ const Styleguide = () => {
         </blockquote>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Styleguide;
+export default Styleguide

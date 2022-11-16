@@ -1,5 +1,5 @@
-import React from "react";
-import ConnectionActions from "./ConnectionActions";
+import React from "react"
+import ConnectionActions from "./ConnectionActions"
 
 const CFA = () => {
   return (
@@ -27,7 +27,7 @@ const CFA = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default CFA;
+export default CFA

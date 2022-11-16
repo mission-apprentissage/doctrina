@@ -1,56 +1,56 @@
-import React, { useState, useEffect, useContext } from "react";
-import { Row, Col, Input } from "reactstrap";
-import { Formik, Form, ErrorMessage } from "formik";
-import { AutoCompleteField } from "../../../components/AutoCompleteField/AutoCompleteField";
+import React, { useState, useEffect, useContext } from "react"
+import { Row, Col, Input } from "reactstrap"
+import { Formik, Form, ErrorMessage } from "formik"
+import { AutoCompleteField } from "../../../components/AutoCompleteField/AutoCompleteField"
 
-import { fetchAddresses } from "../../../services/baseAdresse";
-import { DomainError } from "../../";
-import { buildRayonsOptions, buildRayonsButtons } from "../../../services/buildRayons";
-import handleSelectChange from "../../../services/handleSelectChange";
-import { partialRight } from "lodash";
-import domainChanged from "../../../services/domainChanged";
-import { autoCompleteToStringFunction, compareAutoCompleteValues } from "../../../services/autoCompleteUtilities";
-import updateValuesFromJobAutoComplete from "../../../services/updateValuesFromJobAutoComplete";
-import formikUpdateValue from "../../../services/formikUpdateValue";
-import { buildAvailableDiplomasOptions, buildAvailableDiplomasButtons} from "../../../services/buildAvailableDiplomas";
-import validateFormik from "../../../services/validateFormik";
-import { SearchResultContext } from "../../../context/SearchResultContextProvider";
-import { ParameterContext } from "../../../context/ParameterContextProvider";
-import { DisplayContext } from "../../../context/DisplayContextProvider";
+import { fetchAddresses } from "../../../services/baseAdresse"
+import { DomainError } from "../../"
+import { buildRayonsOptions, buildRayonsButtons } from "../../../services/buildRayons"
+import handleSelectChange from "../../../services/handleSelectChange"
+import { partialRight } from "lodash"
+import domainChanged from "../../../services/domainChanged"
+import { autoCompleteToStringFunction, compareAutoCompleteValues } from "../../../services/autoCompleteUtilities"
+import updateValuesFromJobAutoComplete from "../../../services/updateValuesFromJobAutoComplete"
+import formikUpdateValue from "../../../services/formikUpdateValue"
+import { buildAvailableDiplomasOptions, buildAvailableDiplomasButtons } from "../../../services/buildAvailableDiplomas"
+import validateFormik from "../../../services/validateFormik"
+import { SearchResultContext } from "../../../context/SearchResultContextProvider"
+import { ParameterContext } from "../../../context/ParameterContextProvider"
+import { DisplayContext } from "../../../context/DisplayContextProvider"
 
 const SearchForm = (props) => {
-  const { hasSearch } = useContext(SearchResultContext);
-  const { widgetParameters } = React.useContext(ParameterContext);
-  const { formValues, isFormVisible } = React.useContext(DisplayContext);
+  const { hasSearch } = useContext(SearchResultContext)
+  const { widgetParameters } = React.useContext(ParameterContext)
+  const { formValues, isFormVisible } = React.useContext(DisplayContext)
 
-  const [locationRadius, setLocationRadius] = useState(30);
+  const [locationRadius, setLocationRadius] = useState(30)
 
   useEffect(() => {
-    setLocationRadius(contextFormValues?.radius ?? 30);
-    setDiploma(contextFormValues?.diploma ?? "");
-    setJobValue(contextFormValues?.job ?? null);
-  }, [widgetParameters?.applyFormValues]);
+    setLocationRadius(contextFormValues?.radius ?? 30)
+    setDiploma(contextFormValues?.diploma ?? "")
+    setJobValue(contextFormValues?.job ?? null)
+  }, [widgetParameters?.applyFormValues])
 
   const contextFormValues =
-    widgetParameters?.applyFormValues && widgetParameters?.formValues ? widgetParameters.formValues : formValues;
+    widgetParameters?.applyFormValues && widgetParameters?.formValues ? widgetParameters.formValues : formValues
 
-  const [jobValue, setJobValue] = useState(null);
-  const [diplomas, setDiplomas] = useState([]);
-  const [diploma, setDiploma] = useState("");
-  const [domainError, setDomainError] = useState(false);
-  const [diplomaError, setDiplomaError] = useState(false);
+  const [jobValue, setJobValue] = useState(null)
+  const [diplomas, setDiplomas] = useState([])
+  const [diploma, setDiploma] = useState("")
+  const [domainError, setDomainError] = useState(false)
+  const [diplomaError, setDiplomaError] = useState(false)
 
   const jobChanged = async function (val, setLoadingState) {
-    let res = await domainChanged(val, setDomainError);
-    setLoadingState("done");
-    return res;
-  };
+    let res = await domainChanged(val, setDomainError)
+    setLoadingState("done")
+    return res
+  }
 
   const addressChanged = async function (val, setLoadingState) {
-    let res = await fetchAddresses(val);
-    setLoadingState("done");
-    return res;
-  };
+    let res = await fetchAddresses(val)
+    setLoadingState("done")
+    return res
+  }
 
   const renderFormik = () => {
     return (
@@ -133,11 +133,11 @@ const SearchForm = (props) => {
                   </div>
                 </div>
                 <div className="mt-3 d-block d-md-none formGroup">
-                  <h3 className="h6 font-weight-bold">
-                    Rayon
-                  </h3>
+                  <h3 className="h6 font-weight-bold">Rayon</h3>
                   <div className="c-logobar-field">
-                    {buildRayonsButtons(locationRadius, (evt) => handleSelectChange(evt, setFieldValue, setLocationRadius, "radius"))}
+                    {buildRayonsButtons(locationRadius, (evt) =>
+                      handleSelectChange(evt, setFieldValue, setLocationRadius, "radius")
+                    )}
                   </div>
                 </div>
               </Col>
@@ -160,11 +160,11 @@ const SearchForm = (props) => {
                   </div>
                 </div>
                 <div className="mt-3 d-block d-md-none formGroup">
-                  <h3 className="h6 font-weight-bold">
-                    Niveau d&apos;études visé
-                  </h3>
+                  <h3 className="h6 font-weight-bold">Niveau d&apos;études visé</h3>
                   <div className="c-diplomas-buttons">
-                    {buildAvailableDiplomasButtons(diploma, diplomas, (evt) => handleSelectChange(evt, setFieldValue, setDiploma, "diploma"))}
+                    {buildAvailableDiplomasButtons(diploma, diplomas, (evt) =>
+                      handleSelectChange(evt, setFieldValue, setDiploma, "diploma")
+                    )}
                   </div>
                 </div>
               </Col>
@@ -182,8 +182,8 @@ const SearchForm = (props) => {
           </Form>
         )}
       </Formik>
-    );
-  };
+    )
+  }
 
   return (
     <div className={isFormVisible ? "" : "hiddenSearchForm"}>
@@ -203,7 +203,7 @@ const SearchForm = (props) => {
         renderFormik()
       )}
     </div>
-  );
-};
+  )
+}
 
-export default SearchForm;
+export default SearchForm

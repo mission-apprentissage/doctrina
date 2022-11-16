@@ -1,11 +1,11 @@
-import React from "react";
-import Link from "next/link";
-import { Row, Col, Container } from "reactstrap";
-import ExternalLink from "./externalLink";
-import { useRouter } from "next/router";
+import React from "react"
+import Link from "next/link"
+import { Row, Col, Container } from "reactstrap"
+import ExternalLink from "./externalLink"
+import { useRouter } from "next/router"
 
 const Footer = (props) => {
-  const router = useRouter();
+  const router = useRouter()
 
   return (
     <>
@@ -13,21 +13,11 @@ const Footer = (props) => {
         <Container>
           <Row>
             <Col className="col-12 col-lg-3">
-              <img
-                src="/images/marianne.svg#svgView(viewBox(0 0 162 78))"
-                alt=""
-                width="290"
-                height="130"
-              />
+              <img src="/images/marianne.svg#svgView(viewBox(0 0 162 78))" alt="" width="290" height="130" />
             </Col>
             <Col className="col-12 col-lg-3">
               <div className="c-footer-francerelance">
-                <img
-                  src="/images/france_relance.svg"
-                  alt=""
-                  width="81"
-                  height="81"
-                />
+                <img src="/images/france_relance.svg" alt="" width="81" height="81" />
               </div>
             </Col>
             <Col className="col-12 col-lg-6 c-footer-text">
@@ -58,77 +48,55 @@ const Footer = (props) => {
               <ul className="c-footer-links">
                 <li className="c-footer-links__line">
                   <Link href="/mentions-legales">
-                    <a
-                      className="c-footer-links__link c-footer-smallword pr-3"
-                    >
-                      Mentions légales
-                    </a>
+                    <a className="c-footer-links__link c-footer-smallword pr-3">Mentions légales</a>
                   </Link>
                 </li>
 
                 <li className="c-footer-links__line">
                   <Link href="/cgu">
-                    <a
-                      className="c-footer-links__link c-footer-smallword"
-                    >
-                      CGU
-                    </a>
-                    </Link>
+                    <a className="c-footer-links__link c-footer-smallword">CGU</a>
+                  </Link>
                 </li>
 
                 <li className="c-footer-links__line">
                   <Link href="/cookies">
-                    <a className="c-footer-links__link c-footer-smallword">
-                      Cookies
-                    </a>
+                    <a className="c-footer-links__link c-footer-smallword">Cookies</a>
                   </Link>
                 </li>
 
                 <li className="c-footer-links__line">
                   <Link href="/stats">
-                    <a className="c-footer-links__link c-footer-smallword">
-                      Statistiques
-                    </a>
+                    <a className="c-footer-links__link c-footer-smallword">Statistiques</a>
                   </Link>
                 </li>
 
                 <li className="c-footer-links__line">
                   <Link href="/faq">
-                    <a className="c-footer-links__link c-footer-smallword">
-                      FAQ
-                    </a>
+                    <a className="c-footer-links__link c-footer-smallword">FAQ</a>
                   </Link>
                 </li>
 
                 <li className="c-footer-links__line">
                   <Link href="/contact">
-                    <a className="c-footer-links__link c-footer-smallword">
-                      Contact
-                    </a>
+                    <a className="c-footer-links__link c-footer-smallword">Contact</a>
                   </Link>
                 </li>
 
                 <li className="c-footer-links__line">
                   <Link href="/metiers">
-                    <a className="c-footer-links__link c-footer-smallword">
-                      Métiers
-                    </a>
+                    <a className="c-footer-links__link c-footer-smallword">Métiers</a>
                   </Link>
                 </li>
 
                 <li className="c-footer-links__line">
                   <Link href="/a-propos">
-                    <a className="c-footer-links__link c-footer-smallword">
-                      A propos
-                    </a>
+                    <a className="c-footer-links__link c-footer-smallword">A propos</a>
                   </Link>
                 </li>
 
                 <li className="c-footer-links__line">
                   <Link href="/developpeurs">
-                    <a className="c-footer-links__link c-footer-smallword">
-                      Développeurs
-                    </a>
+                    <a className="c-footer-links__link c-footer-smallword">Développeurs</a>
                   </Link>
                 </li>
                 <li className="c-footer-links__line">
@@ -150,7 +118,7 @@ const Footer = (props) => {
         </Container>
       </nav>
     </>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

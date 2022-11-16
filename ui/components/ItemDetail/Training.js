@@ -1,77 +1,77 @@
-import React, { useState, useContext } from "react";
-import trainingIcon from "../../public/images/icons/book.svg";
-import { fetchAddresses } from "../../services/baseAdresse";
-import extendedSearchPin from "../../public/images/icons/jobPin.svg";
-import { ScopeContext } from "../../context/ScopeContext";
-import TagCfaDEntreprise from "./TagCfaDEntreprise";
-import TagFormation from "./TagFormation";
-import { setSelectedMarker } from "../../utils/mapTools";
-import { getItemQueryParameters } from "../../utils/getItemId";
-import { getSearchQueryParameters } from "../../utils/getSearchParameters";
-import { SearchResultContext } from "../../context/SearchResultContextProvider";
-import { ParameterContext } from "../../context/ParameterContextProvider";
-import { DisplayContext } from "../../context/DisplayContextProvider";
+import React, { useState, useContext } from "react"
+import trainingIcon from "../../public/images/icons/book.svg"
+import { fetchAddresses } from "../../services/baseAdresse"
+import extendedSearchPin from "../../public/images/icons/jobPin.svg"
+import { ScopeContext } from "../../context/ScopeContext"
+import TagCfaDEntreprise from "./TagCfaDEntreprise"
+import TagFormation from "./TagFormation"
+import { setSelectedMarker } from "../../utils/mapTools"
+import { getItemQueryParameters } from "../../utils/getItemId"
+import { getSearchQueryParameters } from "../../utils/getSearchParameters"
+import { SearchResultContext } from "../../context/SearchResultContextProvider"
+import { ParameterContext } from "../../context/ParameterContextProvider"
+import { DisplayContext } from "../../context/DisplayContextProvider"
 
 const Training = ({ training, handleSelectItem, showTextOnly, searchForJobsOnNewCenter, hasAlsoJob, isCfa }) => {
-  const { selectedMapPopupItem } = React.useContext(SearchResultContext);
-  const { itemParameters } = React.useContext(ParameterContext);
-  const { formValues } = React.useContext(DisplayContext);
-  const scopeContext = useContext(ScopeContext);
+  const { selectedMapPopupItem } = React.useContext(SearchResultContext)
+  const { itemParameters } = React.useContext(ParameterContext)
+  const { formValues } = React.useContext(DisplayContext)
+  const scopeContext = useContext(ScopeContext)
 
-  const currentSearchRadius = formValues?.radius || 30;
+  const currentSearchRadius = formValues?.radius || 30
 
-  const [allowDim, setAllowDim] = useState(true); // cet état évite un appel qui masque la mise en avant de l'icône lors de l'ouverture du détail
+  const [allowDim, setAllowDim] = useState(true) // cet état évite un appel qui masque la mise en avant de l'icône lors de l'ouverture du détail
 
   const onSelectItem = (e) => {
-    e.preventDefault();
-    setAllowDim(false); // fixation du flag
-    handleSelectItem(training, "training");
-  };
+    e.preventDefault()
+    setAllowDim(false) // fixation du flag
+    handleSelectItem(training, "training")
+  }
 
   const getHightlightClass = () => {
-    return shouldBeHighlighted() ? "c-resultcard--highlight" : "";
-  };
+    return shouldBeHighlighted() ? "c-resultcard--highlight" : ""
+  }
 
   const shouldBeHighlighted = () => {
     if (selectedMapPopupItem?.ideaType === "formation") {
       return selectedMapPopupItem.items.find((item) => {
-        return item.id === training.id;
-      });
+        return item.id === training.id
+      })
     } else {
-      return false;
+      return false
     }
-  };
+  }
 
   const getCenterSearchOnTrainingButton = () => {
     return (
       <button className="extendedJobSearchButton" onClick={centerSearchOnTraining}>
         <img src={extendedSearchPin} alt="" /> <span>Voir les entreprises proches</span>
       </button>
-    );
-  };
+    )
+  }
 
   const getDebugClass = () => {
     if (itemParameters?.mode === "debug" && formValues?.job?.rncps.indexOf(training.rncpCode) < 0) {
-      return "debugRemoved";
+      return "debugRemoved"
     } else {
-      return "";
+      return ""
     }
-  };
+  }
 
   const centerSearchOnTraining = async (e) => {
     if (e) {
-      e.stopPropagation();
-      e.preventDefault();
+      e.stopPropagation()
+      e.preventDefault()
     }
 
     // reconstruction des critères d'adresse selon l'adresse du centre de formation
-    const label = `${training.place.city} ${training.place.zipCode}`;
+    const label = `${training.place.city} ${training.place.zipCode}`
 
     // récupération du code insee depuis la base d'adresse
     if (!training.place.insee) {
-      const addresses = await fetchAddresses(label, "municipality");
+      const addresses = await fetchAddresses(label, "municipality")
       if (addresses.length) {
-        training.place.insee = addresses[0].insee;
+        training.place.insee = addresses[0].insee
       }
     }
 
@@ -83,26 +83,26 @@ const Training = ({ training, handleSelectItem, showTextOnly, searchForJobsOnNew
         type: "Point",
         coordinates: [training.place.longitude, training.place.latitude],
       },
-    };
+    }
 
-    searchForJobsOnNewCenter(newCenter);
-  };
+    searchForJobsOnNewCenter(newCenter)
+  }
 
   const highlightItemOnMap = () => {
-    setSelectedMarker(training);
-  };
+    setSelectedMarker(training)
+  }
 
   const dimItemOnMap = (e) => {
     if (allowDim) {
-      setSelectedMarker(null);
+      setSelectedMarker(null)
     } else {
-      setAllowDim(true);
+      setAllowDim(true)
     }
-  };
+  }
 
   const actualLink = `/recherche-apprentissage?display=list&page=fiche&${getItemQueryParameters(
     training
-  )}&${getSearchQueryParameters(formValues)}`;
+  )}&${getSearchQueryParameters(formValues)}`
 
   return (
     <a
@@ -113,16 +113,13 @@ const Training = ({ training, handleSelectItem, showTextOnly, searchForJobsOnNew
       href={actualLink}
     >
       <div className="c-media" id={`id${training.id}`}>
-
         <div className="c-media-body">
           <div className="row no-gutters">
             <div className="col-12 col-lg-6 text-left">
               <div className="title d-inline-block">{training.title ? training.title : training.longTitle}</div>
             </div>
             <div className="col-12 col-lg-6  d-lg-flex flex-column text-left text-lg-right my-1 my-lg-0">
-              {
-                isCfa ? <TagCfaDEntreprise /> : <TagFormation />
-              }
+              {isCfa ? <TagCfaDEntreprise /> : <TagFormation />}
             </div>
           </div>
 
@@ -162,7 +159,7 @@ const Training = ({ training, handleSelectItem, showTextOnly, searchForJobsOnNew
         </div>
       </div>
     </a>
-  );
-};
+  )
+}
 
-export default Training;
+export default Training

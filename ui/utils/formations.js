@@ -15,12 +15,12 @@ const getTrainingAddress = (school, lowerCase) => {
       } ${school.etablissement_responsable_localite ? school.etablissement_responsable_localite : ""} ${
         school.etablissement_responsable_code_postal ? school.etablissement_responsable_code_postal : ""
       }${school.etablissement_responsable_cedex ? ` CEDEX ${school.etablissement_responsable_cedex}` : ""}
-      `;
+      `
 
-  if (lowerCase) schoolAddress = schoolAddress.toLowerCase();
+  if (lowerCase) schoolAddress = schoolAddress.toLowerCase()
 
-  return schoolAddress;
-};
+  return schoolAddress
+}
 
 /*
 const getTrainingSchoolName = (school, lowerCase) => {
@@ -34,4 +34,4 @@ const getTrainingSchoolName = (school, lowerCase) => {
 };
 */
 
-export { getTrainingAddress /*, getTrainingSchoolName*/ };
+export { getTrainingAddress /*, getTrainingSchoolName*/ }

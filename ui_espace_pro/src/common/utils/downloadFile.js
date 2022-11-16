@@ -1,4 +1,4 @@
-import { getAuth } from "../auth";
+import { getAuth } from '../auth'
 
 /**
  * @description Downloads CSV file.
@@ -7,24 +7,24 @@ import { getAuth } from "../auth";
  * @returns {Promise<void>}
  */
 const download = (url, filename) => {
-  const auth = getAuth();
+  const auth = getAuth()
 
   return fetch(url, {
-    method: "GET",
+    method: 'GET',
     headers: {
       Authorization: `Bearer ${auth.token}`,
     },
   })
     .then((response) => response.blob())
     .then((blob) => {
-      const url = window.URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = filename;
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-    });
-};
+      const url = window.URL.createObjectURL(blob)
+      const a = document.createElement('a')
+      a.href = url
+      a.download = filename
+      document.body.appendChild(a)
+      a.click()
+      a.remove()
+    })
+}
 
-export default download;
+export default download

@@ -1,6 +1,6 @@
 export const getSearchQueryParameters = (searchParameters) => {
   if (!searchParameters) {
-    return "";
+    return ""
   }
 
   let result = `job_name=${
@@ -15,7 +15,7 @@ export const getSearchQueryParameters = (searchParameters) => {
           searchParameters.location.label ? encodeURIComponent(searchParameters.location.label) : ""
         }`
       : ""
-  }${searchParameters?.opcoFiter ? `&opco=${searchParameters.opcoFiter}` : ""}`;
+  }${searchParameters?.opcoFiter ? `&opco=${searchParameters.opcoFiter}` : ""}`
 
-  return result;
-};
+  return result
+}

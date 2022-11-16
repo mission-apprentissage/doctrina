@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 const BientotCFA = () => {
   return (
@@ -26,7 +26,7 @@ const BientotCFA = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default BientotCFA;
+export default BientotCFA

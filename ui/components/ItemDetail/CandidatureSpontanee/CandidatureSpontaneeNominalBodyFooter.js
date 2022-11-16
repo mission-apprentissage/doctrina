@@ -1,25 +1,25 @@
-import React, { useState, useEffect } from "react";
-import CandidatureSpontaneeSubmit from "./CandidatureSpontaneeSubmit";
-import { Container, ModalBody, ModalFooter } from "reactstrap";
-import CandidatureSpontaneeFileDropzone from "./CandidatureSpontaneeFileDropzone";
-import CandidatureSpontaneeMessage from "./CandidatureSpontaneeMessage";
-import CandidatureSpontaneeMandataireMessage from "./CandidatureSpontaneeMandataireMessage";
-import { testingParameters } from "../../../utils/testingParameters";
-import emailMisspelled, { top100 } from "email-misspelled";
+import React, { useState, useEffect } from "react"
+import CandidatureSpontaneeSubmit from "./CandidatureSpontaneeSubmit"
+import { Container, ModalBody, ModalFooter } from "reactstrap"
+import CandidatureSpontaneeFileDropzone from "./CandidatureSpontaneeFileDropzone"
+import CandidatureSpontaneeMessage from "./CandidatureSpontaneeMessage"
+import CandidatureSpontaneeMandataireMessage from "./CandidatureSpontaneeMandataireMessage"
+import { testingParameters } from "../../../utils/testingParameters"
+import emailMisspelled, { top100 } from "email-misspelled"
 
-const emailChecker = emailMisspelled({ maxMisspelled: 3, domains: top100 });
+const emailChecker = emailMisspelled({ maxMisspelled: 3, domains: top100 })
 
 const PostulerBody = (props) => {
   return props.fromWidget ? (
     <Container>{props.children}</Container>
   ) : (
     <ModalBody data-testid="modalbody-nominal">{props.children}</ModalBody>
-  );
-};
+  )
+}
 
 const PostulerFooter = (props) => {
-  return props.fromWidget ? <Container>{props.children}</Container> : <ModalFooter>{props.children}</ModalFooter>;
-};
+  return props.fromWidget ? <Container>{props.children}</Container> : <ModalFooter>{props.children}</ModalFooter>
+}
 
 const CandidatureSpontaneeNominalBodyFooter = ({ formik, sendingState, company, item, kind, fromWidget = false }) => {
   /*useEffect(() => {
@@ -27,22 +27,22 @@ const CandidatureSpontaneeNominalBodyFooter = ({ formik, sendingState, company, 
   }, [company]);*/
 
   const setFileValue = (fileValue) => {
-    formik.values.fileName = fileValue?.fileName || null;
-    formik.values.fileContent = fileValue?.fileContent || null;
-  };
+    formik.values.fileName = fileValue?.fileName || null
+    formik.values.fileContent = fileValue?.fileContent || null
+  }
 
-  const [suggestedEmails, setSuggestedEmails] = useState([]);
+  const [suggestedEmails, setSuggestedEmails] = useState([])
 
   const onEmailChange = (e) => {
-    const checkedEmail = emailChecker(e.target.value);
-    setSuggestedEmails(checkedEmail);
-    formik.handleChange(e);
-  };
+    const checkedEmail = emailChecker(e.target.value)
+    setSuggestedEmails(checkedEmail)
+    formik.handleChange(e)
+  }
 
   const clickSuggestion = (e) => {
-    formik.setFieldValue("email", e.currentTarget.innerHTML);
-    setSuggestedEmails([]);
-  };
+    formik.setFieldValue("email", e.currentTarget.innerHTML)
+    setSuggestedEmails([])
+  }
 
   return (
     <>
@@ -188,8 +188,14 @@ const CandidatureSpontaneeNominalBodyFooter = ({ formik, sendingState, company, 
               <a href="/cgu" className="c-candidature-link" target="_blank">
                 Conditions générales d&apos;utilisation.
               </a>{" "}
-              du service La Bonne Alternance et acceptez le partage de vos informations avec l&apos;établissement {company}
-              <a href="https://media.giphy.com/media/3oz8xSD5WkRNG1R6x2/giphy.gif" className="c-candidature-link" target="_blank" rel="noreferrer">
+              du service La Bonne Alternance et acceptez le partage de vos informations avec l&apos;établissement{" "}
+              {company}
+              <a
+                href="https://media.giphy.com/media/3oz8xSD5WkRNG1R6x2/giphy.gif"
+                className="c-candidature-link"
+                target="_blank"
+                rel="noreferrer"
+              >
                 En savoir plus
               </a>
             </div>
@@ -200,7 +206,7 @@ const CandidatureSpontaneeNominalBodyFooter = ({ formik, sendingState, company, 
         <CandidatureSpontaneeSubmit item={item} sendingState={sendingState} />
       </PostulerFooter>
     </>
-  );
-};
+  )
+}
 
-export default CandidatureSpontaneeNominalBodyFooter;
+export default CandidatureSpontaneeNominalBodyFooter

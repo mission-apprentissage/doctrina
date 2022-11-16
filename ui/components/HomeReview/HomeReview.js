@@ -1,8 +1,8 @@
-import React from "react";
+import React from "react"
 
-import homereview from "../../public/images/homereview.svg";
-import { some, values } from "lodash";
-import ExternalLink from "../externalLink";
+import homereview from "../../public/images/homereview.svg"
+import { some, values } from "lodash"
+import ExternalLink from "../externalLink"
 
 const HomeReview = (props) => {
   return (
@@ -67,7 +67,7 @@ const HomeReview = (props) => {
         ""
       )}
     </>
-  );
-};
+  )
+}
 
-export default HomeReview;
+export default HomeReview

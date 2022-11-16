@@ -1,12 +1,12 @@
-import React, { useEffect } from "react";
-import Navigation from "../components/navigation";
-import Breadcrumb from "../components/breadcrumb";
-import ScrollToTop from "../components/ScrollToTop";
+import React, { useEffect } from "react"
+import Navigation from "../components/navigation"
+import Breadcrumb from "../components/breadcrumb"
+import ScrollToTop from "../components/ScrollToTop"
 
-import { NextSeo } from "next-seo";
+import { NextSeo } from "next-seo"
 
-import Footer from "../components/footer";
-import ExternalLink from "../components/externalLink";
+import Footer from "../components/footer"
+import ExternalLink from "../components/externalLink"
 
 const CGU = (props) => {
   return (
@@ -53,7 +53,8 @@ const CGU = (props) => {
                   title="labonnealternance.pole-emploi.fr"
                 />{" "}
                 a pour objet de faciliter les entrées en alternance des usagers en informant sur les formations en
-                apprentissage ainsi que les offres d&apos;emplois et entreprises auprès desquelles adresser une candidature.
+                apprentissage ainsi que les offres d&apos;emplois et entreprises auprès desquelles adresser une
+                candidature.
               </p>
               <p>
                 L’utilisateur peut filtrer tout ou partie des informations à l’aide des filtres suivants : niveau de
@@ -137,8 +138,8 @@ const CGU = (props) => {
               </p>
               <p>
                 Tout événement dû à un cas de force majeure ayant pour conséquence un dysfonctionnement du site et sous
-                réserve de toute interruption ou modification en cas de maintenance, n&apos;engage pas la responsabilité de
-                l’éditeur.
+                réserve de toute interruption ou modification en cas de maintenance, n&apos;engage pas la responsabilité
+                de l’éditeur.
               </p>
               <p>
                 L’éditeur s’engage à mettre en œuvre toutes mesures appropriées, afin de protéger les données traitées.
@@ -168,8 +169,8 @@ const CGU = (props) => {
                 </li>
               </ul>
               <p>
-                Toute information transmise par l&apos;Utilisateur est de sa seule responsabilité. Il est rappelé que toute
-                personne procédant à une fausse déclaration pour elle-même ou pour autrui s’expose, notamment, aux
+                Toute information transmise par l&apos;Utilisateur est de sa seule responsabilité. Il est rappelé que
+                toute personne procédant à une fausse déclaration pour elle-même ou pour autrui s’expose, notamment, aux
                 sanctions prévues à l’article 441-1 du code pénal, prévoyant des peines pouvant aller jusqu’à trois ans
                 d’emprisonnement et 45 000 euros d’amende.
               </p>
@@ -254,7 +255,7 @@ const CGU = (props) => {
       <div className="mb-3">&nbsp;</div>
       <Footer />
     </div>
-  );
-};
+  )
+}
 
-export default CGU;
+export default CGU

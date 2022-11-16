@@ -1,7 +1,7 @@
-import React from "react";
-import Head from "next/head";
-import { NextSeo } from "next-seo";
-import WidgetPostuler from "../components/ItemDetail/CandidatureSpontanee/WidgetPostuler";
+import React from "react"
+import Head from "next/head"
+import { NextSeo } from "next-seo"
+import WidgetPostuler from "../components/ItemDetail/CandidatureSpontanee/WidgetPostuler"
 
 const Postuler = () => {
   return (
@@ -13,7 +13,7 @@ const Postuler = () => {
       <Head />
       <WidgetPostuler />
     </>
-  );
-};
+  )
+}
 
-export default Postuler;
+export default Postuler

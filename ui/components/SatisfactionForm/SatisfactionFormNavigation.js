@@ -1,12 +1,10 @@
-import React, { useState } from "react";
-import Link from "next/link";
-import { Collapse, NavbarToggler, Nav, NavItem, NavLink } from "reactstrap";
-
+import React, { useState } from "react"
+import Link from "next/link"
+import { Collapse, NavbarToggler, Nav, NavItem, NavLink } from "reactstrap"
 
 const SatisfactionFormNavigation = () => {
-
-  const [isOpen, setIsOpen] = useState(false);
-  const toggle = () => setIsOpen(!isOpen);
+  const [isOpen, setIsOpen] = useState(false)
+  const toggle = () => setIsOpen(!isOpen)
 
   return (
     <div className="c-navigation is-filled">
@@ -14,7 +12,13 @@ const SatisfactionFormNavigation = () => {
         <div className="container">
           <Link href="/">
             <a className="navbar-brand">
-              <img src="/images/logo_lba.svg" alt="Retournez à la page d'accueil de La Bonne Alternance" className="c-navbar-brand-img" width="110" height="76" />
+              <img
+                src="/images/logo_lba.svg"
+                alt="Retournez à la page d'accueil de La Bonne Alternance"
+                className="c-navbar-brand-img"
+                width="110"
+                height="76"
+              />
             </a>
           </Link>
           <NavbarToggler onClick={toggle} />
@@ -30,7 +34,7 @@ const SatisfactionFormNavigation = () => {
         </div>
       </nav>
     </div>
-  );
-};
+  )
+}
 
-export default SatisfactionFormNavigation;
+export default SatisfactionFormNavigation

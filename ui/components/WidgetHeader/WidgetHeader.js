@@ -1,25 +1,25 @@
-import React, { useContext } from "react";
+import React, { useContext } from "react"
 
-import HeaderForm from "../../components/HeaderForm/HeaderForm";
-import LogoIdea from "../../components/LogoIdea/LogoIdea";
-import { useRouter } from "next/router";
-import { includes } from "lodash";
+import HeaderForm from "../../components/HeaderForm/HeaderForm"
+import LogoIdea from "../../components/LogoIdea/LogoIdea"
+import { useRouter } from "next/router"
+import { includes } from "lodash"
 
-import { Row } from "reactstrap";
-import { SearchResultContext } from "../../context/SearchResultContextProvider";
+import { Row } from "reactstrap"
+import { SearchResultContext } from "../../context/SearchResultContextProvider"
 
 const WidgetHeader = ({ handleSearchSubmit, isHome }) => {
-  const router = useRouter();
+  const router = useRouter()
 
-  const { selectedItem } = useContext(SearchResultContext);
+  const { selectedItem } = useContext(SearchResultContext)
 
-  let additionalClassName = selectedItem && includes(router.asPath, "page=fiche") ? "detail" : "global";
+  let additionalClassName = selectedItem && includes(router.asPath, "page=fiche") ? "detail" : "global"
 
   const handleSearchSubmitFunction = (values) => {
-    return handleSearchSubmit({ values });
-  };
+    return handleSearchSubmit({ values })
+  }
   if (isHome) {
-    additionalClassName = "home";
+    additionalClassName = "home"
   }
 
   return (
@@ -46,7 +46,7 @@ const WidgetHeader = ({ handleSearchSubmit, isHome }) => {
         </Row>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default WidgetHeader;
+export default WidgetHeader

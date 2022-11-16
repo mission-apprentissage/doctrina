@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 const PartenairesDeConfiance = () => {
   return (
@@ -138,7 +138,7 @@ const PartenairesDeConfiance = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default PartenairesDeConfiance;
+export default PartenairesDeConfiance

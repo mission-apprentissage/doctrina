@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from "reactstrap";
-import buttonPriseDeRDVIcon from "../../public/images/icons/fake_feature_btn.svg";
+import React, { useState } from "react"
+import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from "reactstrap"
+import buttonPriseDeRDVIcon from "../../public/images/icons/fake_feature_btn.svg"
 
 const FakeFeature = ({
   buttonText,
@@ -12,13 +12,13 @@ const FakeFeature = ({
   questionsAndTags,
 }) => {
   const handleClick = () => {
-    setIsOptionSelected(true);
-  };
+    setIsOptionSelected(true)
+  }
 
-  const [modal, setModal] = useState(false);
-  const [isOptionSelected, setIsOptionSelected] = useState(false);
+  const [modal, setModal] = useState(false)
+  const [isOptionSelected, setIsOptionSelected] = useState(false)
 
-  const toggle = () => setModal(!modal);
+  const toggle = () => setModal(!modal)
 
   return (
     <>
@@ -62,7 +62,7 @@ const FakeFeature = ({
         )}
       </Modal>
     </>
-  );
-};
+  )
+}
 
-export default FakeFeature;
+export default FakeFeature

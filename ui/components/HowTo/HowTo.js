@@ -1,11 +1,11 @@
-import React from "react";
-import howto1 from "../../public/images/howto1.svg";
-import howto2 from "../../public/images/howto2.svg";
-import howto3 from "../../public/images/howto3.svg";
-import howtoline1 from "../../public/images/howtoline1.svg";
-import howtoline2a from "../../public/images/howtoline2a.svg";
-import howtoline3a from "../../public/images/howtoline3a.svg";
-import howtoline3b from "../../public/images/howtoline3b.svg";
+import React from "react"
+import howto1 from "../../public/images/howto1.svg"
+import howto2 from "../../public/images/howto2.svg"
+import howto3 from "../../public/images/howto3.svg"
+import howtoline1 from "../../public/images/howtoline1.svg"
+import howtoline2a from "../../public/images/howtoline2a.svg"
+import howtoline3a from "../../public/images/howtoline3a.svg"
+import howtoline3b from "../../public/images/howtoline3b.svg"
 
 const HowTo = () => {
   return (
@@ -62,7 +62,7 @@ const HowTo = () => {
         </div>
       </section>
     </>
-  );
-};
+  )
+}
 
-export default HowTo;
+export default HowTo

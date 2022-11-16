@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 const PostezVotreOffreAlternance = () => {
   return (
@@ -19,7 +19,7 @@ const PostezVotreOffreAlternance = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default PostezVotreOffreAlternance;
+export default PostezVotreOffreAlternance
