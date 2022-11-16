@@ -19,16 +19,16 @@ export const candidatHaveYouBeenContacted = async ({
   logger.info("Cron #candidatHaveYouBeenContacted started.");
 
   // Appointments created there are less than 5 days
-  const appointmentsToTrigger = await appointments.find({
-    created_at: {
-      $lte: dayjs().subtract(5, "days").toDate(),
-      // Excludes very older appointments
-      $gte: dayjs("2021-12-01T00:00:00.486Z").toDate(),
-    },
-    "candidat_mailing.campaign": { $ne: mailType.CANDIDAT_HAVE_YOU_BEEN_CONTACTED },
-  });
-
-  logger.info("Appointments to follow-up:", { appointments: appointmentsToTrigger });
+  const appointmentsToTrigger = await appointments
+    .find({
+      created_at: {
+        $lte: dayjs().subtract(5, "days").toDate(),
+        // Excludes very older appointments
+        $gte: dayjs("2021-12-01T00:00:00.486Z").toDate(),
+      },
+      "candidat_mailing.campaign": { $ne: mailType.CANDIDAT_HAVE_YOU_BEEN_CONTACTED },
+    })
+    .lean();
 
   const promises = appointmentsToTrigger.map(async (appointment) => {
     const referrerObj = getReferrerById(appointment.referrer);
