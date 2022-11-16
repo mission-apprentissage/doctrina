@@ -129,7 +129,7 @@ cli
   });
 
 cli
-  .command("invite-etablissement-to-premium-followUp")
+  .command("invite-etablissement-to-premium-follow-up")
   .description("(Relance) Invite les établissements (via email décisionnaire) au premium (Parcoursup)")
   .action(() => {
     runScript((components) => inviteEtablissementToPremiumFollowUp(components));
