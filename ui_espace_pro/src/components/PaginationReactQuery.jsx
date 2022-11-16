@@ -1,10 +1,10 @@
-import { Box, Button, Link } from '@chakra-ui/react'
-import React from 'react'
-import { ChevronLeft, ChevronRight } from '../theme/components/icons'
+import { Box, Button, Link } from "@chakra-ui/react"
+import React from "react"
+import { ChevronLeft, ChevronRight } from "../theme/components/icons"
 
 const PageLink = ({ pageNumber, pageIndex, gotoPage, isActive = false }) => {
   return (
-    <Link onClick={() => gotoPage(pageNumber - 1)} alt={`Page ${pageIndex}`} className={`${isActive ? 'active' : ''}`}>
+    <Link onClick={() => gotoPage(pageNumber - 1)} alt={`Page ${pageIndex}`} className={`${isActive ? "active" : ""}`}>
       {pageNumber}
     </Link>
   )
@@ -15,7 +15,7 @@ const PreviousLink = ({ previousPage, canPreviousPage }) => {
     <Button
       leftIcon={<ChevronLeft />}
       as={Link}
-      variant='link'
+      variant="link"
       isDisabled={!canPreviousPage}
       onClick={() => previousPage()}
     >
@@ -26,7 +26,7 @@ const PreviousLink = ({ previousPage, canPreviousPage }) => {
 
 const NextLink = ({ nextPage, canNextPage }) => {
   return (
-    <Button rightIcon={<ChevronRight />} as={Link} variant='link' isDisabled={!canNextPage} onClick={() => nextPage()}>
+    <Button rightIcon={<ChevronRight />} as={Link} variant="link" isDisabled={!canNextPage} onClick={() => nextPage()}>
       Suivant
     </Button>
   )
@@ -39,7 +39,7 @@ export default ({ page, canPreviousPage, canNextPage, pageCount, nextPage, previ
 
   if (pageCount <= 5) {
     return (
-      <Box className='search-pagination' textAlign='center' my={3} mx={1}>
+      <Box className="search-pagination" textAlign="center" my={3} mx={1}>
         <PreviousLink previousPage={previousPage} canPreviousPage={canPreviousPage} />
         {Array(pageCount)
           .fill(page)
@@ -52,7 +52,7 @@ export default ({ page, canPreviousPage, canNextPage, pageCount, nextPage, previ
   }
 
   return (
-    <Box className={'search-pagination'} textAlign={'center'} my={3} mx={1}>
+    <Box className={"search-pagination"} textAlign={"center"} my={3} mx={1}>
       <PreviousLink previousPage={previousPage} canPreviousPage={canPreviousPage} />
 
       {currentPage > 1 && <PageLink pageNumber={1} gotoPage={gotoPage} />}

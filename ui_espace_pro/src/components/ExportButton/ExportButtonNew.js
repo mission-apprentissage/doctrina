@@ -1,14 +1,14 @@
-import { Button, Link } from '@chakra-ui/react'
-import dayjs from 'dayjs'
-import _ from 'lodash'
-import { CSVLink } from 'react-csv'
-import { AUTHTYPE } from '../../common/contants'
-import useAuth from '../../common/hooks/useAuth'
-import { DownloadLine } from '../../theme/components/icons'
+import { Button, Link } from "@chakra-ui/react"
+import dayjs from "dayjs"
+import _ from "lodash"
+import { CSVLink } from "react-csv"
+import { AUTHTYPE } from "../../common/contants"
+import useAuth from "../../common/hooks/useAuth"
+import { DownloadLine } from "../../theme/components/icons"
 
-const formatDate = (date) => dayjs(date).format('YYYY-MM-DD')
+const formatDate = (date) => dayjs(date).format("YYYY-MM-DD")
 
-export default ({ data, datasetName = 'export' }) => {
+export default ({ data, datasetName = "export" }) => {
   /** Map et reduce data per offre */
 
   const [auth] = useAuth()
@@ -31,16 +31,16 @@ export default ({ data, datasetName = 'export' }) => {
     .flat()
     .map((x) =>
       _.omit(x, [
-        '_id',
-        'etat_utilisateur',
-        '__v',
-        'isAdmin',
-        'type',
-        'scope',
-        'email_valide',
-        'id_form',
-        'offres_detail',
-        'qualiopi',
+        "_id",
+        "etat_utilisateur",
+        "__v",
+        "isAdmin",
+        "type",
+        "scope",
+        "email_valide",
+        "id_form",
+        "offres_detail",
+        "qualiopi",
       ])
     )
     .map((x) => {
@@ -62,9 +62,9 @@ export default ({ data, datasetName = 'export' }) => {
 
   return (
     <Link>
-      <CSVLink data={format} filename={fileName} separator={';'}>
-        <Button variant='pill' py={2}>
-          <DownloadLine mx='0.5rem' w='0.75rem' h='0.75rem' />
+      <CSVLink data={format} filename={fileName} separator={";"}>
+        <Button variant="pill" py={2}>
+          <DownloadLine mx="0.5rem" w="0.75rem" h="0.75rem" />
           Exporter
         </Button>
       </CSVLink>

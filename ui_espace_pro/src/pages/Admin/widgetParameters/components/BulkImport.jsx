@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react'
-import { isEqual } from 'lodash'
-import * as papaparse from 'react-papaparse'
-import emailValidator from 'email-validator'
-import { Box, Alert, Text, Button, Link, useToast } from '@chakra-ui/react'
-import FileDropzone from '../../../../common/components/FileDropzone'
-import { _get, _post } from '../../../../common/httpClient'
+import React, { useEffect, useState } from "react"
+import { isEqual } from "lodash"
+import * as papaparse from "react-papaparse"
+import emailValidator from "email-validator"
+import { Box, Alert, Text, Button, Link, useToast } from "@chakra-ui/react"
+import FileDropzone from "../../../../common/components/FileDropzone"
+import { _get, _post } from "../../../../common/httpClient"
 /**
  * @description Bulk import CFA.
  * @returns {JSX.Element}
@@ -16,8 +16,8 @@ const BulkImport = () => {
   const [submitLoading, setSubmitLoading] = useState(false)
   const toast = useToast()
   const csvHeaders = {
-    SIRET_FORMATEUR: 'Siret formateur',
-    EMAIL_CONTACT: 'Email contact',
+    SIRET_FORMATEUR: "Siret formateur",
+    EMAIL_CONTACT: "Email contact",
   }
 
   const csvMapping = {
@@ -46,10 +46,10 @@ const BulkImport = () => {
         setReferrers(referrersResponse)
       } catch (error) {
         toast({
-          title: 'Une erreur est survenue durant la récupération des informations.',
-          status: 'error',
+          title: "Une erreur est survenue durant la récupération des informations.",
+          status: "error",
           isClosable: true,
-          position: 'bottom-right',
+          position: "bottom-right",
         })
       }
     }
@@ -69,14 +69,14 @@ const BulkImport = () => {
     if (!isEqual(headerColumns, headers)) {
       return {
         error: {
-          header: 'Fichier invalide',
+          header: "Fichier invalide",
           content: `Les colonne du fichier doivent suivren le format: "${Object.values(csvHeaders)}".`,
         },
       }
     }
 
     if (!rows.length) {
-      return { error: { header: 'Fichier vide', content: 'Aucun élément trouvé.' } }
+      return { error: { header: "Fichier vide", content: "Aucun élément trouvé." } }
     }
 
     let rowCounter = 1
@@ -85,7 +85,7 @@ const BulkImport = () => {
       if (row.length !== headerColumns.length) {
         return {
           error: {
-            header: 'Structure du fichier non valide',
+            header: "Structure du fichier non valide",
             content: `La ligne "${rowCounter}" doit suivre la structure suivante: "${headerColumns}".`,
           },
         }
@@ -94,7 +94,7 @@ const BulkImport = () => {
       if (!row[csvMapping[csvHeaders.SIRET_FORMATEUR]]) {
         return {
           error: {
-            header: 'Siret formateur obligatoire',
+            header: "Siret formateur obligatoire",
             content: `La ligne "${rowCounter}" doit contenir un "${csvHeaders.SIRET_FORMATEUR}".`,
           },
         }
@@ -103,7 +103,7 @@ const BulkImport = () => {
       if (row[csvMapping[csvHeaders.SIRET_FORMATEUR]].length !== 14) {
         return {
           error: {
-            header: 'Siret formateur invalide',
+            header: "Siret formateur invalide",
             content: `La ligne "${rowCounter}" doit contenir un "${csvHeaders.SIRET_FORMATEUR}" valide avec 14 numéros.`,
           },
         }
@@ -112,7 +112,7 @@ const BulkImport = () => {
       if (!row[csvMapping[csvHeaders.EMAIL_CONTACT]]) {
         return {
           error: {
-            header: 'Email de contact obligatoire',
+            header: "Email de contact obligatoire",
             content: `La ligne "${rowCounter}" doit contenir un "${csvHeaders.EMAIL_CONTACT}".`,
           },
         }
@@ -121,7 +121,7 @@ const BulkImport = () => {
       if (!emailValidator.validate(row[csvMapping[csvHeaders.EMAIL_CONTACT]])) {
         return {
           error: {
-            header: 'Email de contact invalide',
+            header: "Email de contact invalide",
             content: `La ligne "${rowCounter}" doit contenir un "${csvHeaders.EMAIL_CONTACT}" valide.`,
           },
         }
@@ -170,7 +170,7 @@ const BulkImport = () => {
     try {
       setSubmitLoading(true)
 
-      const { result } = await _post('/api/widget-parameters/import', {
+      const { result } = await _post("/api/widget-parameters/import", {
         parameters: fileContent.map((row) => ({
           siret_formateur: row[csvMapping[csvHeaders.SIRET_FORMATEUR]],
           email: row[csvMapping[csvHeaders.EMAIL_CONTACT]],
@@ -181,13 +181,13 @@ const BulkImport = () => {
       const fileContentUpdated = fileContent.map((row) => {
         const relatedSiret = result.find((item) => item.siret_formateur === row[csvMapping[csvHeaders.SIRET_FORMATEUR]])
 
-        let status = ''
+        let status = ""
         if (relatedSiret.error) {
           status = relatedSiret.error
         }
 
         if (!relatedSiret.error && !relatedSiret.formations.length) {
-          status = 'Aucunes formation affectés'
+          status = "Aucunes formation affectés"
         }
 
         if (!relatedSiret.error && relatedSiret.formations.length) {
@@ -204,17 +204,17 @@ const BulkImport = () => {
 
       setFileContent(fileContentUpdated)
       toast({
-        title: 'Import effectué avec succès.',
-        status: 'success',
+        title: "Import effectué avec succès.",
+        status: "success",
         isClosable: true,
-        position: 'bottom-right',
+        position: "bottom-right",
       })
     } catch (error) {
       toast({
-        title: 'Une erreur est survenue.',
-        status: 'error',
+        title: "Une erreur est survenue.",
+        status: "error",
         isClosable: true,
-        position: 'bottom-right',
+        position: "bottom-right",
       })
     } finally {
       setSubmitLoading(false)
@@ -224,19 +224,19 @@ const BulkImport = () => {
   return (
     <Box>
       <Box
-        bg='white'
+        bg="white"
         mx={[2, 2, 40, 40]}
-        boxShadow='0 1px 2px 0 rgb(0 0 0 / 5%)'
-        border='1px solid rgba(0,40,100,.12)'
-        border-radius='3px'
+        boxShadow="0 1px 2px 0 rgb(0 0 0 / 5%)"
+        border="1px solid rgba(0,40,100,.12)"
+        border-radius="3px"
         mt={10}
       >
-        <Text p={5} borderBottom='1px solid rgba(0,40,100,.12)' border-radius='3px'>
+        <Text p={5} borderBottom="1px solid rgba(0,40,100,.12)" border-radius="3px">
           Activation massive de formations via fichier .csv
         </Text>
         {error && (
           <Box>
-            <Alert type='warning' icon='alert-triangle'>
+            <Alert type="warning" icon="alert-triangle">
               <b>{error.header}</b>
               <br />
               {error.content}
@@ -244,10 +244,10 @@ const BulkImport = () => {
           </Box>
         )}
         {!fileContent && (
-          <FileDropzone onDrop={onDrop} accept='.csv' maxFiles={1}>
-            <Text align='center' p={2} mb={5}>
+          <FileDropzone onDrop={onDrop} accept=".csv" maxFiles={1}>
+            <Text align="center" p={2} mb={5}>
               Veuillez importer votre fichier .csv pour activer plusieurs CFA <br />(
-              <Link href='/docs/exemple-import-cfa.csv' color='info'>
+              <Link href="/docs/exemple-import-cfa.csv" color="info">
                 fichier d'exemple
               </Link>
               ).
@@ -258,10 +258,10 @@ const BulkImport = () => {
       {fileContent && (
         <>
           <Box width={12}>
-            <p align='center' className='my-6'>
+            <p align="center" className="my-6">
               Ci-dessous le récapitulatif des etablissements qui seront activés sur tous les plateformes de diffusion.
             </p>
-            <Box responsive className='card-table'>
+            <Box responsive className="card-table">
               <Box>
                 <Text>Siret formateur</Text>
                 <Text>Email</Text>
@@ -281,12 +281,12 @@ const BulkImport = () => {
               </Box>
             </Box>
           </Box>
-          <div className='mb-7' />
+          <div className="mb-7" />
           <Box>
-            <Button color='primary float-right' onClick={submit} loading={submitLoading} disabled={submitLoading}>
+            <Button color="primary float-right" onClick={submit} loading={submitLoading} disabled={submitLoading}>
               Enregistrer
             </Button>
-            <Button color='second float-right' onClick={cancel} disabled={submitLoading}>
+            <Button color="second float-right" onClick={cancel} disabled={submitLoading}>
               Annuler
             </Button>
           </Box>

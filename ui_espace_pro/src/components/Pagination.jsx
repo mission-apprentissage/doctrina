@@ -1,5 +1,5 @@
-import { Box, Link } from '@chakra-ui/react'
-import React from 'react'
+import { Box, Link } from "@chakra-ui/react"
+import React from "react"
 
 const PageLink = ({ pageNumber, fragmentName, setPage, isActive = false }) => {
   return (
@@ -10,7 +10,7 @@ const PageLink = ({ pageNumber, fragmentName, setPage, isActive = false }) => {
       }}
       href={`?${fragmentName}=${pageNumber}`}
       alt={`Page ${pageNumber}`}
-      className={`${isActive ? 'active' : ''}`}
+      className={`${isActive ? "active" : ""}`}
     >
       {pageNumber}
     </Link>
@@ -25,7 +25,7 @@ const PreviousLink = ({ currentPage, fragmentName, setPage }) => {
         setPage(Math.max(currentPage - 1, 0))
       }}
       href={`?${fragmentName}=${Math.max(currentPage - 1, 1)}`}
-      rel={'prev'}
+      rel={"prev"}
     >
       Précédent
     </Link>
@@ -40,7 +40,7 @@ const NextLink = ({ currentPage, totalPages, fragmentName, setPage }) => {
         setPage(Math.min(currentPage + 1, totalPages - 1))
       }}
       href={`?${fragmentName}=${Math.min(currentPage + 1, totalPages)}`}
-      rel={'next'}
+      rel={"next"}
     >
       Suivant
     </Link>
@@ -54,7 +54,7 @@ export default ({ totalPages, currentPage, setPage, fragmentName }) => {
 
   if (totalPages <= 5) {
     return (
-      <Box className={'search-pagination'} textAlign={'center'} my={3} mx={1}>
+      <Box className={"search-pagination"} textAlign={"center"} my={3} mx={1}>
         <PreviousLink fragmentName={fragmentName} setPage={setPage} currentPage={currentPage} />
         {Array(totalPages)
           .fill(currentPage)
@@ -75,7 +75,7 @@ export default ({ totalPages, currentPage, setPage, fragmentName }) => {
   }
 
   return (
-    <Box className={'search-pagination'} textAlign={'center'} my={3} mx={1}>
+    <Box className={"search-pagination"} textAlign={"center"} my={3} mx={1}>
       <PreviousLink fragmentName={fragmentName} setPage={setPage} currentPage={currentPage} />
 
       {currentPage > 1 && <PageLink pageNumber={1} setPage={setPage} fragmentName={fragmentName} />}

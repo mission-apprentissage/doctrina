@@ -1,11 +1,11 @@
-'use strict'
+"use strict"
 
 /**
  * @description Initializes widgets.
  * @returns {Promise<{siret: {String}, cfd: {String}: referrer: {String}, data: {Object} }[]>}
  */
 window.initPrdvWidget = function () {
-  var promises = Object.values(document.getElementsByClassName('widget-prdv')).map(createWidgetPRDV)
+  var promises = Object.values(document.getElementsByClassName("widget-prdv")).map(createWidgetPRDV)
   return Promise.all(promises)
 }
 /**
@@ -15,11 +15,11 @@ window.initPrdvWidget = function () {
  */
 
 function createWidgetPRDV(element) {
-  element.innerHTML = ''
-  return fetch(''.concat('https://rdv-cfa.apprentissage.beta.gouv.fr', '/api/appointment-request/context/create'), {
-    method: 'POST',
+  element.innerHTML = ""
+  return fetch("".concat("https://rdv-cfa.apprentissage.beta.gouv.fr", "/api/appointment-request/context/create"), {
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
     body: JSON.stringify(element.dataset),
   })
@@ -28,16 +28,16 @@ function createWidgetPRDV(element) {
     })
     .then(function (data) {
       if (data && !data.error) {
-        var a = document.createElement('a')
-        var link = document.createTextNode('Prendre rendez-vous')
+        var a = document.createElement("a")
+        var link = document.createTextNode("Prendre rendez-vous")
         a.appendChild(link)
-        a.title = 'Prendre rendez-vous'
-        a.target = '_blank'
+        a.title = "Prendre rendez-vous"
+        a.target = "_blank"
         a.href = data.form_url
         element.appendChild(a)
       }
 
       return data
     })
-    ['catch'](console.error)
+    ["catch"](console.error)
 }

@@ -1,7 +1,7 @@
-import { Box, Text, Image, Input } from '@chakra-ui/react'
-import PropTypes from 'prop-types'
-import React from 'react'
-import { useDropzone } from 'react-dropzone'
+import { Box, Text, Image, Input } from "@chakra-ui/react"
+import PropTypes from "prop-types"
+import React from "react"
+import { useDropzone } from "react-dropzone"
 
 /**
  * @description Drag and drop component.
@@ -16,10 +16,10 @@ const FileDropzone = (props) => {
 
   return (
     <Box mt={5}>
-      <Box {...getRootProps()} style={{ cursor: 'pointer' }}>
-        <Text textAlign='center'>
+      <Box {...getRootProps()} style={{ cursor: "pointer" }}>
+        <Text textAlign="center">
           <Input {...getInputProps()} />
-          <Image display='block' mx='auto' src='/assets/undraw_add_file.svg' height={150} />
+          <Image display="block" mx="auto" src="/assets/undraw_add_file.svg" height={150} />
         </Text>
       </Box>
       {children}

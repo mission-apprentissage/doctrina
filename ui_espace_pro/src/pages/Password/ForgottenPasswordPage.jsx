@@ -1,9 +1,9 @@
-import * as Yup from 'yup'
-import { Box, Container, Input, Button, Text } from '@chakra-ui/react'
-import { Formik, Field, Form } from 'formik'
-import { useNavigate } from 'react-router-dom'
-import useAuth from '../../common/hooks/useAuth'
-import { _post } from '../../common/httpClient'
+import * as Yup from "yup"
+import { Box, Container, Input, Button, Text } from "@chakra-ui/react"
+import { Formik, Field, Form } from "formik"
+import { useNavigate } from "react-router-dom"
+import useAuth from "../../common/hooks/useAuth"
+import { _post } from "../../common/httpClient"
 
 const ForgottenPasswordPage = () => {
   let [, setAuth] = useAuth()
@@ -20,10 +20,10 @@ const ForgottenPasswordPage = () => {
 
   let resetPassword = async (values, { setStatus }) => {
     try {
-      let { token } = await _post('/api/password/forgotten-password', { ...values })
+      let { token } = await _post("/api/password/forgotten-password", { ...values })
       setAuth(token)
-      setStatus({ message: 'Un email vous a été envoyé.' })
-      setTimeout(() => navigate('/'), 1500)
+      setStatus({ message: "Un email vous a été envoyé." })
+      setTimeout(() => navigate("/"), 1500)
     } catch (e) {
       console.error(e)
       setStatus({ error: e.prettyMessage })
@@ -31,40 +31,40 @@ const ForgottenPasswordPage = () => {
   }
 
   return (
-    <Box p={5} bg='#FAFAFA'>
-      <Container border='1px solid #E0E5ED' bg='white' p={0} maxW='35ch'>
-        <Box borderBottom='1px solid #E0E5ED' p={4}>
-          <Text fontSize='16px' ml={2}>
+    <Box p={5} bg="#FAFAFA">
+      <Container border="1px solid #E0E5ED" bg="white" p={0} maxW="35ch">
+        <Box borderBottom="1px solid #E0E5ED" p={4}>
+          <Text fontSize="16px" ml={2}>
             Mot de passe oublié
           </Text>
         </Box>
         <Box mx={5} mt={5}>
           <Formik
             initialValues={{
-              username: '',
+              username: "",
             }}
             validationSchema={Yup.object().shape({
-              username: Yup.string().required('Veuillez saisir un identifiant'),
+              username: Yup.string().required("Veuillez saisir un identifiant"),
             })}
             onSubmit={resetPassword}
           >
             {({ status = {} }) => {
               return (
                 <Form>
-                  <Text textStyle='h6' fontSize='12px'>
+                  <Text textStyle="h6" fontSize="12px">
                     Identifiant
                   </Text>
-                  <Field name='username'>
+                  <Field name="username">
                     {({ field, meta }) => {
-                      return <Input type={'text'} placeholder='Votre identifiant...' {...field} {...showError(meta)} />
+                      return <Input type={"text"} placeholder="Votre identifiant..." {...field} {...showError(meta)} />
                     }}
                   </Field>
-                  <Button variant='primary' type={'submit'} fontSize='12px' fontWeight='700' mt={5}>
+                  <Button variant="primary" type={"submit"} fontSize="12px" fontWeight="700" mt={5}>
                     Demander un nouveau mot de passe
                   </Button>
                   <Box mb={5}>
-                    {status.error && <Text color='#cd201f'>{status.error}</Text>}
-                    {status.message && <Text color='#316100'>{status.message}</Text>}
+                    {status.error && <Text color="#cd201f">{status.error}</Text>}
+                    {status.message && <Text color="#316100">{status.message}</Text>}
                   </Box>
                 </Form>
               )

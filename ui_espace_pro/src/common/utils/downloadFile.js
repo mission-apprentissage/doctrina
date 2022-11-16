@@ -1,4 +1,4 @@
-import { getAuth } from '../auth'
+import { getAuth } from "../auth"
 
 /**
  * @description Downloads CSV file.
@@ -10,7 +10,7 @@ const download = (url, filename) => {
   const auth = getAuth()
 
   return fetch(url, {
-    method: 'GET',
+    method: "GET",
     headers: {
       Authorization: `Bearer ${auth.token}`,
     },
@@ -18,7 +18,7 @@ const download = (url, filename) => {
     .then((response) => response.blob())
     .then((blob) => {
       const url = window.URL.createObjectURL(blob)
-      const a = document.createElement('a')
+      const a = document.createElement("a")
       a.href = url
       a.download = filename
       document.body.appendChild(a)

@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react'
-import * as emailValidator from 'email-validator'
-import { Box, Text, Input, Checkbox, Flex, Button, useToast } from '@chakra-ui/react'
-import { _get, _post } from '../../../../common/httpClient'
-import { Check } from '../../../../theme/components/icons'
+import { useEffect, useState } from "react"
+import * as emailValidator from "email-validator"
+import { Box, Text, Input, Checkbox, Flex, Button, useToast } from "@chakra-ui/react"
+import { _get, _post } from "../../../../common/httpClient"
+import { Check } from "../../../../theme/components/icons"
 
 /**
  * @description Updates all widgetParameters to updates referrers.
@@ -13,8 +13,8 @@ const ActivateAllCfaFormations = () => {
   const [submitLoading, setSubmitLoading] = useState(false)
   const [isSubmitDisabled, setSubmitDisabled] = useState(true)
   const [referrers, setReferrers] = useState()
-  const [email, setEmail] = useState('')
-  const [siret, setSiret] = useState('')
+  const [email, setEmail] = useState("")
+  const [siret, setSiret] = useState("")
   const toast = useToast()
 
   /**
@@ -29,10 +29,10 @@ const ActivateAllCfaFormations = () => {
         setReferrers(referrersResponse.map((referrer) => ({ ...referrer, isChecked: false })))
       } catch (error) {
         toast({
-          title: 'Une erreur est survenue durant la récupération des informations.',
-          status: 'error',
+          title: "Une erreur est survenue durant la récupération des informations.",
+          status: "error",
           isClosable: true,
-          position: 'bottom-right',
+          position: "bottom-right",
         })
       } finally {
         setLoading(false)
@@ -113,7 +113,7 @@ const ActivateAllCfaFormations = () => {
   const submit = async () => {
     try {
       setSubmitLoading(true)
-      const { result } = await _post('/api/widget-parameters/import', {
+      const { result } = await _post("/api/widget-parameters/import", {
         parameters: [
           {
             siret_formateur: siret,
@@ -126,27 +126,27 @@ const ActivateAllCfaFormations = () => {
       if (result[0].error) {
         toast({
           title: result[0].error,
-          status: 'error',
+          status: "error",
           isClosable: true,
-          position: 'bottom-right',
+          position: "bottom-right",
         })
       } else {
-        setEmail('')
-        setSiret('')
+        setEmail("")
+        setSiret("")
 
         if (result[0].formations.length > 0) {
           toast({
-            title: 'Enregistrement effectué avec succès.',
-            status: 'success',
+            title: "Enregistrement effectué avec succès.",
+            status: "success",
             isClosable: true,
-            position: 'bottom-right',
+            position: "bottom-right",
           })
         } else {
           toast({
             title: "Aucune modification n'a été apportée.",
-            status: 'info',
+            status: "info",
             isClosable: true,
-            position: 'bottom-right',
+            position: "bottom-right",
           })
         }
       }
@@ -154,10 +154,10 @@ const ActivateAllCfaFormations = () => {
       toggleDisableButton()
     } catch (error) {
       toast({
-        title: 'Une erreur est survenue.',
-        status: 'error',
+        title: "Une erreur est survenue.",
+        status: "error",
         isClosable: true,
-        position: 'bottom-right',
+        position: "bottom-right",
       })
     } finally {
       setSubmitLoading(false)
@@ -166,14 +166,14 @@ const ActivateAllCfaFormations = () => {
 
   return (
     <Box
-      w={['100%', '100%', '40%', '40%']}
-      boxShadow='0 1px 2px 0 rgb(0 0 0 / 5%)'
-      border='1px solid rgba(0,40,100,.12)'
-      border-radius='3px'
+      w={["100%", "100%", "40%", "40%"]}
+      boxShadow="0 1px 2px 0 rgb(0 0 0 / 5%)"
+      border="1px solid rgba(0,40,100,.12)"
+      border-radius="3px"
       mt={10}
       ml={[0, 0, 5, 5]}
     >
-      <Text fontSize='15px' p={5} borderBottom='1px solid rgba(0,40,100,.12)' border-radius='3px'>
+      <Text fontSize="15px" p={5} borderBottom="1px solid rgba(0,40,100,.12)" border-radius="3px">
         Activer toutes les formations d'un CFA
       </Text>
       <Box active={loading} loader p={5}>
@@ -189,7 +189,7 @@ const ActivateAllCfaFormations = () => {
                   key={referrer.code}
                   checked={referrer.checked}
                   label={referrer.full_name}
-                  icon={<Check w='20px' h='18px' />}
+                  icon={<Check w="20px" h="18px" />}
                   onChange={() => toggleReferrer(referrer.code, !referrer.isChecked)}
                 >
                   <Text ml={2}>{referrer.full_name}</Text>
@@ -197,35 +197,35 @@ const ActivateAllCfaFormations = () => {
               </Flex>
             ))}
           <Box mt={5}>
-            <Text fontWeight='700' textStyle='sm'>
+            <Text fontWeight="700" textStyle="sm">
               Siret formateur
             </Text>
             <Input
               mt={3}
-              name='siret_formateur'
-              placeholder='48398606300012'
+              name="siret_formateur"
+              placeholder="48398606300012"
               maxLength={14}
               onChange={onChangeSiret}
               value={siret}
             />
           </Box>
           <Box mt={5}>
-            <Text fontWeight='700' textStyle='sm'>
+            <Text fontWeight="700" textStyle="sm">
               Email de contact
             </Text>
-            <Input mt={3} name='email_contact' placeholder='exemple@cfa.fr' onChange={onChangeEmail} value={email} />
+            <Input mt={3} name="email_contact" placeholder="exemple@cfa.fr" onChange={onChangeEmail} value={email} />
           </Box>
         </Text>
       </Box>
-      <Flex justifyContent='flex-end' borderTop='1px solid rgba(0,40,100,.12)' border-radius='3px' p={5}>
+      <Flex justifyContent="flex-end" borderTop="1px solid rgba(0,40,100,.12)" border-radius="3px" p={5}>
         <Button
-          bg={isSubmitDisabled === true ? 'tomato' : '#467fcf'}
+          bg={isSubmitDisabled === true ? "tomato" : "#467fcf"}
           disabled={isSubmitDisabled}
           loading={submitLoading}
           onClick={submit}
-          variant='primary'
-          mr='3rem'
-          _hover={{ bg: '#3057BE' }}
+          variant="primary"
+          mr="3rem"
+          _hover={{ bg: "#3057BE" }}
         >
           Enregistrer
         </Button>

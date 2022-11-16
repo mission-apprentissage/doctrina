@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react'
-import { _get, _put } from '../../../../common/httpClient'
-import { Box, Text, Checkbox, Flex, Button, useToast } from '@chakra-ui/react'
-import { Check } from '../../../../theme/components/icons'
+import { useEffect, useState } from "react"
+import { _get, _put } from "../../../../common/httpClient"
+import { Box, Text, Checkbox, Flex, Button, useToast } from "@chakra-ui/react"
+import { Check } from "../../../../theme/components/icons"
 /**
  * @description Updates all widgetParameters to updates referrers.
  * @returns {JSX.Element}
@@ -25,10 +25,10 @@ const UpdateAllParameterReferrers = () => {
         setReferrers(referrersResponse.map((referrer) => ({ ...referrer, isChecked: false })))
       } catch (error) {
         toast({
-          title: 'Une erreur est survenue durant la récupération des informations.',
-          status: 'error',
+          title: "Une erreur est survenue durant la récupération des informations.",
+          status: "error",
           isClosable: true,
-          position: 'bottom-right',
+          position: "bottom-right",
         })
       } finally {
         setLoading(false)
@@ -84,21 +84,21 @@ const UpdateAllParameterReferrers = () => {
   const submit = async () => {
     try {
       setSubmitLoading(true)
-      await _put('/api/widget-parameters/referrers', {
+      await _put("/api/widget-parameters/referrers", {
         referrers: referrers.filter((referrer) => referrer.isChecked).map((referrer) => referrer.code),
       })
       toast({
-        title: 'Enregistrement effectué avec succès.',
-        status: 'success',
+        title: "Enregistrement effectué avec succès.",
+        status: "success",
         isClosable: true,
-        position: 'bottom-right',
+        position: "bottom-right",
       })
     } catch (error) {
       toast({
-        title: 'Une erreur est survenue.',
-        status: 'error',
+        title: "Une erreur est survenue.",
+        status: "error",
         isClosable: true,
-        position: 'bottom-right',
+        position: "bottom-right",
       })
     } finally {
       setSubmitLoading(false)
@@ -107,13 +107,13 @@ const UpdateAllParameterReferrers = () => {
 
   return (
     <Box
-      w={['100%', '100%', '40%', '40%']}
-      boxShadow='0 1px 2px 0 rgb(0 0 0 / 5%)'
-      border='1px solid rgba(0,40,100,.12)'
-      border-radius='3px'
+      w={["100%", "100%", "40%", "40%"]}
+      boxShadow="0 1px 2px 0 rgb(0 0 0 / 5%)"
+      border="1px solid rgba(0,40,100,.12)"
+      border-radius="3px"
       mt={10}
     >
-      <Text fontSize='15px' p={5} borderBottom='1px solid rgba(0,40,100,.12)' border-radius='3px'>
+      <Text fontSize="15px" p={5} borderBottom="1px solid rgba(0,40,100,.12)" border-radius="3px">
         Modifier les sources de parution pour tous les paramètres actifs
       </Text>
       <Box active={loading} loader p={5}>
@@ -128,7 +128,7 @@ const UpdateAllParameterReferrers = () => {
                 <Checkbox
                   key={referrer.code}
                   checked={referrer.checked}
-                  icon={<Check w='20px' h='18px' />}
+                  icon={<Check w="20px" h="18px" />}
                   onChange={() => toggleReferrer(referrer.code, !referrer.isChecked)}
                 >
                   <Text ml={2}>{referrer.full_name}</Text>
@@ -137,15 +137,15 @@ const UpdateAllParameterReferrers = () => {
             ))}
         </Text>
       </Box>
-      <Flex justifyContent='flex-end' borderTop='1px solid rgba(0,40,100,.12)' border-radius='3px' p={5} mt='12.6rem'>
+      <Flex justifyContent="flex-end" borderTop="1px solid rgba(0,40,100,.12)" border-radius="3px" p={5} mt="12.6rem">
         <Button
-          bg={isSubmitDisabled === true ? '' : '#467fcf'}
+          bg={isSubmitDisabled === true ? "" : "#467fcf"}
           disabled={isSubmitDisabled}
           loading={submitLoading}
           onClick={submit}
-          variant='primary'
-          mr='3rem'
-          _hover={{ bg: '#3057BE' }}
+          variant="primary"
+          mr="3rem"
+          _hover={{ bg: "#3057BE" }}
         >
           Enregistrer
         </Button>

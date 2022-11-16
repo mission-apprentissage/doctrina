@@ -6,5 +6,5 @@ export const hasPageAccessTo = (auth, aclRef) => isUserAdmin(auth) || auth.acl?.
 export const hasContextAccessTo = (context, aclRef) => context.acl?.includes(aclRef)
 
 export const roles = {
-  administrator: 'administrator',
+  administrator: "administrator",
 }
