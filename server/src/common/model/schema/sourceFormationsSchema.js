@@ -15,4 +15,4 @@ export const sourceFormationsSchema = {
     default: Date.now,
     description: "Date de dernières mise à jour",
   },
-};
+}

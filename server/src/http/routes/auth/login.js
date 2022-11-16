@@ -1,12 +1,12 @@
-import express from "express";
-import passport from "passport";
-import { Strategy as LocalStrategy } from "passport-local";
-import { compose } from "compose-middleware";
-import { createUserToken } from "../../../common/utils/jwtUtils.js";
-import { tryCatch } from "../../middlewares/tryCatchMiddleware.js";
+import express from "express"
+import passport from "passport"
+import { Strategy as LocalStrategy } from "passport-local"
+import { compose } from "compose-middleware"
+import { createUserToken } from "../../../common/utils/jwtUtils.js"
+import { tryCatch } from "../../middlewares/tryCatchMiddleware.js"
 
 export default ({ users }) => {
-  const router = express.Router(); // eslint-disable-line new-cap
+  const router = express.Router() // eslint-disable-line new-cap
   passport.use(
     new LocalStrategy(
       {
@@ -18,26 +18,26 @@ export default ({ users }) => {
           .authenticate(username, password)
           .then((user) => {
             if (!user) {
-              return cb(null, false);
+              return cb(null, false)
             }
-            return cb(null, user);
+            return cb(null, user)
           })
-          .catch((err) => cb(err));
+          .catch((err) => cb(err))
       }
     )
-  );
+  )
 
   router.post(
     "/",
     compose([
       passport.authenticate("local", { session: false, failWithError: true }),
       tryCatch(async (req, res) => {
-        const user = req.user;
-        const token = createUserToken(user);
-        return res.json({ token });
+        const user = req.user
+        const token = createUserToken(user)
+        return res.json({ token })
       }),
     ])
-  );
+  )
 
-  return router;
-};
+  return router
+}

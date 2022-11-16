@@ -1,6 +1,6 @@
-import nock from "nock";
-import config from "../../../src/config.js";
-import { sampleCatalogueResponse } from "../../data/mnaCatalogSamples.js";
+import nock from "nock"
+import config from "../../../src/config.js"
+import { sampleCatalogueResponse } from "../../data/mnaCatalogSamples.js"
 
 export default async () => {
   nock(config.catalogueUrl)
@@ -32,7 +32,7 @@ export default async () => {
       page: 1,
       limit: 50,
     })
-    .reply(200, sampleCatalogueResponse);
+    .reply(200, sampleCatalogueResponse)
 
   nock(config.catalogueUrl)
     .persist()
@@ -69,7 +69,7 @@ export default async () => {
       page: 1,
       limit: 500,
     })
-    .reply(200, sampleCatalogueResponse);
+    .reply(200, sampleCatalogueResponse)
 
   nock(config.catalogueUrl)
     .persist()
@@ -131,5 +131,5 @@ export default async () => {
         nombre_de_page: 1,
         total: 1,
       },
-    });
-};
+    })
+}

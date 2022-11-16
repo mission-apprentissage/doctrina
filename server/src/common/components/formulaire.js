@@ -1,10 +1,10 @@
-import moment from "moment";
-import { ANNULEE, POURVUE } from "../constants.js";
-import { Formulaire } from "../model/index.js";
+import moment from "moment"
+import { ANNULEE, POURVUE } from "../constants.js"
+import { Formulaire } from "../model/index.js"
 
 export default () => ({
   getFormulaires: async (query, options, { page, limit }) => {
-    const response = await Formulaire.paginate(query, { ...options, page, limit, lean: true });
+    const response = await Formulaire.paginate(query, { ...options, page, limit, lean: true })
     return {
       pagination: {
         page: response.page,
@@ -13,7 +13,7 @@ export default () => ({
         total: response.total,
       },
       data: response.docs,
-    };
+    }
   },
   getFormulaire: (query) => Formulaire.findOne(query).lean(),
   createFormulaire: (payload) => Formulaire.create(payload),
@@ -21,16 +21,16 @@ export default () => ({
   deleteFormulaireFromGestionnaire: (siret) => Formulaire.deleteMany({ gestionnaire: siret }),
   updateFormulaire: (id_form, payload) => Formulaire.findOneAndUpdate({ id_form }, payload, { new: true }),
   archiveFormulaire: async (id_form) => {
-    let form = await Formulaire.findOne({ id_form });
+    let form = await Formulaire.findOne({ id_form })
 
     form.offres.map((offre) => {
-      offre.statut = "Annulée";
-    });
+      offre.statut = "Annulée"
+    })
 
-    form.statut = "Archivé";
-    await form.save();
+    form.statut = "Archivé"
+    await form.save()
 
-    return true;
+    return true
   },
   getOffre: (id) => Formulaire.findOne({ "offres._id": id }).lean(),
   createOffre: (id_form, payload) =>
@@ -53,8 +53,8 @@ export default () => ({
           "offres.$.statut": POURVUE,
         },
       }
-    );
-    return true;
+    )
+    return true
   },
   cancelOffre: async (id_offre) => {
     await Formulaire.findOneAndUpdate(
@@ -64,8 +64,8 @@ export default () => ({
           "offres.$.statut": ANNULEE,
         },
       }
-    );
-    return true;
+    )
+    return true
   },
   extendOffre: async (id_offre) => {
     await Formulaire.findOneAndUpdate(
@@ -77,7 +77,7 @@ export default () => ({
         },
         $inc: { "offres.$.nombre_prolongation": 1 },
       }
-    );
-    return true;
+    )
+    return true
   },
-});
+})

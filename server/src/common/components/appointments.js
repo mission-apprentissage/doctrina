@@ -1,4 +1,4 @@
-import { Appointment } from "../model/index.js";
+import { Appointment } from "../model/index.js"
 
 export default () => ({
   /**
@@ -30,10 +30,10 @@ export default () => ({
       referrer,
       id_rco_formation,
       cle_ministere_educatif,
-    });
-    await appointment.save();
+    })
+    await appointment.save()
 
-    return appointment.toObject();
+    return appointment.toObject()
   },
 
   /**
@@ -49,11 +49,11 @@ export default () => ({
    * @returns {Promise<*>}
    */
   getAppointmentById: async (id) => {
-    const appointment = await Appointment.findById(id);
+    const appointment = await Appointment.findById(id)
     if (!appointment) {
-      throw new Error(`Unable to find appointement ${id}`);
+      throw new Error(`Unable to find appointement ${id}`)
     }
-    return appointment.toObject();
+    return appointment.toObject()
   },
 
   /**
@@ -84,11 +84,11 @@ export default () => ({
    * @returns {Promise<*>}
    */
   updateStatusMailOpenedByCandidat: async (id) => {
-    const retrievedData = await Appointment.findById(id);
+    const retrievedData = await Appointment.findById(id)
 
-    retrievedData.email_premiere_demande_candidat_ouvert = true;
+    retrievedData.email_premiere_demande_candidat_ouvert = true
 
-    return Appointment.findOneAndUpdate({ _id: id }, retrievedData, { new: true });
+    return Appointment.findOneAndUpdate({ _id: id }, retrievedData, { new: true })
   },
 
   /**
@@ -97,11 +97,11 @@ export default () => ({
    * @returns {Promise<*>}
    */
   updateStatusMailOpenedByCentre: async (id) => {
-    const retrievedData = await Appointment.findById(id);
+    const retrievedData = await Appointment.findById(id)
 
-    retrievedData.email_premiere_demande_cfa_ouvert = true;
+    retrievedData.email_premiere_demande_cfa_ouvert = true
 
-    return Appointment.findOneAndUpdate({ _id: id }, retrievedData, { new: true });
+    return Appointment.findOneAndUpdate({ _id: id }, retrievedData, { new: true })
   },
 
   /**
@@ -111,4 +111,4 @@ export default () => ({
    * @returns {Appointment}
    */
   updateAppointment: (id, values) => Appointment.findOneAndUpdate({ _id: id }, values, { new: true }),
-});
+})

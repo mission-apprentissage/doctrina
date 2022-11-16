@@ -1,4 +1,4 @@
-import mailController from "company-email-validator";
+import mailController from "company-email-validator"
 /**
  * @description Check if an email is included in the provided array
  * @param {object[]} contactList
@@ -6,7 +6,7 @@ import mailController from "company-email-validator";
  * @returns {boolean}
  */
 export const checkIfUserMailExistInReferentiel = (contactList, userEmail) =>
-  contactList.map((x) => x.email.toLowerCase()).includes(userEmail.toLowerCase());
+  contactList.map((x) => x.email.toLowerCase()).includes(userEmail.toLowerCase())
 
 /**
  * @description get all domains from an array of emails
@@ -15,19 +15,19 @@ export const checkIfUserMailExistInReferentiel = (contactList, userEmail) =>
  */
 export const getAllDomainsFromEmailList = (contactList) => {
   const domains = contactList.reduce((acc, contact) => {
-    let [, domain] = contact.email.split("@");
+    let [, domain] = contact.email.split("@")
     if (!acc.includes(domain)) {
-      acc.push(domain);
+      acc.push(domain)
     }
-    return acc;
-  }, []);
+    return acc
+  }, [])
 
-  return domains;
-};
+  return domains
+}
 
 /**
  * @description check if an email is generic or private
  * @param {string} userEmail
  * @returns {boolean}
  */
-export const checkIfUserEmailIsPrivate = (userEmail) => mailController.isCompanyEmail(userEmail);
+export const checkIfUserEmailIsPrivate = (userEmail) => mailController.isCompanyEmail(userEmail)

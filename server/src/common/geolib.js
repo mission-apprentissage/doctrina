@@ -1,4 +1,4 @@
-import distance from "@turf/distance";
+import distance from "@turf/distance"
 
 /**
  * @description Returns number of kilometers between two geo points.
@@ -9,7 +9,7 @@ export const getDistanceInKm = (coordinate) => {
   const distanceInKm = distance(
     Object.values(coordinate.origin).reverse(),
     Object.values(coordinate.destination).reverse()
-  );
+  )
 
-  return Math.ceil(distanceInKm);
-};
+  return Math.ceil(distanceInKm)
+}

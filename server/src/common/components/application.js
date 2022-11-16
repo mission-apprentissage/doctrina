@@ -1,5 +1,5 @@
-import axios from "axios";
-import config from "../../config.js";
+import axios from "axios"
+import config from "../../config.js"
 
 export default () => ({
   getApplication: async (offreId) => {
@@ -14,8 +14,8 @@ export default () => ({
         },
         params: { query: JSON.stringify({ job_id: offreId }) },
       }
-    );
+    )
 
-    return result;
+    return result
   },
-});
+})

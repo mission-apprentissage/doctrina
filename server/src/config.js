@@ -1,4 +1,4 @@
-import env from "env-var";
+import env from "env-var"
 
 const config = {
   appName: env.get("LBA_NAME").default("doctrina").asString(),
@@ -107,6 +107,6 @@ const config = {
       role: env.get("LBA_USERS_DEFAULT_ADMIN_ROLE").default("administrator").asString(),
     },
   },
-};
+}
 
-export default config;
+export default config
