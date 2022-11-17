@@ -31,11 +31,7 @@ const Facet = ({
                 <Box flex="1" textAlign="left">
                   {title}
                 </Box>
-                {isExpanded ? (
-                  <SubtractLine boxSize={3.5} color="bluefrance.500" />
-                ) : (
-                  <AddFill boxSize={3.5} color="bluefrance.500" />
-                )}
+                {isExpanded ? <SubtractLine boxSize={3.5} color="bluefrance.500" /> : <AddFill boxSize={3.5} color="bluefrance.500" />}
               </AccordionButton>
             </h2>
             <AccordionPanel pb={4}>

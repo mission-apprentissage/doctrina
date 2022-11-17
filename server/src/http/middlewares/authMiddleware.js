@@ -7,10 +7,7 @@ export default ({ users }) => {
   passport.use(
     new Strategy(
       {
-        jwtFromRequest: ExtractJwt.fromExtractors([
-          ExtractJwt.fromUrlQueryParameter("token"),
-          ExtractJwt.fromAuthHeaderAsBearerToken(),
-        ]),
+        jwtFromRequest: ExtractJwt.fromExtractors([ExtractJwt.fromUrlQueryParameter("token"), ExtractJwt.fromAuthHeaderAsBearerToken()]),
         secretOrKey: config.auth.user.jwtSecret,
       },
       (jwt_payload, done) => {

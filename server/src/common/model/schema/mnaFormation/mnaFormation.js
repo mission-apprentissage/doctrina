@@ -338,14 +338,7 @@ export const mnaFormationSchema = {
   },
   affelnet_statut: {
     type: String,
-    enum: [
-      "hors périmètre",
-      "publié",
-      "non publié",
-      "à publier (soumis à validation)",
-      "à publier",
-      "en attente de publication",
-    ],
+    enum: ["hors périmètre", "publié", "non publié", "à publier (soumis à validation)", "à publier", "en attente de publication"],
     default: "hors périmètre",
     description: "Statut affelnet",
   },

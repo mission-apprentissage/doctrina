@@ -16,9 +16,9 @@ class GeoData {
   }
 
   getAddress(numero_rue, type_voie, libelle_rue, code_postal, ville) {
-    return `https://api-adresse.data.gouv.fr/search/?q=${numero_rue ? numero_rue + "+" : ""}${
-      type_voie ? type_voie + "+" : ""
-    }+${libelle_rue ? libelle_rue : ""}&postcode=${code_postal} - ${ville}`
+    return `https://api-adresse.data.gouv.fr/search/?q=${numero_rue ? numero_rue + "+" : ""}${type_voie ? type_voie + "+" : ""}+${
+      libelle_rue ? libelle_rue : ""
+    }&postcode=${code_postal} - ${ville}`
   }
 
   // le code postal 75116 ne remonte rien, il doit être remplacé par 75016
@@ -43,9 +43,7 @@ class GeoData {
     }
 
     if (!code_postal) {
-      console.log(
-        `No postcode for establishment.\t${this.getAddress(numero_rue, type_voie, libelle_rue, code_postal, ville)}`
-      )
+      console.log(`No postcode for establishment.\t${this.getAddress(numero_rue, type_voie, libelle_rue, code_postal, ville)}`)
       return false
     }
 
@@ -66,15 +64,7 @@ class GeoData {
     if (!responseApiAdresse) return false
 
     if (responseApiAdresse.features.length === 0) {
-      console.log(
-        `No geoloc result for establishment.\t${this.getAddress(
-          numero_rue,
-          type_voie,
-          libelle_rue,
-          code_postal,
-          ville
-        )}`
-      )
+      console.log(`No geoloc result for establishment.\t${this.getAddress(numero_rue, type_voie, libelle_rue, code_postal, ville)}`)
       return false
     }
 

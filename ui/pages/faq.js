@@ -37,10 +37,7 @@ const FAQ = () => {
 
   return (
     <Box>
-      <NextSeo
-        title="F.A.Q | La bonne alternance | Trouvez votre alternance"
-        description="Questions fréquemment posées. Résultats entreprises, résultats formations, etc."
-      />
+      <NextSeo title="F.A.Q | La bonne alternance | Trouvez votre alternance" description="Questions fréquemment posées. Résultats entreprises, résultats formations, etc." />
 
       <ScrollToTop />
       <Navigation bgcolor="is-white" />

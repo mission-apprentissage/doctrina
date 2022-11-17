@@ -65,9 +65,7 @@ const MatchaDetail = ({ job, seeInfo, setSeeInfo }) => {
               <div>
                 <img className="" src="/images/info.svg" alt="A noter" />
               </div>
-              <div className="ml-2">
-                À compétences égales, une attention particulière sera apportée aux personnes en situation de handicap.
-              </div>
+              <div className="ml-2">À compétences égales, une attention particulière sera apportée aux personnes en situation de handicap.</div>
             </div>
           ) : (
             ""
@@ -76,16 +74,14 @@ const MatchaDetail = ({ job, seeInfo, setSeeInfo }) => {
         {job?.company?.mandataire ? (
           <>
             <p>
-              Offre publiée par <span className="c-detail-bolded">{job.company.name}</span> pour une entreprise
-              partenaire du centre de formation.
+              Offre publiée par <span className="c-detail-bolded">{job.company.name}</span> pour une entreprise partenaire du centre de formation.
             </p>
           </>
         ) : (
           <>
             <p>
-              <span className="c-detail-bolded">{job.company.name}</span> recrute dans le domaine suivant{" "}
-              <span className="c-detail-bolded">{job.title}</span>. Cela signifie que l&apos;établissement est
-              activement à la recherche d&apos;un.e candidat.e.
+              <span className="c-detail-bolded">{job.company.name}</span> recrute dans le domaine suivant <span className="c-detail-bolded">{job.title}</span>. Cela signifie que
+              l&apos;établissement est activement à la recherche d&apos;un.e candidat.e.
             </p>
             <p>Vous avez donc tout intérêt à le contacter rapidement, avant que l&apos;offre ne soit pourvue !</p>
             <p className="mb-0">Trouver et convaincre une entreprise de vous embaucher ?</p>

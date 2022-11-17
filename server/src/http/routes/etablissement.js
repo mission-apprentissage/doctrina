@@ -188,10 +188,7 @@ export default ({ etablissements, mailer, widgetParameters, appointments }) => {
 
       const { id, appointmentId } = params
 
-      let [etablissement, appointment] = await Promise.all([
-        etablissements.findById(id),
-        appointments.findById(appointmentId),
-      ])
+      let [etablissement, appointment] = await Promise.all([etablissements.findById(id), appointments.findById(appointmentId)])
 
       console.log({ etablissement, appointment })
 

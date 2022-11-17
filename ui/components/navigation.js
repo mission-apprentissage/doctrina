@@ -45,20 +45,8 @@ const Navigation = ({ currentPage, bgcolor }) => {
               router.push(getLogoTargetUrl())
             }}
           >
-            <img
-              src="/images/marianne.svg#svgView(viewBox(12 0 162 78))"
-              alt="Redirection vers la page d'accueil"
-              width="162"
-              height="78"
-              className="c-marianne-header"
-            />
-            <img
-              src={`/images/${getLogo()}`}
-              alt="Redirection vers la page d'accueil"
-              className="c-navbar-brand-img"
-              width="110"
-              height="76"
-            />
+            <img src="/images/marianne.svg#svgView(viewBox(12 0 162 78))" alt="Redirection vers la page d'accueil" width="162" height="78" className="c-marianne-header" />
+            <img src={`/images/${getLogo()}`} alt="Redirection vers la page d'accueil" className="c-navbar-brand-img" width="110" height="76" />
           </NavbarBrand>
           <NavbarToggler onClick={toggle} />
           <Collapse isOpen={isOpen} navbar>
@@ -97,11 +85,7 @@ const Navigation = ({ currentPage, bgcolor }) => {
                   <NavItem className="ml-lg-2">
                     <Link href="/espace-pro/authentification">
                       <a className="nav-link" aria-label="Connexion">
-                        <img
-                          className="c-homecomponent-bluelock mr-2"
-                          src="/images/icons/blue_lock.svg"
-                          alt="Locking tool"
-                        />
+                        <img className="c-homecomponent-bluelock mr-2" src="/images/icons/blue_lock.svg" alt="Locking tool" />
                         <span className="mx-1">Connexion</span>
                       </a>
                     </Link>

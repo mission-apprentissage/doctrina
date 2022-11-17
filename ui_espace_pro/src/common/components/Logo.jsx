@@ -18,11 +18,7 @@ export const Logo = ({ size = "sm" }) => {
     beforeWidth = ["2.75rem", "2.75rem", "3.4375rem"]
     beforeHeight = ["1rem", "1rem", "1.25rem"]
     beforeMarginBottom = ["0.33333rem", "0.33333rem", "0.41667rem"]
-    beforeBackgroundSize = [
-      "2.75rem 1.125rem, 2.75rem 1rem, 0",
-      "2.75rem 1.125rem, 2.75rem 1rem, 0",
-      "3.4375rem 1.40625rem, 3.4375rem 1.25rem, 0",
-    ]
+    beforeBackgroundSize = ["2.75rem 1.125rem, 2.75rem 1rem, 0", "2.75rem 1.125rem, 2.75rem 1rem, 0", "3.4375rem 1.40625rem, 3.4375rem 1.25rem, 0"]
     beforeBackgroundPosition = ["0 -0.0625rem, 0 0, 0 0", "0 -0.0625rem, 0 0, 0 0", "0 -0.07812rem, 0 0, 0 0"]
     afterMinWidth = ["2.625rem", "2.625rem", "3.28125rem"]
     afterBackgroundSize = ["5.25rem 3.75rem", "5.25rem 3.75rem", "6.5625rem 4.6875rem"]

@@ -106,31 +106,19 @@ const UpdateAllParameterReferrers = () => {
   }
 
   return (
-    <Box
-      w={["100%", "100%", "40%", "40%"]}
-      boxShadow="0 1px 2px 0 rgb(0 0 0 / 5%)"
-      border="1px solid rgba(0,40,100,.12)"
-      border-radius="3px"
-      mt={10}
-    >
+    <Box w={["100%", "100%", "40%", "40%"]} boxShadow="0 1px 2px 0 rgb(0 0 0 / 5%)" border="1px solid rgba(0,40,100,.12)" border-radius="3px" mt={10}>
       <Text fontSize="15px" p={5} borderBottom="1px solid rgba(0,40,100,.12)" border-radius="3px">
         Modifier les sources de parution pour tous les paramètres actifs
       </Text>
       <Box active={loading} loader p={5}>
         <Text>
-          Veuillez cocher l'ensemble des plateformes de diffusion sur lesquelles vous souhaitez que les formations
-          actuellement publiées soient accessibles.
+          Veuillez cocher l'ensemble des plateformes de diffusion sur lesquelles vous souhaitez que les formations actuellement publiées soient accessibles.
           <br />
           <br />
           {referrers &&
             referrers.map((referrer) => (
               <Flex>
-                <Checkbox
-                  key={referrer.code}
-                  checked={referrer.checked}
-                  icon={<Check w="20px" h="18px" />}
-                  onChange={() => toggleReferrer(referrer.code, !referrer.isChecked)}
-                >
+                <Checkbox key={referrer.code} checked={referrer.checked} icon={<Check w="20px" h="18px" />} onChange={() => toggleReferrer(referrer.code, !referrer.isChecked)}>
                   <Text ml={2}>{referrer.full_name}</Text>
                 </Checkbox>
               </Flex>

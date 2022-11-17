@@ -6,27 +6,9 @@ const Fonts = () => {
   const getFontPreloadLinks = () => {
     return (
       <>
-        <link
-          rel="preload"
-          href={`${url}/fonts/Marianne/Marianne-Regular.woff`}
-          as="font"
-          type="font/woff"
-          crossOrigin="anonymous"
-        ></link>
-        <link
-          rel="preload"
-          href={`${url}/fonts/Marianne/Marianne-Medium.woff`}
-          as="font"
-          type="font/woff"
-          crossOrigin="anonymous"
-        ></link>
-        <link
-          rel="preload"
-          href={`${url}/fonts/Marianne/Marianne-Bold.woff`}
-          as="font"
-          type="font/woff"
-          crossOrigin="anonymous"
-        ></link>
+        <link rel="preload" href={`${url}/fonts/Marianne/Marianne-Regular.woff`} as="font" type="font/woff" crossOrigin="anonymous"></link>
+        <link rel="preload" href={`${url}/fonts/Marianne/Marianne-Medium.woff`} as="font" type="font/woff" crossOrigin="anonymous"></link>
+        <link rel="preload" href={`${url}/fonts/Marianne/Marianne-Bold.woff`} as="font" type="font/woff" crossOrigin="anonymous"></link>
       </>
     )
   }

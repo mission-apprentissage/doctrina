@@ -35,18 +35,7 @@ const getDiplomaKey = (value) => {
   }
 }
 
-const getFormations = async ({
-  romes,
-  rncps,
-  romeDomain,
-  coords,
-  radius,
-  diploma,
-  limit,
-  caller,
-  api = "formationV1",
-  useMock,
-}) => {
+const getFormations = async ({ romes, rncps, romeDomain, coords, radius, diploma, limit, caller, api = "formationV1", useMock }) => {
   try {
     if (useMock && useMock !== "false") {
       return formationsMock
@@ -209,15 +198,7 @@ const getOneFormationFromId = async ({ id, caller }) => {
   }
 }
 
-const getRegionFormations = async ({
-  romes,
-  romeDomain,
-  region,
-  departement,
-  diploma,
-  limit = formationResultLimit,
-  caller,
-}) => {
+const getRegionFormations = async ({ romes, romeDomain, region, departement, diploma, limit = formationResultLimit, caller }) => {
   try {
     let mustTerm = []
 
@@ -292,17 +273,7 @@ const getRegionFormations = async ({
 }
 
 // tente de récupérer des formatiosn dans le rayon de recherche, si sans succès cherche les maxOutLimitFormation les plus proches du centre de recherche
-const getAtLeastSomeFormations = async ({
-  romes,
-  rncps,
-  romeDomain,
-  coords,
-  radius,
-  diploma,
-  maxOutLimitFormation,
-  caller,
-  useMock,
-}) => {
+const getAtLeastSomeFormations = async ({ romes, rncps, romeDomain, coords, radius, diploma, maxOutLimitFormation, caller, useMock }) => {
   try {
     let formations = []
     let currentRadius = radius
@@ -356,9 +327,7 @@ const getAtLeastSomeFormations = async ({
       }
 
       if (formations.results.length === 0 && !caller) {
-        notifyToSlack(
-          `Aucune formation trouvée pour les romes ${romes} ou le domaine ${romeDomain}. diploma : ${diploma}. coords: ${coords}. radius: ${currentRadius}`
-        )
+        notifyToSlack(`Aucune formation trouvée pour les romes ${romes} ou le domaine ${romeDomain}. diploma : ${diploma}. coords: ${coords}. radius: ${currentRadius}`)
       }
     }
 
@@ -443,12 +412,8 @@ const transformFormationForIdea = (formation) => {
   resultFormation.place = {
     distance: formation.sort ? formation.sort[0] : null,
     fullAddress: getTrainingAddress(formation.source), // adresse postale reconstruite à partir des éléments d'adresse fournis
-    latitude: formation.source.idea_geo_coordonnees_etablissement
-      ? formation.source.idea_geo_coordonnees_etablissement.split(",")[0]
-      : null,
-    longitude: formation.source.idea_geo_coordonnees_etablissement
-      ? formation.source.idea_geo_coordonnees_etablissement.split(",")[1]
-      : null,
+    latitude: formation.source.idea_geo_coordonnees_etablissement ? formation.source.idea_geo_coordonnees_etablissement.split(",")[0] : null,
+    longitude: formation.source.idea_geo_coordonnees_etablissement ? formation.source.idea_geo_coordonnees_etablissement.split(",")[1] : null,
     //city: formation.source.etablissement_formateur_localite,
     city: formation.source.localite,
     address: `${formation.source.lieu_formation_adresse}`,
@@ -474,9 +439,7 @@ const transformFormationForIdea = (formation) => {
       hasConvention: formation.source.etablissement_gestionnaire_conventionne,
       place: {
         address: `${formation.source.etablissement_gestionnaire_adresse}${
-          formation.source.etablissement_gestionnaire_complement_adresse
-            ? ", " + formation.source.etablissement_gestionnaire_complement_adresse
-            : ""
+          formation.source.etablissement_gestionnaire_complement_adresse ? ", " + formation.source.etablissement_gestionnaire_complement_adresse : ""
         }`,
         cedex: formation.source.etablissement_gestionnaire_cedex,
         zipCode: formation.source.etablissement_gestionnaire_code_postal,
@@ -505,21 +468,17 @@ const getTrainingAddress = (school) => {
     schoolAddress = `${school.lieu_formation_adresse} ${school.code_postal} ${school.localite}`
   } else {
     schoolAddress = school.etablissement_formateur_adresse
-      ? `${school.etablissement_formateur_adresse}${
-          school.etablissement_formateur_complement_adresse
-            ? `, ${school.etablissement_formateur_complement_adresse}`
-            : ""
-        } ${school.etablissement_formateur_localite ? school.etablissement_formateur_localite : ""} ${
-          school.etablissement_formateur_code_postal ? school.etablissement_formateur_code_postal : ""
-        }${school.etablissement_formateur_cedex ? ` CEDEX ${school.etablissement_formateur_cedex}` : ""}
+      ? `${school.etablissement_formateur_adresse}${school.etablissement_formateur_complement_adresse ? `, ${school.etablissement_formateur_complement_adresse}` : ""} ${
+          school.etablissement_formateur_localite ? school.etablissement_formateur_localite : ""
+        } ${school.etablissement_formateur_code_postal ? school.etablissement_formateur_code_postal : ""}${
+          school.etablissement_formateur_cedex ? ` CEDEX ${school.etablissement_formateur_cedex}` : ""
+        }
         `
-      : `${school.etablissement_gestionnaire_adresse}${
-          school.etablissement_gestionnaire_complement_adresse
-            ? `, ${school.etablissement_gestionnaire_complement_adresse}`
-            : ""
-        } ${school.etablissement_gestionnaire_localite ? school.etablissement_gestionnaire_localite : ""} ${
-          school.etablissement_gestionnaire_code_postal ? school.etablissement_gestionnaire_code_postal : ""
-        }${school.etablissement_gestionnaire_cedex ? ` CEDEX ${school.etablissement_gestionnaire_cedex}` : ""}
+      : `${school.etablissement_gestionnaire_adresse}${school.etablissement_gestionnaire_complement_adresse ? `, ${school.etablissement_gestionnaire_complement_adresse}` : ""} ${
+          school.etablissement_gestionnaire_localite ? school.etablissement_gestionnaire_localite : ""
+        } ${school.etablissement_gestionnaire_code_postal ? school.etablissement_gestionnaire_code_postal : ""}${
+          school.etablissement_gestionnaire_cedex ? ` CEDEX ${school.etablissement_gestionnaire_cedex}` : ""
+        }
         `
   }
   return schoolAddress
@@ -792,12 +751,4 @@ const sortFormations = (formations) => {
   })
 }
 
-export {
-  getFormationsQuery,
-  getFormationQuery,
-  getFormationsParRegionQuery,
-  transformFormationsForIdea,
-  getFormations,
-  deduplicateFormations,
-  getFormationDescriptionQuery,
-}
+export { getFormationsQuery, getFormationQuery, getFormationsParRegionQuery, transformFormationsForIdea, getFormations, deduplicateFormations, getFormationDescriptionQuery }

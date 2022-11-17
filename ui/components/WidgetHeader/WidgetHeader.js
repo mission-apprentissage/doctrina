@@ -31,9 +31,7 @@ const WidgetHeader = ({ handleSearchSubmit, isHome }) => {
           <div>
             {isHome ? (
               <h1 className="card-title">
-                <span className="c-home-hero__title c-home-hero__title1 d-block d-lg-inline">
-                  Se former et travailler
-                </span>
+                <span className="c-home-hero__title c-home-hero__title1 d-block d-lg-inline">Se former et travailler</span>
                 <span className="c-home-hero__title c-home-hero__title2 d-block d-lg-inline">
                   <span className="d-none d-lg-inline">&nbsp;</span>en alternance
                 </span>

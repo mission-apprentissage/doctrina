@@ -78,9 +78,7 @@ const ActivateAllCfaFormations = () => {
   const toggleDisableButton = () => {
     const uncheckedReferrers = referrers.filter((referrer) => !referrer.isChecked)
 
-    setSubmitDisabled(
-      uncheckedReferrers.length === referrers.length || !emailValidator.validate(email) || siret.length !== 14
-    )
+    setSubmitDisabled(uncheckedReferrers.length === referrers.length || !emailValidator.validate(email) || siret.length !== 14)
   }
 
   /**
@@ -165,21 +163,14 @@ const ActivateAllCfaFormations = () => {
   }
 
   return (
-    <Box
-      w={["100%", "100%", "40%", "40%"]}
-      boxShadow="0 1px 2px 0 rgb(0 0 0 / 5%)"
-      border="1px solid rgba(0,40,100,.12)"
-      border-radius="3px"
-      mt={10}
-      ml={[0, 0, 5, 5]}
-    >
+    <Box w={["100%", "100%", "40%", "40%"]} boxShadow="0 1px 2px 0 rgb(0 0 0 / 5%)" border="1px solid rgba(0,40,100,.12)" border-radius="3px" mt={10} ml={[0, 0, 5, 5]}>
       <Text fontSize="15px" p={5} borderBottom="1px solid rgba(0,40,100,.12)" border-radius="3px">
         Activer toutes les formations d'un CFA
       </Text>
       <Box active={loading} loader p={5}>
         <Text>
-          Veuillez cocher l'ensemble des plateformes de diffusion sur lesquelles vous souhaitez que les formations du
-          SIRET formateur fournies soient activés. Ne sont affecté que les formations sans configurations.
+          Veuillez cocher l'ensemble des plateformes de diffusion sur lesquelles vous souhaitez que les formations du SIRET formateur fournies soient activés. Ne sont affecté que
+          les formations sans configurations.
           <br />
           <br />
           {referrers &&
@@ -200,14 +191,7 @@ const ActivateAllCfaFormations = () => {
             <Text fontWeight="700" textStyle="sm">
               Siret formateur
             </Text>
-            <Input
-              mt={3}
-              name="siret_formateur"
-              placeholder="48398606300012"
-              maxLength={14}
-              onChange={onChangeSiret}
-              value={siret}
-            />
+            <Input mt={3} name="siret_formateur" placeholder="48398606300012" maxLength={14} onChange={onChangeSiret} value={siret} />
           </Box>
           <Box mt={5}>
             <Text fontWeight="700" textStyle="sm">

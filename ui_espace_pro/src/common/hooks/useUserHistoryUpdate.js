@@ -16,11 +16,7 @@ export default function useUserHistoryUpdate(userId, statut, motif = undefined) 
       statut: statut,
       motif,
     })
-      .then(() =>
-        ["awaitingValidationUserList", "activeUserList", "disableUserList", "user"].map((x) =>
-          client.invalidateQueries(x)
-        )
-      )
+      .then(() => ["awaitingValidationUserList", "activeUserList", "disableUserList", "user"].map((x) => client.invalidateQueries(x)))
       .then(() =>
         toast({
           description: `Utilisateur ${statut}`,

@@ -16,11 +16,7 @@ export default () => (
         Données personnelles
       </Link>
       <Divider height={["0px", "20px"]} orientation="vertical" />
-      <Link
-        color="emphase"
-        href="https://matcha.apprentissage.beta.gouv.fr/metabase/public/dashboard/2a87d60c-f287-4c54-92eb-6f277cda5204"
-        isExternal
-      >
+      <Link color="emphase" href="https://matcha.apprentissage.beta.gouv.fr/metabase/public/dashboard/2a87d60c-f287-4c54-92eb-6f277cda5204" isExternal>
         Statistiques
       </Link>
       <Divider height={["0px", "20px"]} orientation="vertical" />

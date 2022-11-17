@@ -65,16 +65,7 @@ export default (props) => {
     <Modal closeOnOverlayClick={false} blockScrollOnMount={true} isOpen={isOpen} onClose={onClose}>
       <ModalOverlay />
       <ModalContent mt={["0", "3.75rem"]} h={["100%", "auto"]} mb={0} borderRadius={0}>
-        <Button
-          display={"flex"}
-          alignSelf={"flex-end"}
-          color="bluefrance.500"
-          fontSize={"epsilon"}
-          onClick={resetState}
-          variant="unstyled"
-          p={6}
-          fontWeight={400}
-        >
+        <Button display={"flex"} alignSelf={"flex-end"} color="bluefrance.500" fontSize={"epsilon"} onClick={resetState} variant="unstyled" p={6} fontWeight={400}>
           fermer
           <Text as={"span"} ml={2}>
             <Close boxSize={4} />
@@ -108,28 +99,17 @@ export default (props) => {
           <ModalFooter alignItems="flex-end">
             <FormControl isRequired>
               <FormLabel>Raison de l'annulation</FormLabel>
-              <Select
-                variant="outline"
-                placeholder="Selectionner une option"
-                onChange={(v) => handleRaisonSelect(v.target.value)}
-              >
+              <Select variant="outline" placeholder="Selectionner une option" onChange={(v) => handleRaisonSelect(v.target.value)}>
                 <option defaultValue value="Mon offre est pourvue">
                   Mon offre est pourvue
                 </option>
                 <option value="Je ne suis plus à la recherche">Je ne suis plus à la recherche</option>
                 <option value="Je ne reçois pas de candidature">Je ne reçois pas de candidature</option>
-                <option value="Les candidatures reçues ne sont pas assez qualifiées">
-                  Les candidatures reçues ne sont pas assez qualifiées
-                </option>
+                <option value="Les candidatures reçues ne sont pas assez qualifiées">Les candidatures reçues ne sont pas assez qualifiées</option>
                 <option value="Autre">Autre</option>
               </Select>
             </FormControl>
-            <Button
-              variant="secondary"
-              ml={3}
-              onClick={() => updateOffer("Annulée")}
-              isDisabled={raison_statut.length < 3}
-            >
+            <Button variant="secondary" ml={3} onClick={() => updateOffer("Annulée")} isDisabled={raison_statut.length < 3}>
               Enregistrer
             </Button>
           </ModalFooter>
@@ -142,12 +122,7 @@ export default (props) => {
               <Input onChange={(e) => setRaisonStatut(e.target.value)} isRequired minLength="3" />
             </FormControl>
             <Flex justify="flex-end">
-              <Button
-                variant="secondary"
-                mt={3}
-                onClick={() => updateOffer("Annulée")}
-                isDisabled={raison_statut.length < 3}
-              >
+              <Button variant="secondary" mt={3} onClick={() => updateOffer("Annulée")} isDisabled={raison_statut.length < 3}>
                 Enregistrer
               </Button>
             </Flex>

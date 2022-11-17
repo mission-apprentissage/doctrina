@@ -37,23 +37,11 @@ const MapPopup = ({ type, item, handleSelectItem, setSelectedItem, setSelectedMa
               <div className="ml-3">
                 <ul className="c-mapbox-list">
                   {list.map((job, idx) => (
-                    <li
-                      className={`c-mapbox-list-item ${idx === list.length - 1 ? "is-last" : ""} ${
-                        idx === 0 ? "is-first" : ""
-                      }`}
-                      key={idx}
-                    >
-                      <button
-                        className={`c-mapboxpopup--link gtmSavoirPlus gtm${capitalizeFirstLetter(job.ideaType)} gtmMap`}
-                        onClick={() => openItemDetail(job)}
-                      >
+                    <li className={`c-mapbox-list-item ${idx === list.length - 1 ? "is-last" : ""} ${idx === 0 ? "is-first" : ""}`} key={idx}>
+                      <button className={`c-mapboxpopup--link gtmSavoirPlus gtm${capitalizeFirstLetter(job.ideaType)} gtmMap`} onClick={() => openItemDetail(job)}>
                         {job.title}
                       </button>
-                      {job.ideaType === "peJob" && job?.company?.name ? (
-                        <span className="c-mapbox-companyname">- {job.company.name}</span>
-                      ) : (
-                        ""
-                      )}
+                      {job.ideaType === "peJob" && job?.company?.name ? <span className="c-mapbox-companyname">- {job.company.name}</span> : ""}
                     </li>
                   ))}
                 </ul>
@@ -67,12 +55,7 @@ const MapPopup = ({ type, item, handleSelectItem, setSelectedItem, setSelectedMa
             <div className="ml-3 my-3">
               <img className="cardIcon mr-2" src={bookIcon} alt="" />
               <span className="mapboxPopupTitle">Formations : </span>
-              <a
-                href="https://media.giphy.com/media/l3vRfjcp7VMSZwbGo/giphy.gif"
-                className="c-nice-link font-weight-normal"
-                target="_blank"
-                rel="noreferrer"
-              >
+              <a href="https://media.giphy.com/media/l3vRfjcp7VMSZwbGo/giphy.gif" className="c-nice-link font-weight-normal" target="_blank" rel="noreferrer">
                 Plus de formations
               </a>
             </div>
@@ -114,10 +97,7 @@ const MapPopup = ({ type, item, handleSelectItem, setSelectedItem, setSelectedMa
         {list.map((training, idx) => (
           <li key={idx} className="c-mapboxpopup-li">
             <span>
-              <button
-                className={`c-mapboxpopup--link gtmSavoirPlus gtmFormation gtmMap`}
-                onClick={() => openItemDetail(training)}
-              >
+              <button className={`c-mapboxpopup--link gtmSavoirPlus gtmFormation gtmMap`} onClick={() => openItemDetail(training)}>
                 {training.title ? training.title : training.longTitle}
               </button>
             </span>

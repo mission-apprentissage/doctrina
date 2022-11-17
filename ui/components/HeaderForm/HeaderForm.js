@@ -30,8 +30,7 @@ const HeaderForm = ({ handleSearchSubmit, isHome }) => {
     setDiploma(contextFormValues?.diploma ?? "")
   }, [widgetParameters?.applyFormValues])
 
-  const contextFormValues =
-    widgetParameters?.applyFormValues && widgetParameters?.formValues ? widgetParameters.formValues : formValues
+  const contextFormValues = widgetParameters?.applyFormValues && widgetParameters?.formValues ? widgetParameters.formValues : formValues
 
   const [diplomas, setDiplomas] = useState([])
   const [diploma, setDiploma] = useState("")
@@ -52,11 +51,7 @@ const HeaderForm = ({ handleSearchSubmit, isHome }) => {
 
   const renderFormik = () => {
     return (
-      <Formik
-        validate={(values) => validateFormik(values, widgetParameters)}
-        initialValues={{ job: {}, location: {}, radius: 30, diploma: "" }}
-        onSubmit={handleSearchSubmit}
-      >
+      <Formik validate={(values) => validateFormik(values, widgetParameters)} initialValues={{ job: {}, location: {}, radius: 30, diploma: "" }} onSubmit={handleSearchSubmit}>
         {({ isSubmitting, setFieldValue, errors, touched }) => (
           <Form className="c-logobar-form c-searchform">
             <div className={`formGroup formGroup--logobar ${errors.job ? "formGroup--logobar-onerror" : ""}`}>
@@ -68,11 +63,7 @@ const HeaderForm = ({ handleSearchSubmit, isHome }) => {
                 onSelectedItemChangeFunction={partialRight(updateValuesFromJobAutoComplete, setDiplomas)}
                 compareItemFunction={compareAutoCompleteValues}
                 onInputValueChangeFunction={jobChanged}
-                isDisabled={
-                  widgetParameters?.parameters?.jobName &&
-                  widgetParameters?.parameters?.romes &&
-                  widgetParameters?.parameters?.frozenJob
-                }
+                isDisabled={widgetParameters?.parameters?.jobName && widgetParameters?.parameters?.romes && widgetParameters?.parameters?.frozenJob}
                 name="jobField"
                 placeholder="Indiquez un métier ou diplôme"
                 searchPlaceholder="Indiquez un métier ou diplôme ci-dessus"
@@ -105,12 +96,7 @@ const HeaderForm = ({ handleSearchSubmit, isHome }) => {
                   Rayon
                 </label>
                 <div className="c-logobar-field">
-                  <Input
-                    onChange={(evt) => handleSelectChange(evt, setFieldValue, setLocationRadius, "radius")}
-                    type="select"
-                    value={locationRadius}
-                    name="locationRadius"
-                  >
+                  <Input onChange={(evt) => handleSelectChange(evt, setFieldValue, setLocationRadius, "radius")} type="select" value={locationRadius} name="locationRadius">
                     {buildRayonsOptions()}
                   </Input>
                 </div>
@@ -121,12 +107,7 @@ const HeaderForm = ({ handleSearchSubmit, isHome }) => {
                 Niveau d&apos;études visé
               </label>
               <div className="c-logobar-field">
-                <Input
-                  onChange={(evt) => handleSelectChange(evt, setFieldValue, setDiploma, "diploma")}
-                  type="select"
-                  value={diploma}
-                  name="diploma"
-                >
+                <Input onChange={(evt) => handleSelectChange(evt, setFieldValue, setDiploma, "diploma")} type="select" value={diploma} name="diploma">
                   {buildAvailableDiplomasOptions(diplomas)}
                 </Input>
               </div>
@@ -150,11 +131,7 @@ const HeaderForm = ({ handleSearchSubmit, isHome }) => {
 
   return (
     <div className="c-logobar">
-      {domainError || diplomaError ? (
-        <DomainError position="header" setDomainError={setDomainError} setDiplomaError={setDiplomaError} />
-      ) : (
-        renderFormik()
-      )}
+      {domainError || diplomaError ? <DomainError position="header" setDomainError={setDomainError} setDiplomaError={setDiplomaError} /> : renderFormik()}
     </div>
   )
 }

@@ -12,11 +12,7 @@ import { ArrowDropRightLine } from "../../theme/components/icons"
  */
 const Breadcrumb = ({ pages, loading = false }) => {
   return (
-    <ChakraBreadcrumb
-      separator={<ArrowDropRightLine color="grey.600" boxSize={3} mb={1} />}
-      textStyle="xs"
-      color={"grey.800"}
-    >
+    <ChakraBreadcrumb separator={<ArrowDropRightLine color="grey.600" boxSize={3} mb={1} />} textStyle="xs" color={"grey.800"}>
       {pages.map((page, index) => {
         if (index === pages.length - 1 || !page.to) {
           return (

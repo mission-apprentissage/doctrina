@@ -115,11 +115,7 @@ httpTests(__filename(import.meta.url), ({ startServer }) => {
     })
 
     const bearerToken = await createAndLogUser("userAdmin", "password", { role: roles.administrator })
-    const response = await httpClient.get(
-      "/api/appointment/",
-      { headers: bearerToken },
-      { data: { etablissement_id: sampleAppointment.etablissement_id } }
-    )
+    const response = await httpClient.get("/api/appointment/", { headers: bearerToken }, { data: { etablissement_id: sampleAppointment.etablissement_id } })
 
     // Check API Response
     assert.deepStrictEqual(response.status, 200)

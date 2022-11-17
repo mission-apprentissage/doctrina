@@ -35,9 +35,7 @@ const HomeReview = (props) => {
                     <></>
                   )}
                 </h2>
-                <p className="m-0">
-                  {props?.reviews?.TEXTE_1_NON_GRAS ? <>{props.reviews.TEXTE_1_NON_GRAS}</> : <></>}
-                </p>
+                <p className="m-0">{props?.reviews?.TEXTE_1_NON_GRAS ? <>{props.reviews.TEXTE_1_NON_GRAS}</> : <></>}</p>
                 <p className="pt-2">
                   {props?.reviews?.TEXTE_2_GRAS ? (
                     <>

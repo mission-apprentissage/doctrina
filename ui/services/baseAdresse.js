@@ -36,8 +36,7 @@ export const fetchAddresses = memoize(async (value, type) => {
       return await axios.get(addressURL, { cancelToken: cancelToken.token }).then((response) => {
         response.data.features.sort((a, b) => {
           // tri des résultats avec mise en avant des villes de plus grande taille en premier
-          if (a.properties.population && b.properties.population)
-            return b.properties.population - a.properties.population
+          if (a.properties.population && b.properties.population) return b.properties.population - a.properties.population
           else if (a.properties.population) return -1
           else if (b.properties.population) return 1
           else return 0
@@ -67,9 +66,7 @@ export const fetchAddresses = memoize(async (value, type) => {
 
 // récupère cp et insee à partir de lat / lon
 export const fetchAddressFromCoordinates = (coordinates, type) => {
-  let addressURL = `https://api-adresse.data.gouv.fr/reverse/?lat=${coordinates[1]}&lon=${coordinates[0]}${
-    type ? "&type=" + type : ""
-  }`
+  let addressURL = `https://api-adresse.data.gouv.fr/reverse/?lat=${coordinates[1]}&lon=${coordinates[0]}${type ? "&type=" + type : ""}`
   return axios.get(addressURL).then((response) => {
     const returnedItems = response.data.features.map((feature) => {
       return {

@@ -33,8 +33,7 @@ export default () => ({
     return true
   },
   getOffre: (id) => Formulaire.findOne({ "offres._id": id }).lean(),
-  createOffre: (id_form, payload) =>
-    Formulaire.findOneAndUpdate({ id_form }, { $push: { offres: payload } }, { new: true }),
+  createOffre: (id_form, payload) => Formulaire.findOneAndUpdate({ id_form }, { $push: { offres: payload } }, { new: true }),
   updateOffre: (id_offre, payload) =>
     Formulaire.findOneAndUpdate(
       { "offres._id": id_offre },

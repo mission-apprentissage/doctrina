@@ -15,8 +15,7 @@ const CandidatureSpontaneeMessage = ({ formik, kind }) => {
   const getFieldTitle = () => {
     return (
       <>
-        Votre message au responsable du recrutement{" "}
-        <span className="c-candidature-message-title-optional">(Facultatif)</span>
+        Votre message au responsable du recrutement <span className="c-candidature-message-title-optional">(Facultatif)</span>
       </>
     )
   }
@@ -42,14 +41,7 @@ const CandidatureSpontaneeMessage = ({ formik, kind }) => {
           Un message personnalisé augmente vos chances d&apos;obtenir un contact avec le recruteur. <br />
           La taille du champ n&apos;est pas limitée.
         </div>
-        <textarea
-          id="message"
-          data-testid="message"
-          name="message"
-          onBlur={formik.handleBlur}
-          onChange={formik.handleChange}
-          value={formik.values.message}
-        />
+        <textarea id="message" data-testid="message" name="message" onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.message} />
       </fieldset>
       {getFieldError()}
     </>

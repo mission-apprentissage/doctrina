@@ -93,8 +93,7 @@ const matchaMock = {
           competencesDeBase: [
             {
               code: "106394",
-              libelle:
-                "Vérifier et maintenir l'état de propreté des équipements (machines de remplissage, ensachage, étiquetage, ...) et du matériel",
+              libelle: "Vérifier et maintenir l'état de propreté des équipements (machines de remplissage, ensachage, étiquetage, ...) et du matériel",
               noeudCompetence: {
                 code: "00168",
                 libelle: "Maintenance d'équipements de production ou collectifs",

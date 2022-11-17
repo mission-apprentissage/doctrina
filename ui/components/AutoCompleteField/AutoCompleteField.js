@@ -83,10 +83,7 @@ export const AutoCompleteField = ({
           currentTitleCnt++
         }
         res = (
-          <li
-            key={`autocomplete_title_${currentTitleCnt - 1}`}
-            className={`c-autocomplete-title ${currentTitleCnt > 1 ? "c-autocomplete-title_bordered" : ""} `}
-          >
+          <li key={`autocomplete_title_${currentTitleCnt - 1}`} className={`c-autocomplete-title ${currentTitleCnt > 1 ? "c-autocomplete-title_bordered" : ""} `}>
             {splitItemsByTypes[currentTitleCnt - 1].typeLabel}
           </li>
         )
@@ -104,9 +101,7 @@ export const AutoCompleteField = ({
             {returnTitleLi(item)}
             <li
               key={index}
-              className={`c-autocomplete_option${
-                highlightedIndex === index ? " c-autocomplete__option--highlighted" : ""
-              }`}
+              className={`c-autocomplete_option${highlightedIndex === index ? " c-autocomplete__option--highlighted" : ""}`}
               {...getItemProps({ item: item.label, index })}
             >
               {ReactHtmlParser(highlightItem(item.label, inputValue))}
@@ -138,17 +133,7 @@ export const AutoCompleteField = ({
     }
   }
 
-  const {
-    isOpen,
-    getMenuProps,
-    getInputProps,
-    getComboboxProps,
-    highlightedIndex,
-    getItemProps,
-    selectItem,
-    openMenu,
-    inputValue,
-  } = useCombobox({
+  const { isOpen, getMenuProps, getInputProps, getComboboxProps, highlightedIndex, getItemProps, selectItem, openMenu, inputValue } = useCombobox({
     id: "lang-switcher",
     items: inputItems,
     itemToString,
@@ -201,9 +186,7 @@ export const AutoCompleteField = ({
             },
           })}
           disabled={isDisabled}
-          className={`${classesOfInsider} ${
-            inputValue && inputValue.length > 20 ? "is-text-too-long" : "is-text-not-too-long"
-          }`}
+          className={`${classesOfInsider} ${inputValue && inputValue.length > 20 ? "is-text-too-long" : "is-text-not-too-long"}`}
           placeholder={props.placeholder}
           name={props.name}
           aria-describedby="name"
@@ -230,12 +213,10 @@ export const AutoCompleteField = ({
             } else if (inputValue.length > 0 && inputItems?.length === 0) {
               let message = "Pas de résultat, veuillez modifier votre recherche"
               if (name === "jobField") {
-                message =
-                  "Nous ne parvenons pas à identifier le métier que vous cherchez, veuillez reformuler votre recherche"
+                message = "Nous ne parvenons pas à identifier le métier que vous cherchez, veuillez reformuler votre recherche"
               }
               if (name === "placeField") {
-                message =
-                  "Nous ne parvenons pas à identifier le lieu que vous cherchez, veuillez reformuler votre recherche"
+                message = "Nous ne parvenons pas à identifier le lieu que vous cherchez, veuillez reformuler votre recherche"
               }
               return (
                 <li key={`noresult`} className="c-autocomplete-neutral">

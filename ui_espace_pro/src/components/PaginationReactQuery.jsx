@@ -12,13 +12,7 @@ const PageLink = ({ pageNumber, pageIndex, gotoPage, isActive = false }) => {
 
 const PreviousLink = ({ previousPage, canPreviousPage }) => {
   return (
-    <Button
-      leftIcon={<ChevronLeft />}
-      as={Link}
-      variant="link"
-      isDisabled={!canPreviousPage}
-      onClick={() => previousPage()}
-    >
+    <Button leftIcon={<ChevronLeft />} as={Link} variant="link" isDisabled={!canPreviousPage} onClick={() => previousPage()}>
       Précédent
     </Button>
   )
@@ -69,13 +63,9 @@ export default ({ page, canPreviousPage, canNextPage, pageCount, nextPage, previ
 
       {currentPage + 1 < pageCount - 1 && <PageLink pageNumber={currentPage + 2} gotoPage={gotoPage} />}
 
-      {currentPage + 2 < pageCount - 1 && currentPage < 2 && (
-        <PageLink pageNumber={currentPage + 3} gotoPage={gotoPage} />
-      )}
+      {currentPage + 2 < pageCount - 1 && currentPage < 2 && <PageLink pageNumber={currentPage + 3} gotoPage={gotoPage} />}
 
-      {currentPage + 3 < pageCount - 1 && currentPage < 1 && (
-        <PageLink pageNumber={currentPage + 4} gotoPage={gotoPage} />
-      )}
+      {currentPage + 3 < pageCount - 1 && currentPage < 1 && <PageLink pageNumber={currentPage + 4} gotoPage={gotoPage} />}
 
       {currentPage + 2 < pageCount - 1 && <span>...</span>}
 

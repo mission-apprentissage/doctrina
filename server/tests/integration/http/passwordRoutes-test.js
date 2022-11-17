@@ -79,8 +79,7 @@ httpTests(__filename(import.meta.url), ({ startServer }) => {
       message: "Erreur de validation",
       details: [
         {
-          message:
-            '"newPassword" with value "invalid" fails to match the required pattern: /^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,}$/',
+          message: '"newPassword" with value "invalid" fails to match the required pattern: /^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,}$/',
           path: ["newPassword"],
           type: "string.pattern.base",
           context: { regex: {}, value: "invalid", label: "newPassword", key: "newPassword" },

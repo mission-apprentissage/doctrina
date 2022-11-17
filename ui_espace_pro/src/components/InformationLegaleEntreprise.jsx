@@ -8,20 +8,7 @@ import InfoTooltip from "./InfoToolTip"
 
 export default (props) => {
   const [auth] = useAuth()
-  const {
-    enseigne,
-    raison_sociale,
-    rue,
-    siret,
-    commune,
-    code_postal,
-    opco,
-    tranche_effectif,
-    date_creation_etablissement,
-    type,
-    adresse,
-    qualiopi,
-  } = props
+  const { enseigne, raison_sociale, rue, siret, commune, code_postal, opco, tranche_effectif, date_creation_etablissement, type, adresse, qualiopi } = props
 
   const RAISON_SOCIALE = raison_sociale.length > 30 ? raison_sociale.substring(0, 30) + "..." : raison_sociale ?? ""
 
@@ -44,8 +31,7 @@ export default (props) => {
           </Text>
           {type === AUTHTYPE.ENTREPRISE ? (
             <InfoPopover>
-              La donnée “SIRET Organisme” provient de l’INSEE puis est déduite du SIREN. Si cette information est
-              erronée, merci de leur signaler en suivant{" "}
+              La donnée “SIRET Organisme” provient de l’INSEE puis est déduite du SIREN. Si cette information est erronée, merci de leur signaler en suivant{" "}
               <Link textDecoration="underline" isExternal href="https://www.insee.fr/fr/information/2015441">
                 la marche à suivre.
               </Link>
@@ -122,16 +108,7 @@ export default (props) => {
                 {opco}
               </Text>
             ) : (
-              <Text
-                textTransform="uppercase"
-                bg="#FFE9E9"
-                textColor="#CE0500"
-                px="8px"
-                py="2px"
-                fontWeight={700}
-                mr={2}
-                noOfLines={1}
-              >
+              <Text textTransform="uppercase" bg="#FFE9E9" textColor="#CE0500" px="8px" py="2px" fontWeight={700} mr={2} noOfLines={1}>
                 Non identifié
               </Text>
             )}

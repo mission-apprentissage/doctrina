@@ -1,17 +1,4 @@
-import {
-  Box,
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  Button,
-  Container,
-  Flex,
-  Heading,
-  Link,
-  SimpleGrid,
-  Text,
-  useToast,
-} from "@chakra-ui/react"
+import { Box, Breadcrumb, BreadcrumbItem, BreadcrumbLink, Button, Container, Flex, Heading, Link, SimpleGrid, Text, useToast } from "@chakra-ui/react"
 import { Form, Formik } from "formik"
 import { useMutation, useQuery, useQueryClient } from "react-query"
 import { useNavigate, useParams } from "react-router-dom"
@@ -107,13 +94,7 @@ const Formulaire = ({ nom, prenom, telephone, email, id_form }) => {
         return (
           <Form>
             <CustomInput required={false} name="nom" label="Nom" type="text" value={informationForm.values.nom} />
-            <CustomInput
-              required={false}
-              name="prenom"
-              label="Prénom"
-              type="text"
-              value={informationForm.values.prenom}
-            />
+            <CustomInput required={false} name="prenom" label="Prénom" type="text" value={informationForm.values.prenom} />
             <CustomInput
               required={false}
               name="telephone"
@@ -131,9 +112,7 @@ const Formulaire = ({ nom, prenom, telephone, email, id_form }) => {
               type="email"
               value={informationForm.values.email}
               info={
-                auth.type === AUTHTYPE.ENTREPRISE
-                  ? "Il s’agit de l’adresse qui vous permettra de vous connecter à votre compte. Privilégiez votre adresse professionnelle"
-                  : null
+                auth.type === AUTHTYPE.ENTREPRISE ? "Il s’agit de l’adresse qui vous permettra de vous connecter à votre compte. Privilégiez votre adresse professionnelle" : null
               }
             />
             <Flex justifyContent="flex-end" alignItems="center" mt={5}>

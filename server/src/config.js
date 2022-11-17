@@ -17,10 +17,7 @@ const config = {
   },
   slackWebhookUrl: env.get("LBA_SLACK_WEBHOOK_URL").asString(),
   mongodb: {
-    uri: env
-      .get("LBA_MONGODB_URI")
-      .default("mongodb://mongodb:27017/labonnealternance?retryWrites=true&w=majority")
-      .asString(),
+    uri: env.get("LBA_MONGODB_URI").default("mongodb://mongodb:27017/labonnealternance?retryWrites=true&w=majority").asString(),
   },
   apiKey: env.get("LBA_API_KEY").default("12345").asString(), //TODO: check usefulness
   laBonneFormationPassword: env.get("LBA_LABONNEFORMATION_PASSWORD").default("12345").asString(),
@@ -29,10 +26,7 @@ const config = {
     apiKey: env.get("LBA_MATCHA_ACCESS_KEY").default("1234").asString(),
   },
   apiEntrepriseKey: env.get("LBA_ENTREPRISE_API_KEY").default("1234").asString(),
-  serverSentryDsn: env
-    .get("LBA_SERVER_SENTRY_DSN")
-    .default("https://61156c2d46b54369b777900d475ee0f9@o154210.ingest.sentry.io/5562203")
-    .asString(),
+  serverSentryDsn: env.get("LBA_SERVER_SENTRY_DSN").default("https://61156c2d46b54369b777900d475ee0f9@o154210.ingest.sentry.io/5562203").asString(),
   secretUpdateRomesMetiers: env.get("LBA_SECRET_UPDATE_ROMES_METIERS").default("1234").asString(), //TODO: rename
   secret1j1s: env.get("LBA_SECRET_1J1S").default("5678").asString(), //TODO: rearrange
   secretAkto: env.get("LBA_SECRET_AKTO").default("1234").asString(), //TODO: rearrange

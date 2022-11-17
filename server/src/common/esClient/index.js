@@ -41,11 +41,4 @@ const getBonnesBoitesES = () => {
   return clientBonnesBoites
 }
 
-export {
-  getDomainesMetiersES,
-  getDiplomesMetiersES,
-  getElasticInstance,
-  getFormationsES,
-  getBonnesBoitesES,
-  mongoosastic,
-}
+export { getDomainesMetiersES, getDiplomesMetiersES, getElasticInstance, getFormationsES, getBonnesBoitesES, mongoosastic }

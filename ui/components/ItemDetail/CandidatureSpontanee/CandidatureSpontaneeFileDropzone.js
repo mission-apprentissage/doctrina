@@ -4,9 +4,7 @@ import { useDropzone } from "react-dropzone"
 import dropzoneIco from "../../../public/images/icons/candidature_file_upload.svg"
 
 const CandidatureSpontaneeFileDropzone = ({ setFileValue, formik }) => {
-  const [fileData, setFileData] = useState(
-    formik.values.fileName ? { fileName: formik.values.fileName, fileContent: formik.values.fileContent } : null
-  )
+  const [fileData, setFileData] = useState(formik.values.fileName ? { fileName: formik.values.fileName, fileContent: formik.values.fileContent } : null)
   const [fileLoading, setFileLoading] = useState(false)
   const [showUnacceptedFileMessage, setShowUnacceptedFileMessages] = useState(false)
 
@@ -65,23 +63,15 @@ const CandidatureSpontaneeFileDropzone = ({ setFileValue, formik }) => {
               <img alt="" src={dropzoneIco} />{" "}
             </div>
             <div className="c-candidature-filedropzone-instruction_title">Chargez votre CV ou déposez le ici</div>
-            <div className="c-candidature-filedropzone-instruction_sub">
-              Le CV doit être au format PDF ou DOCX et ne doit pas dépasser 3 Mo
-            </div>
+            <div className="c-candidature-filedropzone-instruction_sub">Le CV doit être au format PDF ou DOCX et ne doit pas dépasser 3 Mo</div>
           </div>
         )}
         {showUnacceptedFileMessage ? (
-          <div className="c-candidature-erreur visible">
-            ⚠ Le fichier n&apos;est pas au bon format (autorisé : .docx ou .pdf, &lt;3mo, max 1 fichier)
-          </div>
+          <div className="c-candidature-erreur visible">⚠ Le fichier n&apos;est pas au bon format (autorisé : .docx ou .pdf, &lt;3mo, max 1 fichier)</div>
         ) : (
           ""
         )}
-        {formik.touched && formik.errors.fileName ? (
-          <div className="c-candidature-erreur visible">{formik.errors.fileName}</div>
-        ) : (
-          ""
-        )}
+        {formik.touched && formik.errors.fileName ? <div className="c-candidature-erreur visible">{formik.errors.fileName}</div> : ""}
       </>
     )
   }
@@ -107,10 +97,7 @@ const CandidatureSpontaneeFileDropzone = ({ setFileValue, formik }) => {
   })
 
   return (
-    <div
-      className={`c-candidature-filedropzone ${fileData?.fileName ? "c-candidature-filedropzone_selectedfile" : ""}`}
-      {...getRootProps()}
-    >
+    <div className={`c-candidature-filedropzone ${fileData?.fileName ? "c-candidature-filedropzone_selectedfile" : ""}`} {...getRootProps()}>
       {fileLoading ? getSpinner() : fileData?.fileName ? getSelectedFile() : getFileDropzone()}
     </div>
   )

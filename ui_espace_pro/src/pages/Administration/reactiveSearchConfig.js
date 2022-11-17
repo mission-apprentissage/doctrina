@@ -2,15 +2,7 @@ import dayjs from "dayjs"
 import { escapeDiacritics, getLocation, getPostcode, getStreet } from "../../common/utils/downloadUtils"
 import { CloseCircleLine, SearchLine } from "../../theme/components/icons"
 
-const filters = [
-  "searchFormulaire",
-  "statutFilter",
-  "siretFilter",
-  "libelleFilter",
-  "origineFilter",
-  "niveauFilter",
-  "contratFilter",
-]
+const filters = ["searchFormulaire", "statutFilter", "siretFilter", "libelleFilter", "origineFilter", "niveauFilter", "contratFilter"]
 const excludedFields = ["events", "mailing"]
 
 const exportableColumns = [
@@ -91,13 +83,9 @@ const exportableColumns = [
           Metier: escapeDiacritics(x.libelle),
           Niveau: escapeDiacritics(x.niveau),
           Prolongation: x.nombre_prolongation ?? 0,
-          Date_prolongation: x.date_derniere_prolongation
-            ? dayjs(x.date_derniere_prolongation).format("YYYY-MM-DD")
-            : "NA",
+          Date_prolongation: x.date_derniere_prolongation ? dayjs(x.date_derniere_prolongation).format("YYYY-MM-DD") : "NA",
           Date_creation: dayjs(x.date_creation).format("YYYY-MM-DD"),
-          Date_debut_apprentissage: x.date_debut_apprentissage
-            ? dayjs(x.date_debut_apprentissage).format("YYYY-MM-DD")
-            : "NA",
+          Date_debut_apprentissage: x.date_debut_apprentissage ? dayjs(x.date_debut_apprentissage).format("YYYY-MM-DD") : "NA",
           Date_expiration: dayjs(x.date_expiration).format("YYYY-MM-DD"),
           Description: escapeDiacritics(x.description ?? ""),
         }

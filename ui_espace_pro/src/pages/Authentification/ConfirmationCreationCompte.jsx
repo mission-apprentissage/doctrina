@@ -20,8 +20,7 @@ export default (props) => {
         </Heading>
         <Box fontSize={["16px", "22px"]}>
           <Text>
-            Nous vous avons envoyé un email à <strong>{email}</strong> avec un lien de confirmation. Celui-ci sera
-            valide pour les 60 prochaines minutes.
+            Nous vous avons envoyé un email à <strong>{email}</strong> avec un lien de confirmation. Celui-ci sera valide pour les 60 prochaines minutes.
           </Text>
         </Box>
 

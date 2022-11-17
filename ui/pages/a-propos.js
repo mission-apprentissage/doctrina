@@ -18,15 +18,7 @@ import { Box, Container, Divider, Flex, Grid, GridItem, Image, Link, SimpleGrid,
 const ServiceCard = ({ logo, title, text, url, mt, mb, imageMT, imageML }) => {
   return (
     <Box mt={mt} mb={mb}>
-      <Flex
-        bg="white"
-        py="18px"
-        px="24px"
-        direction={["column", "row"]}
-        borderRadius="10px"
-        alignItems="center"
-        boxShadow="0 0 12px rgb(0 0 0 / 21%)"
-      >
+      <Flex bg="white" py="18px" px="24px" direction={["column", "row"]} borderRadius="10px" alignItems="center" boxShadow="0 0 12px rgb(0 0 0 / 21%)">
         <Box minW="68px" minH="68px" bg="grey.300" borderRadius="70px">
           <Image src={logo} alt="" mt={imageMT} ml={imageML} />
         </Box>
@@ -66,14 +58,7 @@ const ServiceLink = ({ url, text, title }) => {
         •
       </GridItem>
       <GridItem ml={4} colSpan={[11, 11, 4]}>
-        <Link
-          sx={{ "text-underline-offset": "3px" }}
-          textDecoration="underline"
-          textDecorationThickness="2px"
-          fontWeight="700"
-          url={url}
-          isExternal
-        >
+        <Link sx={{ "text-underline-offset": "3px" }} textDecoration="underline" textDecorationThickness="2px" fontWeight="700" url={url} isExternal>
           {title}
         </Link>
       </GridItem>
@@ -115,13 +100,11 @@ const APropos = () => (
           <Text as="p" mb={4}>
             7 employeurs sur 10 recrutent sans déposer d’offre d’emploi.
             <br />
-            Il est essentiel dans votre recherche de proposer votre candidature à des entreprises n’ayant pas forcément
-            déposé d’offre d’emploi en alternance.
+            Il est essentiel dans votre recherche de proposer votre candidature à des entreprises n’ayant pas forcément déposé d’offre d’emploi en alternance.
           </Text>
           <Text as="p" mb={4}>
-            Notre algorithme La bonne alternance analyse les offres et les recrutements des 6 dernières années pour vous
-            proposer les entreprises qui recrutent régulièrement en alternance (contrat d&apos;apprentissage ou contrat
-            de professionnalisation).
+            Notre algorithme La bonne alternance analyse les offres et les recrutements des 6 dernières années pour vous proposer les entreprises qui recrutent régulièrement en
+            alternance (contrat d&apos;apprentissage ou contrat de professionnalisation).
           </Text>
 
           <Text as="p" mb={4}>
@@ -131,8 +114,7 @@ const APropos = () => (
           <Text as="p" mb={4}>
             Pour une meilleure lisibilité, les résultats sont affichés sur une carte et en liste.
             <br />
-            En cliquant sur une entreprise, vous accédez à sa description, ses coordonnées lorsqu’elles sont
-            disponibles, ainsi qu’à des conseils pour postuler.
+            En cliquant sur une entreprise, vous accédez à sa description, ses coordonnées lorsqu’elles sont disponibles, ainsi qu’à des conseils pour postuler.
           </Text>
 
           <Text variant="editorialContentH2" as="h2">
@@ -140,19 +122,12 @@ const APropos = () => (
           </Text>
 
           <Text as="p" mb={4}>
-            La bonne alternance est d’abord une start-up interne de Pôle emploi créée et développée par des conseillers.{" "}
-            <br />
+            La bonne alternance est d’abord une start-up interne de Pôle emploi créée et développée par des conseillers. <br />
             Reprise par la{" "}
-            <Link
-              variant="editorialContentLink"
-              aria-label="Accès au Gitbook de la mission apprentissage"
-              href="https://mission-apprentissage.gitbook.io/general/"
-              isExternal
-            >
+            <Link variant="editorialContentLink" aria-label="Accès au Gitbook de la mission apprentissage" href="https://mission-apprentissage.gitbook.io/general/" isExternal>
               Mission apprentissage
             </Link>{" "}
-            en 2020, le site ajoute désormais des informations sur les formations en apprentissage et les offres
-            d&apos;emploi en alternance.
+            en 2020, le site ajoute désormais des informations sur les formations en apprentissage et les offres d&apos;emploi en alternance.
           </Text>
 
           <Text variant="editorialContentH2" as="h2">
@@ -221,16 +196,8 @@ const APropos = () => (
           </SimpleGrid>
 
           <SimpleGrid columns={[1, 1, 2]}>
-            <StartupCard
-              logoUrl="/images/logo-memo.png"
-              url="https://memo.pole-emploi.fr/"
-              title="Organiser votre recherche d'emploi avec notre tableau de bord"
-            />
-            <StartupCard
-              logoUrl={logoAvril}
-              url="https://avril.pole-emploi.fr/"
-              title="Trouvez une formation en fonction de votre profil ET du marché du travail"
-            />
+            <StartupCard logoUrl="/images/logo-memo.png" url="https://memo.pole-emploi.fr/" title="Organiser votre recherche d'emploi avec notre tableau de bord" />
+            <StartupCard logoUrl={logoAvril} url="https://avril.pole-emploi.fr/" title="Trouvez une formation en fonction de votre profil ET du marché du travail" />
           </SimpleGrid>
 
           <Text variant="editorialContentH2" as="h2">
@@ -287,11 +254,7 @@ const APropos = () => (
               title="#1jeune1solution"
             />
 
-            <ServiceLink
-              url="https://www.1jeune1solution.gouv.fr/"
-              text="Je suis jeune, je découvre toutes les solutions pour préparer mon avenir."
-              title="#1jeune1solution"
-            />
+            <ServiceLink url="https://www.1jeune1solution.gouv.fr/" text="Je suis jeune, je découvre toutes les solutions pour préparer mon avenir." title="#1jeune1solution" />
           </VStack>
         </GridItem>
       </Grid>

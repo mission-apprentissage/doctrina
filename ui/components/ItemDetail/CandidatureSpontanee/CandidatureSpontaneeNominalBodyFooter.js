@@ -10,11 +10,7 @@ import emailMisspelled, { top100 } from "email-misspelled"
 const emailChecker = emailMisspelled({ maxMisspelled: 3, domains: top100 })
 
 const PostulerBody = (props) => {
-  return props.fromWidget ? (
-    <Container>{props.children}</Container>
-  ) : (
-    <ModalBody data-testid="modalbody-nominal">{props.children}</ModalBody>
-  )
+  return props.fromWidget ? <Container>{props.children}</Container> : <ModalBody data-testid="modalbody-nominal">{props.children}</ModalBody>
 }
 
 const PostulerFooter = (props) => {
@@ -60,20 +56,10 @@ const CandidatureSpontaneeNominalBodyFooter = ({ formik, sendingState, company, 
         <div className="c-candidature-personaldata d-flex flex-column flex-md-row mt-4">
           <fieldset
             data-testid="fieldset-lastname"
-            className={`mr-0 mr-md-3 c-candidature-field ${
-              formik.touched.lastName ? `is-valid-${!formik.errors.lastName}` : "is-not-validated"
-            }`}
+            className={`mr-0 mr-md-3 c-candidature-field ${formik.touched.lastName ? `is-valid-${!formik.errors.lastName}` : "is-not-validated"}`}
           >
             <label htmlFor="lastName">Nom *</label>
-            <input
-              id="lastName"
-              data-testid="lastName"
-              name="lastName"
-              type="text"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.lastName}
-            />
+            <input id="lastName" data-testid="lastName" name="lastName" type="text" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.lastName} />
             {formik.touched.lastName && formik.errors.lastName ? (
               <div className="c-candidature-erreur visible">{formik.errors.lastName}</div>
             ) : (
@@ -83,20 +69,10 @@ const CandidatureSpontaneeNominalBodyFooter = ({ formik, sendingState, company, 
 
           <fieldset
             data-testid="fieldset-firstname"
-            className={`mt-1 mt-md-0 c-candidature-field ${
-              formik.touched.firstName ? `is-valid-${!formik.errors.firstName}` : "is-not-validated"
-            }`}
+            className={`mt-1 mt-md-0 c-candidature-field ${formik.touched.firstName ? `is-valid-${!formik.errors.firstName}` : "is-not-validated"}`}
           >
             <label htmlFor="firstName">Prénom *</label>
-            <input
-              id="firstName"
-              data-testid="firstName"
-              name="firstName"
-              type="text"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.firstName}
-            />
+            <input id="firstName" data-testid="firstName" name="firstName" type="text" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.firstName} />
             {formik.touched.firstName && formik.errors.firstName ? (
               <div className="c-candidature-erreur visible">{formik.errors.firstName}</div>
             ) : (
@@ -105,29 +81,15 @@ const CandidatureSpontaneeNominalBodyFooter = ({ formik, sendingState, company, 
           </fieldset>
         </div>
 
-        {testingParameters?.simulatedRecipient ? (
-          <div>Les emails seront envoyés à {testingParameters.simulatedRecipient}</div>
-        ) : (
-          ""
-        )}
+        {testingParameters?.simulatedRecipient ? <div>Les emails seront envoyés à {testingParameters.simulatedRecipient}</div> : ""}
 
         <div className="d-flex flex-column flex-md-row mt-0 mt-md-3">
           <fieldset
             data-testid="fieldset-email"
-            className={`mt-1 mt-md-0 mr-0 mr-md-3 c-candidature-field ${
-              formik.touched.email ? `is-valid-${!formik.errors.email}` : "is-not-validated"
-            }`}
+            className={`mt-1 mt-md-0 mr-0 mr-md-3 c-candidature-field ${formik.touched.email ? `is-valid-${!formik.errors.email}` : "is-not-validated"}`}
           >
             <label htmlFor="email">E-mail *</label>
-            <input
-              id="email"
-              data-testid="email"
-              name="email"
-              type="email"
-              onChange={onEmailChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.email}
-            />
+            <input id="email" data-testid="email" name="email" type="email" onChange={onEmailChange} onBlur={formik.handleBlur} value={formik.values.email} />
             {suggestedEmails.length > 0 ? (
               <div className="c-candidature-misspelled">
                 <span className="c-candidature-misspelled__prompt">Voulez vous dire ?</span>
@@ -147,22 +109,9 @@ const CandidatureSpontaneeNominalBodyFooter = ({ formik, sendingState, company, 
             )}
           </fieldset>
 
-          <fieldset
-            data-testid="fieldset-phone"
-            className={`mt-1 mt-md-0 c-candidature-field ${
-              formik.touched.phone ? `is-valid-${!formik.errors.phone}` : "is-not-validated"
-            }`}
-          >
+          <fieldset data-testid="fieldset-phone" className={`mt-1 mt-md-0 c-candidature-field ${formik.touched.phone ? `is-valid-${!formik.errors.phone}` : "is-not-validated"}`}>
             <label htmlFor="email">Téléphone *</label>
-            <input
-              id="phone"
-              data-testid="phone"
-              name="phone"
-              type="text"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.phone}
-            />
+            <input id="phone" data-testid="phone" name="phone" type="text" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.phone} />
             {formik.touched.phone && formik.errors.phone ? (
               <div className="c-candidature-erreur visible">{formik.errors.phone}</div>
             ) : (
@@ -188,14 +137,8 @@ const CandidatureSpontaneeNominalBodyFooter = ({ formik, sendingState, company, 
               <a href="/cgu" className="c-candidature-link" target="_blank">
                 Conditions générales d&apos;utilisation.
               </a>{" "}
-              du service La Bonne Alternance et acceptez le partage de vos informations avec l&apos;établissement{" "}
-              {company}
-              <a
-                href="https://media.giphy.com/media/3oz8xSD5WkRNG1R6x2/giphy.gif"
-                className="c-candidature-link"
-                target="_blank"
-                rel="noreferrer"
-              >
+              du service La Bonne Alternance et acceptez le partage de vos informations avec l&apos;établissement {company}
+              <a href="https://media.giphy.com/media/3oz8xSD5WkRNG1R6x2/giphy.gif" className="c-candidature-link" target="_blank" rel="noreferrer">
                 En savoir plus
               </a>
             </div>

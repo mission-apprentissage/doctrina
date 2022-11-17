@@ -565,26 +565,7 @@
       "required": false,
       "schema": {
         "type": "string",
-        "enum": [
-          "01",
-          "02",
-          "03",
-          "04",
-          "06",
-          "11",
-          "24",
-          "27",
-          "28",
-          "32",
-          "44",
-          "52",
-          "53",
-          "75",
-          "76",
-          "84",
-          "93",
-          "94"
-        ]
+        "enum": ["01", "02", "03", "04", "06", "11", "24", "27", "28", "32", "44", "52", "53", "75", "76", "84", "93", "94"]
       },
       "description": "Le code Insee d'une région française.<br />region et departement sont incompatibles.<br /><strong>Si aucun des deux n'est renseigné la recherche portera sur France entière.</strong><br /><strong>France entière ne peut être utilisé sans rome ou romeDomain.</strong><br /><ul><li>84 : Auvergne-Rhône-Alpes</li><li>27 : Bourgogne-Franche-Comté</li><li>53 : Bretagne</li><li>24 : Centre-Val de Loire</li><li>94 : Corse</li><li>44 : Grand Est</li><li>32 : Hauts-de-France</li><li>11 : Île-de-France</li><li>28 : Normandie</li><li>75 : Nouvelle-Aquitaine</li><li>76 : Occitanie</li><li>52 : Pays de la Loire</li><li>93 : Provence-Alpes-Côte d'Azur</li><li>01 : Guadeloupe</li><li>02 : Martinique</li><li>03 : Guyane</li><li>04 : La Réunion</li><li>06 : Mayotte</li></ul>",
       "example": "84"
@@ -847,10 +828,7 @@
             "type": "string"
           },
           "description": "Une liste d'erreurs détaillées. Ex : les erreurs de paramétrage de la requête.",
-          "example": [
-            "romes : Badly formatted rome codes. Rome code must be one letter followed by 4 digit number. ex : A1234",
-            "romes : Too many rome codes. Maximum is 15."
-          ]
+          "example": ["romes : Badly formatted rome codes. Rome code must be one letter followed by 4 digit number. ex : A1234", "romes : Too many rome codes. Maximum is 15."]
         }
       }
     },

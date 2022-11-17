@@ -25,9 +25,7 @@ describe(__filename(import.meta.url), () => {
   })
 
   it("Détection origine autorisée - retourne true si origine connue labonnealternance-recette.apprentissage.beta.gouv.fr/recherche-apprentissage?isTrainingOnly=1", () => {
-    const result = isOriginLocal(
-      "https://labonnealternance.apprentissage.beta.gouv.fr/recherche-apprentissage?isTrainingOnly=1"
-    )
+    const result = isOriginLocal("https://labonnealternance.apprentissage.beta.gouv.fr/recherche-apprentissage?isTrainingOnly=1")
     assert.strictEqual(result, true)
   })
 

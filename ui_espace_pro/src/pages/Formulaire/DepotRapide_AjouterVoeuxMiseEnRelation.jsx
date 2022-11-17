@@ -1,19 +1,4 @@
-import {
-  Box,
-  Button,
-  Center,
-  Checkbox,
-  Container,
-  Divider,
-  Flex,
-  Grid,
-  GridItem,
-  Heading,
-  Link,
-  Spinner,
-  Square,
-  Text,
-} from "@chakra-ui/react"
+import { Box, Button, Center, Checkbox, Container, Divider, Flex, Grid, GridItem, Heading, Link, Spinner, Square, Text } from "@chakra-ui/react"
 import { useEffect, useState } from "react"
 import { useLocation, useNavigate } from "react-router-dom"
 import { createEtablissementDelegation, getRelatedEtablissementsFromRome } from "../../api"
@@ -39,9 +24,7 @@ const DepotRapide_AjouterVoeuxMiseEnRelation = () => {
    * @return {void}
    */
   const checkEtablissement = (etablissement) => {
-    const etablissementUpdated = etablissements.map((item) =>
-      etablissement._id === item._id ? { ...item, checked: !etablissement.checked } : item
-    )
+    const etablissementUpdated = etablissements.map((item) => (etablissement._id === item._id ? { ...item, checked: !etablissement.checked } : item))
 
     setIsSubmitButtonEnabled(!!etablissementUpdated.find((item) => item.checked))
     setEtablissements(etablissementUpdated)
@@ -63,9 +46,7 @@ const DepotRapide_AjouterVoeuxMiseEnRelation = () => {
    */
   const submit = async () => {
     setIsSubmitLoading(true)
-    const etablissementCatalogueIds = etablissements
-      .filter((etablissement) => etablissement.checked)
-      .map((etablissement) => etablissement._id)
+    const etablissementCatalogueIds = etablissements.filter((etablissement) => etablissement.checked).map((etablissement) => etablissement._id)
 
     await createEtablissementDelegation({
       offreId: location.state.offre._id,
@@ -103,8 +84,7 @@ const DepotRapide_AjouterVoeuxMiseEnRelation = () => {
             <GridItem mb={0}>
               <Heading fontSize="32px">Ces centres de formation pourraient vous proposer des candidats</Heading>
               <Text fontSize="20px" pt="32px">
-                Les centres de formation suivants proposent des formations en lien avec votre offre et sont localisés à
-                proximité de votre entreprise.
+                Les centres de formation suivants proposent des formations en lien avec votre offre et sont localisés à proximité de votre entreprise.
                 <br />
                 Choisissez ceux que vous souhaitez solliciter.
               </Text>
@@ -113,14 +93,7 @@ const DepotRapide_AjouterVoeuxMiseEnRelation = () => {
               <GridItem rowStart={["auto", 2]}>
                 {etablissements.map((etablissement) => {
                   return (
-                    <Flex
-                      borderStyle="solid"
-                      borderWidth="1px"
-                      borderColor="#000091"
-                      py={4}
-                      key={etablissement._id}
-                      mb={4}
-                    >
+                    <Flex borderStyle="solid" borderWidth="1px" borderColor="#000091" py={4} key={etablissement._id} mb={4}>
                       <Center w="70px">
                         <Checkbox
                           key={etablissement.ref}
@@ -130,24 +103,13 @@ const DepotRapide_AjouterVoeuxMiseEnRelation = () => {
                         />
                       </Center>
                       <Box flex="1">
-                        <Text
-                          size="16px"
-                          lineHeight="25px"
-                          fontWeight="400"
-                          color="#161616"
-                          textTransform="capitalize"
-                          pr={3}
-                        >
+                        <Text size="16px" lineHeight="25px" fontWeight="400" color="#161616" textTransform="capitalize" pr={3}>
                           {etablissement.entreprise_raison_sociale}
                         </Text>
                         <Text size="12px" lineHeight="25px" color="#666666" textTransform="capitalize" pr={3}>
-                          {etablissement?.numero_voie} {etablissement?.type_voie} {etablissement?.nom_voie},{" "}
-                          {etablissement?.code_postal} {etablissement?.nom_departement}
+                          {etablissement?.numero_voie} {etablissement?.type_voie} {etablissement?.nom_voie}, {etablissement?.code_postal} {etablissement?.nom_departement}
                         </Text>
-                        <Link
-                          href={`https://catalogue.apprentissage.beta.gouv.fr/etablissement/${etablissement._id}`}
-                          isExternal
-                        >
+                        <Link href={`https://catalogue.apprentissage.beta.gouv.fr/etablissement/${etablissement._id}`} isExternal>
                           <Flex>
                             <Text lineHeight="25px">
                               <u>En savoir plus</u>
@@ -183,16 +145,13 @@ const DepotRapide_AjouterVoeuxMiseEnRelation = () => {
                     <Text fontWeight="700" mt={6}>
                       Gagnez du temps.
                     </Text>
-                    <Text mt={4}>
-                      Accélérez votre recrutement, et trouvez des candidats qualifiés en partageant votre offre aux
-                      acteurs de l’apprentissage de votre région.
-                    </Text>
+                    <Text mt={4}>Accélérez votre recrutement, et trouvez des candidats qualifiés en partageant votre offre aux acteurs de l’apprentissage de votre région.</Text>
                     <Text fontWeight="700" mt={6}>
                       Rejoignez le réseau des acteurs de l'apprentissage de votre territoire.
                     </Text>
                     <Text mt={4}>
-                      Développez des relations de confiance avec les acteurs de l'apprentissage de votre territoire afin
-                      de promouvoir votre entreprise et vos métiers auprès des jeunes.
+                      Développez des relations de confiance avec les acteurs de l'apprentissage de votre territoire afin de promouvoir votre entreprise et vos métiers auprès des
+                      jeunes.
                     </Text>
                   </Box>
                 </Box>

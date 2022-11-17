@@ -41,9 +41,7 @@ import style from "./Voeux.module.css"
 
 const DATE_FORMAT = "YYYY-MM-DD"
 const URL_LBA =
-  process.env.REACT_APP_ENV === "production"
-    ? "https://labonnealternance.apprentissage.beta.gouv.fr/api"
-    : "https://labonnealternance-recette.apprentissage.beta.gouv.fr/api"
+  process.env.REACT_APP_ENV === "production" ? "https://labonnealternance.apprentissage.beta.gouv.fr/api" : "https://labonnealternance-recette.apprentissage.beta.gouv.fr/api"
 
 const ChampNombre = ({ value, max, name, handleChange, label }) => {
   return (
@@ -208,9 +206,7 @@ const AjouterVoeux = (props) => {
         rome_appellation_label: props.rome_appellation_label ?? "",
         romes: props.romes ?? [],
         niveau: props.niveau ?? "",
-        date_debut_apprentissage: props.date_debut_apprentissage
-          ? dayjs(props.date_debut_apprentissage).format(DATE_FORMAT)
-          : "",
+        date_debut_apprentissage: props.date_debut_apprentissage ? dayjs(props.date_debut_apprentissage).format(DATE_FORMAT) : "",
         description: props.description ?? undefined,
         date_creation: props.date_creation ?? dayjs().format(DATE_FORMAT),
         date_expiration: props.date_expiration ?? dayjs().add(1, "month").format(DATE_FORMAT),
@@ -232,11 +228,7 @@ const AjouterVoeux = (props) => {
         type: Yup.array().required("Champ obligatoire"),
         multi_diffuser: Yup.boolean(),
       })}
-      onSubmit={
-        props.fromDashboard
-          ? (values, bag) => submitFromDashboard(values, bag)
-          : (values) => submitFromDepotRapide(values)
-      }
+      onSubmit={props.fromDashboard ? (values, bag) => submitFromDashboard(values, bag) : (values) => submitFromDepotRapide(values)}
     >
       {(formik) => {
         let { values, setFieldValue, handleChange, errors, touched, isValid, isSubmitting, dirty, submitForm } = formik
@@ -272,11 +264,7 @@ const AjouterVoeux = (props) => {
               <FormLabel>
                 <Flex alignItems="flex-end">
                   Type de contrat en alternance{" "}
-                  <Link
-                    href="https://www.service-public.fr/professionnels-entreprises/vosdroits/F31704"
-                    isExternal
-                    ml={1}
-                  >
+                  <Link href="https://www.service-public.fr/professionnels-entreprises/vosdroits/F31704" isExternal ml={1}>
                     <Flex>
                       <Text fontSize="sm" color="grey.500">
                         en savoir plus
@@ -306,31 +294,17 @@ const AjouterVoeux = (props) => {
                   Choisissez un niveau
                 </option>
                 <option value="Indifférent">Indifférent</option>
-                <option value="Cap, autres formations niveau (Infrabac)">
-                  Cap, autres formations niveau (Infrabac)
-                </option>
+                <option value="Cap, autres formations niveau (Infrabac)">Cap, autres formations niveau (Infrabac)</option>
                 <option value="BP, Bac, autres formations niveau (Bac)">BP, Bac, autres formations niveau (Bac)</option>
-                <option value="BTS, DEUST, autres formations niveau (Bac+2)">
-                  BTS, DEUST, autres formations niveau (Bac+2)
-                </option>
-                <option value="Licence, autres formations niveau (Bac+3)">
-                  Licence, autres formations niveau (Bac+3)
-                </option>
-                <option value="Master, titre ingénieur, autres formations niveau (Bac+5)">
-                  Master, titre ingénieur, autres formations niveau (Bac+5)
-                </option>
+                <option value="BTS, DEUST, autres formations niveau (Bac+2)">BTS, DEUST, autres formations niveau (Bac+2)</option>
+                <option value="Licence, autres formations niveau (Bac+3)">Licence, autres formations niveau (Bac+3)</option>
+                <option value="Master, titre ingénieur, autres formations niveau (Bac+5)">Master, titre ingénieur, autres formations niveau (Bac+5)</option>
               </Select>
               {errors.niveau && touched.niveau && <FormErrorMessage>{errors.niveau}</FormErrorMessage>}
             </FormControl>
             <FormControl mt={6} isRequired>
               <FormLabel>Date de début</FormLabel>
-              <Input
-                type="date"
-                name="date_debut_apprentissage"
-                min={minDate}
-                defaultValue={values.date_debut_apprentissage}
-                onChange={handleChange}
-              />
+              <Input type="date" name="date_debut_apprentissage" min={minDate} defaultValue={values.date_debut_apprentissage} onChange={handleChange} />
             </FormControl>
             {/* <FormControl mt={8}>
               <Box p={3} bg='beige' borderBottom='4px solid #000091'>
@@ -359,47 +333,23 @@ const AjouterVoeux = (props) => {
             </FormControl> */}
             {organisation !== "atlas" && (
               <FormControl mt={6}>
-                <Checkbox
-                  name="elligible_handicap"
-                  value={values.elligible_handicap}
-                  isChecked={values.elligible_handicap}
-                  onChange={handleChange}
-                >
+                <Checkbox name="elligible_handicap" value={values.elligible_handicap} isChecked={values.elligible_handicap} onChange={handleChange}>
                   Je souhaite faire figurer sur l’offre la mention suivante: <br />
-                  "À compétences égales, une attention particulière sera apportée aux personnes en situation de
-                  handicap."
+                  "À compétences égales, une attention particulière sera apportée aux personnes en situation de handicap."
                 </Checkbox>
               </FormControl>
             )}
             <FormControl mt={6}>
-              <ChampNombre
-                max={10}
-                name="quantite"
-                value={values.quantite}
-                label="Nombre de poste(s) disponible(s)"
-                handleChange={setFieldValue}
-              />
+              <ChampNombre max={10} name="quantite" value={values.quantite} label="Nombre de poste(s) disponible(s)" handleChange={setFieldValue} />
             </FormControl>
             <FormControl mt={6}>
-              <ChampNombre
-                max={4}
-                name="duree_contrat"
-                value={values.duree_contrat}
-                label="Durée du contrat (année)"
-                handleChange={setFieldValue}
-              />
+              <ChampNombre max={4} name="duree_contrat" value={values.duree_contrat} label="Durée du contrat (année)" handleChange={setFieldValue} />
             </FormControl>
             {auth.type !== AUTHTYPE.ENTREPRISE && (
               <FormControl mt={6}>
                 <FormLabel>Rythme de l'alternance (formation / entreprise)</FormLabel>
                 <FormHelperText pb={2}>Facultatif</FormHelperText>
-                <Select
-                  variant="outline"
-                  size="md"
-                  name="rythme_alternance"
-                  defaultValue={values.rythme_alternance}
-                  onChange={handleChange}
-                >
+                <Select variant="outline" size="md" name="rythme_alternance" defaultValue={values.rythme_alternance} onChange={handleChange}>
                   <option value="" hidden>
                     Choisissez un rythme
                   </option>
@@ -408,16 +358,13 @@ const AjouterVoeux = (props) => {
                   <option value="2 semaines / 3 semaines">2 semaines / 3 semaines</option>
                   <option value="6 semaines / 6 semaines">6 semaines / 6 semaines</option>
                 </Select>
-                {errors.rythme_alternance && touched.rythme_alternance && (
-                  <FormErrorMessage>{errors.rythme_alternance}</FormErrorMessage>
-                )}
+                {errors.rythme_alternance && touched.rythme_alternance && <FormErrorMessage>{errors.rythme_alternance}</FormErrorMessage>}
               </FormControl>
             )}
             <FormControl mt={6}>
               <FormLabel fontWeight="bold">Lieu d’exécution de l’emploi</FormLabel>
               <Text fontSize="16px" mt={2} mb={4}>
-                Par défaut, l’adresse utilisée pour localiser l’offre est celle figurant dans les informations légales
-                de l’entreprise.
+                Par défaut, l’adresse utilisée pour localiser l’offre est celle figurant dans les informations légales de l’entreprise.
               </Text>
               {!toggleChangeAddress ? (
                 <>
@@ -479,8 +426,7 @@ const AjouterVoeux = (props) => {
                 <FormLabel>Description</FormLabel>
                 <Textarea rows="6" name="description" defaultValue={values.description} onChange={handleChange} />
                 <FormHelperText>
-                  Insérer ici une description de l'offre d'apprentissage, un lien vers la fiche de poste ou tout élément
-                  permettant de présenter le poste à pourvoir.
+                  Insérer ici une description de l'offre d'apprentissage, un lien vers la fiche de poste ou tout élément permettant de présenter le poste à pourvoir.
                 </FormHelperText>
               </FormControl>
             )}
@@ -488,13 +434,7 @@ const AjouterVoeux = (props) => {
               <Button variant="secondary" onClick={() => navigate(-1)} mr={4}>
                 Annuler
               </Button>
-              <Button
-                leftIcon={<ArrowRightLine />}
-                variant="form"
-                isDisabled={!(isValid && dirty) || isSubmitting}
-                isActive={isValid && dirty}
-                onClick={submitForm}
-              >
+              <Button leftIcon={<ArrowRightLine />} variant="form" isDisabled={!(isValid && dirty) || isSubmitting} isActive={isValid && dirty} onClick={submitForm}>
                 {props._id ? "Mettre à jour" : "Créer l'offre"}
               </Button>
             </Flex>
@@ -525,9 +465,7 @@ const Information = (props) => {
           </Box>
           <Flex alignItems="flex-start" mb={6}>
             <InfoCircle mr={2} mt={1} color="bluefrance.500" />
-            <Text textAlign="justify">
-              Voici la description visible par les candidats lors de la mise en ligne de l’offre d’emploi en alternance.
-            </Text>
+            <Text textAlign="justify">Voici la description visible par les candidats lors de la mise en ligne de l’offre d’emploi en alternance.</Text>
           </Flex>
 
           <Accordion defaultIndex={[0, 1]}>

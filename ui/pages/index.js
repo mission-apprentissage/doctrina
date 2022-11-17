@@ -75,9 +75,7 @@ export async function getStaticProps() {
 }
 
 async function getAllReviews() {
-  const response = await axios.get(
-    "https://raw.githubusercontent.com/mission-apprentissage/labonnealternance/datasets/ui/config/review.csv"
-  )
+  const response = await axios.get("https://raw.githubusercontent.com/mission-apprentissage/labonnealternance/datasets/ui/config/review.csv")
   const csv = csvToArray(response.data)
 
   /*

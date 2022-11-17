@@ -77,9 +77,4 @@ const updateFormationsIndexAlias = async ({ masterIndex, indexToUnAlias }) => {
   }
 }
 
-export {
-  getCurrentFormationsSourceIndex,
-  getCurrentFormationsSourceCollection,
-  updateFormationsSourceIndex,
-  updateFormationsIndexAlias,
-}
+export { getCurrentFormationsSourceIndex, getCurrentFormationsSourceCollection, updateFormationsSourceIndex, updateFormationsIndexAlias }

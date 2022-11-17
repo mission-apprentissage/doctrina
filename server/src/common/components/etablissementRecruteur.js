@@ -119,17 +119,14 @@ export default () => ({
   getGeoCoordinates: async (adresse) => {
     try {
       const response = await axios.get(`https://api-adresse.data.gouv.fr/search/?q=${adresse}`)
-      const coordinates = response.data.features[0]
-        ? response.data.features[0].geometry.coordinates.reverse().join(",")
-        : "NOT FOUND"
+      const coordinates = response.data.features[0] ? response.data.features[0].geometry.coordinates.reverse().join(",") : "NOT FOUND"
       return coordinates
     } catch (error) {
       Sentry.captureException(error)
       return error
     }
   },
-  getEstablishmentFromOpcoReferentiel: (opco_label, siret_code, email) =>
-    ReferentielOpco.findOne({ opco_label, siret_code, emails: { $in: [email] } }),
+  getEstablishmentFromOpcoReferentiel: (opco_label, siret_code, email) => ReferentielOpco.findOne({ opco_label, siret_code, emails: { $in: [email] } }),
   formatEntrepriseData: (d) => ({
     enseigne: d.enseigne,
     etat: d.etat_administratif.value, // F pour fermé ou A pour actif
@@ -166,9 +163,7 @@ export default () => ({
     raison_sociale: d.raison_sociale,
     contacts: d.contacts,
     adresse: d.adresse?.label,
-    rue:
-      d.adresse?.label?.split(`${d.adresse?.code_postal}`)[0].trim() ||
-      d.lieux_de_formation[0].adresse.label.split(`${d.lieux_de_formation[0].adresse.code_postal}`)[0].trim(),
+    rue: d.adresse?.label?.split(`${d.adresse?.code_postal}`)[0].trim() || d.lieux_de_formation[0].adresse.label.split(`${d.lieux_de_formation[0].adresse.code_postal}`)[0].trim(),
     commune: d.adresse?.localite || d.lieux_de_formation[0].adresse.localite,
     code_postal: d.adresse?.code_postal || d.lieux_de_formation[0].adresse.code_postal,
     geo_coordonnees: d.adresse
@@ -182,9 +177,7 @@ export default () => ({
     contacts: [], // les tco n'ont pas d'information de contact, mais conserve un standard pour l'ui,
     commune: d.localite,
     code_postal: d.code_postal,
-    adresse: `${d.numero_voie === null ? "" : d.numero_voie} ${d.type_voie} ${d.nom_voie} ${d.code_postal} ${
-      d.localite
-    }`,
+    adresse: `${d.numero_voie === null ? "" : d.numero_voie} ${d.type_voie} ${d.nom_voie} ${d.code_postal} ${d.localite}`,
     rue: `${d.numero_voie === null ? "" : d.numero_voie} ${d.type_voie} ${d.nom_voie}`,
     geo_coordonnees: d.geo_coordonnees,
   }),

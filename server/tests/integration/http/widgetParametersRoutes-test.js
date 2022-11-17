@@ -114,11 +114,7 @@ httpTests(__filename(import.meta.url), ({ startServer }) => {
     })
 
     const bearerToken = await createAndLogUser("userAdmin", "password", { role: roles.administrator })
-    const response = await httpClient.get(
-      "/api/widget-parameters/",
-      { headers: bearerToken },
-      { data: { etablissement_siret: sampleWidgetParameter.etablissement_siret } }
-    )
+    const response = await httpClient.get("/api/widget-parameters/", { headers: bearerToken }, { data: { etablissement_siret: sampleWidgetParameter.etablissement_siret } })
 
     // Check API Response
     assert.deepStrictEqual(response.status, 200)
@@ -175,13 +171,9 @@ httpTests(__filename(import.meta.url), ({ startServer }) => {
     assert.deepStrictEqual(addedResponse.data.referrers.includes(referrers.LBA.code), true)
 
     // Check query db
-    const updateResponse = await httpClient.put(
-      `/api/widget-parameters/${addedResponse.data._id}`,
-      sampleUpdateParameter,
-      {
-        headers: bearerToken,
-      }
-    )
+    const updateResponse = await httpClient.put(`/api/widget-parameters/${addedResponse.data._id}`, sampleUpdateParameter, {
+      headers: bearerToken,
+    })
     assert.deepStrictEqual(updateResponse.status, 200)
     assert.deepStrictEqual(updateResponse.data.etablissement_siret, sampleUpdateParameter.etablissement_siret)
     assert.deepStrictEqual(updateResponse.data.formation_intitule, sampleUpdateParameter.formation_intitule)
@@ -229,11 +221,7 @@ httpTests(__filename(import.meta.url), ({ startServer }) => {
     })
 
     const bearerToken = await createAndLogUser("userAdmin", "password", { role: roles.administrator })
-    const updateResponse = await httpClient.put(
-      "/api/widget-parameters/referrers",
-      { referrers: [referrers.LBA.code, referrers.PARCOURSUP.code] },
-      { headers: bearerToken }
-    )
+    const updateResponse = await httpClient.put("/api/widget-parameters/referrers", { referrers: [referrers.LBA.code, referrers.PARCOURSUP.code] }, { headers: bearerToken })
 
     // Check API Response
     assert.ok(updateResponse.data.ok)
@@ -244,11 +232,7 @@ httpTests(__filename(import.meta.url), ({ startServer }) => {
     const { httpClient, createAndLogUser } = await startServer()
 
     const bearerToken = await createAndLogUser("userAdmin", "password", { role: roles.administrator })
-    const updateResponse = await httpClient.put(
-      "/api/widget-parameters/referrers",
-      { referrers: [9999999] },
-      { headers: bearerToken }
-    )
+    const updateResponse = await httpClient.put("/api/widget-parameters/referrers", { referrers: [9999999] }, { headers: bearerToken })
 
     // Check API Response
     assert.deepStrictEqual(updateResponse.status, 500)

@@ -1,19 +1,4 @@
-import {
-  Badge,
-  Box,
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  Button,
-  Container,
-  Flex,
-  Heading,
-  SimpleGrid,
-  Stack,
-  Text,
-  useDisclosure,
-  useToast,
-} from "@chakra-ui/react"
+import { Badge, Box, Breadcrumb, BreadcrumbItem, BreadcrumbLink, Button, Container, Flex, Heading, SimpleGrid, Stack, Text, useDisclosure, useToast } from "@chakra-ui/react"
 import { Form, Formik } from "formik"
 import { useMutation, useQuery, useQueryClient } from "react-query"
 import { useNavigate, useParams } from "react-router-dom"
@@ -108,21 +93,13 @@ export default () => {
 
   return (
     <AnimationContainer>
-      <ConfirmationDesactivationUtilisateur
-        {...confirmationDesactivationUtilisateur}
-        raison_sociale={data.data.raison_sociale}
-        _id={data.data._id}
-      />
+      <ConfirmationDesactivationUtilisateur {...confirmationDesactivationUtilisateur} raison_sociale={data.data.raison_sociale} _id={data.data._id} />
       <Layout displayNavigationMenu={false} header={false} footer={false}>
         <Container maxW="container.xl">
           <Box mt="16px" mb={6}>
             <Breadcrumb separator={<ArrowDropRightLine color="grey.600" />} textStyle="xs">
               <BreadcrumbItem>
-                <BreadcrumbLink
-                  textDecoration="underline"
-                  onClick={() => navigate(`/administration/opco`)}
-                  textStyle="xs"
-                >
+                <BreadcrumbLink textDecoration="underline" onClick={() => navigate(`/administration/opco`)} textStyle="xs">
                   Entreprises
                 </BreadcrumbLink>
               </BreadcrumbItem>
@@ -141,10 +118,7 @@ export default () => {
               </Flex>
               <Stack direction={["column", "column", "column", "row"]} spacing="10px">
                 {getActionButtons(lastUserState, data.data._id)}
-                <Button
-                  variant="secondary"
-                  onClick={() => navigate(`/administration/opco/entreprise/${data.data.siret}/${data.data.id_form}`)}
-                >
+                <Button variant="secondary" onClick={() => navigate(`/administration/opco/entreprise/${data.data.siret}/${data.data.id_form}`)}>
                   Voir les offres
                 </Button>
               </Stack>
@@ -195,24 +169,10 @@ export default () => {
                         <Form>
                           <CustomInput name="nom" label="Nom" type="text" value={values.nom} />
                           <CustomInput name="prenom" label="Prénom" type="test" value={values.prenom} />
-                          <CustomInput
-                            name="telephone"
-                            label="Téléphone"
-                            type="tel"
-                            pattern="[0-9]{10}"
-                            maxLength="10"
-                            value={values.telephone}
-                          />
+                          <CustomInput name="telephone" label="Téléphone" type="tel" pattern="[0-9]{10}" maxLength="10" value={values.telephone} />
                           <CustomInput name="email" label="Email" type="email" value={values.email} />
                           <Flex justify="flex-end" mt={10}>
-                            <Button
-                              type="submit"
-                              variant="form"
-                              leftIcon={<ArrowRightLine />}
-                              isActive={isValid}
-                              isDisabled={!isValid || isSubmitting}
-                              isLoading={isSubmitting}
-                            >
+                            <Button type="submit" variant="form" leftIcon={<ArrowRightLine />} isActive={isValid} isDisabled={!isValid || isSubmitting} isLoading={isSubmitting}>
                               Enregistrer
                             </Button>
                           </Flex>

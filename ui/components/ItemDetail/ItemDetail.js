@@ -21,13 +21,7 @@ import getSoustitre from "./ItemDetailServices/getSoustitre"
 import getActualTitle from "./ItemDetailServices/getActualTitle"
 import getCurrentList from "./ItemDetailServices/getCurrentList"
 import getTags from "./ItemDetailServices/getTags"
-import {
-  buttonJePostuleShouldBeDisplayed,
-  buttonPRDVShouldBeDisplayed,
-  buildPrdvButton,
-  getNavigationButtons,
-  BuildSwipe,
-} from "./ItemDetailServices/getButtons"
+import { buttonJePostuleShouldBeDisplayed, buttonPRDVShouldBeDisplayed, buildPrdvButton, getNavigationButtons, BuildSwipe } from "./ItemDetailServices/getButtons"
 
 import GoingToContactQuestion, { getGoingtoId } from "./GoingToContactQuestion"
 import gotoIcon from "../../public/images/icons/goto.svg"
@@ -76,9 +70,7 @@ const ItemDetail = ({ selectedItem, handleClose, displayNavbar, handleSelectItem
     <>
       <section
         onScroll={handleScroll}
-        className={`c-detail itemDetail ${kind ? `gtmDetail${capitalizeFirstLetter(kind)}` : ""} ${
-          selectedItem ? "" : "hiddenItemDetail"
-        }`}
+        className={`c-detail itemDetail ${kind ? `gtmDetail${capitalizeFirstLetter(kind)}` : ""} ${selectedItem ? "" : "hiddenItemDetail"}`}
         {...swipeHandlers}
       >
         {displayNavbar ? (
@@ -108,12 +100,7 @@ const ItemDetail = ({ selectedItem, handleClose, displayNavbar, handleSelectItem
             {buttonJePostuleShouldBeDisplayed(kind, selectedItem) ? (
               <div className="c-detail-description-me">
                 <div className="c-detail-pelink my-3">
-                  <a
-                    className="btn btn-blue gtmContactPE"
-                    onClick={postuleSurPoleEmploi}
-                    target="poleemploi"
-                    href={selectedItem.url}
-                  >
+                  <a className="btn btn-blue gtmContactPE" onClick={postuleSurPoleEmploi} target="poleemploi" href={selectedItem.url}>
                     Je postule sur Pôle emploi
                   </a>
                 </div>
@@ -151,21 +138,14 @@ const ItemDetail = ({ selectedItem, handleClose, displayNavbar, handleSelectItem
 
         {kind === "peJob" ? <PeJobDetail job={selectedItem} seeInfo={seeInfo} setSeeInfo={setSeeInfo} /> : ""}
         {kind === "matcha" ? <MatchaDetail job={selectedItem} seeInfo={seeInfo} setSeeInfo={setSeeInfo} /> : ""}
-        {amongst(kind, ["lbb", "lba"]) ? (
-          <LbbCompanyDetail lbb={selectedItem} seeInfo={seeInfo} setSeeInfo={setSeeInfo} />
-        ) : (
-          ""
-        )}
+        {amongst(kind, ["lbb", "lba"]) ? <LbbCompanyDetail lbb={selectedItem} seeInfo={seeInfo} setSeeInfo={setSeeInfo} /> : ""}
 
         {kind === "formation" ? <TrainingDetail training={selectedItem} hasAlsoJob={hasAlsoJob} /> : ""}
 
         {amongst(kind, ["lbb", "lba"]) ? (
           <div className="c-needHelp">
             <div className="c-needHelp-title">Besoin d&apos;aide ?</div>
-            <div className="c-needHelp-text">
-              Découvrez les modules de formation de La Bonne Alternance. Des modules de quelques minutes pour bien
-              préparer vos candidatures.
-            </div>
+            <div className="c-needHelp-text">Découvrez les modules de formation de La Bonne Alternance. Des modules de quelques minutes pour bien préparer vos candidatures.</div>
             <ul className="c-needHelp-listLinks">
               <li>
                 <span className="c-detail-traininglink ml-1">
@@ -202,12 +182,7 @@ const ItemDetail = ({ selectedItem, handleClose, displayNavbar, handleSelectItem
             {buttonJePostuleShouldBeDisplayed(kind, selectedItem) ? (
               ""
             ) : (
-              <GoingToContactQuestion
-                kind={kind}
-                uniqId={getGoingtoId(kind, selectedItem)}
-                key={getGoingtoId(kind, selectedItem)}
-                item={selectedItem}
-              />
+              <GoingToContactQuestion kind={kind} uniqId={getGoingtoId(kind, selectedItem)} key={getGoingtoId(kind, selectedItem)} item={selectedItem} />
             )}
           </>
         ) : (
@@ -218,12 +193,7 @@ const ItemDetail = ({ selectedItem, handleClose, displayNavbar, handleSelectItem
             {buttonPRDVShouldBeDisplayed(selectedItem) ? (
               ""
             ) : (
-              <GoingToContactQuestion
-                kind={kind}
-                uniqId={getGoingtoId(kind, selectedItem)}
-                key={getGoingtoId(kind, selectedItem)}
-                item={selectedItem}
-              />
+              <GoingToContactQuestion kind={kind} uniqId={getGoingtoId(kind, selectedItem)} key={getGoingtoId(kind, selectedItem)} item={selectedItem} />
             )}
           </>
         ) : (
@@ -234,12 +204,7 @@ const ItemDetail = ({ selectedItem, handleClose, displayNavbar, handleSelectItem
             {isCandidatureSpontanee(selectedItem) ? (
               ""
             ) : (
-              <GoingToContactQuestion
-                kind={kind}
-                uniqId={getGoingtoId(kind, selectedItem)}
-                key={getGoingtoId(kind, selectedItem)}
-                item={selectedItem}
-              />
+              <GoingToContactQuestion kind={kind} uniqId={getGoingtoId(kind, selectedItem)} key={getGoingtoId(kind, selectedItem)} item={selectedItem} />
             )}
           </>
         ) : (

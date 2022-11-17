@@ -76,21 +76,14 @@ const LocationDetail = ({ item, isCfa }) => {
           {item?.company?.creationDate && !isNaN(new Date(item.company.creationDate)) ? (
             <div className="c-locationdetail-line mt-1">
               <span className="c-detail-sizetext">
-                <strong>Année de création de l&apos;entreprise :&nbsp;</strong>{" "}
-                {new Date(item.company.creationDate).getFullYear()}
+                <strong>Année de création de l&apos;entreprise :&nbsp;</strong> {new Date(item.company.creationDate).getFullYear()}
               </span>
             </div>
           ) : (
             ""
           )}
           <div className="c-locationdetail-address mt-2">{item?.company?.place?.city}</div>
-          {item?.place?.distance ? (
-            <div className="c-locationdetail-distance">
-              {`${round(item.place.distance, 1)} km(s) du lieu de recherche`}
-            </div>
-          ) : (
-            ""
-          )}
+          {item?.place?.distance ? <div className="c-locationdetail-distance">{`${round(item.place.distance, 1)} km(s) du lieu de recherche`}</div> : ""}
           <div className="c-locationdetail-line mt-3">
             <span className="c-locationdetail-imgcontainer">
               <img className="" src="/images/icons/small_map_point.svg" alt="Adresse" />
@@ -100,9 +93,7 @@ const LocationDetail = ({ item, isCfa }) => {
                 className={`c-nice-link font-weight-normal gtm${capitalizeFirstLetter(kind)} gtmPathLink`}
                 url={getCompanyPathLink(item)}
                 title="Obtenir l'itinéraire"
-                withPic={
-                  <img className="mt-n1 ml-1" src="/images/square_link.svg" alt="Ouverture dans un nouvel onglet" />
-                }
+                withPic={<img className="mt-n1 ml-1" src="/images/square_link.svg" alt="Ouverture dans un nouvel onglet" />}
               />
             </span>
           </div>
@@ -115,9 +106,7 @@ const LocationDetail = ({ item, isCfa }) => {
         <h2 className="c-locationdetail-title mt-2">{getTitle(item)}</h2>
 
         {item?.company?.mandataire ? (
-          <div className="c-locationdetail-address mt-4">
-            Le centre de formation peut vous renseigner sur cette offre d’emploi ainsi que les formations qu’il propose.
-          </div>
+          <div className="c-locationdetail-address mt-4">Le centre de formation peut vous renseigner sur cette offre d’emploi ainsi que les formations qu’il propose.</div>
         ) : (
           ""
         )}
@@ -125,9 +114,7 @@ const LocationDetail = ({ item, isCfa }) => {
         <div className="c-locationdetail-address mt-4">{item?.place?.fullAddress}</div>
 
         {item?.place?.distance && !item?.company?.mandataire ? (
-          <div className="c-locationdetail-distance">
-            {`${round(item.place.distance, 1)} km(s) du lieu de recherche`}
-          </div>
+          <div className="c-locationdetail-distance">{`${round(item.place.distance, 1)} km(s) du lieu de recherche`}</div>
         ) : (
           ""
         )}
@@ -141,9 +128,7 @@ const LocationDetail = ({ item, isCfa }) => {
               className={`c-nice-link font-weight-normal gtm${capitalizeFirstLetter(kind)} gtmPathLink`}
               url={getPathLink(item)}
               title="Obtenir l'itinéraire"
-              withPic={
-                <img className="mt-n1 ml-1" src="/images/square_link.svg" alt="Ouverture dans un nouvel onglet" />
-              }
+              withPic={<img className="mt-n1 ml-1" src="/images/square_link.svg" alt="Ouverture dans un nouvel onglet" />}
             />
           </span>
         </div>
@@ -189,12 +174,7 @@ const LocationDetail = ({ item, isCfa }) => {
               />
             </div>
             <div className="c-locationdetail-line mt-3">
-              <a
-                href="https://media.giphy.com/media/l3vR4IfRCoz8Qz9oA/giphy.gif"
-                className="c-nice-link font-weight-normal"
-                target="_blank"
-                rel="noreferrer"
-              >
+              <a href="https://media.giphy.com/media/l3vR4IfRCoz8Qz9oA/giphy.gif" className="c-nice-link font-weight-normal" target="_blank" rel="noreferrer">
                 En savoir plus
               </a>
             </div>
@@ -212,8 +192,8 @@ const LocationDetail = ({ item, isCfa }) => {
                   <span className="c-detail-newadvice-title ml-2">Cet établissement est un CFA d&apos;entreprise</span>
                 </div>
                 <p>
-                  La particularité ? Il s&apos;agit d&apos;une formule complète <strong>Emploi + Formation</strong> !
-                  Cette formation vous intéresse ? La marche à suivre diffère selon le CFA d&apos;entreprise concerné :
+                  La particularité ? Il s&apos;agit d&apos;une formule complète <strong>Emploi + Formation</strong> ! Cette formation vous intéresse ? La marche à suivre diffère
+                  selon le CFA d&apos;entreprise concerné :
                 </p>
                 <ul>
                   <li>Commencez par vous inscrire à la formation pour accéder ensuite au contrat,</li>
@@ -250,17 +230,13 @@ const LocationDetail = ({ item, isCfa }) => {
                   className="c-nice-link gtmGoogleLink"
                   url={`https://www.google.fr/search?q=${getGoogleSearchParameters()}`}
                   title={item.company.name}
-                  withPic={
-                    <img className="mt-n1 ml-1" src="/images/square_link.svg" alt="Ouverture dans un nouvel onglet" />
-                  }
+                  withPic={<img className="mt-n1 ml-1" src="/images/square_link.svg" alt="Ouverture dans un nouvel onglet" />}
                 />
               </span>
             </div>
             <div className="c-locationdetail-line mt-1 mb-1">
               <span className="c-locationdetail-imgcontainer"></span>
-              <span className="c-detail-sizetext c-locationdetail-hint">
-                Renseignez-vous sur l&apos;établissement pour préparer votre candidature
-              </span>
+              <span className="c-detail-sizetext c-locationdetail-hint">Renseignez-vous sur l&apos;établissement pour préparer votre candidature</span>
             </div>
             {!item?.company?.mandataire ? (
               <div className="c-locationdetail-line mb-1">

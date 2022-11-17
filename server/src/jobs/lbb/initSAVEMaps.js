@@ -105,23 +105,13 @@ const parseUpdateLine = (line) => {
     let romes = null
     if (romesToBoost || romesAlternance) {
       // merge et unique sur les romes
-      romes = [
-        ...new Set(
-          (romesToBoost ? romesToBoost.split(",") : []).concat(romesAlternance ? romesAlternance.split(",") : [])
-        ),
-      ]
+      romes = [...new Set((romesToBoost ? romesToBoost.split(",") : []).concat(romesAlternance ? romesAlternance.split(",") : []))]
     }
 
     let removedRomes = null
     if (romesToRemove || romesAlternanceToRemove) {
       // merge et unique sur les romes
-      removedRomes = [
-        ...new Set(
-          (romesToRemove ? romesToRemove.split(",") : []).concat(
-            romesAlternanceToRemove ? romesAlternanceToRemove.split(",") : []
-          )
-        ),
-      ]
+      removedRomes = [...new Set((romesToRemove ? romesToRemove.split(",") : []).concat(romesAlternanceToRemove ? romesAlternanceToRemove.split(",") : []))]
     }
 
     let name = newCompanyName || newOfficeName

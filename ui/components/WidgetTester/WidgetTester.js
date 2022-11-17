@@ -2,11 +2,7 @@ import React, { useState } from "react"
 import { Button, Container, Row, Col } from "reactstrap"
 import { Formik, Form, ErrorMessage, Field } from "formik"
 import { RadioButton } from "components"
-import {
-  AutoCompleteField,
-  compareAutoCompleteValues,
-  autoCompleteToStringFunction,
-} from "components/AutoCompleteField/AutoCompleteField"
+import { AutoCompleteField, compareAutoCompleteValues, autoCompleteToStringFunction } from "components/AutoCompleteField/AutoCompleteField"
 import { fetchAddresses } from "services/baseAdresse"
 import domainChanged from "services/domainChanged"
 
@@ -34,14 +30,7 @@ const WidgetTester = () => {
   const getRadioButton = (inputName, value, label, selectedValue, setFieldValue, handleChange) => {
     return (
       <Col xs="4" className="radioButton">
-        <RadioButton
-          inputName={inputName}
-          handleChange={handleChange}
-          value={value}
-          label={label}
-          selectedValue={selectedValue}
-          setFieldValue={setFieldValue}
-        />
+        <RadioButton inputName={inputName} handleChange={handleChange} value={value} label={label} selectedValue={selectedValue} setFieldValue={setFieldValue} />
       </Col>
     )
   }
@@ -97,11 +86,7 @@ const WidgetTester = () => {
   }
 
   const showSelectedRomes = () => {
-    return shownRomes && shownRomes.romes ? (
-      <div className="shownValue">{`Romes : ${shownRomes.romes.join()}`}</div>
-    ) : (
-      ""
-    )
+    return shownRomes && shownRomes.romes ? <div className="shownValue">{`Romes : ${shownRomes.romes.join()}`}</div> : ""
   }
 
   const handleSearchSubmit = async (values) => {
@@ -120,8 +105,7 @@ const WidgetTester = () => {
   }
 
   const getIdeaUrlWithParams = () => {
-    let ideaUrl =
-      typeof window !== "undefined" ? window.location.origin : "https://labonnealternance.apprentissage.beta.gouv.fr"
+    let ideaUrl = typeof window !== "undefined" ? window.location.origin : "https://labonnealternance.apprentissage.beta.gouv.fr"
 
     let path = "recherche-apprentissage"
 
@@ -232,46 +216,11 @@ const WidgetTester = () => {
                   <div className="buttons">
                     <Container>
                       <Row>
-                        {getRadioButton(
-                          "locationRadius",
-                          0,
-                          "Non défini",
-                          locationRadius,
-                          setFieldValue,
-                          handleRadiusChange
-                        )}
-                        {getRadioButton(
-                          "locationRadius",
-                          10,
-                          "10km",
-                          locationRadius,
-                          setFieldValue,
-                          handleRadiusChange
-                        )}
-                        {getRadioButton(
-                          "locationRadius",
-                          30,
-                          "30km",
-                          locationRadius,
-                          setFieldValue,
-                          handleRadiusChange
-                        )}
-                        {getRadioButton(
-                          "locationRadius",
-                          60,
-                          "60km",
-                          locationRadius,
-                          setFieldValue,
-                          handleRadiusChange
-                        )}
-                        {getRadioButton(
-                          "locationRadius",
-                          100,
-                          "100km",
-                          locationRadius,
-                          setFieldValue,
-                          handleRadiusChange
-                        )}
+                        {getRadioButton("locationRadius", 0, "Non défini", locationRadius, setFieldValue, handleRadiusChange)}
+                        {getRadioButton("locationRadius", 10, "10km", locationRadius, setFieldValue, handleRadiusChange)}
+                        {getRadioButton("locationRadius", 30, "30km", locationRadius, setFieldValue, handleRadiusChange)}
+                        {getRadioButton("locationRadius", 60, "60km", locationRadius, setFieldValue, handleRadiusChange)}
+                        {getRadioButton("locationRadius", 100, "100km", locationRadius, setFieldValue, handleRadiusChange)}
                       </Row>
                     </Container>
                   </div>
@@ -288,14 +237,7 @@ const WidgetTester = () => {
                     <Container>
                       <Row>
                         {getRadioButton("scope", "", "Tout", scope, setFieldValue, handleScopeChange)}
-                        {getRadioButton(
-                          "scope",
-                          "training",
-                          "Formations uniquement",
-                          scope,
-                          setFieldValue,
-                          handleScopeChange
-                        )}
+                        {getRadioButton("scope", "training", "Formations uniquement", scope, setFieldValue, handleScopeChange)}
                         {getRadioButton("scope", "job", "Emplois uniquement", scope, setFieldValue, handleScopeChange)}
                       </Row>
                     </Container>
@@ -336,8 +278,7 @@ const WidgetTester = () => {
                     </Container>
                   </div>
                   <div className="widgetTestPage--notice">
-                    L&apos;utilisateur ne pourra pas faire une recherche sur d&apos;autres métiers (romes) que ceux que
-                    vous avez spécifiés.
+                    L&apos;utilisateur ne pourra pas faire une recherche sur d&apos;autres métiers (romes) que ceux que vous avez spécifiés.
                   </div>
                 </div>
               </Col>
@@ -349,8 +290,7 @@ const WidgetTester = () => {
                   </label>
                   <Field type="text" className="widgetTestPage--textInput" name="jobName" />
                   <div className="widgetTestPage--notice">
-                    La phrase suivante apparaîtra sur le formulaire: &quot;Vous souhaitez travailler dans le domaine de
-                    [votre saisie]&quot;.
+                    La phrase suivante apparaîtra sur le formulaire: &quot;Vous souhaitez travailler dans le domaine de [votre saisie]&quot;.
                   </div>
                 </div>
               </Col>
@@ -384,12 +324,7 @@ const WidgetTester = () => {
             URL associée à l&apos;attribut <strong>src</strong> de l&apos;iframe : {getIdeaUrlWithParams()}
           </Col>
           <Col xs="12">
-            <a
-              href="https://media.giphy.com/media/3oz8xyB3C126ZDDAuk/giphy.gif"
-              className="c-nice-link font-weight-normal"
-              rel="noreferrer"
-              target="_blank"
-            >
+            <a href="https://media.giphy.com/media/3oz8xyB3C126ZDDAuk/giphy.gif" className="c-nice-link font-weight-normal" rel="noreferrer" target="_blank">
               Accéder au détail de la documentation
             </a>
           </Col>

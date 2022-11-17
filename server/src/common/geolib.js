@@ -6,10 +6,7 @@ import distance from "@turf/distance"
  * @returns {number}
  */
 export const getDistanceInKm = (coordinate) => {
-  const distanceInKm = distance(
-    Object.values(coordinate.origin).reverse(),
-    Object.values(coordinate.destination).reverse()
-  )
+  const distanceInKm = distance(Object.values(coordinate.origin).reverse(), Object.values(coordinate.destination).reverse())
 
   return Math.ceil(distanceInKm)
 }

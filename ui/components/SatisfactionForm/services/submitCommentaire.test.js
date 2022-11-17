@@ -9,12 +9,7 @@ describe("submitCommentaire", () => {
       return x
     }
     // when
-    await submitCommentaire(
-      { id: "aaaa", iv: "aaaa", comment: "Commentaire" },
-      mockedSetSendingState,
-      mockedPostCommentaire,
-      repeatFunc
-    )
+    await submitCommentaire({ id: "aaaa", iv: "aaaa", comment: "Commentaire" }, mockedSetSendingState, mockedPostCommentaire, repeatFunc)
     // then
     expect(mockedPostCommentaire).toHaveBeenCalledWith({ id: "aaaa", iv: "aaaa", comment: "Commentaire" })
     expect(mockedSetSendingState).toHaveBeenCalledWith("currently_sending")

@@ -5,15 +5,7 @@ const { Base, Spec } = Mocha.reporters
 const { inherits } = require("util")
 const prettyMilliseconds = require("pretty-ms") // eslint-disable-line node/no-unpublished-require
 const color = Base.color
-const {
-  EVENT_RUN_BEGIN,
-  EVENT_RUN_END,
-  EVENT_SUITE_BEGIN,
-  EVENT_SUITE_END,
-  EVENT_TEST_FAIL,
-  EVENT_TEST_PASS,
-  EVENT_TEST_PENDING,
-} = Mocha.Runner.constants
+const { EVENT_RUN_BEGIN, EVENT_RUN_END, EVENT_SUITE_BEGIN, EVENT_SUITE_END, EVENT_TEST_FAIL, EVENT_TEST_PASS, EVENT_TEST_PENDING } = Mocha.Runner.constants
 
 const log = Base.consoleLog
 
@@ -105,11 +97,7 @@ function summary(stats) {
   log()
 
   // passes
-  log(
-    color("bright pass", " ") + color("green", " %d passing") + color("light", " (%s)"),
-    stats.passes || 0,
-    prettyMilliseconds(stats.duration)
-  )
+  log(color("bright pass", " ") + color("green", " %d passing") + color("light", " (%s)"), stats.passes || 0, prettyMilliseconds(stats.duration))
 
   if (stats.pending) {
     log(color("pending", " ") + color("pending", " %d pending"), stats.pending)

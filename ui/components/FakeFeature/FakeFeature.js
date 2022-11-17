@@ -2,15 +2,7 @@ import React, { useState } from "react"
 import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from "reactstrap"
 import buttonPriseDeRDVIcon from "../../public/images/icons/fake_feature_btn.svg"
 
-const FakeFeature = ({
-  buttonText,
-  tagName,
-  modalTitleBeforeSelection,
-  modalTextBeforeSelection,
-  modalTitleAfterSelection,
-  modalTextAfterSelection,
-  questionsAndTags,
-}) => {
+const FakeFeature = ({ buttonText, tagName, modalTitleBeforeSelection, modalTextBeforeSelection, modalTitleAfterSelection, modalTextAfterSelection, questionsAndTags }) => {
   const handleClick = () => {
     setIsOptionSelected(true)
   }

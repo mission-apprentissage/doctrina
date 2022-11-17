@@ -1,15 +1,7 @@
 import axios from "axios"
 import { logError } from "utils/tools"
 import { searchForJobsFunction } from "components/SearchForTrainingsAndJobs/services/searchForJobs"
-import {
-  trainingApi,
-  offreApi,
-  matchaApi,
-  companyApi,
-  trainingErrorText,
-  partialJobSearchErrorText,
-  notFoundErrorText,
-} from "components/SearchForTrainingsAndJobs/services/utils"
+import { trainingApi, offreApi, matchaApi, companyApi, trainingErrorText, partialJobSearchErrorText, notFoundErrorText } from "components/SearchForTrainingsAndJobs/services/utils"
 
 import { flyToMarker, setSelectedMarker } from "utils/mapTools"
 import { storeTrainingsInSession } from "./handleSessionStorage"
@@ -40,9 +32,7 @@ export const loadItem = async ({
     let itemMarker = null
 
     if (item.type === "training") {
-      const response = await axios.get(
-        `${trainingApi}/${!useMock ? encodeURIComponent(item.itemId) : "id-formation-test"}`
-      )
+      const response = await axios.get(`${trainingApi}/${!useMock ? encodeURIComponent(item.itemId) : "id-formation-test"}`)
 
       if (response.data.result === "error") {
         logError("Training Search Error", `${response.data.message}`)
@@ -177,11 +167,7 @@ export const loadItem = async ({
     }
     setCurrentPage("fiche")
   } catch (err) {
-    console.log(
-      `Erreur interne lors du chargement d'un élément (${err.response ? err.response.status : ""} : ${
-        err?.response?.data ? err.response.data.error : ""
-      })`
-    )
+    console.log(`Erreur interne lors du chargement d'un élément (${err.response ? err.response.status : ""} : ${err?.response?.data ? err.response.data.error : ""})`)
     logError("Training search error", err)
     setTrainingSearchError(trainingErrorText)
   }

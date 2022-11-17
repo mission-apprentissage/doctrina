@@ -167,11 +167,9 @@ const printProgress = () => {
       "info",
       ` -- update ${count} - findRomesForNaf : ${findRomesForNafCount} avg ${
         findRomesForNafTime / findRomesForNafCount
-      }ms -- getScoreForCompanyTime ${getScoreForCompanyCount} avg ${
-        getScoreForCompanyTime / getScoreForCompanyCount
-      }ms -- getGeoCount ${getGeoCount} avg ${getGeoTime / getGeoCount}ms -- findBBCount ${findBBCount} avg ${
-        findBBTime / findBBCount
-      }ms `
+      }ms -- getScoreForCompanyTime ${getScoreForCompanyCount} avg ${getScoreForCompanyTime / getScoreForCompanyCount}ms -- getGeoCount ${getGeoCount} avg ${
+        getGeoTime / getGeoCount
+      }ms -- findBBCount ${findBBCount} avg ${findBBTime / findBBCount}ms `
     )
   }
 }
@@ -332,13 +330,7 @@ const initMaps = async ({ shouldInitSAVEMaps }) => {
   nafMap = await initNafMap()
 }
 
-export default async function ({
-  shouldClearMongo,
-  shouldBuildIndex,
-  shouldParseFiles,
-  shouldInitSAVEMaps,
-  useCBSPrediction,
-}) {
+export default async function ({ shouldClearMongo, shouldBuildIndex, shouldParseFiles, shouldInitSAVEMaps, useCBSPrediction }) {
   if (!running) {
     running = true
     try {

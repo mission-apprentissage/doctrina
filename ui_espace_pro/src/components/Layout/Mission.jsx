@@ -10,13 +10,10 @@ export default () => (
       </GridItem>
       <GridItem>
         <Text pb={4}>
-          De nombreux jeunes motivés et disponibles tout de suite cherchent actuellement un contrat d'apprentissage. Ils
-          peuvent correspondre à vos besoins immédiats de recrutement.
+          De nombreux jeunes motivés et disponibles tout de suite cherchent actuellement un contrat d'apprentissage. Ils peuvent correspondre à vos besoins immédiats de
+          recrutement.
         </Text>
-        <Text pb={4}>
-          L'apprentissage, c'est la garantie de transmettre votre savoir-faire et d'embaucher une future recrue tout en
-          bénéficiant du soutien de l'État.
-        </Text>
+        <Text pb={4}>L'apprentissage, c'est la garantie de transmettre votre savoir-faire et d'embaucher une future recrue tout en bénéficiant du soutien de l'État.</Text>
         <Stack direction={["column", "row"]} spacing={[5, 10]}>
           <Link href="https://mission-apprentissage.gitbook.io/general/" isExternal>
             <Text fontWeight="bold">Mission Apprentissage</Text>

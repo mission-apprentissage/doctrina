@@ -74,12 +74,7 @@ const SearchPage = () => {
               <Box>
                 <Field name="keyword">
                   {({ field }) => {
-                    return (
-                      <Input
-                        placeholder="Siret formateur / Cle ministère educatif / UAI / Identifiant RCO formation"
-                        {...field}
-                      />
-                    )
+                    return <Input placeholder="Siret formateur / Cle ministère educatif / UAI / Identifiant RCO formation" {...field} />
                   }}
                 </Field>
               </Box>

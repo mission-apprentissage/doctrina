@@ -37,30 +37,11 @@ import updateUiFromHistory from "services/updateUiFromHistory"
 const SearchForTrainingsAndJobs = () => {
   const scopeContext = useContext(ScopeContext)
 
-  const {
-    hasSearch,
-    trainings,
-    jobs,
-    setTrainings,
-    setJobs,
-    selectedItem,
-    setSelectedItem,
-    setItemToScrollTo,
-    setExtendedSearch,
-    setHasSearch,
-  } = useContext(SearchResultContext)
+  const { hasSearch, trainings, jobs, setTrainings, setJobs, selectedItem, setSelectedItem, setItemToScrollTo, setExtendedSearch, setHasSearch } = useContext(SearchResultContext)
 
   const { opcoFilter, widgetParameters, useMock } = useContext(ParameterContext)
 
-  const {
-    formValues,
-    setFormValues,
-    visiblePane,
-    setVisiblePane,
-    isFormVisible,
-    setIsFormVisible,
-    setShouldMapBeVisible,
-  } = useContext(DisplayContext)
+  const { formValues, setFormValues, visiblePane, setVisiblePane, isFormVisible, setIsFormVisible, setShouldMapBeVisible } = useContext(DisplayContext)
 
   const [searchRadius, setSearchRadius] = useState(30)
   const [isTrainingSearchLoading, setIsTrainingSearchLoading] = useState(hasSearch ? false : true)
@@ -160,9 +141,7 @@ const SearchForTrainingsAndJobs = () => {
   }
 
   const flyToCenter = (values) => {
-    const searchCenter = values?.location?.value
-      ? [values.location.value.coordinates[0], values.location.value.coordinates[1]]
-      : null
+    const searchCenter = values?.location?.value ? [values.location.value.coordinates[0], values.location.value.coordinates[1]] : null
 
     if (searchCenter) {
       flyToLocation({ center: searchCenter, zoom: 10 })
@@ -368,20 +347,10 @@ const SearchForTrainingsAndJobs = () => {
 
   return (
     <div className="page demoPage c-searchfor">
-      <InitWidgetSearchParameters
-        handleSearchSubmit={handleSearchSubmit}
-        handleItemLoad={handleItemLoad}
-        setIsLoading={setIsLoading}
-      />
+      <InitWidgetSearchParameters handleSearchSubmit={handleSearchSubmit} handleItemLoad={handleItemLoad} setIsLoading={setIsLoading} />
       <WidgetHeader handleSearchSubmit={handleSearchSubmit} />
       <Row className={`c-searchfor__row is-visible-${isFormVisible} is-welcome-${shouldShowWelcomeMessage} `}>
-        <Col
-          className={`choiceCol-container leftShadow ${
-            visiblePane === "resultList" ? "activeXSPane" : "inactiveXSPane"
-          }`}
-          xs="12"
-          md="5"
-        >
+        <Col className={`choiceCol-container leftShadow ${visiblePane === "resultList" ? "activeXSPane" : "inactiveXSPane"}`} xs="12" md="5">
           <ChoiceColumn
             shouldShowWelcomeMessage={shouldShowWelcomeMessage}
             handleSearchSubmit={handleSearchSubmit}
@@ -402,19 +371,10 @@ const SearchForTrainingsAndJobs = () => {
           />
         </Col>
         <Col className={`p-0 ${visiblePane === "resultMap" ? "activeXSPane" : "inactiveXSPane"}`} xs="12" md="7">
-          <Map
-            handleSearchSubmit={handleSearchSubmit}
-            showSearchForm={showSearchForm}
-            selectItemOnMap={selectItemOnMap}
-          />
+          <Map handleSearchSubmit={handleSearchSubmit} showSearchForm={showSearchForm} selectItemOnMap={selectItemOnMap} />
         </Col>
       </Row>
-      <MapListSwitchButton
-        showSearchForm={showSearchForm}
-        showResultMap={showResultMap}
-        showResultList={showResultList}
-        isFormVisible={isFormVisible}
-      />
+      <MapListSwitchButton showSearchForm={showSearchForm} showResultMap={showResultMap} showResultList={showResultList} isFormVisible={isFormVisible} />
     </div>
   )
 }

@@ -25,9 +25,7 @@ const WidgetCandidatureSpontanee = (props) => {
 
   const getAPostuleMessage = () => {
     return `
-    Vous avez déjà postulé ${kind === "matcha" ? "à cette offre" : "auprès de cette entreprise"} le ${new Date(
-      parseInt(applied, 10)
-    ).toLocaleDateString("fr-FR", {
+    Vous avez déjà postulé ${kind === "matcha" ? "à cette offre" : "auprès de cette entreprise"} le ${new Date(parseInt(applied, 10)).toLocaleDateString("fr-FR", {
       year: "numeric",
       month: "long",
       day: "numeric",
@@ -87,22 +85,9 @@ const WidgetCandidatureSpontanee = (props) => {
                 <></>
               )}
 
-              {with_str(sendingState).amongst(["ok_sent"]) ? (
-                <CandidatureSpontaneeWorked
-                  kind={kind}
-                  email={formik.values.email}
-                  company={props?.item?.company?.name}
-                />
-              ) : (
-                <></>
-              )}
+              {with_str(sendingState).amongst(["ok_sent"]) ? <CandidatureSpontaneeWorked kind={kind} email={formik.values.email} company={props?.item?.company?.name} /> : <></>}
 
-              {with_str(sendingState).amongst([
-                "not_sent_because_of_errors",
-                "email temporaire non autorisé",
-                "max candidatures atteint",
-                "Too Many Requests",
-              ]) ? (
+              {with_str(sendingState).amongst(["not_sent_because_of_errors", "email temporaire non autorisé", "max candidatures atteint", "Too Many Requests"]) ? (
                 <CandidatureSpontaneeFailed sendingState={sendingState} />
               ) : (
                 <></>

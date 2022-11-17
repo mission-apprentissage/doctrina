@@ -12,13 +12,7 @@ const SatisfactionFormNavigation = () => {
         <div className="container">
           <Link href="/">
             <a className="navbar-brand">
-              <img
-                src="/images/logo_lba.svg"
-                alt="Retournez à la page d'accueil de La Bonne Alternance"
-                className="c-navbar-brand-img"
-                width="110"
-                height="76"
-              />
+              <img src="/images/logo_lba.svg" alt="Retournez à la page d'accueil de La Bonne Alternance" className="c-navbar-brand-img" width="110" height="76" />
             </a>
           </Link>
           <NavbarToggler onClick={toggle} />

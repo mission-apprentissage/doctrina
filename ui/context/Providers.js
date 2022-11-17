@@ -10,11 +10,7 @@ const Providers = ({ env, children }) => {
   return (
     <ChakraProvider theme={theme}>
       <PlausibleProvider
-        domain={
-          env !== "production"
-            ? "labonnealternance-recette2.apprentissage.beta.gouv.fr"
-            : "labonnealternance.apprentissage.beta.gouv.fr"
-        }
+        domain={env !== "production" ? "labonnealternance-recette2.apprentissage.beta.gouv.fr" : "labonnealternance.apprentissage.beta.gouv.fr"}
         trackOutboundLinks={true}
         trackLocalhost={true}
         enabled={true}

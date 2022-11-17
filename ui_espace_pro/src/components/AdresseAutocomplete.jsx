@@ -86,11 +86,7 @@ export default (props) => {
         {isOpen &&
           items.map((item, index) => (
             <li
-              style={
-                highlightedIndex === index
-                  ? { backgroundColor: "lightGrey", width: "100%", padding: "0.5rem" }
-                  : { width: "100%", padding: "0.5rem" }
-              }
+              style={highlightedIndex === index ? { backgroundColor: "lightGrey", width: "100%", padding: "0.5rem" } : { width: "100%", padding: "0.5rem" }}
               key={`${item}${index}`}
               {...getItemProps({ item, index })}
             >

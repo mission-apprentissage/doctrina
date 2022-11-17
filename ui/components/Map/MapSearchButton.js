@@ -11,11 +11,7 @@ const MapSearchButton = ({ handleSearchClick }) => {
 
   return hasSearch ? (
     <div className="c-map-searchButton">
-      <button
-        onClick={handleSearchClick}
-        title="Lancer une rechercher centrée sur la carte"
-        className="d-flex align-items-center"
-      >
+      <button onClick={handleSearchClick} title="Lancer une rechercher centrée sur la carte" className="d-flex align-items-center">
         {formValues ? (
           <>
             <img src={refreshSearchOnMap} alt="Relancer la recherche depuis la carte" />

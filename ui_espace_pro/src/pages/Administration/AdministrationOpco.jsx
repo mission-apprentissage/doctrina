@@ -33,32 +33,13 @@ import addOfferImage from "../../assets/images/add-offer.svg"
 import { USER_STATUS } from "../../common/contants"
 import useAuth from "../../common/hooks/useAuth"
 import { sortReactTableDate, sortReactTableString } from "../../common/utils/dateUtils"
-import {
-  AnimationContainer,
-  ConfirmationActivationUtilsateur,
-  ConfirmationDesactivationUtilisateur,
-  LoadingEmptySpace,
-  TableNew,
-} from "../../components"
+import { AnimationContainer, ConfirmationActivationUtilsateur, ConfirmationDesactivationUtilisateur, LoadingEmptySpace, TableNew } from "../../components"
 import { ArrowDropRightLine, Parametre } from "../../theme/components/icons"
 import "./search.css"
 
 const EmptySpace = () => (
-  <Stack
-    direction={["column", "column", "column", "row"]}
-    mt={12}
-    pt={12}
-    py={8}
-    border="1px solid"
-    borderColor="grey.400"
-    spacing="32px"
-  >
-    <Flex
-      justify={["center", "center", "center", "flex-end"]}
-      align={["center", "center", "center", "flex-start"]}
-      w={["100%", "100%", "100%", "350px"]}
-      h="150px"
-    >
+  <Stack direction={["column", "column", "column", "row"]} mt={12} pt={12} py={8} border="1px solid" borderColor="grey.400" spacing="32px">
+    <Flex justify={["center", "center", "center", "flex-end"]} align={["center", "center", "center", "flex-start"]} w={["100%", "100%", "100%", "350px"]} h="150px">
       <Image src={addOfferImage} />
     </Flex>
 
@@ -68,8 +49,8 @@ const EmptySpace = () => (
       </Heading>
       <Text fontSize="1.375rem">Une entreprise vous a mandaté pour gérer ses offres d’emploi ?</Text>
       <Text fontSize="1.375rem">
-        En quelques secondes, exprimez les besoins de recrutement de cette entreprise pour les afficher sur le site{" "}
-        <span style={{ fontWeight: "700" }}>La Bonne Alternance</span> dès aujourd’hui.
+        En quelques secondes, exprimez les besoins de recrutement de cette entreprise pour les afficher sur le site <span style={{ fontWeight: "700" }}>La Bonne Alternance</span>{" "}
+        dès aujourd’hui.
       </Text>
     </Box>
   </Stack>
@@ -305,9 +286,7 @@ export default memo(() => {
               <TabList>
                 <Tab width="300px">En attente de vérification ({awaitingValidationUserList.data.data.length})</Tab>
                 <Tab width="300px">Actifs {activeUserList.isFetched && `(${activeUserList.data.data.length})`}</Tab>
-                <Tab width="300px">
-                  Désactivés {disableUserList.isFetched && `(${disableUserList.data.data.length})`}
-                </Tab>
+                <Tab width="300px">Désactivés {disableUserList.isFetched && `(${disableUserList.data.data.length})`}</Tab>
               </TabList>
             </Box>
             <TabPanels mt={3}>
@@ -318,20 +297,8 @@ export default memo(() => {
                   description="Les entreprises en attente de vérification représentent pour votre OPCO de nouvelles opportunités d’accompagnement.  Vous pouvez contacter chacun des comptes en attente, vérifier qu’il s’agit bien d’une entreprise relevant de vos champs de compétences, et qu’il ne s’agit pas d’une tentative d’usurpation de compte."
                 />
               </TabPanel>
-              <TabPanel>
-                {activeUserList.isLoading ? (
-                  <LoadingEmptySpace />
-                ) : (
-                  <TableNew columns={columns} data={activeUserList?.data?.data} />
-                )}
-              </TabPanel>
-              <TabPanel>
-                {disableUserList.isLoading ? (
-                  <LoadingEmptySpace />
-                ) : (
-                  <TableNew columns={columns} data={disableUserList?.data?.data} />
-                )}
-              </TabPanel>
+              <TabPanel>{activeUserList.isLoading ? <LoadingEmptySpace /> : <TableNew columns={columns} data={activeUserList?.data?.data} />}</TabPanel>
+              <TabPanel>{disableUserList.isLoading ? <LoadingEmptySpace /> : <TableNew columns={columns} data={disableUserList?.data?.data} />}</TabPanel>
             </TabPanels>
           </Tabs>
         </div>

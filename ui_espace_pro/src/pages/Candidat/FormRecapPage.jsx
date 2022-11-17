@@ -41,9 +41,7 @@ export const FormRecapPage = () => {
                 </Text>{" "}
                 pour répondre à vos questions.
               </Text>
-              <Text mt={10}>
-                Vous allez recevoir un email de confirmation de votre demande de contact sur votre adresse email.
-              </Text>
+              <Text mt={10}>Vous allez recevoir un email de confirmation de votre demande de contact sur votre adresse email.</Text>
               <Box borderBottom="1px solid #D0C9C4" mt={10} />
               <Box mt={10}>
                 {data.etablissement && (

@@ -89,15 +89,11 @@ const LbbCompany = ({ company, handleSelectItem, showTextOnly, searchForTraining
     }
   }
 
-  const actualLink = `/recherche-apprentissage?display=list&page=fiche&${getItemQueryParameters(
-    company
-  )}&${getSearchQueryParameters(formValues)}`
+  const actualLink = `/recherche-apprentissage?display=list&page=fiche&${getItemQueryParameters(company)}&${getSearchQueryParameters(formValues)}`
 
   return (
     <a
-      className={`resultCard gtmSavoirPlus gtm${capitalizeFirstLetter(
-        company.ideaType
-      )} gtmListe ${getHightlightClass()}`}
+      className={`resultCard gtmSavoirPlus gtm${capitalizeFirstLetter(company.ideaType)} gtmListe ${getHightlightClass()}`}
       onClick={onSelectItem}
       onMouseOver={highlightItemOnMap}
       onMouseOut={dimItemOnMap}
@@ -136,11 +132,7 @@ const LbbCompany = ({ company, handleSelectItem, showTextOnly, searchForTraining
               </>
             )}
           </span>
-          {showTextOnly ? (
-            ""
-          ) : (
-            <>{Math.round(company.place.distance) > currentSearchRadius ? getCenterSearchOnCompanyButton() : ""}</>
-          )}
+          {showTextOnly ? "" : <>{Math.round(company.place.distance) > currentSearchRadius ? getCenterSearchOnCompanyButton() : ""}</>}
         </div>
       </div>
     </a>

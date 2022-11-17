@@ -95,12 +95,4 @@ const logError = (title, error) => {
   console.log(`Error ${title} sent to Sentry`)
 }
 
-export {
-  getPathLink,
-  getCompanyPathLink,
-  getValueFromPath,
-  scrollToTop,
-  scrollToElementInContainer,
-  getItemElement,
-  logError,
-}
+export { getPathLink, getCompanyPathLink, getValueFromPath, scrollToTop, scrollToElementInContainer, getItemElement, logError }

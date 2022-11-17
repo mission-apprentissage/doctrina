@@ -22,11 +22,7 @@ const ResultLists = (props) => {
   ;({ extendedSearch, hasSearch } = useContext(SearchResultContext))
 
   if (props.isTestMode) {
-    ;[extendedSearch, hasSearch, isFormVisible] = [
-      props.stubbedExtendedSearch,
-      props.stubbedHasSearch,
-      props.stubbedIsFormVisible,
-    ]
+    ;[extendedSearch, hasSearch, isFormVisible] = [props.stubbedExtendedSearch, props.stubbedHasSearch, props.stubbedIsFormVisible]
   }
 
   const filterButtonClicked = (filterButton) => {
@@ -53,9 +49,7 @@ const ResultLists = (props) => {
       return (
         <>
           {props.searchRadius < props.trainings[0].place.distance ? (
-            <div className="bold px-3 py-3">
-              Aucune formation ne correspondait à votre zone de recherche, nous avons trouvé les plus proches
-            </div>
+            <div className="bold px-3 py-3">Aucune formation ne correspondait à votre zone de recherche, nous avons trouvé les plus proches</div>
           ) : (
             ""
           )}
@@ -67,15 +61,7 @@ const ResultLists = (props) => {
               company: training?.company,
             })
 
-            return renderTraining(
-              props.isTestMode,
-              idx,
-              training,
-              props.handleSelectItem,
-              props.searchForJobsOnNewCenter,
-              hasAlsoJob,
-              isCfa
-            )
+            return renderTraining(props.isTestMode, idx, training, props.handleSelectItem, props.searchForJobsOnNewCenter, hasAlsoJob, isCfa)
           })}
         </>
       )
@@ -103,23 +89,12 @@ const ResultLists = (props) => {
                 <>
                   {jobList}
                   {lbbCompanyList}
-                  {jobCount < 100 ? (
-                    <ExtendedSearchButton
-                      title="Voir plus de résultats"
-                      handleExtendedSearch={props.handleExtendedSearch}
-                    />
-                  ) : (
-                    ""
-                  )}
+                  {jobCount < 100 ? <ExtendedSearchButton title="Voir plus de résultats" handleExtendedSearch={props.handleExtendedSearch} /> : ""}
                 </>
               ) : (
                 <>
                   <NoJobResult />
-                  <ExtendedSearchButton
-                    title="Étendre la sélection"
-                    hasJob="true"
-                    handleExtendedSearch={props.handleExtendedSearch}
-                  />
+                  <ExtendedSearchButton title="Étendre la sélection" hasJob="true" handleExtendedSearch={props.handleExtendedSearch} />
                 </>
               )}
             </div>
@@ -131,11 +106,7 @@ const ResultLists = (props) => {
           return (
             <>
               <NoJobResult />
-              <ExtendedSearchButton
-                title="Étendre la sélection"
-                hasJob="false"
-                handleExtendedSearch={props.handleExtendedSearch}
-              />
+              <ExtendedSearchButton title="Étendre la sélection" hasJob="false" handleExtendedSearch={props.handleExtendedSearch} />
             </>
           )
       }
@@ -176,13 +147,7 @@ const ResultLists = (props) => {
       return (
         <>
           {mergedLbaLbbCompanies.map((company, idx) => {
-            return renderLbb(
-              props.isTestMode,
-              idx,
-              company,
-              props.handleSelectItem,
-              props.searchForTrainingsOnNewCenter
-            )
+            return renderLbb(props.isTestMode, idx, company, props.handleSelectItem, props.searchForTrainingsOnNewCenter)
           })}
         </>
       )
@@ -198,21 +163,9 @@ const ResultLists = (props) => {
         <>
           {mergedOpportunities.map((opportunity, idx) => {
             if (opportunity.ideaType === "peJob" || opportunity.ideaType === "matcha") {
-              return renderJob(
-                props.isTestMode,
-                idx,
-                opportunity,
-                props.handleSelectItem,
-                props.searchForTrainingsOnNewCenter
-              )
+              return renderJob(props.isTestMode, idx, opportunity, props.handleSelectItem, props.searchForTrainingsOnNewCenter)
             } else {
-              return renderLbb(
-                props.isTestMode,
-                idx,
-                opportunity,
-                props.handleSelectItem,
-                props.searchForTrainingsOnNewCenter
-              )
+              return renderLbb(props.isTestMode, idx, opportunity, props.handleSelectItem, props.searchForTrainingsOnNewCenter)
             }
           })}
         </>
@@ -240,11 +193,7 @@ const ResultLists = (props) => {
   }
 
   return (
-    <div
-      className={`c-result-list d-md-flex ${isFormVisible ? "hiddenResultList" : ""} ${
-        props.selectedItem ? "c-result-list--item" : ""
-      }`}
-    >
+    <div className={`c-result-list d-md-flex ${isFormVisible ? "hiddenResultList" : ""} ${props.selectedItem ? "c-result-list--item" : ""}`}>
       <div className={`c-result-list__header ${props.shouldShowWelcomeMessage || props.selectedItem ? "d-none" : ""}`}>
         <ResultListsCounter
           scopeContext={scopeContext}
@@ -262,11 +211,7 @@ const ResultLists = (props) => {
         />
         {getErrorMessages()}
       </div>
-      <div
-        onScroll={handleScroll}
-        id="resultList"
-        className={`c-result-list__text ${props.shouldShowWelcomeMessage || props.selectedItem ? "d-none" : ""}`}
-      >
+      <div onScroll={handleScroll} id="resultList" className={`c-result-list__text ${props.shouldShowWelcomeMessage || props.selectedItem ? "d-none" : ""}`}>
         {getTrainingResult()}
         {getJobResult()}
       </div>

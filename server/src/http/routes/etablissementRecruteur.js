@@ -7,11 +7,7 @@ import { getNearEtablissementsFromRomes } from "../../common/catalogue.js"
 import { CFA, etat_utilisateur, OPCOS, validation_utilisateur } from "../../common/constants.js"
 import { User } from "../../common/model/index.js"
 import { createUserToken } from "../../common/utils/jwtUtils.js"
-import {
-  checkIfUserEmailIsPrivate,
-  checkIfUserMailExistInReferentiel,
-  getAllDomainsFromEmailList,
-} from "../../common/utils/mailUtils.js"
+import { checkIfUserEmailIsPrivate, checkIfUserMailExistInReferentiel, getAllDomainsFromEmailList } from "../../common/utils/mailUtils.js"
 import { notifyToSlack } from "../../common/utils/slackUtils.js"
 import { tryCatch } from "../middlewares/tryCatchMiddleware.js"
 
@@ -117,9 +113,7 @@ export default ({ etablissementsRecruteur, usersRecruteur, formulaire, mailer })
 
       response.opco = opcoResult.data?.opcoName ?? undefined
       response.idcc = opcoResult.data?.idcc ?? undefined
-      response.geo_coordonnees = await etablissementsRecruteur.getGeoCoordinates(
-        `${response.rue}, ${response.code_postal}, ${response.commune}`
-      )
+      response.geo_coordonnees = await etablissementsRecruteur.getGeoCoordinates(`${response.rue}, ${response.code_postal}, ${response.commune}`)
 
       return res.json(response)
     })
@@ -218,11 +212,7 @@ export default ({ etablissementsRecruteur, usersRecruteur, formulaire, mailer })
 
           case OPCOS.CONSTRUCTYS:
           case OPCOS.OCAPIAT:
-            const existInOpcoReferentiel = await etablissementsRecruteur.getEstablishmentFromOpcoReferentiel(
-              req.body.opco,
-              req.body.siret,
-              req.body.email
-            )
+            const existInOpcoReferentiel = await etablissementsRecruteur.getEstablishmentFromOpcoReferentiel(req.body.opco, req.body.siret, req.body.email)
 
             if (!existInOpcoReferentiel) {
               partenaire = await usersRecruteur.updateUserValidationHistory(partenaire._id, {
@@ -332,10 +322,7 @@ export default ({ etablissementsRecruteur, usersRecruteur, formulaire, mailer })
             statut: etat_utilisateur.ATTENTE,
           })
 
-          notifyToSlack(
-            "NOUVEAU CFA",
-            `en attente de validation - ${partenaire.email} - https://referentiel.apprentissage.beta.gouv.fr/organismes/${partenaire.siret}`
-          )
+          notifyToSlack("NOUVEAU CFA", `en attente de validation - ${partenaire.email} - https://referentiel.apprentissage.beta.gouv.fr/organismes/${partenaire.siret}`)
 
           return res.json({ user: partenaire })
         } else {
@@ -346,10 +333,7 @@ export default ({ etablissementsRecruteur, usersRecruteur, formulaire, mailer })
             statut: etat_utilisateur.ATTENTE,
           })
 
-          notifyToSlack(
-            "NOUVEAU CFA",
-            `en attente de validation - ${partenaire.email} - https://referentiel.apprentissage.beta.gouv.fr/organismes/${partenaire.siret}`
-          )
+          notifyToSlack("NOUVEAU CFA", `en attente de validation - ${partenaire.email} - https://referentiel.apprentissage.beta.gouv.fr/organismes/${partenaire.siret}`)
 
           return res.json({ user: partenaire })
         }

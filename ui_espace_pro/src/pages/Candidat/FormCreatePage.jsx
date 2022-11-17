@@ -207,16 +207,8 @@ export const FormCreatePage = (props) => {
                     </Text>{" "}
                     :
                   </Text>
-                  <Field name="firstname">
-                    {({ field, meta }) => (
-                      <Input placeholder="votre prénom" {...field} {...feedback(meta, "Prénom invalide")} />
-                    )}
-                  </Field>
-                  <Field name="lastname">
-                    {({ field, meta }) => (
-                      <Input mt={2} placeholder="votre nom" {...field} {...feedback(meta, "Nom invalide")} />
-                    )}
-                  </Field>
+                  <Field name="firstname">{({ field, meta }) => <Input placeholder="votre prénom" {...field} {...feedback(meta, "Prénom invalide")} />}</Field>
+                  <Field name="lastname">{({ field, meta }) => <Input mt={2} placeholder="votre nom" {...field} {...feedback(meta, "Nom invalide")} />}</Field>
                   {data.intitule_long && (
                     <Text mt={5}>
                       Pour tout savoir de la formation{" "}
@@ -244,14 +236,7 @@ export const FormCreatePage = (props) => {
                   </Field>
                   <Field name="email" validate={validateEmail}>
                     {({ field, meta }) => {
-                      return (
-                        <Input
-                          placeholder="votre adresse email"
-                          type="email"
-                          {...field}
-                          {...feedback(meta, "Adresse email invalide")}
-                        />
-                      )
+                      return <Input placeholder="votre adresse email" type="email" {...field} {...feedback(meta, "Adresse email invalide")} />
                     }}
                   </Field>
                   <Text mt={5} pb={2}>
@@ -259,13 +244,7 @@ export const FormCreatePage = (props) => {
                   </Text>
                   <Field name="motivations">
                     {({ field, meta }) => {
-                      return (
-                        <Input
-                          placeholder="période d’inscription, horaires, etc."
-                          {...field}
-                          {...feedback(meta, "Désolée, ce champs est nécessaire")}
-                        />
-                      )
+                      return <Input placeholder="période d’inscription, horaires, etc." {...field} {...feedback(meta, "Désolée, ce champs est nécessaire")} />
                     }}
                   </Field>
                   {/*<Flex mt={8}>*/}
@@ -287,9 +266,7 @@ export const FormCreatePage = (props) => {
                   {/*</Flex>*/}
                   <Flex mt={8} bg="#F6F6F6" py="9px" px="18px">
                     <Box w="430px">
-                      <Text fontWeight="600">
-                        Souhaiteriez-vous recevoir des offres d’emploi en lien avec cette formation ?
-                      </Text>
+                      <Text fontWeight="600">Souhaiteriez-vous recevoir des offres d’emploi en lien avec cette formation ?</Text>
                     </Box>
                     <Center w="150px" pl="20px">
                       <Text

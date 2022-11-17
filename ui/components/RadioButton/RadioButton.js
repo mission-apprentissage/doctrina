@@ -11,13 +11,7 @@ const RadioButton = React.memo(({ inputName, handleChange, value, label, selecte
           handleChange(value, setFieldValue)
         }}
       >
-        <Input
-          type="radio"
-          name={inputName}
-          onChange={() => handleChange(value, setFieldValue)}
-          checked={selectedValue === value}
-        />{" "}
-        {label}
+        <Input type="radio" name={inputName} onChange={() => handleChange(value, setFieldValue)} checked={selectedValue === value} /> {label}
       </Label>
     </FormGroup>
   )

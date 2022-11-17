@@ -8,9 +8,7 @@ export default function getSurtitre({ selectedItem, kind, isMandataire }) {
       <p className={`c-detail-activity c-detail-title--entreprise mt-2`}>
         <span className="c-detail-activity__proposal">Le centre de formation&nbsp;</span>
         <span>{companyName}</span>
-        <span className="c-detail-activity__proposal">
-          &nbsp;propose actuellement cette offre dans le domaine suivant
-        </span>
+        <span className="c-detail-activity__proposal">&nbsp;propose actuellement cette offre dans le domaine suivant</span>
       </p>
     )
   }
@@ -28,8 +26,7 @@ export default function getSurtitre({ selectedItem, kind, isMandataire }) {
             <span className="c-detail-activity__proposal">
               {selectedItem?.nafs ? (
                 <>
-                  Une société du secteur&nbsp;<bold>${selectedItem.nafs[0].label}</bold>&nbsp;propose actuellement cette
-                  offre
+                  Une société du secteur&nbsp;<bold>${selectedItem.nafs[0].label}</bold>&nbsp;propose actuellement cette offre
                 </>
               ) : (
                 "Une société ayant souhaité garder l'anonymat"
@@ -45,9 +42,7 @@ export default function getSurtitre({ selectedItem, kind, isMandataire }) {
     res = (
       <p className={`c-detail-activity c-detail-title--entreprise mt-2`}>
         <span>{companyName}</span>
-        <span className="c-detail-activity__proposal">
-          &nbsp;a des salariés qui exercent le métier auquel vous vous destinez. Envoyez votre candidature spontanée !
-        </span>
+        <span className="c-detail-activity__proposal">&nbsp;a des salariés qui exercent le métier auquel vous vous destinez. Envoyez votre candidature spontanée !</span>
       </p>
     )
   }

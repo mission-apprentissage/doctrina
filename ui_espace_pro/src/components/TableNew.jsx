@@ -1,15 +1,7 @@
 import { Box, Flex, Input, InputGroup, InputRightElement, Text } from "@chakra-ui/react"
 import { matchSorter } from "match-sorter"
 import React, { useMemo } from "react"
-import {
-  useAsyncDebounce,
-  useFilters,
-  useFlexLayout,
-  useGlobalFilter,
-  usePagination,
-  useSortBy,
-  useTable,
-} from "react-table"
+import { useAsyncDebounce, useFilters, useFlexLayout, useGlobalFilter, usePagination, useSortBy, useTable } from "react-table"
 import { ArrowDownLine, ArrowUpLine, SearchLine } from "../theme/components/icons"
 import ExportButtonNew from "./ExportButton/ExportButtonNew"
 import PaginationReactQuery from "./PaginationReactQuery"
@@ -33,12 +25,7 @@ function GlobalFilter({ preGlobalFilteredRows, globalFilter, setGlobalFilter }) 
         }}
         placeholder={`Rechercher par raison sociale, email ou téléphone...`}
       />
-      <InputRightElement
-        background="bluefrance.500"
-        border="none"
-        pointerEvents="none"
-        children={<SearchLine color="white" />}
-      />
+      <InputRightElement background="bluefrance.500" border="none" pointerEvents="none" children={<SearchLine color="white" />} />
     </InputGroup>
   )
 }
@@ -63,9 +50,7 @@ export default ({ data, columns, description }) => {
       text: (rows, id, filterValue) => {
         return rows.filter((row) => {
           const rowValue = row.values[id]
-          return rowValue !== undefined
-            ? String(rowValue).toLowerCase().startsWith(String(filterValue).toLowerCase())
-            : true
+          return rowValue !== undefined ? String(rowValue).toLowerCase().startsWith(String(filterValue).toLowerCase()) : true
         })
       },
     }),
@@ -107,11 +92,7 @@ export default ({ data, columns, description }) => {
       <Flex align="center" mb={10}>
         <Box width="90%">
           <Box width="50%">
-            <GlobalFilter
-              preGlobalFilteredRows={preGlobalFilteredRows}
-              globalFilter={globalFilter}
-              setGlobalFilter={setGlobalFilter}
-            />
+            <GlobalFilter preGlobalFilteredRows={preGlobalFilteredRows} globalFilter={globalFilter} setGlobalFilter={setGlobalFilter} />
           </Box>
           {description && (
             <Box width="95%">
@@ -129,13 +110,7 @@ export default ({ data, columns, description }) => {
           {headerGroups.map((headerGroup) => (
             <Box as="tr" {...headerGroup.getHeaderGroupProps({})} pb={4}>
               {headerGroup.headers.map((column, i) => (
-                <Box
-                  as="th"
-                  {...column.getHeaderProps(column.getSortByToggleProps())}
-                  display={[i === 0 || i > 2 ? "none" : "flex", "flex"]}
-                  overflow="hidden"
-                  px={2}
-                >
+                <Box as="th" {...column.getHeaderProps(column.getSortByToggleProps())} display={[i === 0 || i > 2 ? "none" : "flex", "flex"]} overflow="hidden" px={2}>
                   <Flex flexDirection="column" w="full" alignItems="flex-start" justify="center">
                     <Text fontWeight="700" textAlign="left" fontSize="14px">
                       {column.render("Header")}

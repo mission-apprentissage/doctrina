@@ -3,24 +3,7 @@ import _ from "lodash"
 import { useParams } from "react-router-dom"
 import * as emailValidator from "email-validator"
 import { ExternalLinkIcon } from "@chakra-ui/icons"
-import {
-  Tbody,
-  Button,
-  Tr,
-  Thead,
-  Td,
-  Checkbox,
-  Table,
-  Flex,
-  Box,
-  Text,
-  useToast,
-  Spinner,
-  Editable,
-  EditableInput,
-  EditablePreview,
-  Heading,
-} from "@chakra-ui/react"
+import { Tbody, Button, Tr, Thead, Td, Checkbox, Table, Flex, Box, Text, useToast, Spinner, Editable, EditableInput, EditablePreview, Heading } from "@chakra-ui/react"
 import { _get, _post, _put, _patch } from "../../../../common/httpClient"
 import EtablissementComponent from "../components/EtablissementComponent"
 import downloadFile from "../../../../common/utils/downloadFile"
@@ -64,9 +47,7 @@ const EditPage = () => {
 
       let permissions = []
       for (const formation of catalogueResult.formations) {
-        const parameter = parametersResponse.parameters.find(
-          (item) => item.id_rco_formation === formation.id_rco_formation
-        )
+        const parameter = parametersResponse.parameters.find((item) => item.id_rco_formation === formation.id_rco_formation)
 
         referrers.forEach((referrer) =>
           permissions.push({
@@ -109,8 +90,7 @@ const EditPage = () => {
    * @param {String} id
    * @returns {Promise<*>}
    */
-  const getParameters = (id) =>
-    _get(`/api/widget-parameters/parameters?query={"etablissement_siret":"${id}"}&limit=1000`)
+  const getParameters = (id) => _get(`/api/widget-parameters/parameters?query={"etablissement_siret":"${id}"}&limit=1000`)
 
   /**
    * @description Returns etablissement from its SIRET.
@@ -226,11 +206,7 @@ const EditPage = () => {
    * @param {string} siret
    * @returns {Promise<void>}
    */
-  const download = (siret) =>
-    downloadFile(
-      `/api/widget-parameters/parameters/export?query={"etablissement_siret":"${siret}"}`,
-      `parametres-${siret}.csv`
-    )
+  const download = (siret) => downloadFile(`/api/widget-parameters/parameters/export?query={"etablissement_siret":"${siret}"}`, `parametres-${siret}.csv`)
 
   if (!parametersResult && !catalogueResult) {
     return <Spinner display="block" mx="auto" mt="10rem" />
@@ -250,15 +226,7 @@ const EditPage = () => {
               <Text flex="1" fontSize="16px" p={5}>
                 Formations
               </Text>
-              <Download
-                onClick={() => download(catalogueResult.formations[0].etablissement_formateur_siret)}
-                color="#9AA0AC"
-                cursor="pointer"
-                w="16px"
-                h="16px"
-                mt={6}
-                mr={5}
-              />
+              <Download onClick={() => download(catalogueResult.formations[0].etablissement_formateur_siret)} color="#9AA0AC" cursor="pointer" w="16px" h="16px" mt={6} mr={5} />
             </Flex>
             <Box border="1px solid #E0E5ED" overflow="auto" cursor="pointer">
               <Table w="150rem" bg="white">
@@ -284,9 +252,7 @@ const EditPage = () => {
                   {catalogueResult.formations.map((formation) => {
                     const emailRef = createRef()
                     const emailFocusRef = createRef()
-                    const parameter = parametersResult.parameters.find(
-                      (item) => item.id_rco_formation === formation.id_rco_formation
-                    )
+                    const parameter = parametersResult.parameters.find((item) => item.id_rco_formation === formation.id_rco_formation)
 
                     const formationPermissions = getPermissionsFromCriterias({
                       permissions,
@@ -335,9 +301,7 @@ const EditPage = () => {
                             checked={parameter?.is_custom_email_rdv}
                             icon={<Check w="20px" h="18px" />}
                             defaultIsChecked={parameter?.is_custom_email_rdv}
-                            onChange={(event) =>
-                              patchParameter(parameter._id, { is_custom_email_rdv: event.target.checked })
-                            }
+                            onChange={(event) => patchParameter(parameter._id, { is_custom_email_rdv: event.target.checked })}
                           />
                         </Td>
                         <Td>{parameter?.catalogue_published ? "Oui" : "Non"}</Td>

@@ -100,11 +100,4 @@ const getFormations = async (query, page = 1, limit = 500) => {
   return data
 }
 
-export {
-  getFormationsByIdRcoFormations,
-  getFormationsByIdRcoFormationsRaw,
-  getFormationsByIdParcoursup,
-  getFormationsBySiretFormateur,
-  getFormationsById,
-  getFormations,
-}
+export { getFormationsByIdRcoFormations, getFormationsByIdRcoFormationsRaw, getFormationsByIdParcoursup, getFormationsBySiretFormateur, getFormationsById, getFormations }

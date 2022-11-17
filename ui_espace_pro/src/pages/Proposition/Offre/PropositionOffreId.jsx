@@ -1,18 +1,4 @@
-import {
-  Accordion,
-  AccordionButton,
-  AccordionItem,
-  AccordionPanel,
-  Box,
-  Button,
-  Container,
-  Flex,
-  Heading,
-  SimpleGrid,
-  Stack,
-  Text,
-  useToast,
-} from "@chakra-ui/react"
+import { Accordion, AccordionButton, AccordionItem, AccordionPanel, Box, Button, Container, Flex, Heading, SimpleGrid, Stack, Text, useToast } from "@chakra-ui/react"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { getFormulaire } from "../../../api"
@@ -33,9 +19,7 @@ export const PropositionOffreId = () => {
    * @return {Promise<void>}
    */
   const copyInClipboard = () => {
-    navigator.clipboard.writeText(
-      `https://labonnealternance.pole-emploi.fr/recherche-apprentissage?&display=list&page=fiche&type=matcha&itemId=${offre._id}`
-    )
+    navigator.clipboard.writeText(`https://labonnealternance.pole-emploi.fr/recherche-apprentissage?&display=list&page=fiche&type=matcha&itemId=${offre._id}`)
     toast({
       title: "Lien copié.",
       position: "bottom-right",
@@ -72,8 +56,7 @@ export const PropositionOffreId = () => {
       <Box mt={10} p={6} bg={"bluefrance.100"}>
         <Heading fontSize="20px">Souhaitez-vous proposer des candidats à cette entreprise ?</Heading>
         <Text fontSize="16px" mt={5}>
-          Vous pouvez contacter directement l’entreprise pour évaluer son besoin, ou alors partager le lien vers l’offre
-          à vos étudiants :
+          Vous pouvez contacter directement l’entreprise pour évaluer son besoin, ou alors partager le lien vers l’offre à vos étudiants :
         </Text>
         <Button mt={5} type="submit" variant="primary" leftIcon={<Copy width={5} />} onClick={copyInClipboard}>
           Copier l'url
@@ -180,9 +163,7 @@ export const PropositionOffreId = () => {
           </Heading>
           <Flex alignItems="flex-start">
             <InfoCircle mr={2} mt={2} color="bluefrance.500" />
-            <Text>
-              Voici la description visible par les candidats lors de la mise en ligne de l’offre d’emploi en alternance.
-            </Text>
+            <Text>Voici la description visible par les candidats lors de la mise en ligne de l’offre d’emploi en alternance.</Text>
           </Flex>
           <Accordion defaultIndex={[0]} mt={4}>
             <AccordionItem key={0}>

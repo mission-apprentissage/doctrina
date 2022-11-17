@@ -26,13 +26,7 @@ import { getUsers } from "../../api"
 import { AUTHTYPE, USER_STATUS } from "../../common/contants"
 import useAuth from "../../common/hooks/useAuth"
 import { sortReactTableDate, sortReactTableString } from "../../common/utils/dateUtils"
-import {
-  AnimationContainer,
-  ConfirmationActivationUtilsateur,
-  ConfirmationDesactivationUtilisateur,
-  LoadingEmptySpace,
-  TableNew,
-} from "../../components"
+import { AnimationContainer, ConfirmationActivationUtilsateur, ConfirmationDesactivationUtilisateur, LoadingEmptySpace, TableNew } from "../../components"
 import { Parametre } from "../../theme/components/icons"
 import "./search.css"
 
@@ -246,29 +240,15 @@ export default memo(() => {
               <TabList>
                 <Tab width="300px">En attente de vérification ({awaitingValidationUserList.data.data.length})</Tab>
                 <Tab width="300px">Actifs {activeUserList.isFetched && `(${activeUserList.data.data.length})`}</Tab>
-                <Tab width="300px">
-                  Désactivés {disableUserList.isFetched && `(${disableUserList.data.data.length})`}
-                </Tab>
+                <Tab width="300px">Désactivés {disableUserList.isFetched && `(${disableUserList.data.data.length})`}</Tab>
               </TabList>
             </Box>
             <TabPanels mt={3}>
               <TabPanel>
                 <TableNew columns={columns} data={awaitingValidationUserList.data.data} />
               </TabPanel>
-              <TabPanel>
-                {activeUserList.isLoading ? (
-                  <LoadingEmptySpace />
-                ) : (
-                  <TableNew columns={columns} data={activeUserList?.data?.data} />
-                )}
-              </TabPanel>
-              <TabPanel>
-                {disableUserList.isLoading ? (
-                  <LoadingEmptySpace />
-                ) : (
-                  <TableNew columns={columns} data={disableUserList?.data?.data} />
-                )}
-              </TabPanel>
+              <TabPanel>{activeUserList.isLoading ? <LoadingEmptySpace /> : <TableNew columns={columns} data={activeUserList?.data?.data} />}</TabPanel>
+              <TabPanel>{disableUserList.isLoading ? <LoadingEmptySpace /> : <TableNew columns={columns} data={disableUserList?.data?.data} />}</TabPanel>
             </TabPanels>
           </Tabs>
         </div>

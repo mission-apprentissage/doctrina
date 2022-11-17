@@ -37,10 +37,7 @@ const ConnexionCompte = () => {
             setFieldError("email", "Le compte utilisateur est en attente de validation")
             break
           case "VERIFY":
-            setFieldError(
-              "email",
-              "Votre adresse n’a pas été vérifiée. Cliquez sur le lien que nous venons de vous transmettre pour vérifier votre compte"
-            )
+            setFieldError("email", "Votre adresse n’a pas été vérifiée. Cliquez sur le lien que nous venons de vous transmettre pour vérifier votre compte")
             break
           default:
             setFieldError("email", "une erreur est survenue")
@@ -55,10 +52,7 @@ const ConnexionCompte = () => {
       <Heading fontSize="32px" as="h2">
         Vous avez déjà un compte ?
       </Heading>
-      <Text fontSize="xl">
-        Veuillez indiquer ci-dessous le mail avec lequel vous avez créé votre compte afin de recevoir le lien de
-        connexion à votre espace.
-      </Text>
+      <Text fontSize="xl">Veuillez indiquer ci-dessous le mail avec lequel vous avez créé votre compte afin de recevoir le lien de connexion à votre espace.</Text>
       <Box>
         <Formik
           validateOnMount
@@ -73,14 +67,7 @@ const ConnexionCompte = () => {
               <Form autoComplete="off">
                 <CustomInput required={false} name="email" label="Votre email" type="text" value={values.email} />
 
-                <Button
-                  mt={5}
-                  type="submit"
-                  variant="form"
-                  leftIcon={<ArrowRightLine width={5} />}
-                  isActive={isValid}
-                  isDisabled={!isValid || isSubmitting}
-                >
+                <Button mt={5} type="submit" variant="form" leftIcon={<ArrowRightLine width={5} />} isActive={isValid} isDisabled={!isValid || isSubmitting}>
                   Me connecter
                 </Button>
               </Form>

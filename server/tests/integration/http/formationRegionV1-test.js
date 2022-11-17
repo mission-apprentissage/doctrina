@@ -44,11 +44,7 @@ httpTests(__filename(import.meta.url), ({ startServer }) => {
 
     assert.strictEqual(response.status, 400)
     assert.deepStrictEqual(response.data.error, "wrong_parameters")
-    assert.ok(
-      response.data.error_messages.indexOf(
-        "region, departement : You must define either region OR departement, not both."
-      ) >= 0
-    )
+    assert.ok(response.data.error_messages.indexOf("region, departement : You must define either region OR departement, not both.") >= 0)
   })
 
   it("Vérifie que les requêtes avec departement mal formé sont refusées", async () => {
@@ -72,11 +68,7 @@ httpTests(__filename(import.meta.url), ({ startServer }) => {
 
     assert.strictEqual(response.status, 400)
     assert.deepStrictEqual(response.data.error, "wrong_parameters")
-    assert.ok(
-      response.data.error_messages.indexOf(
-        "region : Badly formatted region. region must be a two digit number. ex : 01"
-      ) >= 0
-    )
+    assert.ok(response.data.error_messages.indexOf("region : Badly formatted region. region must be a two digit number. ex : 01") >= 0)
   })
 
   it("Vérifie que les requêtes avec code region hors liste sont refusées", async () => {
@@ -86,11 +78,7 @@ httpTests(__filename(import.meta.url), ({ startServer }) => {
 
     assert.strictEqual(response.status, 400)
     assert.deepStrictEqual(response.data.error, "wrong_parameters")
-    assert.ok(
-      response.data.error_messages.indexOf(
-        "region : Badly formatted region. region must be one of the allowed values as described in the api online doc."
-      ) >= 0
-    )
+    assert.ok(response.data.error_messages.indexOf("region : Badly formatted region. region must be one of the allowed values as described in the api online doc.") >= 0)
   })
 
   it("Vérifie que les requêtes avec ROME et domaine ROME sont refusées", async () => {
@@ -100,11 +88,7 @@ httpTests(__filename(import.meta.url), ({ startServer }) => {
 
     assert.strictEqual(response.status, 400)
     assert.deepStrictEqual(response.data.error, "wrong_parameters")
-    assert.ok(
-      response.data.error_messages.indexOf(
-        "romes, romeDomain : You must define either romes OR romeDomain, not both."
-      ) >= 0
-    )
+    assert.ok(response.data.error_messages.indexOf("romes, romeDomain : You must define either romes OR romeDomain, not both.") >= 0)
   })
 
   it("Vérifie que les requêtes avec ROME mal formé sont refusées", async () => {
@@ -114,11 +98,7 @@ httpTests(__filename(import.meta.url), ({ startServer }) => {
 
     assert.strictEqual(response.status, 400)
     assert.deepStrictEqual(response.data.error, "wrong_parameters")
-    assert.ok(
-      response.data.error_messages.indexOf(
-        "romes : Badly formatted rome codes. Rome code must be one letter followed by 4 digit number. ex : A1234"
-      ) >= 0
-    )
+    assert.ok(response.data.error_messages.indexOf("romes : Badly formatted rome codes. Rome code must be one letter followed by 4 digit number. ex : A1234") >= 0)
   })
 
   it("Vérifie que les requêtes avec trop de ROME sont refusées", async () => {
@@ -150,19 +130,13 @@ httpTests(__filename(import.meta.url), ({ startServer }) => {
 
     assert.strictEqual(response.status, 400)
     assert.deepStrictEqual(response.data.error, "wrong_parameters")
-    assert.ok(
-      response.data.error_messages.indexOf(
-        "region, departement, romes, romeDomain : You must assign a value to at least one of these parameters."
-      ) >= 0
-    )
+    assert.ok(response.data.error_messages.indexOf("region, departement, romes, romeDomain : You must assign a value to at least one of these parameters.") >= 0)
   })
 
   it("Vérifie que les requêtes avec diploma mal formée sont refusées", async () => {
     const { httpClient } = await startServer()
 
-    let response = await httpClient.get(
-      "/api/V1/formationsParRegion?romes=F1603,I1308&radius=0&longitude=180&latitude=90&diploma=lba,lbc"
-    )
+    let response = await httpClient.get("/api/V1/formationsParRegion?romes=F1603,I1308&radius=0&longitude=180&latitude=90&diploma=lba,lbc")
 
     assert.strictEqual(response.status, 400)
     assert.deepStrictEqual(response.data.error, "wrong_parameters")

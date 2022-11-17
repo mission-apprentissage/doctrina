@@ -50,9 +50,7 @@ const updateBlockedEmails = async ({ query }) => {
   let yesterday = new Date()
   yesterday.setDate(yesterday.getDate() - 1)
 
-  const todayStr = `${yesterday.getFullYear()}-${yesterday.getMonth() < 9 ? "0" : ""}${yesterday.getMonth() + 1}-${
-    yesterday.getDate() < 10 ? "0" : ""
-  }${yesterday.getDate()}`
+  const todayStr = `${yesterday.getFullYear()}-${yesterday.getMonth() < 9 ? "0" : ""}${yesterday.getMonth() + 1}-${yesterday.getDate() < 10 ? "0" : ""}${yesterday.getDate()}`
   const limit = 100
   const senders = ["no-reply@apprentissage.beta.gouv.fr"]
   let total = 0
@@ -101,9 +99,7 @@ export default async function ({ query }) {
 
       logMessage("info", `Fin traitement`)
 
-      notifyToSlack(
-        `Mise à jour des adresses emails bloquées terminée. ${blacklistedAddressCount} adresse(s) bloquée(s). ${modifiedCompanyCount} société(s) impactée(s).`
-      )
+      notifyToSlack(`Mise à jour des adresses emails bloquées terminée. ${blacklistedAddressCount} adresse(s) bloquée(s). ${modifiedCompanyCount} société(s) impactée(s).`)
 
       running = false
 

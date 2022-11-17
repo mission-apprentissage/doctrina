@@ -49,11 +49,7 @@ const UserEvent = createModel("userEvents", schema.userSchema, { paginate: true 
 const Appointment = createModel("appointment", schema.appointmentSchema, { paginate: true })
 const WidgetParameter = createModel("widgetParameter", schema.widgetParameterSchema, { paginate: true })
 const Etablissement = createModel("etablissement", schema.etablissementSchema, { paginate: true })
-const ParcoursupEtablissementStat = createModel(
-  "parcoursupEtablissementStat",
-  schema.parcoursupEtablissementStatSchema,
-  { paginate: true }
-)
+const ParcoursupEtablissementStat = createModel("parcoursupEtablissementStat", schema.parcoursupEtablissementStatSchema, { paginate: true })
 const Formulaire = createModel("formulaire", schema.formulaireSchema, { esIndexName: "formulaires", paginate: true })
 const Credential = createModel("credentials", schema.credentialsSchema)
 const Offre = createModel("offre", schema.offresSchema)

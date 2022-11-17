@@ -19,15 +19,12 @@ const SatisfactionFormSuccess = () => {
           </h1>
           {readIntention() === "ne_sais_pas" || readIntention() === "entretien" ? (
             <>
-              <p className="pt-3 halflead text-center">
-                Il dispose désormais de vos coordonnées pour poursuivre l&apos;échange.
-              </p>
+              <p className="pt-3 halflead text-center">Il dispose désormais de vos coordonnées pour poursuivre l&apos;échange.</p>
             </>
           ) : (
             <>
               <p className="pt-3 halflead text-center">
-                Cela permet aux futurs alternants de comprendre les raisons du refus, et de s&apos;améliorer pour leurs
-                prochaines candidatures.
+                Cela permet aux futurs alternants de comprendre les raisons du refus, et de s&apos;améliorer pour leurs prochaines candidatures.
               </p>
             </>
           )}

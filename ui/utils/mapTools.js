@@ -12,17 +12,7 @@ let currentPopup = null
 let map = null
 let isMapInitialized = false
 
-const initializeMap = ({
-  mapContainer,
-  unselectItem,
-  trainings,
-  jobs,
-  selectItemOnMap,
-  onMapHasMoved,
-  unselectMapPopupItem,
-  setSelectedItem,
-  setSelectedMapPopupItem,
-}) => {
+const initializeMap = ({ mapContainer, unselectItem, trainings, jobs, selectItemOnMap, onMapHasMoved, unselectMapPopupItem, setSelectedItem, setSelectedMapPopupItem }) => {
   isMapInitialized = true
 
   mapboxgl.accessToken = "pk.eyJ1IjoiYWxhbmxyIiwiYSI6ImNrYWlwYWYyZDAyejQzMHBpYzE0d2hoZWwifQ.FnAOzwsIKsYFRnTUwneUSA"
@@ -96,15 +86,7 @@ const initializeMap = ({
         if (e?.originalEvent) {
           if (!e.originalEvent.STOP) {
             e.features = features // on réinsert les features de l'event qui sinon sont perdues en raison du setTimeout
-            onLayerClick(
-              e,
-              "job",
-              selectItemOnMap,
-              unselectItem,
-              unselectMapPopupItem,
-              setSelectedItem,
-              setSelectedMapPopupItem
-            )
+            onLayerClick(e, "job", selectItemOnMap, unselectItem, unselectMapPopupItem, setSelectedItem, setSelectedMapPopupItem)
           }
         }
       }, 5)
@@ -180,15 +162,7 @@ const initializeMap = ({
         if (e?.originalEvent) {
           if (!e.originalEvent.STOP_SOURCE) {
             e.features = features // on réinsert les features de l'event qui sinon sont perdues en raison du setTimeout
-            onLayerClick(
-              e,
-              "training",
-              selectItemOnMap,
-              unselectItem,
-              unselectMapPopupItem,
-              setSelectedItem,
-              setSelectedMapPopupItem
-            )
+            onLayerClick(e, "training", selectItemOnMap, unselectItem, unselectMapPopupItem, setSelectedItem, setSelectedMapPopupItem)
           }
         }
       }, 5)
@@ -236,11 +210,7 @@ const initializeMap = ({
       },
     })
 
-    if (
-      jobs &&
-      jobs.peJobs &&
-      (jobs.peJobs.length || jobs?.lbaCompanies?.length || jobs?.lbbCompanies?.length || jobs?.matchas?.length)
-    ) {
+    if (jobs && jobs.peJobs && (jobs.peJobs.length || jobs?.lbaCompanies?.length || jobs?.lbbCompanies?.length || jobs?.matchas?.length)) {
       setJobMarkers(factorJobsForMap(jobs))
     }
 
@@ -266,15 +236,7 @@ const initializeMap = ({
   map.addControl(nav, "bottom-right")
 }
 
-const onLayerClick = (
-  e,
-  layer,
-  selectItemOnMap,
-  unselectItem,
-  unselectMapPopupItem,
-  setSelectedItem,
-  setSelectedMapPopupItem
-) => {
+const onLayerClick = (e, layer, selectItemOnMap, unselectItem, unselectMapPopupItem, setSelectedItem, setSelectedMapPopupItem) => {
   let coordinates = e.features[0].geometry.coordinates.slice()
 
   // si cluster on a properties: {cluster: true, cluster_id: 125, point_count: 3, point_count_abbreviated: 3}
@@ -289,8 +251,7 @@ const onLayerClick = (
 
     map.easeTo({ center: coordinates, speed: 0.2, zoom })
   } else {
-    let item =
-      layer === "training" ? JSON.parse(e.features[0].properties.training) : JSON.parse(e.features[0].properties.job)
+    let item = layer === "training" ? JSON.parse(e.features[0].properties.training) : JSON.parse(e.features[0].properties.job)
 
     // Ensure that if the map is zoomed out such that multiple
     // copies of the feature are visible, the popup appears
@@ -301,9 +262,7 @@ const onLayerClick = (
 
     currentPopup = new mapboxgl.Popup()
       .setLngLat(coordinates)
-      .setDOMContent(
-        buildPopup({ item, type: item.ideaType, selectItemOnMap, setSelectedItem, setSelectedMapPopupItem })
-      )
+      .setDOMContent(buildPopup({ item, type: item.ideaType, selectItemOnMap, setSelectedItem, setSelectedMapPopupItem }))
       .addTo(map)
 
     currentPopup.on("close", function (e) {
@@ -333,13 +292,7 @@ const buildPopup = ({ item, type, selectItemOnMap, setSelectedItem, setSelectedM
   const popupNode = document.createElement("div")
 
   ReactDOM.render(
-    <MapPopup
-      handleSelectItem={selectItemOnMap}
-      setSelectedItem={setSelectedItem}
-      setSelectedMapPopupItem={setSelectedMapPopupItem}
-      type={type}
-      item={item}
-    />,
+    <MapPopup handleSelectItem={selectItemOnMap} setSelectedItem={setSelectedItem} setSelectedMapPopupItem={setSelectedMapPopupItem} type={type} item={item} />,
     popupNode
   )
 
@@ -509,13 +462,7 @@ const filterLayers = (filter) => {
   if (isMapInitialized) {
     let layersToShow = []
     let layersToHide = []
-    if (filter === "all")
-      layersToShow = [
-        "training-points-cluster-count",
-        "training-points-layer",
-        "job-points-cluster-count",
-        "job-points-layer",
-      ]
+    if (filter === "all") layersToShow = ["training-points-cluster-count", "training-points-layer", "job-points-cluster-count", "job-points-layer"]
     if (filter === "jobs") {
       layersToShow = ["job-points-cluster-count", "job-points-layer"]
       layersToHide = ["training-points-cluster-count", "training-points-layer"]

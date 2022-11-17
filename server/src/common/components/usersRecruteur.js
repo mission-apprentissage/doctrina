@@ -57,6 +57,5 @@ export default () => ({
     return await user.deleteOne({ _id: id })
   },
   registerUser: (email) => UserRecruteur.findOneAndUpdate({ email }, { last_connection: new Date() }),
-  updateUserValidationHistory: (userId, state) =>
-    UserRecruteur.findByIdAndUpdate({ _id: userId }, { $push: { etat_utilisateur: state } }, { new: true }),
+  updateUserValidationHistory: (userId, state) => UserRecruteur.findByIdAndUpdate({ _id: userId }, { $push: { etat_utilisateur: state } }, { new: true }),
 })

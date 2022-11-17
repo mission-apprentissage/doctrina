@@ -51,12 +51,7 @@ export default ({ formulaire, etablissementsRecruteur, usersRecruteur }) => {
     elligible_handicap: Joi.boolean(),
     quantite: Joi.number().max(10).default(1),
     duree_contrat: Joi.number().max(4).default(1),
-    rythme_alternance: Joi.string().valid(
-      "2 jours / 3 jours",
-      "1 semaine / 1 semaine",
-      "2 semaines / 3 semaines",
-      "6 semaines / 6 semaines"
-    ),
+    rythme_alternance: Joi.string().valid("2 jours / 3 jours", "1 semaine / 1 semaine", "2 semaines / 3 semaines", "6 semaines / 6 semaines"),
   })
 
   const userValidationSchema = Joi.object({
@@ -249,17 +244,13 @@ export default ({ formulaire, etablissementsRecruteur, usersRecruteur }) => {
       const userExist = await usersRecruteur.getUser({ _id: req.params.userId })
 
       if (!userExist) {
-        return res
-          .status(400)
-          .json({ status: "NOT_FOUND", error: true, message: "L'utilisateur mentionné n'a pas été trouvé" })
+        return res.status(400).json({ status: "NOT_FOUND", error: true, message: "L'utilisateur mentionné n'a pas été trouvé" })
       }
 
       const siretInfo = await etablissementsRecruteur.getEtablissementFromGouv(req.body.siret)
 
       if (siretInfo.data?.etablissement.etat_administratif.value === "F") {
-        return res
-          .status(400)
-          .json({ status: "CLOSED", error: true, message: "Cette entreprise est considérée comme fermé." })
+        return res.status(400).json({ status: "CLOSED", error: true, message: "Cette entreprise est considérée comme fermé." })
       }
 
       if (siretInfo.data?.etablissement.naf.startsWith("85")) {
@@ -273,9 +264,7 @@ export default ({ formulaire, etablissementsRecruteur, usersRecruteur }) => {
       let formattedSiretInfo = etablissementsRecruteur.formatEntrepriseData(siretInfo.data.etablissement)
 
       let opcoResult = await etablissementsRecruteur.getOpco(req.params.siret)
-      let geo_coordonnees = await etablissementsRecruteur.getGeoCoordinates(
-        `${formattedSiretInfo.adresse}, ${formattedSiretInfo.code_postal}, ${formattedSiretInfo.commune}`
-      )
+      let geo_coordonnees = await etablissementsRecruteur.getGeoCoordinates(`${formattedSiretInfo.adresse}, ${formattedSiretInfo.code_postal}, ${formattedSiretInfo.commune}`)
 
       const response = await formulaire.updateFormulaire({
         gestionnaire: userExist.siret,
@@ -435,9 +424,7 @@ export default ({ formulaire, etablissementsRecruteur, usersRecruteur }) => {
   router.get(
     "/rome/search",
     tryCatch(async (req, res) => {
-      const result = await axios.get(
-        `https://labonnealternance-recette.apprentissage.beta.gouv.fr/api/metiers/intitule?label=${req.query.search}`
-      )
+      const result = await axios.get(`https://labonnealternance-recette.apprentissage.beta.gouv.fr/api/metiers/intitule?label=${req.query.search}`)
       return res.json({ coupleIntituleRome: result.data.coupleIntituleRome })
     })
   )
@@ -757,9 +744,7 @@ export default ({ formulaire, etablissementsRecruteur, usersRecruteur }) => {
     "/user/:userId",
     tryCatch(async (req, res) => {
       if (!req.params.userId) {
-        return res
-          .status(400)
-          .json({ status: "MISSING_PARAM", message: "L'identifiant utilisateur est absent", error: true })
+        return res.status(400).json({ status: "MISSING_PARAM", message: "L'identifiant utilisateur est absent", error: true })
       }
 
       const exist = await usersRecruteur.getUser({ _id: req.params.userId })
@@ -794,9 +779,7 @@ export default ({ formulaire, etablissementsRecruteur, usersRecruteur }) => {
     "/user/:userId",
     tryCatch(async (req, res) => {
       if (!req.params.userId) {
-        return res
-          .status(400)
-          .json({ status: "MISSING_PARAM", message: "L'identifiant utilisateur est absent", error: true })
+        return res.status(400).json({ status: "MISSING_PARAM", message: "L'identifiant utilisateur est absent", error: true })
       }
 
       const user = await usersRecruteur.getUser({ _id: req.params.userId })

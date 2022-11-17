@@ -34,14 +34,9 @@ const createIndex = async () => {
 }
 
 const downloadAndSaveFile = (optionalFileName) => {
-  logMessage(
-    "info",
-    `Downloading and save file ${optionalFileName ? optionalFileName : "currentDomainesMetiers.xlsx"} from S3 Bucket...`
-  )
+  logMessage("info", `Downloading and save file ${optionalFileName ? optionalFileName : "currentDomainesMetiers.xlsx"} from S3 Bucket...`)
   return oleoduc(
-    getFileFromS3(
-      `mna-services/features/domainesMetiers/${optionalFileName ? optionalFileName : "currentDomainesMetiers.xlsx"}`
-    ),
+    getFileFromS3(`mna-services/features/domainesMetiers/${optionalFileName ? optionalFileName : "currentDomainesMetiers.xlsx"}`),
     fs.createWriteStream(FILE_LOCAL_PATH)
   )
 }

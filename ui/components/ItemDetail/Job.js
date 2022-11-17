@@ -107,19 +107,10 @@ const Job = ({ job, handleSelectItem, showTextOnly, searchForTrainingsOnNewCente
     }
   }
 
-  const actualLink = `/recherche-apprentissage?display=list&page=fiche&${getItemQueryParameters(
-    job
-  )}&${getSearchQueryParameters(formValues)}`
+  const actualLink = `/recherche-apprentissage?display=list&page=fiche&${getItemQueryParameters(job)}&${getSearchQueryParameters(formValues)}`
 
   return (
-    <a
-      className={rootClassList(kind)}
-      onClick={onSelectItem}
-      onMouseOver={highlightItemOnMap}
-      onMouseOut={dimItemOnMap}
-      data-testid={`${kind}${job.job.id}`}
-      href={actualLink}
-    >
+    <a className={rootClassList(kind)} onClick={onSelectItem} onMouseOver={highlightItemOnMap} onMouseOut={dimItemOnMap} data-testid={`${kind}${job.job.id}`} href={actualLink}>
       <div className="c-media" id={`${kind}${job.job.id}`}>
         <div className="c-media-figure">
           <img className="cardIcon" src={jobIcon} alt="" />
@@ -137,22 +128,12 @@ const Job = ({ job, handleSelectItem, showTextOnly, searchForTrainingsOnNewCente
           </div>
 
           <div>
-            <div className="cardText pt-2">
-              {job.company && job.company.name ? job.company.name : ReactHtmlParser("<i>Offre anonyme</i>")}
-            </div>
+            <div className="cardText pt-2">{job.company && job.company.name ? job.company.name : ReactHtmlParser("<i>Offre anonyme</i>")}</div>
             <div className="cardText pt-2">{job.place.fullAddress}</div>
           </div>
 
           <span className="cardDistance pt-1">
-            {hasLocation ? (
-              isDepartmentJob(job) ? (
-                "Dans votre zone de recherche"
-              ) : (
-                <>{job.place.distance} km(s) du lieu de recherche</>
-              )
-            ) : (
-              ""
-            )}
+            {hasLocation ? isDepartmentJob(job) ? "Dans votre zone de recherche" : <>{job.place.distance} km(s) du lieu de recherche</> : ""}
             {showTextOnly ? (
               ""
             ) : (

@@ -33,8 +33,7 @@ const ResetPasswordPage = () => {
       setStatus({
         error: (
           <span>
-            Le lien est expiré ou invalide, merci de prendre contact avec un administrateur en précisant votre adresse
-            mail :
+            Le lien est expiré ou invalide, merci de prendre contact avec un administrateur en précisant votre adresse mail :
             <br />
             <a href="mailto:prise-de-rdv@apprentissage.beta.gouv.fr">prise-de-rdv@apprentissage.beta.gouv.fr</a>
           </span>
@@ -72,11 +71,7 @@ const ResetPasswordPage = () => {
                   <Text textStyle="h6" fontSize="12px">
                     Nouveau mot de passe
                   </Text>
-                  <Field name="newPassword">
-                    {({ field, meta }) => (
-                      <Input type={"password"} placeholder="Votre mot de passe..." {...field} {...showError(meta)} />
-                    )}
-                  </Field>
+                  <Field name="newPassword">{({ field, meta }) => <Input type={"password"} placeholder="Votre mot de passe..." {...field} {...showError(meta)} />}</Field>
                   <Button variant="primary" type={"submit"} fontSize="12px" fontWeight="700" mt={5}>
                     Réinitialiser le mot de passe
                   </Button>

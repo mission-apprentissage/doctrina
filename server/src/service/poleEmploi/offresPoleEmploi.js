@@ -125,9 +125,9 @@ const transformPeJobForIdea = ({ job, lat = null, long = null, caller = null }) 
     if (job.contact.nom) resultJob.contact.name = job.contact.nom
     if (job.contact.courriel) resultJob.contact.email = job.contact.courriel
     if (job.contact.coordonnees1)
-      resultJob.contact.info = `${job.contact.coordonnees1}${
-        job.contact.coordonnees2 ? "\n" + job.contact.coordonnees2 : ""
-      }${job.contact.coordonnees3 ? "\n" + job.contact.coordonnees3 : ""}`
+      resultJob.contact.info = `${job.contact.coordonnees1}${job.contact.coordonnees2 ? "\n" + job.contact.coordonnees2 : ""}${
+        job.contact.coordonnees3 ? "\n" + job.contact.coordonnees3 : ""
+      }`
   }
 
   resultJob.place = {

@@ -2,13 +2,7 @@ import axios from "axios"
 import { logError } from "utils/tools"
 import { SendTrackEvent } from "utils/plausible"
 
-import {
-  jobsApi,
-  technicalErrorText,
-  allJobSearchErrorText,
-  partialJobSearchErrorText,
-  getRomeFromParameters,
-} from "components/SearchForTrainingsAndJobs/services/utils"
+import { jobsApi, technicalErrorText, allJobSearchErrorText, partialJobSearchErrorText, getRomeFromParameters } from "components/SearchForTrainingsAndJobs/services/utils"
 import { storeJobsInSession } from "./handleSessionStorage"
 
 export const searchForJobsFunction = async ({
@@ -34,9 +28,7 @@ export const searchForJobsFunction = async ({
   setAllJobSearchError(false)
 
   try {
-    const searchCenter = values?.location?.value
-      ? [values.location.value.coordinates[0], values.location.value.coordinates[1]]
-      : null
+    const searchCenter = values?.location?.value ? [values.location.value.coordinates[0], values.location.value.coordinates[1]] : null
 
     const response = await axios.get(jobsApi, {
       params: {
@@ -59,23 +51,13 @@ export const searchForJobsFunction = async ({
       setJobSearchError(technicalErrorText)
       logError("Job search error", `Missing romes`)
     } else {
-      if (!response.data.peJobs.result || response.data.peJobs.result !== "error")
-        peJobs = await computeMissingPositionAndDistance(searchCenter, response.data.peJobs.results)
+      if (!response.data.peJobs.result || response.data.peJobs.result !== "error") peJobs = await computeMissingPositionAndDistance(searchCenter, response.data.peJobs.results)
 
       results = {
         peJobs: response.data.peJobs.result && response.data.peJobs.result === "error" ? null : peJobs,
-        matchas:
-          response.data.matchas.result && response.data.matchas.result === "error"
-            ? null
-            : response.data.matchas.results,
-        lbbCompanies:
-          response.data.lbbCompanies.result && response.data.lbbCompanies.result === "error"
-            ? null
-            : response.data.lbbCompanies.results,
-        lbaCompanies:
-          response.data.lbaCompanies.result && response.data.lbaCompanies.result === "error"
-            ? null
-            : response.data.lbaCompanies.results,
+        matchas: response.data.matchas.result && response.data.matchas.result === "error" ? null : response.data.matchas.results,
+        lbbCompanies: response.data.lbbCompanies.result && response.data.lbbCompanies.result === "error" ? null : response.data.lbbCompanies.results,
+        lbaCompanies: response.data.lbaCompanies.result && response.data.lbaCompanies.result === "error" ? null : response.data.lbaCompanies.results,
       }
 
       if (followUpItem && followUpItem.parameters.type !== "training") {
@@ -111,14 +93,10 @@ export const searchForJobsFunction = async ({
         response.data.lbaCompanies.result === "error"
       ) {
         jobErrorMessage = partialJobSearchErrorText
-        if (response.data.peJobs.result === "error")
-          logError("Job Search Error", `PE Error : ${response.data.peJobs.message}`)
-        if (response.data.lbbCompanies.result === "error")
-          logError("Job Search Error", `LBB Error : ${response.data.lbbCompanies.message}`)
-        if (response.data.lbaCompanies.result === "error")
-          logError("Job Search Error", `LBA Error : ${response.data.lbaCompanies.message}`)
-        if (response.data.matchas.result === "error")
-          logError("Job Search Error", `Matcha Error : ${response.data.matchas.message}`)
+        if (response.data.peJobs.result === "error") logError("Job Search Error", `PE Error : ${response.data.peJobs.message}`)
+        if (response.data.lbbCompanies.result === "error") logError("Job Search Error", `LBB Error : ${response.data.lbbCompanies.message}`)
+        if (response.data.lbaCompanies.result === "error") logError("Job Search Error", `LBA Error : ${response.data.lbaCompanies.message}`)
+        if (response.data.matchas.result === "error") logError("Job Search Error", `Matcha Error : ${response.data.matchas.message}`)
       }
     }
 
@@ -134,9 +112,9 @@ export const searchForJobsFunction = async ({
     setJobMarkers(factorJobsForMap(results), scopeContext.isTraining ? null : searchCenter)
   } catch (err) {
     console.log(
-      `Erreur interne lors de la recherche d'emplois (${
-        err.response && err.response.status ? err.response.status : ""
-      } : ${err.response && err.response.data ? err.response.data.error : err.message})`
+      `Erreur interne lors de la recherche d'emplois (${err.response && err.response.status ? err.response.status : ""} : ${
+        err.response && err.response.data ? err.response.data.error : err.message
+      })`
     )
     logError("Job search error", err)
     setJobSearchError(allJobSearchErrorText)

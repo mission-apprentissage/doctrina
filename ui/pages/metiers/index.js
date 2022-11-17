@@ -27,14 +27,12 @@ export default function Catalog(props) {
         <hr className="c-catalog-title-separator mt-4 mb-5" align="left" />
 
         <p>
-          Vous voulez travailler en alternance ? Vous voulez obtenir un diplôme en alternance ? Toutes les informations
-          pour trouver une alternance rapidement sont sur La bonne alternance :
+          Vous voulez travailler en alternance ? Vous voulez obtenir un diplôme en alternance ? Toutes les informations pour trouver une alternance rapidement sont sur La bonne
+          alternance :
           <ul className="mt-2">
             <li>Offres d&apos;emploi en contrat d&apos;apprentissage ou en contrat de professionnalisation</li>
             <li>Liste d’entreprises qui recrutent en alternance</li>
-            <li>
-              Formations en apprentissage en CAP, Bac pro, Mention complémentaire, BTS, BUT, DEUST, Licence, Master
-            </li>
+            <li>Formations en apprentissage en CAP, Bac pro, Mention complémentaire, BTS, BUT, DEUST, Licence, Master</li>
           </ul>
         </p>
 
@@ -43,11 +41,7 @@ export default function Catalog(props) {
             <div key={index} className="mb-2 mb-lg-0">
               <span className="d-block d-lg-inline">Emploi en alternance et formation en alternance en </span>
               <span className="d-block d-lg-inline">
-                <a
-                  href={`/metiers/${job.slug}`}
-                  className="c-catalog-link"
-                  aria-label={`Lancement d'une recherche sur le métier ${job.name}`}
-                >
+                <a href={`/metiers/${job.slug}`} className="c-catalog-link" aria-label={`Lancement d'une recherche sur le métier ${job.name}`}>
                   {job.name}
                 </a>
               </span>

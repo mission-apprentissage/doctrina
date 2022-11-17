@@ -59,15 +59,7 @@ export default ({ totalPages, currentPage, setPage, fragmentName }) => {
         {Array(totalPages)
           .fill(currentPage)
           .map((_unusedValue, index) => {
-            return (
-              <PageLink
-                key={`fragmentName-${index}`}
-                pageNumber={index + 1}
-                setPage={setPage}
-                fragmentName={fragmentName}
-                isActive={index === currentPage}
-              />
-            )
+            return <PageLink key={`fragmentName-${index}`} pageNumber={index + 1} setPage={setPage} fragmentName={fragmentName} isActive={index === currentPage} />
           })}
         <NextLink currentPage={currentPage} setPage={setPage} fragmentName={fragmentName} totalPages={totalPages} />
       </Box>
@@ -82,35 +74,23 @@ export default ({ totalPages, currentPage, setPage, fragmentName }) => {
 
       {currentPage - 2 > 0 && <span>...</span>}
 
-      {currentPage > totalPages - 2 && (
-        <PageLink pageNumber={currentPage - 2} setPage={setPage} fragmentName={fragmentName} />
-      )}
+      {currentPage > totalPages - 2 && <PageLink pageNumber={currentPage - 2} setPage={setPage} fragmentName={fragmentName} />}
 
-      {currentPage > totalPages - 3 && (
-        <PageLink pageNumber={currentPage - 1} setPage={setPage} fragmentName={fragmentName} />
-      )}
+      {currentPage > totalPages - 3 && <PageLink pageNumber={currentPage - 1} setPage={setPage} fragmentName={fragmentName} />}
 
       {currentPage > 0 && <PageLink pageNumber={currentPage} setPage={setPage} fragmentName={fragmentName} />}
 
       <PageLink pageNumber={currentPage + 1} setPage={setPage} fragmentName={fragmentName} isActive={true} />
 
-      {currentPage + 1 < totalPages - 1 && (
-        <PageLink pageNumber={currentPage + 2} setPage={setPage} fragmentName={fragmentName} />
-      )}
+      {currentPage + 1 < totalPages - 1 && <PageLink pageNumber={currentPage + 2} setPage={setPage} fragmentName={fragmentName} />}
 
-      {currentPage + 2 < totalPages - 1 && currentPage < 2 && (
-        <PageLink pageNumber={currentPage + 3} setPage={setPage} fragmentName={fragmentName} />
-      )}
+      {currentPage + 2 < totalPages - 1 && currentPage < 2 && <PageLink pageNumber={currentPage + 3} setPage={setPage} fragmentName={fragmentName} />}
 
-      {currentPage + 3 < totalPages - 1 && currentPage < 1 && (
-        <PageLink pageNumber={currentPage + 4} setPage={setPage} fragmentName={fragmentName} />
-      )}
+      {currentPage + 3 < totalPages - 1 && currentPage < 1 && <PageLink pageNumber={currentPage + 4} setPage={setPage} fragmentName={fragmentName} />}
 
       {currentPage + 2 < totalPages - 1 && <span>...</span>}
 
-      {currentPage < totalPages - 1 && (
-        <PageLink pageNumber={totalPages} setPage={setPage} fragmentName={fragmentName} />
-      )}
+      {currentPage < totalPages - 1 && <PageLink pageNumber={totalPages} setPage={setPage} fragmentName={fragmentName} />}
 
       <NextLink currentPage={currentPage} setPage={setPage} fragmentName={fragmentName} totalPages={totalPages} />
     </Box>

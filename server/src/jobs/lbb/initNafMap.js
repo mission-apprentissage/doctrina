@@ -46,9 +46,7 @@ export default async function () {
     logMessage("info", " -- Start updating rome naf -- ")
 
     await oleoduc(
-      miniget(
-        "https://raw.githubusercontent.com/StartupsPoleEmploi/labonneboite/master/labonneboite/common/data/rome_naf_mapping.csv"
-      ),
+      miniget("https://raw.githubusercontent.com/StartupsPoleEmploi/labonneboite/master/labonneboite/common/data/rome_naf_mapping.csv"),
       readLineByLine(),
       transformData((line) => parseLine(line)),
       writeData(async (line) => computeLine(line))

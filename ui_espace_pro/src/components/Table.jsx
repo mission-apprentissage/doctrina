@@ -26,13 +26,7 @@ export default ({ data, columns, onRowClick }) => {
           {headerGroups.map((headerGroup) => (
             <Box as="tr" {...headerGroup.getHeaderGroupProps({})} pb={4}>
               {headerGroup.headers.map((column, i) => (
-                <Box
-                  as="th"
-                  {...column.getHeaderProps(column.getSortByToggleProps())}
-                  display={[i === 0 || i > 2 ? "none" : "flex", "flex"]}
-                  overflow="hidden"
-                  px={2}
-                >
+                <Box as="th" {...column.getHeaderProps(column.getSortByToggleProps())} display={[i === 0 || i > 2 ? "none" : "flex", "flex"]} overflow="hidden" px={2}>
                   <Flex flexDirection="column" w="full" alignItems="flex-start" justify="center">
                     <Text fontWeight="700" textAlign="left" fontSize="14px">
                       {column.render("Header")}

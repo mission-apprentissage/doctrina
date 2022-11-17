@@ -11,10 +11,7 @@ import { getRomesFromCfd, getRomesFromSiret } from "./romesFromCatalogue.js"
 const getRomesAndLabelsFromTitleQuery = async (query) => {
   if (!query.title) return { error: "title_missing" }
   else {
-    let [romesMetiers, romesDiplomes] = await Promise.all([
-      getLabelsAndRomes(query.title, query.withRomeLabels),
-      getLabelsAndRomesForDiplomas(query.title),
-    ])
+    let [romesMetiers, romesDiplomes] = await Promise.all([getLabelsAndRomes(query.title, query.withRomeLabels), getLabelsAndRomesForDiplomas(query.title)])
     return { ...romesMetiers, ...romesDiplomes }
   }
 }
@@ -314,8 +311,7 @@ const removeDuplicateDiplomas = (diplomas) => {
   let diplomasWithoutLevel = []
 
   diplomas.forEach((diploma) => {
-    let diplomaWithoutLevel =
-      diploma.label.indexOf("(") > 0 ? diploma.label.substring(0, diploma.label.indexOf("(")).trim() : diploma.label
+    let diplomaWithoutLevel = diploma.label.indexOf("(") > 0 ? diploma.label.substring(0, diploma.label.indexOf("(")).trim() : diploma.label
 
     if (diplomasWithoutLevel.indexOf(diplomaWithoutLevel) < 0) {
       labelsAndRomesForDiplomas.push({ ...diploma, label: diplomaWithoutLevel })

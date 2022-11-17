@@ -30,19 +30,8 @@ const Formulaire = () => {
   let navigate = useNavigate()
   let location = useLocation()
   const { widget } = useContext(WidgetContext)
-  const {
-    raison_sociale,
-    adresse,
-    contacts,
-    siret,
-    geo_coordonnees,
-    opco,
-    idcc,
-    code_naf,
-    libelle_naf,
-    tranche_effectif,
-    date_creation_etablissement,
-  } = location.state?.informationSiret
+  const { raison_sociale, adresse, contacts, siret, geo_coordonnees, opco, idcc, code_naf, libelle_naf, tranche_effectif, date_creation_etablissement } =
+    location.state?.informationSiret
   const toast = useToast()
   const [auth] = useAuth()
 
@@ -114,13 +103,7 @@ const Formulaire = () => {
         return (
           <Form>
             <CustomInput required={false} name="nom" label="Nom" type="text" value={informationForm.values.nom} />
-            <CustomInput
-              required={false}
-              name="prenom"
-              label="Prénom"
-              type="text"
-              value={informationForm.values.prenom}
-            />
+            <CustomInput required={false} name="prenom" label="Prénom" type="text" value={informationForm.values.prenom} />
             <CustomInput
               required={false}
               name="telephone"
@@ -131,13 +114,7 @@ const Formulaire = () => {
               helper="Le numéro de téléphone sera visible sur l'offre d'emploi"
               value={informationForm.values.telephone}
             />
-            <CustomInput
-              required={false}
-              name="email"
-              label="Email"
-              type="email"
-              value={informationForm.values.email}
-            />
+            <CustomInput required={false} name="email" label="Email" type="email" value={informationForm.values.email} />
             <Flex justifyContent="flex-end" alignItems="center" mt={5}>
               {!widget?.isWidget && (
                 <ChakraLink as={Link} size={buttonSize} variant="secondary" mr={5} to="/administration">
@@ -185,8 +162,7 @@ export default () => {
           <GridItem>
             <Heading>Vos informations de contact</Heading>
             <Text fontSize="20px" textAlign="justify" mt={2}>
-              il s’agit de l’entreprise qui vous a mandaté pour gérer ses offres d’emploi. Ces informations ne seront
-              pas visibles sur l'offre.
+              il s’agit de l’entreprise qui vous a mandaté pour gérer ses offres d’emploi. Ces informations ne seront pas visibles sur l'offre.
             </Text>
           </GridItem>
           <GridItem rowStart={["auto", 2]}>

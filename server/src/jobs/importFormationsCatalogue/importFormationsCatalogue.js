@@ -4,11 +4,7 @@ import { getElasticInstance } from "../../common/esClient/index.js"
 import { fetchFormations, countFormations } from "../../common/components/catalogue.js"
 import { mongooseInstance } from "../../common/mongodb.js"
 import { rebuildIndex } from "../../common/utils/esUtils.js"
-import {
-  getCurrentFormationsSourceIndex,
-  updateFormationsSourceIndex,
-  updateFormationsIndexAlias,
-} from "../../common/components/indexSourceFormations.js"
+import { getCurrentFormationsSourceIndex, updateFormationsSourceIndex, updateFormationsIndexAlias } from "../../common/components/indexSourceFormations.js"
 import { oleoduc, transformData, writeData } from "oleoduc"
 import { logger } from "../../common/logger.js"
 import { logMessage } from "../../common/utils/logMessage.js"
@@ -146,9 +142,7 @@ export default async function (onlyChangeMasterIndex = false) {
 
       running = false
 
-      notifyToSlack(
-        `Import formations catalogue terminé sur ${workIndex}. ${stats.created} OK. ${stats.failed} erreur(s)`
-      )
+      notifyToSlack(`Import formations catalogue terminé sur ${workIndex}. ${stats.created} OK. ${stats.failed} erreur(s)`)
 
       return {
         result: "Import formations catalogue terminé",

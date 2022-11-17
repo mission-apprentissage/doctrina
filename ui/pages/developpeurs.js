@@ -30,30 +30,20 @@ const developpeurs = () => (
           <Text variant="editorialContentH3" as="h3">
             Code source ouvert
           </Text>
-          <Link
-            variant="editorialContentLink"
-            aria-label="Accès au site Github"
-            href="https://github.com/mission-apprentissage/labonnealternance"
-            isExternal
-          >
+          <Link variant="editorialContentLink" aria-label="Accès au site Github" href="https://github.com/mission-apprentissage/labonnealternance" isExternal>
             LBA - Recherche d&apos;une formation et/ou d&apos;un organisme de formation en apprentissage
           </Link>
           <Text variant="editorialContentH3" as="h3" mt={4}>
             Données ouvertes
           </Text>
           <Text as="p" mb={4}>
-            Afin de faciliter l’accès aux informations pour les publics là où ils se trouvent (notamment sur votre site
-            internet !), nous avons développé 4 API et un Widget, disponibles en open source.
+            Afin de faciliter l’accès aux informations pour les publics là où ils se trouvent (notamment sur votre site internet !), nous avons développé 4 API et un Widget,
+            disponibles en open source.
           </Text>
           <Text as="p" mb={4}>
             Testez le widget et les API et accédez à leur documentation sur le site API.gouv
           </Text>
-          <Link
-            variant="editorialContentLink"
-            aria-label="Accès au site api.gouv"
-            href="https://api.gouv.fr/les-api/api-la-bonne-alternance"
-            isExternal
-          >
+          <Link variant="editorialContentLink" aria-label="Accès au site api.gouv" href="https://api.gouv.fr/les-api/api-la-bonne-alternance" isExternal>
             https://api.gouv.fr/les-api/api-la-bonne-alternance
           </Link>
         </GridItem>

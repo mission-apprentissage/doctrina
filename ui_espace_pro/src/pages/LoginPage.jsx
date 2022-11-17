@@ -71,13 +71,7 @@ const LoginPage = () => {
                         </Text>
                         <Field name="username">
                           {({ field, meta }) => {
-                            return (
-                              <Input
-                                placeholder="Votre identifiant..."
-                                {...field}
-                                {...feedback(meta, "Identifiant invalide")}
-                              />
-                            )
+                            return <Input placeholder="Votre identifiant..." {...field} {...feedback(meta, "Identifiant invalide")} />
                           }}
                         </Field>
                       </Box>
@@ -87,14 +81,7 @@ const LoginPage = () => {
                         </Text>
                         <Field name="password">
                           {({ field, meta }) => {
-                            return (
-                              <Input
-                                type={"password"}
-                                placeholder="Votre mot de passe..."
-                                {...field}
-                                {...feedback(meta, "Mot de passe invalide")}
-                              />
-                            )
+                            return <Input type={"password"} placeholder="Votre mot de passe..." {...field} {...feedback(meta, "Mot de passe invalide")} />
                           }}
                         </Field>
                       </Box>

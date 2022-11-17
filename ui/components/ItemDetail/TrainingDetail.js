@@ -129,12 +129,7 @@ const TrainingDetail = ({ training, hasAlsoJob }) => {
         )}
         <div className="mt-2 mb-2">
           Vous vous posez des questions sur votre orientation ou votre recherche d&apos;emploi ?
-          <a
-            href="https://dinum-beta.didask.com/courses/demonstration/60abc18c075edf000065c987"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="c-nice-link"
-          >
+          <a href="https://dinum-beta.didask.com/courses/demonstration/60abc18c075edf000065c987" target="_blank" rel="noopener noreferrer" className="c-nice-link">
             &nbsp;Préparez votre premier contact avec un CFA&nbsp;
             <img src={gotoIcon} alt="Ouverture dans un nouvel onglet" />
           </a>
@@ -206,15 +201,9 @@ const getTrainingDetails = (training) => {
           <img src={academicCapIcon} alt="" />
           <div className="c-detail-training media-body">
             <h3 className="c-detail-description-title mb-3 mt-0">Modalités alternance</h3>
-            Heures en centre de formation :{" "}
-            {training["sessions"][0]["nombre-heures-centre"]
-              ? `${training["sessions"][0]["nombre-heures-centre"]}h`
-              : "non renseigné"}
+            Heures en centre de formation : {training["sessions"][0]["nombre-heures-centre"] ? `${training["sessions"][0]["nombre-heures-centre"]}h` : "non renseigné"}
             <br />
-            Heures en entreprise :{" "}
-            {training["sessions"][0]["nombre-heures-entreprise"]
-              ? `${training["sessions"][0]["nombre-heures-entreprise"]}h`
-              : "non renseigné"}
+            Heures en entreprise : {training["sessions"][0]["nombre-heures-entreprise"] ? `${training["sessions"][0]["nombre-heures-entreprise"]}h` : "non renseigné"}
           </div>
         </div>
       ) : (

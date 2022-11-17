@@ -33,21 +33,8 @@ import constants from "./reactiveSearchConfig"
 import "./search.css"
 
 const EmptySpace = () => (
-  <Stack
-    direction={["column", "column", "column", "row"]}
-    mt={12}
-    pt={12}
-    py={8}
-    border="1px solid"
-    borderColor="grey.400"
-    spacing="32px"
-  >
-    <Flex
-      justify={["center", "center", "center", "flex-end"]}
-      align={["center", "center", "center", "flex-start"]}
-      w={["100%", "100%", "100%", "350px"]}
-      h="150px"
-    >
+  <Stack direction={["column", "column", "column", "row"]} mt={12} pt={12} py={8} border="1px solid" borderColor="grey.400" spacing="32px">
+    <Flex justify={["center", "center", "center", "flex-end"]} align={["center", "center", "center", "flex-start"]} w={["100%", "100%", "100%", "350px"]} h="150px">
       <Image src={addOfferImage} />
     </Flex>
 
@@ -57,8 +44,8 @@ const EmptySpace = () => (
       </Heading>
       <Text fontSize="1.375rem">Une entreprise vous a mandaté pour gérer ses offres d’emploi ?</Text>
       <Text fontSize="1.375rem">
-        En quelques secondes, exprimez les besoins de recrutement de cette entreprise pour les afficher sur le site{" "}
-        <span style={{ fontWeight: "700" }}>La Bonne Alternance</span> dès aujourd’hui.
+        En quelques secondes, exprimez les besoins de recrutement de cette entreprise pour les afficher sur le site <span style={{ fontWeight: "700" }}>La Bonne Alternance</span>{" "}
+        dès aujourd’hui.
       </Text>
     </Box>
   </Stack>
@@ -223,11 +210,7 @@ export default memo(() => {
           </Breadcrumb>
         </Box>
         <div className="search-page">
-          <ReactiveBase
-            url={`${process.env.REACT_APP_BASE_URL}/es/search`}
-            app="formulaires"
-            theme={{ typography: { fontFamily: "Marianne" } }}
-          >
+          <ReactiveBase url={`${process.env.REACT_APP_BASE_URL}/es/search`} app="formulaires" theme={{ typography: { fontFamily: "Marianne" } }}>
             <Flex justify="space-between" mb={12}>
               <Text fontSize="2rem" fontWeight={700}>
                 Mes entreprises
@@ -285,9 +268,7 @@ export default memo(() => {
                       index="formulaires"
                       filters={["searchFormulaire"]}
                       defaultQuery={queryFilter}
-                      columns={exportableColumns
-                        .filter((c) => c.exportable)
-                        .map((c) => ({ header: c.Header, fieldName: c.accessor, formatter: c.formatter }))}
+                      columns={exportableColumns.filter((c) => c.exportable).map((c) => ({ header: c.Header, fieldName: c.accessor, formatter: c.formatter }))}
                     />
                   </div>
                 )

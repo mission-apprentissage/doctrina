@@ -13,10 +13,7 @@ export default ({ usersRecruteur, mailer, formulaire }) => {
       const userQuery = JSON.parse(req.query.userQuery)
       const formulaireQuery = JSON.parse(req.query.formulaireQuery)
 
-      const [users, formulaires] = await Promise.all([
-        UserRecruteur.find(userQuery).lean(),
-        Formulaire.find(formulaireQuery).lean(),
-      ])
+      const [users, formulaires] = await Promise.all([UserRecruteur.find(userQuery).lean(), Formulaire.find(formulaireQuery).lean()])
 
       const results = users.reduce((acc, user) => {
         acc.push({ ...user, offres: 0 })

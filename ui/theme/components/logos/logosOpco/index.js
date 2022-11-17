@@ -19,14 +19,12 @@ export default [
   },
   {
     nom: "AKTO / Opco entreprises et salariés des services à forte intensité de main d'oeuvre",
-    description:
-      "A​KTO est l’opérateur de compétences des services à forte intensité de main-d’œuvre, dont la restauration, l’entretien, et la manutention par exemples.",
+    description: "A​KTO est l’opérateur de compétences des services à forte intensité de main-d’œuvre, dont la restauration, l’entretien, et la manutention par exemples.",
     image: opcoakto,
   },
   {
     nom: "ATLAS",
-    description:
-      "Atlas est l’opérateur de compétences des entreprises  exerçant dans le champ des assurances, des services financiers et du conseil.",
+    description: "Atlas est l’opérateur de compétences des entreprises  exerçant dans le champ des assurances, des services financiers et du conseil.",
     image: opcoatlas,
   },
   {
@@ -37,14 +35,12 @@ export default [
   },
   {
     nom: "OCAPIAT",
-    description:
-      "Ocapiat est l’opérateur de Compétences pour la Coopération agricole, l’Agriculture, la Pêche, l’Industrie Agroalimentaire et les Territoires.",
+    description: "Ocapiat est l’opérateur de Compétences pour la Coopération agricole, l’Agriculture, la Pêche, l’Industrie Agroalimentaire et les Territoires.",
     image: ocapiat,
   },
   {
     nom: "Opco entreprises de proximité",
-    description:
-      "OPCO EP est l’opérateur de compétences des métiers de proximité : artisanat, professions libérales et services de proximité.",
+    description: "OPCO EP est l’opérateur de compétences des métiers de proximité : artisanat, professions libérales et services de proximité.",
     image: opcoep,
   },
   {
@@ -54,8 +50,7 @@ export default [
   },
   {
     nom: "Opco Mobilités",
-    description:
-      "OPCO mobilités est l’opérateur de compétences des entreprises exerçant dans le champ des secteurs du transport routier, maritime, services de l’automobile.",
+    description: "OPCO mobilités est l’opérateur de compétences des entreprises exerçant dans le champ des secteurs du transport routier, maritime, services de l’automobile.",
     image: opcomobilite,
   },
   {

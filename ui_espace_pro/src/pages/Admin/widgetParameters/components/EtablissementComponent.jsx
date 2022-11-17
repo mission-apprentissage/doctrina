@@ -257,10 +257,7 @@ const EtablissementComponent = ({ id }) => {
                     Activer l'opt-in
                   </Button>
                 </Tooltip>
-                <Tooltip
-                  label="Activer l'opt-out pour cet établissement. Un email décisionnaire doit être renseigné."
-                  key="opt-out"
-                >
+                <Tooltip label="Activer l'opt-out pour cet établissement. Un email décisionnaire doit être renseigné." key="opt-out">
                   <Button
                     variant="primary"
                     fontSize="12px"
@@ -401,11 +398,7 @@ const EtablissementComponent = ({ id }) => {
               <EditablePreview ref={emailDecisionnaireFocusRef} />
               <EditableInput ref={emailDecisionnaireRef} type="email" _focus={{ border: "none" }} />
             </Editable>
-            <Button
-              RootComponent="a"
-              variant="primary"
-              onClick={() => upsertEmailDecisionnaire(emailDecisionnaireRef.current.value.toLowerCase())}
-            >
+            <Button RootComponent="a" variant="primary" onClick={() => upsertEmailDecisionnaire(emailDecisionnaireRef.current.value.toLowerCase())}>
               <Disquette w="16px" h="16px" />
             </Button>
           </Flex>

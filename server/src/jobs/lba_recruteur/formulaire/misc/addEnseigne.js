@@ -4,10 +4,7 @@ import { runScript } from "../../../scriptWrapper.js"
 runScript(async ({ etablissement }) => {
   const errors = []
   const itemsUpdated = {}
-  const [formulaires, users] = await Promise.all([
-    Formulaire.find({ siret: { $exists: true } }).lean(),
-    UserRecruteur.find({ siret: { $exists: true } }).lean(),
-  ])
+  const [formulaires, users] = await Promise.all([Formulaire.find({ siret: { $exists: true } }).lean(), UserRecruteur.find({ siret: { $exists: true } }).lean()])
 
   for (const formulaire of formulaires) {
     try {

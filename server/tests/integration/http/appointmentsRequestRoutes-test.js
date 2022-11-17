@@ -24,8 +24,7 @@ httpTests(__filename(import.meta.url), ({ startServer }) => {
       code_postal: "75000",
       etablissement_formateur_entreprise_raison_sociale: "TEST RAISON SOCIALE",
       etablissement_formateur_siret: "32922456200234",
-      form_url:
-        "http://localhost/form?referrer=lba&cleMinistereEducatif=064256P01111968000310005219680003100052-68287%23L01",
+      form_url: "http://localhost/form?referrer=lba&cleMinistereEducatif=064256P01111968000310005219680003100052-68287%23L01",
       id_rco_formation: "14_AF_0000091719|14_SE_0000494236|18894",
       cle_ministere_educatif: "064256P01111968000310005219680003100052-68287#L01",
       intitule_long: "Test Formation",
@@ -51,8 +50,7 @@ httpTests(__filename(import.meta.url), ({ startServer }) => {
       code_postal: "75000",
       etablissement_formateur_entreprise_raison_sociale: "TEST RAISON SOCIALE",
       etablissement_formateur_siret: "32922456200234",
-      form_url:
-        "http://localhost/form?referrer=lba&cleMinistereEducatif=064256P01111968000310005219680003100052-68287%23L01",
+      form_url: "http://localhost/form?referrer=lba&cleMinistereEducatif=064256P01111968000310005219680003100052-68287%23L01",
       id_rco_formation: "14_AF_0000091719|14_SE_0000494236|18894",
       cle_ministere_educatif: "064256P01111968000310005219680003100052-68287#L01",
       intitule_long: "Test Formation",
@@ -78,8 +76,7 @@ httpTests(__filename(import.meta.url), ({ startServer }) => {
       code_postal: "75000",
       etablissement_formateur_entreprise_raison_sociale: "TEST RAISON SOCIALE",
       etablissement_formateur_siret: "32922456200234",
-      form_url:
-        "http://localhost/form?referrer=lba&cleMinistereEducatif=064256P01111968000310005219680003100052-68287%23L01",
+      form_url: "http://localhost/form?referrer=lba&cleMinistereEducatif=064256P01111968000310005219680003100052-68287%23L01",
       id_rco_formation: "14_AF_0000091719|14_SE_0000494236|18894",
       cle_ministere_educatif: "064256P01111968000310005219680003100052-68287#L01",
       intitule_long: "Test Formation",

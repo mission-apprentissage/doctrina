@@ -8,18 +8,7 @@ import { lbbMock } from "../../mocks/lbbs-mock.js"
 
 const esClient = getBonnesBoitesES()
 
-const getSomeLbbCompanies = async ({
-  romes,
-  latitude,
-  longitude,
-  radius,
-  type,
-  referer,
-  caller,
-  opco,
-  api = "jobV1",
-  useMock,
-}) => {
+const getSomeLbbCompanies = async ({ romes, latitude, longitude, radius, type, referer, caller, opco, api = "jobV1", useMock }) => {
   const hasLocation = latitude === undefined ? false : true
   let companies = null
   let currentRadius = hasLocation ? radius : 21000
@@ -124,17 +113,7 @@ const transformLbbCompanyForIdea = ({ company, type, caller, contactAllowedOrigi
   return resultCompany
 }
 
-const getLbbCompanies = async ({
-  romes,
-  latitude,
-  longitude,
-  radius,
-  companyLimit,
-  type,
-  caller,
-  opco,
-  api = "jobV1",
-}) => {
+const getLbbCompanies = async ({ romes, latitude, longitude, radius, companyLimit, type, caller, opco, api = "jobV1" }) => {
   try {
     const distance = radius || 10
 

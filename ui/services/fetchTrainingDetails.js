@@ -3,14 +3,7 @@ import baseUrl from "../utils/baseUrl"
 import _ from "lodash"
 import { logError } from "../utils/tools"
 
-export default async function fetchTrainingDetails(
-  training,
-  errorCallbackFn = _.noop,
-  _baseUrl = baseUrl,
-  _axios = axios,
-  _window = window,
-  _logError = logError
-) {
+export default async function fetchTrainingDetails(training, errorCallbackFn = _.noop, _baseUrl = baseUrl, _axios = axios, _window = window, _logError = logError) {
   let res = null
 
   if (!training) return res

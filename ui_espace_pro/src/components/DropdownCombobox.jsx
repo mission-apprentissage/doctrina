@@ -35,13 +35,7 @@ export default (props) => {
   return (
     <div>
       <div {...getComboboxProps()}>
-        <CustomInput
-          pb="0"
-          required={false}
-          name={name}
-          placeholder={placeholder || "sélectionner un métier"}
-          {...getInputProps()}
-        />
+        <CustomInput pb="0" required={false} name={name} placeholder={placeholder || "sélectionner un métier"} {...getInputProps()} />
       </div>
       <Box
         sx={{
@@ -62,11 +56,7 @@ export default (props) => {
         {isOpen &&
           inputItems.map((item, index) => (
             <li
-              style={
-                highlightedIndex === index
-                  ? { backgroundColor: "lightGrey", width: "100%", padding: "0.5rem" }
-                  : { width: "100%", padding: "0.5rem" }
-              }
+              style={highlightedIndex === index ? { backgroundColor: "lightGrey", width: "100%", padding: "0.5rem" } : { width: "100%", padding: "0.5rem" }}
               key={`${item}${index}`}
               {...getItemProps({ item, index })}
             >

@@ -31,14 +31,9 @@ const CandidatureSpontanee = (props) => {
 
   const openApplicationForm = () => {
     toggle()
-    SendPlausibleEvent(
-      props.item.ideaType === "matcha"
-        ? "Clic Postuler - Fiche entreprise Offre LBA"
-        : "Clic Postuler - Fiche entreprise Algo",
-      {
-        info_fiche: getItemId(props.item),
-      }
-    )
+    SendPlausibleEvent(props.item.ideaType === "matcha" ? "Clic Postuler - Fiche entreprise Offre LBA" : "Clic Postuler - Fiche entreprise Algo", {
+      info_fiche: getItemId(props.item),
+    })
   }
 
   const [applied, setApplied] = useLocalStorage(uniqId(kind, props.item), null, actualLocalStorage)
@@ -97,33 +92,18 @@ const CandidatureSpontanee = (props) => {
                   <ModalHeader toggle={toggle} className={"c-candidature-modal-header"}></ModalHeader>
 
                   {with_str(sendingState).amongst(["not_sent", "currently_sending"]) ? (
-                    <CandidatureSpontaneeNominalBodyFooter
-                      formik={formik}
-                      sendingState={sendingState}
-                      company={props?.item?.company?.name}
-                      item={props?.item}
-                      kind={kind}
-                    />
+                    <CandidatureSpontaneeNominalBodyFooter formik={formik} sendingState={sendingState} company={props?.item?.company?.name} item={props?.item} kind={kind} />
                   ) : (
                     <></>
                   )}
 
                   {with_str(sendingState).amongst(["ok_sent"]) ? (
-                    <CandidatureSpontaneeWorked
-                      kind={kind}
-                      email={formik.values.email}
-                      company={props?.item?.company?.name}
-                    />
+                    <CandidatureSpontaneeWorked kind={kind} email={formik.values.email} company={props?.item?.company?.name} />
                   ) : (
                     <></>
                   )}
 
-                  {with_str(sendingState).amongst([
-                    "not_sent_because_of_errors",
-                    "email temporaire non autorisé",
-                    "max candidatures atteint",
-                    "Too Many Requests",
-                  ]) ? (
+                  {with_str(sendingState).amongst(["not_sent_because_of_errors", "email temporaire non autorisé", "max candidatures atteint", "Too Many Requests"]) ? (
                     <CandidatureSpontaneeFailed sendingState={sendingState} />
                   ) : (
                     <></>
@@ -140,10 +120,7 @@ const CandidatureSpontanee = (props) => {
                 <img className="" src="/images/icons/small_info.svg" alt="point info" />
               </span>
               <span className="c-mandataire-hinttext ml-2">
-                <span className="">
-                  Votre candidature sera envoyée au centre de formation en charge du recrutement pour le compte de
-                  l’entreprise.{" "}
-                </span>
+                <span className="">Votre candidature sera envoyée au centre de formation en charge du recrutement pour le compte de l’entreprise. </span>
               </span>
             </div>
           </>

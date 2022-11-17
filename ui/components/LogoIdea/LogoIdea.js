@@ -29,11 +29,7 @@ const LogoIdea = () => {
       <Link href="/">
         <a onClick={goToLbaHome} className="ml-3">
           <img
-            src={
-              widgetParameters && widgetParameters?.parameters?.returnLogoURL
-                ? widgetParameters.parameters.returnLogoURL
-                : logoLBA
-            }
+            src={widgetParameters && widgetParameters?.parameters?.returnLogoURL ? widgetParameters.parameters.returnLogoURL : logoLBA}
             alt="Retour page d'accueil de La bonne alternance"
           />
         </a>

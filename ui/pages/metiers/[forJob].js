@@ -38,19 +38,16 @@ export default function ForJob(props) {
         <hr className="c-catalog-title-separator mt-4 mb-5" align="left" />
 
         <p>
-          Vous êtes à seulement 2 clics d&apos;obtenir toutes les informations pour trouver une alternance rapidement
-          sur La Bonne Alternance :
+          Vous êtes à seulement 2 clics d&apos;obtenir toutes les informations pour trouver une alternance rapidement sur La Bonne Alternance :
           <ul className="mt-2">
             <li>
-              Offres d&apos;emploi en contrat d&apos;apprentissage ou en contrat de professionnalisation en{" "}
-              <i>{currentJob.name}</i>
+              Offres d&apos;emploi en contrat d&apos;apprentissage ou en contrat de professionnalisation en <i>{currentJob.name}</i>
             </li>
             <li>
               Liste d’entreprises qui recrutent en alternance en <i>{currentJob.name}</i>
             </li>
             <li>
-              Formations en apprentissage en CAP, Bac pro, Mention complémentaire, BTS, BUT, DEUST, Licence, Master en{" "}
-              <i>{currentJob.name}</i>
+              Formations en apprentissage en CAP, Bac pro, Mention complémentaire, BTS, BUT, DEUST, Licence, Master en <i>{currentJob.name}</i>
             </li>
           </ul>
         </p>

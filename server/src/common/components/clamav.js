@@ -49,9 +49,7 @@ console.log("scan result EICAR String : ", isInfected, viruses);
 */
 
   // le fichier est encodé en base 64 à la suite d'un en-tête.
-  const decodedAscii = Readable.from(
-    Buffer.from(fileContent.substring(fileContent.indexOf(";base64,") + 8), "base64").toString("ascii")
-  )
+  const decodedAscii = Readable.from(Buffer.from(fileContent.substring(fileContent.indexOf(";base64,") + 8), "base64").toString("ascii"))
   const rs = Readable.from(decodedAscii)
   //console.log("avant scanstream ");
   const { isInfected, viruses } = await scanner.scanStream(rs)

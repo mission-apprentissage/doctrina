@@ -1,19 +1,4 @@
-import {
-  Alert,
-  AlertIcon,
-  Box,
-  Button,
-  Container,
-  Flex,
-  Icon,
-  Menu,
-  MenuButton,
-  MenuDivider,
-  MenuItem,
-  MenuList,
-  Spacer,
-  Text,
-} from "@chakra-ui/react"
+import { Alert, AlertIcon, Box, Button, Container, Flex, Icon, Menu, MenuButton, MenuDivider, MenuItem, MenuList, Spacer, Text } from "@chakra-ui/react"
 import { useContext } from "react"
 import { RiAccountCircleLine } from "react-icons/ri"
 import { useNavigate } from "react-router-dom"
@@ -48,13 +33,7 @@ export default () => {
             {organisation?.includes("akto") && <LogoAkto display={["none", "flex"]} w="100px" h={6} />}
             <Spacer />
             {auth.sub === "anonymous" && (
-              <Button
-                onClick={() => navigate("/authentification")}
-                fontWeight="normal"
-                variant="pill"
-                color="bluefrance.500"
-                leftIcon={<LockFill w={3} h={3} />}
-              >
+              <Button onClick={() => navigate("/authentification")} fontWeight="normal" variant="pill" color="bluefrance.500" leftIcon={<LockFill w={3} h={3} />}>
                 Connexion
               </Button>
             )}
@@ -74,9 +53,7 @@ export default () => {
                 <MenuList>
                   {auth.sub !== "anonymous" && (
                     <>
-                      {auth.type !== AUTHTYPE.OPCO && (
-                        <MenuItem onClick={() => navigate("/compte")}>Mes informations</MenuItem>
-                      )}
+                      {auth.type !== AUTHTYPE.OPCO && <MenuItem onClick={() => navigate("/compte")}>Mes informations</MenuItem>}
                       {auth.type !== AUTHTYPE.ENTREPRISE && auth.type !== AUTHTYPE.OPCO && (
                         <>
                           <MenuItem onClick={() => navigate("/administration")}>Gestion des offres</MenuItem>

@@ -14,8 +14,8 @@ const PostezVotreOffre = () => {
             Postez votre offre d'alternance en quelques secondes.
           </Text>
           <Box variant="homeEditorialText">
-            Exprimez votre besoin en quelques clics, nous générons votre offre instantanément. Retrouvez vos offres dans
-            votre compte en vous connectant avec votre email uniquement.
+            Exprimez votre besoin en quelques clics, nous générons votre offre instantanément. Retrouvez vos offres dans votre compte en vous connectant avec votre email
+            uniquement.
           </Box>
         </Box>
       </SimpleGrid>

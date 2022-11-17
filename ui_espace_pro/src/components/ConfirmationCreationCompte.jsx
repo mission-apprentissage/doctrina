@@ -1,18 +1,4 @@
-import {
-  Box,
-  Button,
-  Center,
-  Heading,
-  Modal,
-  ModalBody,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
-  ModalOverlay,
-  Stack,
-  Text,
-  useToast,
-} from "@chakra-ui/react"
+import { Box, Button, Center, Heading, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Stack, Text, useToast } from "@chakra-ui/react"
 import { useNavigate } from "react-router-dom"
 import { deleteCfa, deleteEntreprise } from "../api"
 import { AUTHTYPE } from "../common/contants"
@@ -59,12 +45,9 @@ export default (props) => {
         </ModalHeader>
         <ModalBody pb={6}>
           <Stack direction="column" spacing={4}>
-            <Text fontWeight="700">
-              Vous avez renseigné une adresse email qui n’est pas référencée dans nos bases de données.
-            </Text>
+            <Text fontWeight="700">Vous avez renseigné une adresse email qui n’est pas référencée dans nos bases de données.</Text>
             <Text>
-              En utilisant cette adresse email, votre demande de création de compte devra être vérifiée et validée par
-              nos équipes avant que puissiez utiliser le service.
+              En utilisant cette adresse email, votre demande de création de compte devra être vérifiée et validée par nos équipes avant que puissiez utiliser le service.
             </Text>
             <Text>Cela peut prendre quelques jours. Vous serez notifié dès que votre demande sera validée.</Text>
             <Box bg="#EEEEEE" h="62px">

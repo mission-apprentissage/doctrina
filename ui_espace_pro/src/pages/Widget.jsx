@@ -31,10 +31,7 @@ const WidgetTutorial = () => {
             <Text textStyle="h1" fontWeight="bold" color="grey.800">
               Exemple d'intégration du Widget RDV Apprentissage"
             </Text>
-            <Text mt={9}>
-              Pour intégrer le widget "RDV Apprentissage" sur votre site internet, il vous suffit de suivre les étapes
-              suivantes:
-            </Text>
+            <Text mt={9}>Pour intégrer le widget "RDV Apprentissage" sur votre site internet, il vous suffit de suivre les étapes suivantes:</Text>
           </Box>
           <Box pl={2} mt={2}>
             <Text textStyle="h4" fontWeight="bold" color="grey.800">
@@ -52,13 +49,11 @@ const WidgetTutorial = () => {
               Etape 2 :
             </Text>
             <Text mt={3}>
-              Insérez la balise ci-dessous avec l'attribut <Code>id-rco-formation</Code> correspondant à la formation à
-              afficher et insérez l'attribut <Code>referrer</Code> correspondant à votre plateforme de diffusion.
+              Insérez la balise ci-dessous avec l'attribut <Code>id-rco-formation</Code> correspondant à la formation à afficher et insérez l'attribut <Code>referrer</Code>{" "}
+              correspondant à votre plateforme de diffusion.
             </Text>
             <Code p={2} mt={4}>
-              {
-                '<div class="widget-prdv" data-id-rco-formation="03_2064746F|03_1133802|104237" data-referrer="lba"></div>'
-              }
+              {'<div class="widget-prdv" data-id-rco-formation="03_2064746F|03_1133802|104237" data-referrer="lba"></div>'}
             </Code>
           </Box>
 

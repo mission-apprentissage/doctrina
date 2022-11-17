@@ -40,12 +40,7 @@ function prettyPrintStream(outputName) {
         "context",
       ])
 
-      let params = [
-        util.format("[%s][%s][%s] %s", raw.time.toISOString()),
-        levels[raw.level],
-        raw.context || "global",
-        message,
-      ]
+      let params = [util.format("[%s][%s][%s] %s", raw.time.toISOString()), levels[raw.level], raw.context || "global", message]
       if (!isEmpty(rest)) {
         params.push(chalk.gray(`\n${util.inspect(rest, { depth: null })}`))
       }

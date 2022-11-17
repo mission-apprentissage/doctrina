@@ -113,8 +113,7 @@ export default async () => {
           etablissement_formateur_siret: "32922456200234",
           etablissement_formateur_adresse: "3 RUE DARWIN",
           etablissement_formateur_code_postal: "49000",
-          etablissement_formateur_entreprise_raison_sociale:
-            "CHAMBRE DE METIERS ET DE L'ARTISANAT DE REGION DES PAYS DE LA LOIRE",
+          etablissement_formateur_entreprise_raison_sociale: "CHAMBRE DE METIERS ET DE L'ARTISANAT DE REGION DES PAYS DE LA LOIRE",
           etablissement_formateur_nom_departement: "Maine-et-Loire",
           cfd: "50022141",
           code_postal: "49000",

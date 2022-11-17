@@ -43,13 +43,7 @@ export default () => {
 
   return (
     <AuthentificationLayout fromDashboard={fromDashboard} onClose={onClose}>
-      <Flex
-        direction={["column", widget?.mobile ? "column" : "row"]}
-        align={widget?.mobile ? "center" : "flex-start"}
-        border="1px solid #000091"
-        mt={[4, 8]}
-        p={[4, 8]}
-      >
+      <Flex direction={["column", widget?.mobile ? "column" : "row"]} align={widget?.mobile ? "center" : "flex-start"} border="1px solid #000091" mt={[4, 8]} p={[4, 8]}>
         <MailCloud style={{ paddingRight: "10px" }} />
         <Box pt={[3, 0]} ml={10}>
           <Heading fontSize="24px" mb="16px" mt={widget?.mobile ? "10px" : "0px"}>
@@ -70,22 +64,15 @@ export default () => {
               <Flex alignItems="flex-start" mb={6}>
                 <InfoCircle mr={2} mt={1} />
                 <Text textAlign="justify">
-                  Afin de finaliser la diffusion de votre besoin auprès des jeunes et vous connecter à votre espace de
-                  gestion, <span style={{ fontWeight: "700" }}>veuillez valider votre adresse mail</span> en cliquant
-                  sur le lien que nous venons de vous transmettre à l’adresse suivante:{" "}
+                  Afin de finaliser la diffusion de votre besoin auprès des jeunes et vous connecter à votre espace de gestion,{" "}
+                  <span style={{ fontWeight: "700" }}>veuillez valider votre adresse mail</span> en cliquant sur le lien que nous venons de vous transmettre à l’adresse suivante:{" "}
                   <span style={{ fontWeight: "700" }}>{email}</span>.
                 </Text>
               </Flex>
 
               <Flex align="center" ml={5} mb="16px">
                 <Text>Vous n’avez pas reçu le mail ? </Text>
-                <Button
-                  as={Link}
-                  variant="classic"
-                  textDecoration="underline"
-                  onClick={() => resendMail(email)}
-                  isDisabled={disableLink}
-                >
+                <Button as={Link} variant="classic" textDecoration="underline" onClick={() => resendMail(email)} isDisabled={disableLink}>
                   Renvoyer le mail
                 </Button>
               </Flex>
@@ -95,9 +82,7 @@ export default () => {
             <Heading fontSize="20px">Récapitulatif de votre besoin</Heading>
             <Text>{offre.libelle}</Text>
             <Text>{offre.niveau}</Text>
-            <Text>
-              Date de début d'apprentissage souhaitée : {dayjs(offre.date_debut_apprentissage).format("DD/MM/YYYY")}
-            </Text>
+            <Text>Date de début d'apprentissage souhaitée : {dayjs(offre.date_debut_apprentissage).format("DD/MM/YYYY")}</Text>
             <Text fontSize="14px">Votre annonce sera visible pendant 30 jours, renouvelables.</Text>
           </Stack>
         </Box>
@@ -125,21 +110,14 @@ export default () => {
           {!fromDashboard && (
             <>
               <Text textAlign="justify" mt={5}>
-                Afin de finaliser la diffusion de votre besoin auprès des jeunes et vous connecter à votre espace de
-                gestion, <span style={{ fontWeight: "700" }}>veuillez valider votre adresse mail</span> en cliquant sur
-                le lien que nous venons de vous transmettre à l’adresse suivante:{" "}
+                Afin de finaliser la diffusion de votre besoin auprès des jeunes et vous connecter à votre espace de gestion,{" "}
+                <span style={{ fontWeight: "700" }}>veuillez valider votre adresse mail</span> en cliquant sur le lien que nous venons de vous transmettre à l’adresse suivante:{" "}
                 <span style={{ fontWeight: "700" }}>{email}</span>.
               </Text>
 
               <Flex direction={["column", "column", "column", "row"]} align="center" mt={5}>
                 <Text>Vous n’avez pas reçu le mail ? </Text>
-                <Button
-                  as={Link}
-                  variant="classic"
-                  textDecoration="underline"
-                  onClick={() => resendMail(email)}
-                  isDisabled={disableLink}
-                >
+                <Button as={Link} variant="classic" textDecoration="underline" onClick={() => resendMail(email)} isDisabled={disableLink}>
                   Renvoyer le mail
                 </Button>
               </Flex>
@@ -151,9 +129,7 @@ export default () => {
             <Heading fontSize="20px">Récapitulatif de votre offre</Heading>
             <Text>{offre.libelle}</Text>
             <Text>{offre.niveau}</Text>
-            <Text>
-              Date de début d'apprentissage souhaitée : {dayjs(offre.date_debut_apprentissage).format("DD/MM/YYYY")}
-            </Text>
+            <Text>Date de début d'apprentissage souhaitée : {dayjs(offre.date_debut_apprentissage).format("DD/MM/YYYY")}</Text>
             <Text fontSize="14px">Votre annonce sera visible pendant 30 jours, renouvelables.</Text>
           </Stack>
         </Box>

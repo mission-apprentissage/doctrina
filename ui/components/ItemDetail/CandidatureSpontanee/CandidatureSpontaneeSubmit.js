@@ -12,9 +12,7 @@ const CandidatureSpontaneeSubmit = (props) => {
     res = (
       <button
         aria-label="je-postule"
-        className={`btn btn-dark btn-dark-action c-candidature-submit c-candidature-submit--default gtmEnvoiCandidature gtm${capitalizeFirstLetter(
-          kind
-        )}`}
+        className={`btn btn-dark btn-dark-action c-candidature-submit c-candidature-submit--default gtmEnvoiCandidature gtm${capitalizeFirstLetter(kind)}`}
         type="submit"
       >
         {amongst(kind, ["lbb", "lba"]) ? "J'envoie ma candidature spontanée" : "J'envoie ma candidature"}

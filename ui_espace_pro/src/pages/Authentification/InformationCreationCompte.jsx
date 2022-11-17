@@ -23,20 +23,8 @@ const Formulaire = ({ submitForm, validateOpcoChoice }) => {
   const location = useLocation()
   const { widget } = useContext(WidgetContext)
 
-  const {
-    raison_sociale,
-    adresse,
-    email,
-    contacts,
-    siret,
-    geo_coordonnees,
-    opco,
-    idcc,
-    code_naf,
-    libelle_naf,
-    tranche_effectif,
-    date_creation_etablissement,
-  } = location.state?.informationSiret
+  const { raison_sociale, adresse, email, contacts, siret, geo_coordonnees, opco, idcc, code_naf, libelle_naf, tranche_effectif, date_creation_etablissement } =
+    location.state?.informationSiret
   const { type, origine } = location.state
 
   return (
@@ -111,12 +99,7 @@ const Formulaire = ({ submitForm, validateOpcoChoice }) => {
             />
             <Flex justifyContent="flex-end" alignItems="center" mt={5}>
               {!widget?.isWidget && (
-                <Button
-                  variant="link"
-                  sx={{ color: "black", fontWeight: 400 }}
-                  mr={5}
-                  onClick={() => navigate("/", { replace: true })}
-                >
+                <Button variant="link" sx={{ color: "black", fontWeight: 400 }} mr={5} onClick={() => navigate("/", { replace: true })}>
                   Annuler
                 </Button>
               )}
@@ -125,11 +108,7 @@ const Formulaire = ({ submitForm, validateOpcoChoice }) => {
                 variant="form"
                 leftIcon={<ArrowRightLine width={5} />}
                 isActive={isValid && values.opco === undefined && type === "ENTREPRISE" ? validateOpcoChoice : isValid}
-                isDisabled={
-                  !isValid || isSubmitting || (values.opco === undefined && type === "ENTREPRISE")
-                    ? !validateOpcoChoice
-                    : null
-                }
+                isDisabled={!isValid || isSubmitting || (values.opco === undefined && type === "ENTREPRISE") ? !validateOpcoChoice : null}
               >
                 Suivant
               </Button>
@@ -227,19 +206,9 @@ export default () => {
           </Box>
           <Box>
             {location.state?.informationSiret?.opco === undefined && !validateOpcoChoice && type === "ENTREPRISE" && (
-              <SelectionManuelleOcpo
-                opcoChoice={opcoChoice}
-                setOpcoChoice={setOpcoChoice}
-                setValidateOpcoChoice={setValidateOpcoChoice}
-              />
+              <SelectionManuelleOcpo opcoChoice={opcoChoice} setOpcoChoice={setOpcoChoice} setValidateOpcoChoice={setValidateOpcoChoice} />
             )}
-            {informationOpco && (
-              <InformationOpco
-                disabled={location.state?.informationSiret.opco}
-                informationOpco={informationOpco}
-                resetOpcoChoice={resetOpcoChoice}
-              />
-            )}
+            {informationOpco && <InformationOpco disabled={location.state?.informationSiret.opco} informationOpco={informationOpco} resetOpcoChoice={resetOpcoChoice} />}
             <InformationLegaleEntreprise {...informationEntreprise} />
           </Box>
         </SimpleGrid>

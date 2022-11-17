@@ -20,13 +20,7 @@ const NavigationMenu = (props) => {
 
 const NavToggle = ({ toggle, isOpen }) => {
   return (
-    <Box
-      display={{ base: "block", md: "none" }}
-      onClick={toggle}
-      py={4}
-      position={isOpen ? "absolute" : "relative"}
-      top={0}
-    >
+    <Box display={{ base: "block", md: "none" }} onClick={toggle} py={4} position={isOpen ? "absolute" : "relative"} top={0}>
       {isOpen ? <Close boxSize={8} /> : <MenuFill boxSize={8} />}
     </Box>
   )
@@ -60,18 +54,10 @@ const NavLinks = ({ isOpen }) => {
 
   return (
     <Box display={{ base: isOpen ? "block" : "none", md: "block" }} flexBasis={{ base: "100%", md: "auto" }}>
-      <Flex
-        align="center"
-        justify={["center", "center", "flex-end", "flex-end"]}
-        direction={["column", "column", "row", "row"]}
-        py={0}
-        textStyle="sm"
-      >
+      <Flex align="center" justify={["center", "center", "flex-end", "flex-end"]} direction={["column", "column", "row", "row"]} py={0} textStyle="sm">
         <NavItem to="/">Accueil</NavItem>
         {auth.type === AUTHTYPE.CFA && <NavItem to="/administration">Entreprises mandatées</NavItem>}
-        {auth.type === AUTHTYPE.ENTREPRISE && (
-          <NavItem to={`/administration/entreprise/${auth.id_form}`}>Gerer mes offres</NavItem>
-        )}
+        {auth.type === AUTHTYPE.ENTREPRISE && <NavItem to={`/administration/entreprise/${auth.id_form}`}>Gerer mes offres</NavItem>}
       </Flex>
     </Box>
   )

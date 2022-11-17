@@ -133,9 +133,7 @@ export default ({ users, usersRecruteur, etablissementsRecruteur, mailer }) => {
         })
       }
 
-      const magiclink = `${config.publicUrlEspacePro}/authentification/verification?token=${createMagicLinkToken(
-        email
-      )}`
+      const magiclink = `${config.publicUrlEspacePro}/authentification/verification?token=${createMagicLinkToken(email)}`
 
       await mailer.sendEmail({
         to: user.email,

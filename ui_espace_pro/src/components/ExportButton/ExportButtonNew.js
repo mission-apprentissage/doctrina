@@ -29,20 +29,7 @@ export default ({ data, datasetName = "export" }) => {
 
   const format = buffer
     .flat()
-    .map((x) =>
-      _.omit(x, [
-        "_id",
-        "etat_utilisateur",
-        "__v",
-        "isAdmin",
-        "type",
-        "scope",
-        "email_valide",
-        "id_form",
-        "offres_detail",
-        "qualiopi",
-      ])
-    )
+    .map((x) => _.omit(x, ["_id", "etat_utilisateur", "__v", "isAdmin", "type", "scope", "email_valide", "id_form", "offres_detail", "qualiopi"]))
     .map((x) => {
       return {
         ...x,

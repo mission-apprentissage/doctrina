@@ -56,14 +56,7 @@ import optoutRoute from "./routes/optout.js"
 import userRoute from "./routes/user.js"
 
 import __dirname from "../common/dirname.js"
-import {
-  limiter10PerSecond,
-  limiter1Per20Second,
-  limiter20PerSecond,
-  limiter3PerSecond,
-  limiter5PerSecond,
-  limiter7PerSecond,
-} from "./utils/rateLimiters.js"
+import { limiter10PerSecond, limiter1Per20Second, limiter20PerSecond, limiter3PerSecond, limiter5PerSecond, limiter7PerSecond } from "./utils/rateLimiters.js"
 
 /**
  * LBA-Candidat Swagger file

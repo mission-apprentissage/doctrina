@@ -53,10 +53,7 @@ const formationsRegionQueryValidator = (query) => {
   validateOptionalRegion({ region: query.region, departement: query.departement }, error_messages)
 
   // region ou rome obligatoires (règle : si pas de region donc France entière rome devient obligatoire)
-  validateRegionOrRome(
-    { region: query.region, departement: query.departement, romes: query.romes, romeDomain: query.romeDomain },
-    error_messages
-  )
+  validateRegionOrRome({ region: query.region, departement: query.departement, romes: query.romes, romeDomain: query.romeDomain }, error_messages)
 
   // diploma mal formée si présente
   validateDiploma(query.diploma, error_messages)

@@ -4,12 +4,7 @@ const expect = chai.expect
 import chaiAsPromised from "chai-as-promised"
 chai.use(chaiAsPromised)
 
-import {
-  validateSendApplication,
-  validateFeedbackApplication,
-  validatePermanentEmail,
-  validateCompanyEmail,
-} from "../../src/service/validateSendApplication.js"
+import { validateSendApplication, validateFeedbackApplication, validatePermanentEmail, validateCompanyEmail } from "../../src/service/validateSendApplication.js"
 import __filename from "../../src/common/filename.js"
 
 import { decryptWithIV } from "../../src/common/utils/encryptString.js"
@@ -19,9 +14,7 @@ describe(__filename(import.meta.url), () => {
     expect(await validateSendApplication()).to.equal("données de candidature invalides")
   })
   it("validateSendApplication : Echoue si un des champs ne passe pas la validation", async () => {
-    expect(await validateSendApplication({ lastName: "too long name, more than 15 characters, will fail" })).to.equal(
-      "données de candidature invalides"
-    )
+    expect(await validateSendApplication({ lastName: "too long name, more than 15 characters, will fail" })).to.equal("données de candidature invalides")
   })
   it("validateSendApplication : Echoue si un l'email est d'une boîte temporaire", async () => {
     expect(await validatePermanentEmail({ email: "test@10minutemail.com" })).to.equal("email temporaire non autorisé")
@@ -65,9 +58,7 @@ describe(__filename(import.meta.url), () => {
     await expect(validateFeedbackApplication()).to.be.rejectedWith("error - validation of data failed")
   })
   it("validateFeedbackApplication : Echoue si un des champs ne passe pas la validation", async () => {
-    await expect(validateFeedbackApplication({ id: "aaa", iv: "aaa", avis: "avis non conforme" })).to.be.rejectedWith(
-      "error - validation of data failed"
-    )
+    await expect(validateFeedbackApplication({ id: "aaa", iv: "aaa", avis: "avis non conforme" })).to.be.rejectedWith("error - validation of data failed")
   })
   it("validateFeedbackApplication : Passe si tous les champs sont valides", async () => {
     expect(

@@ -17,10 +17,7 @@ const RechercheApprentissageFormation = () => {
 
   return (
     <>
-      <NextSeo
-        title="Recherche de formations | La bonne alternance | Trouvez votre alternance"
-        description="Recherche de formations sur le site de La bonne alternance"
-      />
+      <NextSeo title="Recherche de formations | La bonne alternance | Trouvez votre alternance" description="Recherche de formations sur le site de La bonne alternance" />
       <ScopeContextProvider value={{ isJob: false, isTraining: true, path: "/recherche-apprentissage-formation" }}>
         <SearchForTrainingsAndJobs />
       </ScopeContextProvider>

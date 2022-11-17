@@ -159,16 +159,14 @@ export default () => ({
    * @param {String} cleMinistereEducatif
    * @returns {Promise<WidgetParameter>}
    */
-  getParameterByCleMinistereEducatif: ({ cleMinistereEducatif }) =>
-    WidgetParameter.findOne({ cle_ministere_educatif: cleMinistereEducatif }),
+  getParameterByCleMinistereEducatif: ({ cleMinistereEducatif }) => WidgetParameter.findOne({ cle_ministere_educatif: cleMinistereEducatif }),
 
   /**
    * @description Returns items from its "id_rco_formation" have referrer item.
    * @param {String} idRcoFormation
    * @returns {Promise<WidgetParameter>}
    */
-  getParameterByIdRcoFormationWithNotEmptyReferrers: ({ idRcoFormation }) =>
-    WidgetParameter.findOne({ id_rco_formation: idRcoFormation, referrers: { $not: { $size: 0 } } }),
+  getParameterByIdRcoFormationWithNotEmptyReferrers: ({ idRcoFormation }) => WidgetParameter.findOne({ id_rco_formation: idRcoFormation, referrers: { $not: { $size: 0 } } }),
 
   /**
    * @description Returns item through its "id_rco_formation".

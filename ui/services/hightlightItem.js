@@ -4,7 +4,5 @@ function escapeRegExp(string) {
 }
 
 export default function highlightItem(currentLabel, currentInputValue) {
-  return currentLabel
-    ? currentLabel.replace(new RegExp(escapeRegExp(currentInputValue), "gi"), (str) => `<strong>${str}</strong>`)
-    : ""
+  return currentLabel ? currentLabel.replace(new RegExp(escapeRegExp(currentInputValue), "gi"), (str) => `<strong>${str}</strong>`) : ""
 }

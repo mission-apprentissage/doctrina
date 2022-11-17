@@ -3,13 +3,7 @@ import baseUrl from "../../../utils/baseUrl"
 import _ from "lodash"
 import { logError } from "../../../utils/tools"
 
-export default async function postFeedback(
-  params,
-  _baseUrl = baseUrl,
-  _axios = axios,
-  _window = window,
-  _logError = logError
-) {
+export default async function postFeedback(params, _baseUrl = baseUrl, _axios = axios, _window = window, _logError = logError) {
   let res = ""
 
   const candidatureApi = _baseUrl + "/api/application/feedback"

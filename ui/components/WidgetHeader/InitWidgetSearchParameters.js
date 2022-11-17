@@ -8,18 +8,12 @@ import { ParameterContext } from "../../context/ParameterContextProvider"
 import { DisplayContext } from "../../context/DisplayContextProvider"
 
 const InitWidgetSearchParameters = ({ setIsLoading, handleSearchSubmit, handleItemLoad }) => {
-  const { widgetParameters, itemParameters, setWidgetParameters, setItemParameters, shouldExecuteSearch } =
-    React.useContext(ParameterContext)
+  const { widgetParameters, itemParameters, setWidgetParameters, setItemParameters, shouldExecuteSearch } = React.useContext(ParameterContext)
   const { formValues } = React.useContext(DisplayContext)
 
   useEffect(() => {
     // initialisation par les query params
-    if (
-      widgetParameters &&
-      widgetParameters.applyWidgetParameters &&
-      itemParameters &&
-      itemParameters.applyItemParameters
-    ) {
+    if (widgetParameters && widgetParameters.applyWidgetParameters && itemParameters && itemParameters.applyItemParameters) {
       // launchWidget AND item
       launchWidgetSearch({ selectItem: true })
       setWidgetParameters({ ...widgetParameters, applyWidgetParameters: false }) // action one shot

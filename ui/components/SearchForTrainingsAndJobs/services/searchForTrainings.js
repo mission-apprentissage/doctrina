@@ -2,12 +2,7 @@ import axios from "axios"
 import { logError } from "utils/tools"
 import { SendTrackEvent } from "utils/plausible"
 
-import {
-  trainingsApi,
-  trainingErrorText,
-  getRomeFromParameters,
-  getRncpsFromParameters,
-} from "components/SearchForTrainingsAndJobs/services/utils"
+import { trainingsApi, trainingErrorText, getRomeFromParameters, getRncpsFromParameters } from "components/SearchForTrainingsAndJobs/services/utils"
 import { storeTrainingsInSession } from "./handleSessionStorage"
 
 export const searchForTrainingsFunction = async ({
@@ -78,11 +73,7 @@ export const searchForTrainingsFunction = async ({
       }
     }
   } catch (err) {
-    console.log(
-      `Erreur interne lors de la recherche de formations (${err.response ? err.response?.status : ""} : ${
-        err?.response?.data ? err.response.data?.error : ""
-      })`
-    )
+    console.log(`Erreur interne lors de la recherche de formations (${err.response ? err.response?.status : ""} : ${err?.response?.data ? err.response.data?.error : ""})`)
     logError("Training search error", err)
     setTrainingSearchError(trainingErrorText)
   }

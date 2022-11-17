@@ -53,14 +53,7 @@ export default function (config, transporter = createTransporter(config.smtp)) {
      * @param {undefined|string} cc
      * @returns {Promise<{messageId: string}>}
      */
-    sendEmail: async ({
-      to,
-      subject,
-      template,
-      data,
-      from = "nepasrepondre@apprentissage.beta.gouv.fr",
-      cc = undefined,
-    }) => {
+    sendEmail: async ({ to, subject, template, data, from = "nepasrepondre@apprentissage.beta.gouv.fr", cc = undefined }) => {
       return transporter.sendMail({
         from,
         to,

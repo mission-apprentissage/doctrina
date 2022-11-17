@@ -38,13 +38,9 @@ const SatisfactionForm = ({ formType }) => {
         {intention === "entretien" ? (
           <div>
             <strong>Vous avez indiqué accepter la candidature de {`${firstName} ${lastName}`}.</strong>
-            <p className="pt-4 pb-0 mb-0">
-              Planifiez une date de rencontre avec le candidat, en lui envoyant un message personnalisé.
-            </p>
+            <p className="pt-4 pb-0 mb-0">Planifiez une date de rencontre avec le candidat, en lui envoyant un message personnalisé.</p>
             <p>
-              <small className="satisfaction-smallhint">
-                Le candidat recevra votre message ainsi que vos coordonnées directement sur sa boîte mail.
-              </small>
+              <small className="satisfaction-smallhint">Le candidat recevra votre message ainsi que vos coordonnées directement sur sa boîte mail.</small>
             </p>
           </div>
         ) : (
@@ -53,13 +49,9 @@ const SatisfactionForm = ({ formType }) => {
         {intention === "ne_sais_pas" ? (
           <div>
             <strong>Vous avez indiqué temporiser la candidature de {`${firstName} ${lastName}`}.</strong>
-            <p className="pt-4 pb-0 mb-0">
-              Précisez au candidat votre intérêt pour sa candidature, en lui envoyant un message personnalisé.
-            </p>
+            <p className="pt-4 pb-0 mb-0">Précisez au candidat votre intérêt pour sa candidature, en lui envoyant un message personnalisé.</p>
             <p>
-              <small className="satisfaction-smallhint">
-                Le candidat recevra votre message ainsi que vos coordonnées directement sur sa boîte mail.
-              </small>
+              <small className="satisfaction-smallhint">Le candidat recevra votre message ainsi que vos coordonnées directement sur sa boîte mail.</small>
             </p>
           </div>
         ) : (
@@ -68,13 +60,9 @@ const SatisfactionForm = ({ formType }) => {
         {intention === "refus" ? (
           <div>
             <strong>Vous avez indiqué refuser la candidature de {`${firstName} ${lastName}`}.</strong>
-            <p className="pt-4 pb-0 mb-0">
-              Précisez les raisons de votre refus au candidat, en lui envoyant un message personnalisé.
-            </p>
+            <p className="pt-4 pb-0 mb-0">Précisez les raisons de votre refus au candidat, en lui envoyant un message personnalisé.</p>
             <p>
-              <small className="satisfaction-smallhint">
-                Le candidat recevra votre message directement sur sa boîte mail.
-              </small>
+              <small className="satisfaction-smallhint">Le candidat recevra votre message directement sur sa boîte mail.</small>
             </p>
           </div>
         ) : (
@@ -136,11 +124,7 @@ const SatisfactionForm = ({ formType }) => {
     if (formik.touched.comment && formik.errors.comment) {
       errorMsg = <div className="c-candidature-erreur mb-2 visible">{formik.errors.comment}</div>
     } else if (sendingState === "not_sent_because_of_errors") {
-      errorMsg = (
-        <div className="c-candidature-erreur mb-2 visible">
-          Une erreur technique empêche l&apos;enregistrement de votre avis. Merci de réessayer ultérieurement
-        </div>
-      )
+      errorMsg = <div className="c-candidature-erreur mb-2 visible">Une erreur technique empêche l&apos;enregistrement de votre avis. Merci de réessayer ultérieurement</div>
     } else {
       errorMsg = <div className="c-candidature-erreur invisible">{"pas d'erreur"}</div>
     }
@@ -151,8 +135,7 @@ const SatisfactionForm = ({ formType }) => {
     const { intention } = router?.query ? router.query : { intention: "intention" }
     let res = ""
     if (intention === "ne_sais_pas") {
-      res =
-        "Bonjour, Merci pour l'intérêt que vous portez à notre établissement. Votre candidature a retenu toute notre attention mais nous ne sommes actuellement pas ..."
+      res = "Bonjour, Merci pour l'intérêt que vous portez à notre établissement. Votre candidature a retenu toute notre attention mais nous ne sommes actuellement pas ..."
     } else if (intention === "entretien") {
       res =
         "Bonjour, Merci pour l'intérêt que vous portez à notre établissement. Votre candidature a retenu toute notre attention et nous souhaiterions échanger avec vous. Seriez-vous disponible le ..."
@@ -183,10 +166,7 @@ const SatisfactionForm = ({ formType }) => {
               {getFeedbackText()}
               {isNonEmptyString(readIntention()) ? (
                 <form onSubmit={formik.handleSubmit} className="">
-                  <fieldset
-                    data-testid="fieldset-message"
-                    className={`pt-2 c-candidature-field ${getErrorClassFor(formik, "comment")}`}
-                  >
+                  <fieldset data-testid="fieldset-message" className={`pt-2 c-candidature-field ${getErrorClassFor(formik, "comment")}`}>
                     <textarea
                       id="comment"
                       data-testid="comment"
@@ -202,13 +182,7 @@ const SatisfactionForm = ({ formType }) => {
                   {readIntention() !== "refus" ? (
                     <div className="c-candidature-personaldata d-flex flex-column flex-md-row justify-content-between">
                       <div>
-                        <fieldset
-                          data-testid="fieldset-email"
-                          className={`mt-1 mt-md-0 mr-0 mr-md-3 c-candidature-field ${getErrorClassFor(
-                            formik,
-                            "email"
-                          )}`}
-                        >
+                        <fieldset data-testid="fieldset-email" className={`mt-1 mt-md-0 mr-0 mr-md-3 c-candidature-field ${getErrorClassFor(formik, "email")}`}>
                           <label htmlFor="email">E-mail *</label>
                           <input
                             id="email"
@@ -225,19 +199,12 @@ const SatisfactionForm = ({ formType }) => {
                           ) : (
                             <div className="c-candidature-erreur invisible">{"pas d'erreur"}</div>
                           )}
-                          {testingParameters?.simulatedRecipient ? (
-                            <div>Les emails seront envoyés à {testingParameters.simulatedRecipient}</div>
-                          ) : (
-                            ""
-                          )}
+                          {testingParameters?.simulatedRecipient ? <div>Les emails seront envoyés à {testingParameters.simulatedRecipient}</div> : ""}
                         </fieldset>
                       </div>
 
                       <div>
-                        <fieldset
-                          data-testid="fieldset-phone"
-                          className={`mt-1 mt-md-0 c-candidature-field ${getErrorClassFor(formik, "phone")}`}
-                        >
+                        <fieldset data-testid="fieldset-phone" className={`mt-1 mt-md-0 c-candidature-field ${getErrorClassFor(formik, "phone")}`}>
                           <label htmlFor="email">Téléphone *</label>
                           <input
                             id="phone"
@@ -249,11 +216,7 @@ const SatisfactionForm = ({ formType }) => {
                             onBlur={formik.handleBlur}
                             value={formik.values.phone || ""}
                           />
-                          {formik.errors.phone ? (
-                            <div className="c-candidature-erreur visible">{formik.errors.phone}</div>
-                          ) : (
-                            <div className="invisible">{"pas d'erreur"}</div>
-                          )}
+                          {formik.errors.phone ? <div className="c-candidature-erreur visible">{formik.errors.phone}</div> : <div className="invisible">{"pas d'erreur"}</div>}
                         </fieldset>
                       </div>
                     </div>
@@ -262,11 +225,7 @@ const SatisfactionForm = ({ formType }) => {
                   )}
 
                   <div className="d-flex flex-row-reverse">
-                    <button
-                      aria-label="envoyer-le-message"
-                      className={`btn btn-dark btn-dark-action c-satisfaction-submit mt-3`}
-                      type="submit"
-                    >
+                    <button aria-label="envoyer-le-message" className={`btn btn-dark btn-dark-action c-satisfaction-submit mt-3`} type="submit">
                       {"Envoyer le message"}
                     </button>
                   </div>

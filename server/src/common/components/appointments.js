@@ -13,15 +13,7 @@ export default () => ({
    * @param {String} cle_ministere_educatif
    * @returns {Promise<Appointment>}
    */
-  createAppointment: async ({
-    candidat_id,
-    etablissement_id,
-    formation_id,
-    motivations,
-    referrer,
-    id_rco_formation,
-    cle_ministere_educatif,
-  }) => {
+  createAppointment: async ({ candidat_id, etablissement_id, formation_id, motivations, referrer, id_rco_formation, cle_ministere_educatif }) => {
     const appointment = new Appointment({
       candidat_id,
       motivations,

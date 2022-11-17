@@ -36,17 +36,7 @@ const ChoiceColumn = ({
 }) => {
   const router = useRouter()
   const scopeContext = useContext(ScopeContext)
-  const {
-    trainings,
-    jobs,
-    setTrainings,
-    setJobs,
-    setSelectedItem,
-    selectedItem,
-    itemToScrollTo,
-    setItemToScrollTo,
-    setExtendedSearch,
-  } = useContext(SearchResultContext)
+  const { trainings, jobs, setTrainings, setJobs, setSelectedItem, selectedItem, itemToScrollTo, setItemToScrollTo, setExtendedSearch } = useContext(SearchResultContext)
   const { formValues, setFormValues } = useContext(DisplayContext)
 
   useEffect(() => {
@@ -162,8 +152,7 @@ const ChoiceColumn = ({
   const updateTrainingDistanceWithNewCenter = (coordinates) => {
     for (let i = 0; i < trainings.length; ++i) {
       //const trainingCoords = [trainings[i].place.longitude, trainings[i].place.latitude];
-      trainings[i].place.distance =
-        Math.round(10 * distance(coordinates, [trainings[i].place.longitude, trainings[i].place.latitude])) / 10
+      trainings[i].place.distance = Math.round(10 * distance(coordinates, [trainings[i].place.longitude, trainings[i].place.latitude])) / 10
     }
     setTrainings(trainings)
   }
@@ -212,8 +201,7 @@ const ChoiceColumn = ({
                 <td>
                   <span className="c-staticmapframe__title">Faites une recherche</span>
                   <br />
-                  Renseignez les champs de recherche ci-dessus pour trouver la formation et l&apos;entreprise pour
-                  réaliser votre projet d&apos;alternance
+                  Renseignez les champs de recherche ci-dessus pour trouver la formation et l&apos;entreprise pour réaliser votre projet d&apos;alternance
                 </td>
               </tr>
             </tbody>
@@ -224,14 +212,7 @@ const ChoiceColumn = ({
   }
 
   const getSelectedItemDetail = () => {
-    return (
-      <ItemDetail
-        selectedItem={selectedItem}
-        handleClose={handleClose}
-        handleSelectItem={handleSelectItem}
-        activeFilter={activeFilter}
-      />
-    )
+    return <ItemDetail selectedItem={selectedItem} handleClose={handleClose} handleSelectItem={handleSelectItem} activeFilter={activeFilter} />
   }
 
   return (

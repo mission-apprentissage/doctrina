@@ -30,9 +30,7 @@ runScript(async ({ etablissement }) => {
   const data = await Optout.find({}).lean()
 
   const newEtablissement = differenceBy(referentiel, data, "siret")
-  const organismes = newEtablissement.filter(
-    (etablissement) => etablissement.contacts.length > 0 && etablissement.adresse
-  )
+  const organismes = newEtablissement.filter((etablissement) => etablissement.contacts.length > 0 && etablissement.adresse)
 
   if (!organismes.length) {
     return "database is up to date"

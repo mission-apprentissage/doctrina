@@ -27,10 +27,7 @@ const validateSendApplication = async (validable) => {
 
 const validateFileContent = async (validable, scan) => {
   let schema = Yup.object().shape({
-    fileName: Yup.string().matches(
-      /([a-zA-Z0-9\s_\\.\-():])+(.docx|.pdf)$/i,
-      "⚠ Seuls les fichiers docx et pdf sont autorisés"
-    ),
+    fileName: Yup.string().matches(/([a-zA-Z0-9\s_\\.\-():])+(.docx|.pdf)$/i, "⚠ Seuls les fichiers docx et pdf sont autorisés"),
     fileContent: Yup.string().max(4215276, "⚠ La taille maximale de la pièce jointe est 3 Mo"),
   })
 
@@ -57,9 +54,7 @@ const validateFileContent = async (validable, scan) => {
 
 const validateCompanyEmail = async (validable) => {
   let schema = Yup.object().shape({
-    companyEmail: Yup.string()
-      .email("⚠ Adresse e-mail société invalide.")
-      .required("⚠ L'adresse e-mail société est requise."),
+    companyEmail: Yup.string().email("⚠ Adresse e-mail société invalide.").required("⚠ L'adresse e-mail société est requise."),
     cryptedEmail: Yup.string().email("⚠ Adresse e-mail chiffrée invalide."),
   })
   let validation = await schema.validate(validable).catch(function () {

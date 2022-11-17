@@ -16,9 +16,7 @@ function anyMessageAmongst(messages, alreadyShownMessages = []) {
 }
 
 async function getAllMessages() {
-  const response = await axios.get(
-    "https://raw.githubusercontent.com/mission-apprentissage/labonnealternance/datasets/ui/config/astuces.csv"
-  )
+  const response = await axios.get("https://raw.githubusercontent.com/mission-apprentissage/labonnealternance/datasets/ui/config/astuces.csv")
   const csv = csvToArray(response.data)
   const cleanedCsv = csv
     .filter((e) => e.Message)

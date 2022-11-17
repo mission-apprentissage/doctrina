@@ -31,8 +31,7 @@ const SearchForm = (props) => {
     setJobValue(contextFormValues?.job ?? null)
   }, [widgetParameters?.applyFormValues])
 
-  const contextFormValues =
-    widgetParameters?.applyFormValues && widgetParameters?.formValues ? widgetParameters.formValues : formValues
+  const contextFormValues = widgetParameters?.applyFormValues && widgetParameters?.formValues ? widgetParameters.formValues : formValues
 
   const [jobValue, setJobValue] = useState(null)
   const [diplomas, setDiplomas] = useState([])
@@ -64,9 +63,7 @@ const SearchForm = (props) => {
             <Row>
               <Col xs="12">
                 <h1 className="card-title">
-                  <span className="c-home-hero__title c-home-hero__title1 d-block d-md-inline">
-                    Se former et travailler{" "}
-                  </span>
+                  <span className="c-home-hero__title c-home-hero__title1 d-block d-md-inline">Se former et travailler </span>
                   <span className="c-home-hero__title c-home-hero__title2 d-block d-md-inline">en alternance</span>
                 </h1>
                 <div className="formGroup">
@@ -83,11 +80,7 @@ const SearchForm = (props) => {
                       name="jobField"
                       placeholder="Indiquez un métier ou diplôme"
                       searchPlaceholder="Indiquez un métier ou diplôme ci-dessus"
-                      isDisabled={
-                        widgetParameters?.parameters?.jobName &&
-                        widgetParameters?.parameters?.romes &&
-                        widgetParameters?.parameters?.frozenJob
-                      }
+                      isDisabled={widgetParameters?.parameters?.jobName && widgetParameters?.parameters?.romes && widgetParameters?.parameters?.frozenJob}
                       splitItemsByTypes={[
                         { type: "job", typeLabel: "Métiers", size: 4 },
                         { type: "diploma", typeLabel: "Diplômes", size: 4 },
@@ -122,23 +115,14 @@ const SearchForm = (props) => {
                     Rayon
                   </label>
                   <div className="c-logobar-field">
-                    <Input
-                      onChange={(evt) => handleSelectChange(evt, setFieldValue, setLocationRadius, "radius")}
-                      type="select"
-                      value={locationRadius}
-                      name="locationRadius"
-                    >
+                    <Input onChange={(evt) => handleSelectChange(evt, setFieldValue, setLocationRadius, "radius")} type="select" value={locationRadius} name="locationRadius">
                       {buildRayonsOptions()}
                     </Input>
                   </div>
                 </div>
                 <div className="mt-3 d-block d-md-none formGroup">
                   <h3 className="h6 font-weight-bold">Rayon</h3>
-                  <div className="c-logobar-field">
-                    {buildRayonsButtons(locationRadius, (evt) =>
-                      handleSelectChange(evt, setFieldValue, setLocationRadius, "radius")
-                    )}
-                  </div>
+                  <div className="c-logobar-field">{buildRayonsButtons(locationRadius, (evt) => handleSelectChange(evt, setFieldValue, setLocationRadius, "radius"))}</div>
                 </div>
               </Col>
               <Col xs="12">
@@ -148,12 +132,7 @@ const SearchForm = (props) => {
                       Niveau d&apos;études visé
                     </label>
                     <div className="c-logobar-field">
-                      <Input
-                        onChange={(evt) => handleSelectChange(evt, setFieldValue, setDiploma, "diploma")}
-                        value={diploma}
-                        type="select"
-                        name="diploma"
-                      >
+                      <Input onChange={(evt) => handleSelectChange(evt, setFieldValue, setDiploma, "diploma")} value={diploma} type="select" name="diploma">
                         {buildAvailableDiplomasOptions(diplomas)}
                       </Input>
                     </div>
@@ -162,20 +141,13 @@ const SearchForm = (props) => {
                 <div className="mt-3 d-block d-md-none formGroup">
                   <h3 className="h6 font-weight-bold">Niveau d&apos;études visé</h3>
                   <div className="c-diplomas-buttons">
-                    {buildAvailableDiplomasButtons(diploma, diplomas, (evt) =>
-                      handleSelectChange(evt, setFieldValue, setDiploma, "diploma")
-                    )}
+                    {buildAvailableDiplomasButtons(diploma, diplomas, (evt) => handleSelectChange(evt, setFieldValue, setDiploma, "diploma"))}
                   </div>
                 </div>
               </Col>
             </Row>
             <div className="formGroup submitGroup">
-              <button
-                type="submit"
-                className="d-block btn btn-lg btn-dark w-100 font-weight-bold c-regular-darkbtn mt-5"
-                disabled={isSubmitting}
-                alt="Lancer la recherche"
-              >
+              <button type="submit" className="d-block btn btn-lg btn-dark w-100 font-weight-bold c-regular-darkbtn mt-5" disabled={isSubmitting} alt="Lancer la recherche">
                 C&apos;est parti
               </button>
             </div>
@@ -197,11 +169,7 @@ const SearchForm = (props) => {
         )}
       </div>
 
-      {domainError || diplomaError ? (
-        <DomainError setDomainError={setDomainError} setDiplomaError={setDiplomaError} />
-      ) : (
-        renderFormik()
-      )}
+      {domainError || diplomaError ? <DomainError setDomainError={setDomainError} setDiplomaError={setDiplomaError} /> : renderFormik()}
     </div>
   )
 }

@@ -80,8 +80,7 @@ describe("ResultList", () => {
       diploma: "INGENIEURS RECONNUS (RCT..), NFI , ALTERNANCE",
       cfd: "1703260V",
       rncpCode: "RNCP35781",
-      rncpLabel:
-        "Ingénieur de l'école nationale supérieure des sciences appliquées et de technologie, spécialité informatique et technologies de l'information",
+      rncpLabel: "Ingénieur de l'école nationale supérieure des sciences appliquées et de technologie, spécialité informatique et technologies de l'information",
       rncpEligibleApprentissage: true,
       period: '["2021-09"]',
       createdAt: "2021-08-08T00:10:47.074Z",

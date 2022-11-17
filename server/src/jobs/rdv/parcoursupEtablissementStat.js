@@ -12,38 +12,20 @@ export const parcoursupEtablissementStat = async ({ etablissements, appointments
 
   await parcoursupEtablissementStats.deleteAll()
 
-  const [allAppointments, allEtablissements] = await Promise.all([
-    appointments.find({ referrer: referrers.PARCOURSUP.code }).lean(),
-    etablissements.find().lean(),
-  ])
+  const [allAppointments, allEtablissements] = await Promise.all([appointments.find({ referrer: referrers.PARCOURSUP.code }).lean(), etablissements.find().lean()])
 
   const stats = allEtablissements
     .filter((etablissement) => etablissement.premium_activated_at)
     .map((etablissement) => {
-      const relatedAppointments = allAppointments.filter(
-        (appointment) => appointment.etablissement_id === etablissement.siret_formateur
-      )
+      const relatedAppointments = allAppointments.filter((appointment) => appointment.etablissement_id === etablissement.siret_formateur)
 
-      const openedAppointments = relatedAppointments.filter(
-        (appointment) => appointment.cfa_read_appointment_details_at
-      )
-      const notopenedAppointments = relatedAppointments.filter(
-        (appointment) => !appointment.cfa_read_appointment_details_at
-      )
+      const openedAppointments = relatedAppointments.filter((appointment) => appointment.cfa_read_appointment_details_at)
+      const notopenedAppointments = relatedAppointments.filter((appointment) => !appointment.cfa_read_appointment_details_at)
 
       const openedAppointmentsDuration = openedAppointments.map((appointment) => ({
-        openedDurationInMinute: dayjs(appointment.cfa_read_appointment_details_at).diff(
-          dayjs(appointment.created_at),
-          "minutes"
-        ),
-        openedDurationInHour: dayjs(appointment.cfa_read_appointment_details_at).diff(
-          dayjs(appointment.created_at),
-          "hours"
-        ),
-        openedDurationDay: dayjs(appointment.cfa_read_appointment_details_at).diff(
-          dayjs(appointment.created_at),
-          "days"
-        ),
+        openedDurationInMinute: dayjs(appointment.cfa_read_appointment_details_at).diff(dayjs(appointment.created_at), "minutes"),
+        openedDurationInHour: dayjs(appointment.cfa_read_appointment_details_at).diff(dayjs(appointment.created_at), "hours"),
+        openedDurationDay: dayjs(appointment.cfa_read_appointment_details_at).diff(dayjs(appointment.created_at), "days"),
       }))
 
       const totalAppointments = relatedAppointments.length
@@ -57,18 +39,9 @@ export const parcoursupEtablissementStat = async ({ etablissements, appointments
         applicants_details_checked: openedAppointments.length,
         applicants_details_not_checked: notopenedAppointments.length,
         percentage_of_appointment_opened: round((totalOpenedAppointments * 100) / totalAppointments || 0, 2),
-        average_time_to_check_applicant_details_in_minutes: round(
-          meanBy(openedAppointmentsDuration, "openedDurationInMinute") || 0,
-          2
-        ),
-        average_time_to_check_applicant_details_in_hours: round(
-          meanBy(openedAppointmentsDuration, "openedDurationInHour") || 0,
-          2
-        ),
-        average_time_to_check_applicant_details_in_days: round(
-          meanBy(openedAppointmentsDuration, "openedDurationDay") || 0,
-          2
-        ),
+        average_time_to_check_applicant_details_in_minutes: round(meanBy(openedAppointmentsDuration, "openedDurationInMinute") || 0, 2),
+        average_time_to_check_applicant_details_in_hours: round(meanBy(openedAppointmentsDuration, "openedDurationInHour") || 0, 2),
+        average_time_to_check_applicant_details_in_days: round(meanBy(openedAppointmentsDuration, "openedDurationDay") || 0, 2),
       }
     })
 

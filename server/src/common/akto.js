@@ -55,14 +55,11 @@ export const getAktoEstablishmentVerification = async (siren, email, token) => {
   token = await getToken(token)
 
   try {
-    const { data } = await axios.get(
-      `https://api.akto.fr/referentiel/api/v1/Relations/Validation?email=${email}&siren=${siren}`,
-      {
-        headers: {
-          Authorization: `Bearer ${token.access_token}`,
-        },
-      }
-    )
+    const { data } = await axios.get(`https://api.akto.fr/referentiel/api/v1/Relations/Validation?email=${email}&siren=${siren}`, {
+      headers: {
+        Authorization: `Bearer ${token.access_token}`,
+      },
+    })
 
     return data.data.match
   } catch (error) {

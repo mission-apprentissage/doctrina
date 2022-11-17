@@ -15,9 +15,8 @@ const GovernmentFooter = () => (
     <Spacer />
     <Box w="700px" pt={0}>
       <Text color="grey.700" fontWeight="400" fontSize="14px" lineHeight="24px">
-        « RDV Apprentissage » est un module destiné à s’intégrer aux plateformes et portails exposant les formations en
-        apprentissage pour faciliter le premier contact entre les candidats à l’apprentissage et les Centres de
-        Formation des Apprentis (CFA)
+        « RDV Apprentissage » est un module destiné à s’intégrer aux plateformes et portails exposant les formations en apprentissage pour faciliter le premier contact entre les
+        candidats à l’apprentissage et les Centres de Formation des Apprentis (CFA)
       </Text>
       <Flex templateColumns="repeat(4, 1fr)" gap={1} fontWeight="bold" mt={3} fontSize="14px" lineHeight="24px">
         <Box flex="1">

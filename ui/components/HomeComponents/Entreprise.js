@@ -18,30 +18,15 @@ const Entreprise = () => {
             Diffusez simplement et gratuitement vos offres en alternance.
           </Text>
           <Box fontWeight={"500"}>
-            Exprimez vos besoins en alternance afin d’être visible auprès des jeunes en recherche de contrat, et des
-            centres de formation pouvant vous accompagner.
+            Exprimez vos besoins en alternance afin d’être visible auprès des jeunes en recherche de contrat, et des centres de formation pouvant vous accompagner.
           </Box>
           <ConnectionActions service="entreprise" />
         </Box>
         <Show above="md">
           <Box position={"relative"}>
             <Image src={votrebesoinImage} alt="Votre besoin" />
-            <Image
-              src={ujusImage}
-              alt="1 jeune 1 solution"
-              position={"absolute"}
-              top={"33%"}
-              right={"0"}
-              width={"100px"}
-            />
-            <Image
-              src={parcoursupImage}
-              alt="parcoursup"
-              position={"absolute"}
-              top={"20%"}
-              right={"0"}
-              width={"100px"}
-            />
+            <Image src={ujusImage} alt="1 jeune 1 solution" position={"absolute"} top={"33%"} right={"0"} width={"100px"} />
+            <Image src={parcoursupImage} alt="parcoursup" position={"absolute"} top={"20%"} right={"0"} width={"100px"} />
           </Box>
         </Show>
       </SimpleGrid>

@@ -9,8 +9,8 @@ const DidYouKnow = ({ item }) => {
       <div className="c-detail-body c-locationdetail mt-4">
         <h2 className="c-locationdetail-title mt-2">Le saviez-vous ?</h2>
         <p className="c-didyouknow-paragraph">
-          Diversifiez vos démarches en envoyant aussi des candidatures spontanées aux entreprises qui n&apos;ont pas
-          diffusé d&apos;offre! Repérez les tags suivants dans la liste de résultats
+          Diversifiez vos démarches en envoyant aussi des candidatures spontanées aux entreprises qui n&apos;ont pas diffusé d&apos;offre! Repérez les tags suivants dans la liste
+          de résultats
         </p>
         <p>
           <TagCandidatureSpontanee />
@@ -26,12 +26,7 @@ const DidYouKnow = ({ item }) => {
                 withPic={<img src={gotoIcon} alt="Ouverture dans un nouvel onglet" />}
               />
               <br />
-              <a
-                href="https://media.giphy.com/media/3oz8xG0CiDpXqYXCz6/giphy.gif"
-                className="c-candidature-link"
-                target="_blank"
-                rel="noreferrer"
-              >
+              <a href="https://media.giphy.com/media/3oz8xG0CiDpXqYXCz6/giphy.gif" className="c-candidature-link" target="_blank" rel="noreferrer">
                 Donner mon avis sur cette entreprise.
               </a>
             </span>

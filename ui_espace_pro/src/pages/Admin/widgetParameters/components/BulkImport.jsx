@@ -223,14 +223,7 @@ const BulkImport = () => {
 
   return (
     <Box>
-      <Box
-        bg="white"
-        mx={[2, 2, 40, 40]}
-        boxShadow="0 1px 2px 0 rgb(0 0 0 / 5%)"
-        border="1px solid rgba(0,40,100,.12)"
-        border-radius="3px"
-        mt={10}
-      >
+      <Box bg="white" mx={[2, 2, 40, 40]} boxShadow="0 1px 2px 0 rgb(0 0 0 / 5%)" border="1px solid rgba(0,40,100,.12)" border-radius="3px" mt={10}>
         <Text p={5} borderBottom="1px solid rgba(0,40,100,.12)" border-radius="3px">
           Activation massive de formations via fichier .csv
         </Text>

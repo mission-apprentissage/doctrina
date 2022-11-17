@@ -22,21 +22,16 @@ const CandidatureSpontaneeExplanation = (props) => {
     if (props.about == "what") {
       res = (
         <p>
-          L&apos;entreprise n&apos;a pas déposé d&apos;offre d&apos;emploi, vous pouvez tout de même lui envoyer votre
-          CV pour lui indiquer que vous seriez très intéressé⸱e pour intégrer son équipe dans le cadre de votre
-          apprentissage.
+          L&apos;entreprise n&apos;a pas déposé d&apos;offre d&apos;emploi, vous pouvez tout de même lui envoyer votre CV pour lui indiquer que vous seriez très intéressé⸱e pour
+          intégrer son équipe dans le cadre de votre apprentissage.
         </p>
       )
     } else if (props.about == "how") {
       res = (
         <>
+          <p className="c-detail-lbb-paragraph">Adaptez votre lettre de motivation à l&apos;entreprise aux informations recueillies : Activité, actualités et valeurs</p>
           <p className="c-detail-lbb-paragraph">
-            Adaptez votre lettre de motivation à l&apos;entreprise aux informations recueillies : Activité, actualités
-            et valeurs
-          </p>
-          <p className="c-detail-lbb-paragraph">
-            Mettez en valeur vos qualités en lien avec le métier recherché et indiquez pourquoi vous souhaitez réaliser
-            votre alternance dans cette entreprise en particulier.
+            Mettez en valeur vos qualités en lien avec le métier recherché et indiquez pourquoi vous souhaitez réaliser votre alternance dans cette entreprise en particulier.
             <br />
             <br />
             Besoin d&apos;aide pour concevoir votre CV ? Il existe plusieurs outils gratuits :

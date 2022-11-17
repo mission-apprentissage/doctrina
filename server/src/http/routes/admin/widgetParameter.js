@@ -232,10 +232,7 @@ export default ({ widgetParameters, etablissements }) => {
             })
           )
 
-          await etablissements.findOneAndUpdate(
-            { siret_formateur: parameter.siret_formateur, opt_mode: null },
-            { opt_mode: optMode.OPT_IN, opt_in_activated_at: dayjs().format() }
-          )
+          await etablissements.findOneAndUpdate({ siret_formateur: parameter.siret_formateur, opt_mode: null }, { opt_mode: optMode.OPT_IN, opt_in_activated_at: dayjs().format() })
           result.push({
             ...parameter,
             formations: widgetParametersCreated.filter(Boolean),

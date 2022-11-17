@@ -172,8 +172,7 @@ const deduplicateCompanies = (lbaCompanies, lbbCompanies) => {
 
     let deduplicatedLbbCompanies = []
     for (let i = 0; i < lbbCompanies.results.length; ++i) {
-      if (lbaSirets.indexOf(lbbCompanies.results[i].company.siret) < 0)
-        deduplicatedLbbCompanies.push(lbbCompanies.results[i])
+      if (lbaSirets.indexOf(lbbCompanies.results[i].company.siret) < 0) deduplicatedLbbCompanies.push(lbbCompanies.results[i])
     }
     lbbCompanies.results = deduplicatedLbbCompanies
   }

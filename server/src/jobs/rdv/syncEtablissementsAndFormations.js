@@ -64,8 +64,7 @@ export const syncEtablissementsAndFormations = async ({ etablissements, widgetPa
 
           // Don't override "email" if this field is true
           if (!widgetParameter?.is_custom_email_rdv) {
-            emailRdv =
-              getEmailFromCatalogueField(formation.etablissement_formateur_courriel) || widgetParameter.email_rdv
+            emailRdv = getEmailFromCatalogueField(formation.etablissement_formateur_courriel) || widgetParameter.email_rdv
           }
 
           await widgetParameters.updateMany(
@@ -125,10 +124,7 @@ export const syncEtablissementsAndFormations = async ({ etablissements, widgetPa
         }
 
         let emailDecisionnaire = etablissement?.email_decisionnaire
-        if (
-          formation.etablissement_gestionnaire_courriel &&
-          isValidEmail(formation.etablissement_gestionnaire_courriel)
-        ) {
+        if (formation.etablissement_gestionnaire_courriel && isValidEmail(formation.etablissement_gestionnaire_courriel)) {
           emailDecisionnaire = formation.etablissement_gestionnaire_courriel.toLowerCase()
         }
 

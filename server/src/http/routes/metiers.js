@@ -1,12 +1,6 @@
 import express from "express"
 import { tryCatch } from "../middlewares/tryCatchMiddleware.js"
-import {
-  getMetiers,
-  getMetiersPourCfd,
-  getMetiersPourEtablissement,
-  getTousLesMetiers,
-  getCoupleAppellationRomeIntitule,
-} from "../../service/domainesMetiers.js"
+import { getMetiers, getMetiersPourCfd, getMetiersPourEtablissement, getTousLesMetiers, getCoupleAppellationRomeIntitule } from "../../service/domainesMetiers.js"
 
 export default function () {
   const router = express.Router()

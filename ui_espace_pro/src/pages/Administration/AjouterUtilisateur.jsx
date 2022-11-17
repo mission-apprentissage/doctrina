@@ -76,26 +76,10 @@ export default (props) => {
         let { values, setFieldValue, handleChange, errors, touched, isValid, isSubmitting, dirty, submitForm } = props
         return (
           <Form>
-            <Modal
-              closeOnOverlayClick={false}
-              blockScrollOnMount={true}
-              initialFocusRef={initialRef}
-              finalFocusRef={finalRef}
-              isOpen={isOpen}
-              onClose={onClose}
-            >
+            <Modal closeOnOverlayClick={false} blockScrollOnMount={true} initialFocusRef={initialRef} finalFocusRef={finalRef} isOpen={isOpen} onClose={onClose}>
               <ModalOverlay />
               <ModalContent mt={["0", "3.75rem"]} h={["100%", "auto"]} mb={0} borderRadius={0}>
-                <Button
-                  display={"flex"}
-                  alignSelf={"flex-end"}
-                  color="bluefrance.500"
-                  fontSize={"epsilon"}
-                  onClick={onClose}
-                  variant="unstyled"
-                  p={6}
-                  fontWeight={400}
-                >
+                <Button display={"flex"} alignSelf={"flex-end"} color="bluefrance.500" fontSize={"epsilon"} onClick={onClose} variant="unstyled" p={6} fontWeight={400}>
                   fermer
                   <Text as={"span"} ml={2}>
                     <Close boxSize={4} />
@@ -152,32 +136,16 @@ export default (props) => {
                       </h2>
                       <AccordionPanel pb={4}>
                         <CustomInput name="siret" label="Siret" type="text" value={values.siret} maxLength="14" />
-                        <CustomInput
-                          name="raison_sociale"
-                          label="Raison Sociale"
-                          type="text"
-                          value={values.raison_sociale}
-                        />
+                        <CustomInput name="raison_sociale" label="Raison Sociale" type="text" value={values.raison_sociale} />
                         <CustomInput name="adresse" label="Adresse" type="text" value={values.adresse} />
-                        <CustomInput
-                          name="telephone"
-                          label="Téléphone"
-                          type="text"
-                          value={values.telephone}
-                          maxLength="10"
-                        />
+                        <CustomInput name="telephone" label="Téléphone" type="text" value={values.telephone} maxLength="10" />
                       </AccordionPanel>
                     </AccordionItem>
                   </Accordion>
                 </ModalBody>
 
                 <ModalFooter>
-                  <Button
-                    variant="form"
-                    isFullWidth={true}
-                    disabled={!(isValid && dirty) || isSubmitting}
-                    onClick={submitForm}
-                  >
+                  <Button variant="form" isFullWidth={true} disabled={!(isValid && dirty) || isSubmitting} onClick={submitForm}>
                     Enregistrer
                   </Button>
                 </ModalFooter>

@@ -38,21 +38,8 @@ import { ConfirmationSuppressionOffre, LoadingEmptySpace, Table } from "../../co
 import { ArrowDropRightLine, Building, ExternalLinkLine, Parametre, Plus } from "../../theme/components/icons"
 
 const EmptySpace = () => (
-  <Stack
-    direction={["column", "column", "column", "row"]}
-    mt={12}
-    pt={12}
-    py={8}
-    border="1px solid"
-    borderColor="grey.400"
-    spacing="32px"
-  >
-    <Flex
-      justify={["center", "center", "center", "flex-end"]}
-      align={["center", "center", "center", "flex-start"]}
-      w={["100%", "100%", "100%", "350px"]}
-      h="150px"
-    >
+  <Stack direction={["column", "column", "column", "row"]} mt={12} pt={12} py={8} border="1px solid" borderColor="grey.400" spacing="32px">
+    <Flex justify={["center", "center", "center", "flex-end"]} align={["center", "center", "center", "flex-start"]} w={["100%", "100%", "100%", "350px"]} h="150px">
       <Image src={addOfferImage} />
     </Flex>
 
@@ -62,8 +49,8 @@ const EmptySpace = () => (
       </Heading>
       <Text fontSize="1.375rem">Une entreprise vous a mandaté pour gérer ses offres d’emploi ?</Text>
       <Text fontSize="1.375rem">
-        En quelques secondes, exprimez les besoins de recrutement de cette entreprise pour les afficher sur le site{" "}
-        <span style={{ fontWeight: "700" }}>La Bonne Alternance</span> dès aujourd’hui.
+        En quelques secondes, exprimez les besoins de recrutement de cette entreprise pour les afficher sur le site <span style={{ fontWeight: "700" }}>La Bonne Alternance</span>{" "}
+        dès aujourd’hui.
       </Text>
     </Box>
   </Stack>
@@ -104,12 +91,7 @@ export default () => {
           </Text>
           <Box>
             {auth.type !== AUTHTYPE.OPCO && (
-              <Button
-                mr={5}
-                variant="secondary"
-                leftIcon={<Building />}
-                onClick={() => navigate(`/administration/entreprise/${data.data.id_form}/edition`)}
-              >
+              <Button mr={5} variant="secondary" leftIcon={<Building />} onClick={() => navigate(`/administration/entreprise/${data.data.id_form}/edition`)}>
                 Modifier l'entreprise
               </Button>
             )}
@@ -276,11 +258,7 @@ export default () => {
           {auth.type === AUTHTYPE.OPCO && (
             <Breadcrumb separator={<ArrowDropRightLine color="grey.600" />} textStyle="xs">
               <BreadcrumbItem>
-                <BreadcrumbLink
-                  textDecoration="underline"
-                  onClick={() => navigate("/administration/opco")}
-                  textStyle="xs"
-                >
+                <BreadcrumbLink textDecoration="underline" onClick={() => navigate("/administration/opco")} textStyle="xs">
                   Entreprises
                 </BreadcrumbLink>
               </BreadcrumbItem>
@@ -297,11 +275,7 @@ export default () => {
                 </BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbItem>
-                {data.data._id ? (
-                  <BreadcrumbLink textStyle="xs">{data.data.raison_sociale}</BreadcrumbLink>
-                ) : (
-                  <BreadcrumbLink textStyle="xs">Nouvelle entreprise</BreadcrumbLink>
-                )}
+                {data.data._id ? <BreadcrumbLink textStyle="xs">{data.data.raison_sociale}</BreadcrumbLink> : <BreadcrumbLink textStyle="xs">Nouvelle entreprise</BreadcrumbLink>}
               </BreadcrumbItem>
             </Breadcrumb>
           )}
@@ -313,12 +287,7 @@ export default () => {
         </Text>
         <Box>
           {auth.type !== AUTHTYPE.OPCO && (
-            <Button
-              mr={5}
-              variant="secondary"
-              leftIcon={<Building />}
-              onClick={() => navigate(`/administration/entreprise/${data.data.id_form}/edition`)}
-            >
+            <Button mr={5} variant="secondary" leftIcon={<Building />} onClick={() => navigate(`/administration/entreprise/${data.data.id_form}/edition`)}>
               {auth.type === AUTHTYPE.ENTREPRISE ? "Mes informations" : "Modifier l'entreprise"}
             </Button>
           )}

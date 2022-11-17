@@ -35,21 +35,12 @@ const saveResultToFile = (json) => {
     console.log("error removing file : ", err.message)
   }
 
-  let wsResult = [
-    ["Domaine", "Total_formations", "Total_formations_perdues", "Code_rncp", "Lbelle_rncp", "Rncp_dans_autres_metiers"],
-  ]
+  let wsResult = [["Domaine", "Total_formations", "Total_formations_perdues", "Code_rncp", "Lbelle_rncp", "Rncp_dans_autres_metiers"]]
 
   json.map((domain) => {
     if (domain.metier) {
       //console.log(domain);
-      wsResult.push([
-        domain.metier,
-        domain.missingRNCPs.totalFormations,
-        domain.missingRNCPs.totalFormationsPerdues,
-        "",
-        "",
-        "",
-      ])
+      wsResult.push([domain.metier, domain.missingRNCPs.totalFormations, domain.missingRNCPs.totalFormationsPerdues, "", "", ""])
 
       domain.missingRNCPs.RNCPsManquants.map((rncp) => {
         let metiers = ""
@@ -131,14 +122,9 @@ const getMissingRNCPsOfDomain = async (domain) => {
 }
 
 const downloadAndSaveFile = (optionalFileName) => {
-  logMessage(
-    "info",
-    `Downloading and save file ${optionalFileName ? optionalFileName : "currentDomainesMetiers.xlsx"} from S3 Bucket...`
-  )
+  logMessage("info", `Downloading and save file ${optionalFileName ? optionalFileName : "currentDomainesMetiers.xlsx"} from S3 Bucket...`)
   return oleoduc(
-    getFileFromS3(
-      `mna-services/features/domainesMetiers/${optionalFileName ? optionalFileName : "currentDomainesMetiers.xlsx"}`
-    ),
+    getFileFromS3(`mna-services/features/domainesMetiers/${optionalFileName ? optionalFileName : "currentDomainesMetiers.xlsx"}`),
     fs.createWriteStream(FILE_LOCAL_PATH)
   )
 }

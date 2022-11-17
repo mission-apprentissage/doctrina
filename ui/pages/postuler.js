@@ -6,10 +6,7 @@ import WidgetPostuler from "../components/ItemDetail/CandidatureSpontanee/Widget
 const Postuler = () => {
   return (
     <>
-      <NextSeo
-        title="Recherche d'emploi | La bonne alternance | Trouvez votre alternance"
-        description="Recherche d'emploi sur le site de La bonne alternance."
-      />
+      <NextSeo title="Recherche d'emploi | La bonne alternance | Trouvez votre alternance" description="Recherche d'emploi sur le site de La bonne alternance." />
       <Head />
       <WidgetPostuler />
     </>

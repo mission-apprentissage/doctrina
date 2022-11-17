@@ -100,9 +100,7 @@ const Training = ({ training, handleSelectItem, showTextOnly, searchForJobsOnNew
     }
   }
 
-  const actualLink = `/recherche-apprentissage?display=list&page=fiche&${getItemQueryParameters(
-    training
-  )}&${getSearchQueryParameters(formValues)}`
+  const actualLink = `/recherche-apprentissage?display=list&page=fiche&${getItemQueryParameters(training)}&${getSearchQueryParameters(formValues)}`
 
   return (
     <a
@@ -118,24 +116,14 @@ const Training = ({ training, handleSelectItem, showTextOnly, searchForJobsOnNew
             <div className="col-12 col-lg-6 text-left">
               <div className="title d-inline-block">{training.title ? training.title : training.longTitle}</div>
             </div>
-            <div className="col-12 col-lg-6  d-lg-flex flex-column text-left text-lg-right my-1 my-lg-0">
-              {isCfa ? <TagCfaDEntreprise /> : <TagFormation />}
-            </div>
+            <div className="col-12 col-lg-6  d-lg-flex flex-column text-left text-lg-right my-1 my-lg-0">{isCfa ? <TagCfaDEntreprise /> : <TagFormation />}</div>
           </div>
 
           <div className="cardText pt-3 pt-lg-1">{training.company.name}</div>
           <div className="cardText pt-2">{training.place.fullAddress}</div>
-          {itemParameters?.mode === "debug" ? (
-            <div className="cardText pt-2">{`${training.rncpCode} - romes :${training.romes.map(
-              (rome) => " " + rome.code
-            )}`}</div>
-          ) : (
-            ""
-          )}
+          {itemParameters?.mode === "debug" ? <div className="cardText pt-2">{`${training.rncpCode} - romes :${training.romes.map((rome) => " " + rome.code)}`}</div> : ""}
           <span className="cardDistance pt-1">
-            {training.place.distance !== null
-              ? `${Math.round(training.place.distance)} km(s) du lieu de recherche`
-              : ""}
+            {training.place.distance !== null ? `${Math.round(training.place.distance)} km(s) du lieu de recherche` : ""}
             {showTextOnly ? (
               ""
             ) : (
@@ -149,12 +137,7 @@ const Training = ({ training, handleSelectItem, showTextOnly, searchForJobsOnNew
           {showTextOnly ? (
             ""
           ) : (
-            <>
-              {(training.place.distance === null || Math.round(training.place.distance) > currentSearchRadius) &&
-              scopeContext.isJob
-                ? getCenterSearchOnTrainingButton()
-                : ""}
-            </>
+            <>{(training.place.distance === null || Math.round(training.place.distance) > currentSearchRadius) && scopeContext.isJob ? getCenterSearchOnTrainingButton() : ""}</>
           )}
         </div>
       </div>

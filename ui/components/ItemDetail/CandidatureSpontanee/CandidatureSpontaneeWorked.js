@@ -19,20 +19,14 @@ const CandidatureSpontaneeWorked = ({ email, company, kind }) => {
             <h2 className="c-candidature-worked-title">
               Votre candidature a bien été envoyée à <span className="c-candidature-worked-company">{company}</span>
             </h2>
-            {testingParameters?.simulatedRecipient ? (
-              <div>Les emails ont été envoyés à {testingParameters.simulatedRecipient}</div>
-            ) : (
-              ""
-            )}
+            {testingParameters?.simulatedRecipient ? <div>Les emails ont été envoyés à {testingParameters.simulatedRecipient}</div> : ""}
           </div>
         </div>
         <div className="c-candidature-worked-text">
-          Un e-mail de confirmation vous a été envoyé sur votre boite e-mail{" "}
-          <span className="c-candidature-worked-email">{email}</span>
+          Un e-mail de confirmation vous a été envoyé sur votre boite e-mail <span className="c-candidature-worked-email">{email}</span>
         </div>
         <div className="c-candidature-worked-text mt-3 mb-5">
-          Si vous n&apos;avez pas reçu d&apos;email de confirmation d&apos;ici 24 heures, soumettez à nouveau votre
-          candidature
+          Si vous n&apos;avez pas reçu d&apos;email de confirmation d&apos;ici 24 heures, soumettez à nouveau votre candidature
         </div>
       </ModalBody>
       <ModalFooter className="pb-5"></ModalFooter>

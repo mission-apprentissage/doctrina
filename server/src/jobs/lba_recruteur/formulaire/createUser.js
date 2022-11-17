@@ -1,10 +1,6 @@
 import { logger } from "../../../common/logger.js"
 
-export const createUser = async (
-  usersRecruteur,
-  { prenom, nom, siret, raison_sociale, telephone, adresse, email, scope },
-  { options }
-) => {
+export const createUser = async (usersRecruteur, { prenom, nom, siret, raison_sociale, telephone, adresse, email, scope }, { options }) => {
   const { Type, Admin, Email_valide } = options
   let exist = await usersRecruteur.getUser({ email })
 

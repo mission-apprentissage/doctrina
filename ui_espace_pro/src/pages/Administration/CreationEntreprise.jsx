@@ -1,19 +1,4 @@
-import {
-  Alert,
-  AlertIcon,
-  Box,
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  Button,
-  Container,
-  Flex,
-  Heading,
-  Link,
-  SimpleGrid,
-  Text,
-  useBreakpointValue,
-} from "@chakra-ui/react"
+import { Alert, AlertIcon, Box, Breadcrumb, BreadcrumbItem, BreadcrumbLink, Button, Container, Flex, Heading, Link, SimpleGrid, Text, useBreakpointValue } from "@chakra-ui/react"
 import { Form, Formik } from "formik"
 import { useContext, useState } from "react"
 import { NavLink, useNavigate, useParams, useSearchParams } from "react-router-dom"
@@ -64,14 +49,7 @@ const CreationCompte = ({ type }) => {
         return (
           <>
             <Form>
-              <CustomInput
-                required={false}
-                name="siret"
-                label="SIRET"
-                type="text"
-                value={values.siret}
-                maxLength="14"
-              />
+              <CustomInput required={false} name="siret" label="SIRET" type="text" value={values.siret} maxLength="14" />
               {isCfa && (
                 <Alert status="info" variant="top-accent">
                   <AlertIcon />

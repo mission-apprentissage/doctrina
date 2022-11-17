@@ -82,11 +82,7 @@ const App = () => {
     <AnimatePresence>
       <ReactQueryDevtoolsPanel />
       <Helmet>
-        <script
-          defer
-          data-domain={window.location.hostname}
-          src="https://plausible.io/js/script.local.hash.outbound-links.js"
-        />
+        <script defer data-domain={window.location.hostname} src="https://plausible.io/js/script.local.hash.outbound-links.js" />
       </Helmet>
       <Routes>
         <Route
@@ -126,20 +122,14 @@ const App = () => {
         </Route>
         <Route path="/authentification" element={<Connexion />} />
         <Route path="/creation/entreprise" element={<CreationCompte type={AUTHTYPE.ENTREPRISE} widget={false} />} />
-        <Route
-          path="/creation/entreprise/:origine"
-          element={<CreationCompte type={AUTHTYPE.ENTREPRISE} widget={false} />}
-        />
+        <Route path="/creation/entreprise/:origine" element={<CreationCompte type={AUTHTYPE.ENTREPRISE} widget={false} />} />
         <Route path="/creation/cfa" element={<CreationCompte type={AUTHTYPE.CFA} />} />
         <Route path="/creation/cfa/:origine" element={<CreationCompte type={AUTHTYPE.CFA} />} />
         <Route path="/creation/detail" element={<InformationCreationCompte />} />
         <Route path="/creation/offre" element={<DepotRapide_AjouterVoeux />} />
         <Route path="/creation/mise-en-relation" element={<DepotRapide_AjouterVoeuxMiseEnRelation />} />
         <Route path="/creation/fin" element={<DepotRapide_Fin />} />
-        <Route
-          path="/proposition/formulaire/:idFormulaire/offre/:idOffre"
-          element={<Layout displayNavigationMenu={false} />}
-        >
+        <Route path="/proposition/formulaire/:idFormulaire/offre/:idOffre" element={<Layout displayNavigationMenu={false} />}>
           <Route index element={<PropositionOffreId />} />
         </Route>
         <Route path="/authentification/confirmation" element={<ConfirmationCreationCompte />} />
@@ -156,10 +146,7 @@ const App = () => {
         <Route path="/form/premium/:id" element={PremiumForm} />
         <Route path="/appointment/candidat/follow-up/:id/:action(confirm|resend)" element={AppointmentFollowUpPage} />
         <Route path="/widget/tutorial" element={Widget} />
-        <Route
-          path="/establishment/:establishmentId/appointments/:appointmentId"
-          element={CfaCandidatInformationPage}
-        />
+        <Route path="/establishment/:establishmentId/appointments/:appointmentId" element={CfaCandidatInformationPage} />
 
         <Route
           path="/admin"

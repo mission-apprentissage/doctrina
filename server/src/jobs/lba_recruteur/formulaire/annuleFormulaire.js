@@ -49,9 +49,7 @@ export const annuleFormulaire = async () => {
   if (offersToCancel.length > 0) {
     logger.info(`${stats.totalCanceled} offres expirés`)
     await axios.post(config.slackWebhookUrl, {
-      text: `[${config.env.toUpperCase()} - JOB MATCHA - EXPIRATION] *${stats.offersToCancel}/${
-        stats.totalCanceled
-      } offres* ont expirées et ont été annulées automatiquement`,
+      text: `[${config.env.toUpperCase()} - JOB MATCHA - EXPIRATION] *${stats.offersToCancel}/${stats.totalCanceled} offres* ont expirées et ont été annulées automatiquement`,
     })
   }
 }

@@ -105,10 +105,7 @@ const OptOutUnsubscribe = () => {
                 <RadioGroup marginTop={10} alignItems={"normal"} onChange={setRadioValue} value={radioValue}>
                   <Stack>
                     <Radio value={radioOptions.UNSUBSCRIBE_NO_DETAILS} pb={5} alignItems={"normal"}>
-                      <Text mt="-7px">
-                        Je confirme que je ne souhaite pas activer le service RDV Apprentissage sur toutes les
-                        formations de l’organisme suivant :
-                      </Text>
+                      <Text mt="-7px">Je confirme que je ne souhaite pas activer le service RDV Apprentissage sur toutes les formations de l’organisme suivant :</Text>
                       <Box bg="#E5E5E5" px={10} py={6} mt={6} lineHeight="38px">
                         <Text>
                           Raison sociale :{" "}
@@ -143,28 +140,16 @@ const OptOutUnsubscribe = () => {
                       </Box>
                     </Radio>
                     <Radio value={radioOptions.UNSUBSCRIBE_MORE_DETAILS} pt={5} alignItems={"normal"}>
-                      <Text mt="-7px">
-                        J’ai besoin d’informations complémentaires avant de prendre ma décision. Voici les questions que
-                        je souhaite poser :
-                      </Text>
+                      <Text mt="-7px">J’ai besoin d’informations complémentaires avant de prendre ma décision. Voici les questions que je souhaite poser :</Text>
                     </Radio>
                     <Box pl={6} pt={5}>
-                      <Textarea
-                        onChange={handleTextarea}
-                        value={textarea}
-                        minH={120}
-                        onClick={() => setRadioValue(radioOptions.UNSUBSCRIBE_MORE_DETAILS)}
-                      />
+                      <Textarea onChange={handleTextarea} value={textarea} minH={120} onClick={() => setRadioValue(radioOptions.UNSUBSCRIBE_MORE_DETAILS)} />
                     </Box>
                   </Stack>
                 </RadioGroup>
               </Flex>
               <Box textAlign={"center"} mt={12} mb={14}>
-                <Button
-                  variant="primary"
-                  onClick={submit}
-                  isDisabled={radioValue === radioOptions.UNSUBSCRIBE_MORE_DETAILS && textarea === ""}
-                >
+                <Button variant="primary" onClick={submit} isDisabled={radioValue === radioOptions.UNSUBSCRIBE_MORE_DETAILS && textarea === ""}>
                   Envoyer
                 </Button>
               </Box>

@@ -49,13 +49,7 @@ const NavItem = ({ children, to = "/", isMyWorkspace, ...rest }) => {
 const NavLinks = ({ isOpen }) => {
   return (
     <Box display={{ base: isOpen ? "block" : "none", md: "block" }} flexBasis={{ base: "100%", md: "auto" }}>
-      <Flex
-        align="center"
-        justify={["center", "space-between", "flex-end", "flex-end"]}
-        direction={["column", "row", "row", "row"]}
-        pb={[8, 0]}
-        textStyle="sm"
-      >
+      <Flex align="center" justify={["center", "space-between", "flex-end", "flex-end"]} direction={["column", "row", "row", "row"]} pb={[8, 0]} textStyle="sm">
         <NavItem to="/">Accueil</NavItem>
       </Flex>
     </Box>

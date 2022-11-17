@@ -11,11 +11,7 @@ import { dayjs } from "../../../common/utils/dayjs.js"
  * @return {NextFunction}
  */
 const checkWebhookToken = () => {
-  passport.use(
-    new LocalAPIKeyStrategy({}, async (token, done) =>
-      done(null, config.smtp.sendinblueToken === token ? { apiKey: token } : false)
-    )
-  )
+  passport.use(new LocalAPIKeyStrategy({}, async (token, done) => done(null, config.smtp.sendinblueToken === token ? { apiKey: token } : false)))
 
   return passport.authenticate("localapikey", { session: false, failWithError: true })
 }

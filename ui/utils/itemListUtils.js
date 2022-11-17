@@ -67,10 +67,7 @@ const sortMergedSources = (mergedArray) => {
 // détermine si l'offre pe est liée au département avec une géoloc non précisée
 export const isDepartmentJob = (job) => {
   let isDepartmentJob = false
-  if (
-    !job.place.distance &&
-    (!job.place.zipCode || job.place.zipCode.substring(0, 2) === job.place.city.substring(0, 2))
-  ) {
+  if (!job.place.distance && (!job.place.zipCode || job.place.zipCode.substring(0, 2) === job.place.city.substring(0, 2))) {
     isDepartmentJob = true
   }
 

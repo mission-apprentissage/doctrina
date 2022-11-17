@@ -170,9 +170,7 @@ export default ({ users, appointments, mailer, widgetParameters, etablissements 
       }
 
       if (!isValidEmail(isOpenForAppointments?.email_rdv)) {
-        Sentry.captureException(
-          new Error(`Formation "${widgetParameter.cle_ministere_educatif}" sans email de contact.`)
-        )
+        Sentry.captureException(new Error(`Formation "${widgetParameter.cle_ministere_educatif}" sans email de contact.`))
       }
 
       res.send({
@@ -185,9 +183,7 @@ export default ({ users, appointments, mailer, widgetParameters, etablissements 
         localite: widgetParameter.localite,
         id_rco_formation: widgetParameter.id_rco_formation,
         cle_ministere_educatif: widgetParameter?.cle_ministere_educatif,
-        form_url: `${config.publicUrl}/form?referrer=${referrer}&cleMinistereEducatif=${encodeURIComponent(
-          widgetParameter.cle_ministere_educatif
-        )}`,
+        form_url: `${config.publicUrl}/form?referrer=${referrer}&cleMinistereEducatif=${encodeURIComponent(widgetParameter.cle_ministere_educatif)}`,
       })
     })
   )
@@ -228,9 +224,7 @@ export default ({ users, appointments, mailer, widgetParameters, etablissements 
         if (appointment) {
           return res.send({
             error: {
-              message: `Une demande de prise de RDV en date du ${dayjs(appointment.createdAt).format(
-                "DD/MM/YYYY"
-              )} est actuellement est cours de traitement.`,
+              message: `Une demande de prise de RDV en date du ${dayjs(appointment.createdAt).format("DD/MM/YYYY")} est actuellement est cours de traitement.`,
             },
           })
         }
@@ -381,9 +375,7 @@ export default ({ users, appointments, mailer, widgetParameters, etablissements 
       const etablissement = await etablissements.findOne({ siret_formateur: appointment.etablissement_id })
 
       // Check if the RESEND action has already been triggered
-      const cfaMailResendExists = appointment.cfa_mailing.find(
-        (mail) => mail.campaign === mailType.CFA_REMINDER_RESEND_APPOINTMENT
-      )
+      const cfaMailResendExists = appointment.cfa_mailing.find((mail) => mail.campaign === mailType.CFA_REMINDER_RESEND_APPOINTMENT)
 
       res.send({
         formAlreadySubmit: !!(appointment.candidat_contacted_at || cfaMailResendExists),
@@ -412,9 +404,7 @@ export default ({ users, appointments, mailer, widgetParameters, etablissements 
       }
 
       // Check if the RESEND action has already been triggered
-      const cfaMailResendExists = appointment.cfa_mailing.find(
-        (mail) => mail.campaign === mailType.CFA_REMINDER_RESEND_APPOINTMENT
-      )
+      const cfaMailResendExists = appointment.cfa_mailing.find((mail) => mail.campaign === mailType.CFA_REMINDER_RESEND_APPOINTMENT)
 
       if (appointment.candidat_contacted_at || cfaMailResendExists) {
         return res.sendStatus(400)

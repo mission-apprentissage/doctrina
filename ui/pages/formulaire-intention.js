@@ -5,10 +5,7 @@ import { NextSeo } from "next-seo"
 const FormulaireIntention = () => {
   return (
     <>
-      <NextSeo
-        title="Formulaire d'intention | La bonne alternance | Trouvez votre alternance"
-        description="Formulaire d'intention."
-      />
+      <NextSeo title="Formulaire d'intention | La bonne alternance | Trouvez votre alternance" description="Formulaire d'intention." />
       <SatisfactionForm formType="intention" />
     </>
   )

@@ -6,9 +6,7 @@ import config from "../config.js"
 import { itemModel } from "../model/itemModel.js"
 import filterJobsByOpco from "./filterJobsByOpco.js"
 
-const matchaApiEndpoint = `https://matcha${
-  config.env === "production" ? "" : "-recette"
-}.apprentissage.beta.gouv.fr/api/formulaire`
+const matchaApiEndpoint = `https://matcha${config.env === "production" ? "" : "-recette"}.apprentissage.beta.gouv.fr/api/formulaire`
 const matchaSearchEndPoint = `${matchaApiEndpoint}/search`
 const matchaJobEndPoint = `${matchaApiEndpoint}/offre`
 

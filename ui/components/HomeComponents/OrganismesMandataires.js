@@ -14,8 +14,7 @@ const OrganismesMandataires = () => {
             Identifiez facilement les organismes de formation en lien avec votre offre d’emploi
           </Text>
           <Box variant="homeEditorialText">
-            Vous pouvez choisir d’être accompagné par les centres de formation et votre OPCO de rattachement, afin
-            d’accélérer vos recrutements.
+            Vous pouvez choisir d’être accompagné par les centres de formation et votre OPCO de rattachement, afin d’accélérer vos recrutements.
           </Box>
         </Box>
       </SimpleGrid>

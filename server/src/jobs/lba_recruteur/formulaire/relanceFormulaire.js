@@ -51,9 +51,7 @@ export const relanceFormulaire = async (mailer, threshold) => {
   if (nbOffres > 0) {
     logger.info(`${nbOffres} offres relancé aujourd'hui.`)
     await axios.post(config.slackWebhookUrl, {
-      text: `[${config.env.toUpperCase()} - JOB MATCHA - RELANCE J+${threshold}] *${nbOffres} offres* (${
-        formulaireToExpire.length
-      } formulaires) ont été relancés`,
+      text: `[${config.env.toUpperCase()} - JOB MATCHA - RELANCE J+${threshold}] *${nbOffres} offres* (${formulaireToExpire.length} formulaires) ont été relancés`,
     })
   }
 

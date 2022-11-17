@@ -241,9 +241,7 @@ const sendApplication = async ({ scan, mailer, query, referer, shouldCheckSecret
         application.to_company_message_id = emailCompany.messageId
         application.to_company_message_status = "accepted"
       } else {
-        logger.info(
-          `Application email rejected. applicant_email=${application.applicant_email} company_email=${application.company_email}`
-        )
+        logger.info(`Application email rejected. applicant_email=${application.applicant_email} company_email=${application.company_email}`)
         throw new Error("Application email rejected")
       }
 
@@ -276,10 +274,7 @@ const saveApplicationFeedback = async ({ query }) => {
   let decryptedId = decryptWithIV(query.id, query.iv)
 
   try {
-    await Application.findOneAndUpdate(
-      { _id: ObjectId(decryptedId) },
-      { applicant_opinion: query.avis, applicant_feedback_date: new Date() }
-    )
+    await Application.findOneAndUpdate({ _id: ObjectId(decryptedId) }, { applicant_opinion: query.avis, applicant_feedback_date: new Date() })
 
     return { result: "ok", message: "opinion registered" }
   } catch (err) {
@@ -299,10 +294,7 @@ const saveApplicationFeedbackComment = async ({ query }) => {
   let decryptedId = decryptWithIV(query.id, query.iv)
 
   try {
-    await Application.findOneAndUpdate(
-      { _id: ObjectId(decryptedId) },
-      { applicant_feedback: query.comment, applicant_feedback_date: new Date() }
-    )
+    await Application.findOneAndUpdate({ _id: ObjectId(decryptedId) }, { applicant_feedback: query.comment, applicant_feedback_date: new Date() })
 
     return { result: "ok", message: "comment registered" }
   } catch (err) {
@@ -347,9 +339,7 @@ const saveApplicationIntentionComment = async ({ query, mailer }) => {
 
 const findApplicationByTypeAndMessageId = async ({ messageId, type, email }) => {
   return await Application.findOne(
-    type === "application"
-      ? { company_email: email, to_company_message_id: messageId }
-      : { applicant_email: email, to_applicant_message_id: messageId }
+    type === "application" ? { company_email: email, to_company_message_id: messageId } : { applicant_email: email, to_applicant_message_id: messageId }
   )
 }
 
@@ -462,9 +452,7 @@ const updateApplicationStatus = async ({ payload, mailer }) => {
   })
 
   if (!application) {
-    logger.error(
-      `Application webhook : application not found. message_id=${payload["message-id"]} email=${payload.email} subject=${payload.subject}`
-    )
+    logger.error(`Application webhook : application not found. message_id=${payload["message-id"]} email=${payload.email} subject=${payload.subject}`)
     return
   }
 

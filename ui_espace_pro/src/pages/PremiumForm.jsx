@@ -76,12 +76,8 @@ const PremiumForm = () => {
                   Votre choix a bien été pris en compte
                 </Text>
                 <Text mt={4} color="grey.800" ml={2}>
-                  Le service RDV Apprentissage n'a pas été activé pour vos formations. Si vous changez d'avis, merci de
-                  nous contacter à l'adresse suivante:{" "}
-                  <a href="mailto:rdv_apprentissage@apprentissage.beta.gouv.fr">
-                    rdv_apprentissage@apprentissage.beta.gouv.fr
-                  </a>
-                  .
+                  Le service RDV Apprentissage n'a pas été activé pour vos formations. Si vous changez d'avis, merci de nous contacter à l'adresse suivante:{" "}
+                  <a href="mailto:rdv_apprentissage@apprentissage.beta.gouv.fr">rdv_apprentissage@apprentissage.beta.gouv.fr</a>.
                 </Text>
               </Box>
             </Flex>
@@ -97,8 +93,7 @@ const PremiumForm = () => {
                 </Text>
                 <Text mt={4} color="grey.800" ml={2}>
                   Le service RDV Apprentissage est désormais activé sur Parcoursup. <br />
-                  Afin de recevoir les demandes de RDV, assurez-vous que vos coordonnées de contact CARIF FOREF soient à
-                  jour.
+                  Afin de recevoir les demandes de RDV, assurez-vous que vos coordonnées de contact CARIF FOREF soient à jour.
                 </Text>
               </Box>
             </Flex>
@@ -132,13 +127,11 @@ const PremiumForm = () => {
                 Dans un délai de 4 jours ouvrés après réception de la demande par e-mail
               </Text>
               <Text mt={6}>
-                Je prends acte du fait que la Mission interministérielle pour l’apprentissage pourra prendre toutes les
-                mesures utiles pour mesurer le fait que cet engagement soit tenu (dont enquêtes en ligne ou orale auprès
-                des candidats et des CFA).
+                Je prends acte du fait que la Mission interministérielle pour l’apprentissage pourra prendre toutes les mesures utiles pour mesurer le fait que cet engagement soit
+                tenu (dont enquêtes en ligne ou orale auprès des candidats et des CFA).
               </Text>
               <Text mt={6}>
-                En cas de non-respect de mon engagement, je bénéficierai d’un avertissement m’invitant à remédier à
-                cette défaillance puis d’une éventuelle suspension du service.
+                En cas de non-respect de mon engagement, je bénéficierai d’un avertissement m’invitant à remédier à cette défaillance puis d’une éventuelle suspension du service.
               </Text>
               <Button mt={5} mr={6} variant="primary" onClick={accept}>
                 J’accepte les conditions
@@ -155,9 +148,7 @@ const PremiumForm = () => {
                 </Text>
               </Flex>
               <Box mt={14} mb={20}>
-                <Text mt="-7px">
-                  Le service sera activé sur toutes les formations référencés dans Parcoursup de l’organisme suivant :
-                </Text>
+                <Text mt="-7px">Le service sera activé sur toutes les formations référencés dans Parcoursup de l’organisme suivant :</Text>
                 <Box bg="#E5E5E5" px={10} py={6} mt={3} lineHeight="38px" w="100%">
                   <Text>
                     Raison sociale :{" "}

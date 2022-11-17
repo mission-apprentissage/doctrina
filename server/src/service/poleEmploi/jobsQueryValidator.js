@@ -1,12 +1,4 @@
-import {
-  validateRomes,
-  validateRadius,
-  validateLatitude,
-  validateLongitude,
-  validateInsee,
-  validateApiSources,
-  validateCaller,
-} from "../queryValidators.js"
+import { validateRomes, validateRadius, validateLatitude, validateLongitude, validateInsee, validateApiSources, validateCaller } from "../queryValidators.js"
 
 const jobsQueryValidator = (query) => {
   let error_messages = []

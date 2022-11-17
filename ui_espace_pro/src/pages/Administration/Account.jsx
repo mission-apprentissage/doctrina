@@ -1,16 +1,4 @@
-import {
-  Box,
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  Button,
-  Container,
-  Flex,
-  Heading,
-  SimpleGrid,
-  Text,
-  useToast,
-} from "@chakra-ui/react"
+import { Box, Breadcrumb, BreadcrumbItem, BreadcrumbLink, Button, Container, Flex, Heading, SimpleGrid, Text, useToast } from "@chakra-ui/react"
 import { Form, Formik } from "formik"
 import { useMutation, useQuery, useQueryClient } from "react-query"
 import { useNavigate } from "react-router-dom"
@@ -63,11 +51,7 @@ export default () => {
             <Breadcrumb separator={<ArrowDropRightLine color="grey.600" />} textStyle="xs">
               {auth.type !== AUTHTYPE.OPCO && (
                 <BreadcrumbItem>
-                  <BreadcrumbLink
-                    textDecoration="underline"
-                    onClick={() => navigate(getUserNavigationContext())}
-                    textStyle="xs"
-                  >
+                  <BreadcrumbLink textDecoration="underline" onClick={() => navigate(getUserNavigationContext())} textStyle="xs">
                     Administration des offres
                   </BreadcrumbLink>
                 </BreadcrumbItem>
@@ -133,24 +117,10 @@ export default () => {
                         <Form>
                           <CustomInput name="nom" label="Nom" type="text" value={values.nom} />
                           <CustomInput name="prenom" label="Prénom" type="test" value={values.prenom} />
-                          <CustomInput
-                            name="telephone"
-                            label="Téléphone"
-                            type="tel"
-                            pattern="[0-9]{10}"
-                            maxLength="10"
-                            value={values.telephone}
-                          />
+                          <CustomInput name="telephone" label="Téléphone" type="tel" pattern="[0-9]{10}" maxLength="10" value={values.telephone} />
                           <CustomInput name="email" label="Email" type="email" value={values.email} />
                           <Flex justify="flex-end" mt={10}>
-                            <Button
-                              type="submit"
-                              variant="form"
-                              leftIcon={<ArrowRightLine />}
-                              isActive={isValid}
-                              isDisabled={!isValid || isSubmitting}
-                              isLoading={isSubmitting}
-                            >
+                            <Button type="submit" variant="form" leftIcon={<ArrowRightLine />} isActive={isValid} isDisabled={!isValid || isSubmitting} isLoading={isSubmitting}>
                               Enregistrer
                             </Button>
                           </Flex>

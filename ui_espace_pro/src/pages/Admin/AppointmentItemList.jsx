@@ -13,9 +13,7 @@ export const AppointmentItemList = (props) => {
   const [showEditionMode, setShowEditionMode] = useState(false)
   const [cfaAPrisContact, setCfaAPrisContact] = useState(props.appointment.cfa_pris_contact_candidat)
   const [champsLibreStatut, setChampsLibreStatut] = useState(props.appointment.champs_libre_status || "")
-  const [champsLibreCommentaires, setChampsLibreCommentaires] = useState(
-    props.appointment.champs_libre_commentaire || ""
-  )
+  const [champsLibreCommentaires, setChampsLibreCommentaires] = useState(props.appointment.champs_libre_commentaire || "")
 
   /**
    * @description Updates appointment.
@@ -105,12 +103,8 @@ export const AppointmentItemList = (props) => {
         )}
       </Td>
       <Td>
-        {props.appointment.etablissement?.opt_mode === "OPT_IN" && (
-          <> {dayjs(props.appointment.etablissement?.opt_in_activated_at).format("DD/MM/YYYY")} </>
-        )}
-        {props.appointment.etablissement?.opt_mode === "OPT_OUT" && (
-          <> {dayjs(props.appointment.etablissement?.opt_out_activated_at).format("DD/MM/YYYY")} </>
-        )}
+        {props.appointment.etablissement?.opt_mode === "OPT_IN" && <> {dayjs(props.appointment.etablissement?.opt_in_activated_at).format("DD/MM/YYYY")} </>}
+        {props.appointment.etablissement?.opt_mode === "OPT_OUT" && <> {dayjs(props.appointment.etablissement?.opt_out_activated_at).format("DD/MM/YYYY")} </>}
         {!props.appointment.etablissement?.opt_mode && "N/C"}
       </Td>
       <Td>
@@ -119,9 +113,7 @@ export const AppointmentItemList = (props) => {
       <Td>
         <Tooltip
           hasArrow
-          label={`Envoi: ${
-            formatDate(props.appointment.email_premiere_demande_candidat_date) || "N/C"
-          } / Dernier statut: ${
+          label={`Envoi: ${formatDate(props.appointment.email_premiere_demande_candidat_date) || "N/C"} / Dernier statut: ${
             dayjs.utc(props.appointment.email_premiere_demande_cfa_statut_date).format("DD/MM/YYYY HH:mm:ss") || "N/C"
           }`}
           bg="gray.300"
@@ -148,22 +140,12 @@ export const AppointmentItemList = (props) => {
         </Textarea>
       </Td>
       <Td>
-        <Textarea
-          minH="0"
-          type="text"
-          disabled={!showEditionMode}
-          onChange={(event) => setChampsLibreStatut(event.target.value)}
-        >
+        <Textarea minH="0" type="text" disabled={!showEditionMode} onChange={(event) => setChampsLibreStatut(event.target.value)}>
           {champsLibreStatut}
         </Textarea>
       </Td>
       <Td>
-        <Textarea
-          minH="0"
-          type="text"
-          disabled={!showEditionMode}
-          onChange={(event) => setChampsLibreCommentaires(event.target.value)}
-        >
+        <Textarea minH="0" type="text" disabled={!showEditionMode} onChange={(event) => setChampsLibreCommentaires(event.target.value)}>
           {champsLibreCommentaires}
         </Textarea>
       </Td>

@@ -16,8 +16,8 @@ export default () => {
               </Text>
               <Text pb="24px">Vous êtes perdus ?</Text>
               <Text pb="24px" align="center">
-                Il semble que la page que vous essayez de rejoindre n’existe pas. En cas de problème pour retrouver la
-                page, essayez de repartir de la page d’accueil en cliquant sur le lien ci-dessous.
+                Il semble que la page que vous essayez de rejoindre n’existe pas. En cas de problème pour retrouver la page, essayez de repartir de la page d’accueil en cliquant
+                sur le lien ci-dessous.
               </Text>
               <Button variant="primary" onClick={() => navigate("/")}>
                 Page d'accueil

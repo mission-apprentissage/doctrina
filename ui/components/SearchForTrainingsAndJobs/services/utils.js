@@ -14,17 +14,13 @@ const notFoundErrorText = "L'élément recherché n'existe plus"
 const technicalErrorText = "Error technique momentanée"
 
 const getRomeFromParameters = ({ values, widgetParameters }) => {
-  return widgetParameters?.parameters?.jobName &&
-    widgetParameters?.parameters?.romes &&
-    widgetParameters?.parameters?.frozenJob
+  return widgetParameters?.parameters?.jobName && widgetParameters?.parameters?.romes && widgetParameters?.parameters?.frozenJob
     ? widgetParameters?.parameters?.romes
     : values.job.romes.join(",")
 }
 
 const getRncpsFromParameters = ({ values, widgetParameters }) => {
-  return widgetParameters?.parameters?.jobName &&
-    widgetParameters?.parameters?.romes &&
-    widgetParameters?.parameters?.frozenJob
+  return widgetParameters?.parameters?.jobName && widgetParameters?.parameters?.romes && widgetParameters?.parameters?.frozenJob
     ? ""
     : values.job?.rncps
     ? values.job.rncps.join(",")
