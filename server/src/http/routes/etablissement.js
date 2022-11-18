@@ -137,10 +137,10 @@ export default ({ etablissements, mailer, widgetParameters, appointments }) => {
         template: mailTemplate["mail-cfa-premium-refused"],
         data: {
           images: {
-            informationIcon: `${config.publicUrl}/assets/icon-information-blue.png?raw=true`,
-            logoCandidat: `${config.publicUrl}/assets/logo-lba-recruteur-candidat.png?raw=true`,
-            logoCfa: `${config.publicUrl}/assets/logo-lba-recruteur-cfa.png?raw=true`,
-            logoFooter: `${config.publicUrl}/assets/logo-republique-francaise.png?raw=true`,
+            informationIcon: `${config.publicUrlEspacePro}/assets/icon-information-blue.png?raw=true`,
+            logoCandidat: `${config.publicUrlEspacePro}/assets/logo-lba-recruteur-candidat.png?raw=true`,
+            logoCfa: `${config.publicUrlEspacePro}/assets/logo-lba-recruteur-cfa.png?raw=true`,
+            logoFooter: `${config.publicUrlEspacePro}/assets/logo-republique-francaise.png?raw=true`,
           },
           etablissement: {
             name: etablissement.raison_sociale,
@@ -242,8 +242,8 @@ export default ({ etablissements, mailer, widgetParameters, appointments }) => {
           template: mailTemplate["mail-rdva-optout-unsubscription-question"],
           data: {
             images: {
-              logoCfa: `${config.publicUrl}/assets/logo-lba-recruteur-cfa.png?raw=true`,
-              logoFooter: `${config.publicUrl}/assets/logo-republique-francaise.png?raw=true`,
+              logoCfa: `${config.publicUrlEspacePro}/assets/logo-lba-recruteur-cfa.png?raw=true`,
+              logoFooter: `${config.publicUrlEspacePro}/assets/logo-republique-francaise.png?raw=true`,
             },
             etablissement: {
               name: etablissement.raison_sociale,
@@ -285,8 +285,8 @@ export default ({ etablissements, mailer, widgetParameters, appointments }) => {
         template: mailTemplate["mail-cfa-optout-unsubscription"],
         data: {
           images: {
-            logoCfa: `${config.publicUrl}/assets/logo-lba-recruteur-cfa.png?raw=true`,
-            logoFooter: `${config.publicUrl}/assets/logo-republique-francaise.png?raw=true`,
+            logoCfa: `${config.publicUrlEspacePro}/assets/logo-lba-recruteur-cfa.png?raw=true`,
+            logoFooter: `${config.publicUrlEspacePro}/assets/logo-republique-francaise.png?raw=true`,
           },
           etablissement: {
             name: etablissement.raison_sociale,

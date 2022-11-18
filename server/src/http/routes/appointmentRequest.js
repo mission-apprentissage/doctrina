@@ -183,7 +183,7 @@ export default ({ users, appointments, mailer, widgetParameters, etablissements 
         localite: widgetParameter.localite,
         id_rco_formation: widgetParameter.id_rco_formation,
         cle_ministere_educatif: widgetParameter?.cle_ministere_educatif,
-        form_url: `${config.publicUrl}/form?referrer=${referrer}&cleMinistereEducatif=${encodeURIComponent(widgetParameter.cle_ministere_educatif)}`,
+        form_url: `${config.publicUrlEspacePro}/form?referrer=${referrer}&cleMinistereEducatif=${encodeURIComponent(widgetParameter.cle_ministere_educatif)}`,
       })
     })
   )
@@ -278,10 +278,10 @@ export default ({ users, appointments, mailer, widgetParameters, etablissements 
           link: `${config.publicUrlEspacePro}/establishment/${etablissement._id}/appointments/${createdAppointement._id}?utm_source=mail`,
         },
         images: {
-          logoCandidat: `${config.publicUrlEspacePro}pro/assets/logo-lba-recruteur-candidat.png?raw=true`,
-          logoCfa: `${config.publicUrlEspacePro}pro/assets/logo-lba-recruteur-cfa.png?raw=true`,
-          logoFooter: `${config.publicUrlEspacePro}pro/assets/logo-republique-francaise.png?raw=true`,
-          peopleLaptop: `${config.publicUrlEspacePro}pro/assets/people-laptop.png?raw=true`,
+          logoCandidat: `${config.publicUrlEspacePro}/assets/logo-lba-recruteur-candidat.png?raw=true`,
+          logoCfa: `${config.publicUrlEspacePro}/assets/logo-lba-recruteur-cfa.png?raw=true`,
+          logoFooter: `${config.publicUrlEspacePro}/assets/logo-republique-francaise.png?raw=true`,
+          peopleLaptop: `${config.publicUrlEspacePro}/assets/people-laptop.png?raw=true`,
         },
       }
 
