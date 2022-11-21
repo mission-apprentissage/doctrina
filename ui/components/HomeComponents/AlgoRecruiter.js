@@ -1,12 +1,12 @@
 import React from "react"
-import { Box, Divider, Text, UnorderedList, ListItem, SimpleGrid } from "@chakra-ui/react"
+import { Box, Divider, Text, UnorderedList, ListItem, GridItem, Grid } from "@chakra-ui/react"
 
 const AlgoRecruiter = () => {
   return (
     <Box as="section" pb={24} backgroundColor="white">
       <Box py={12} backgroundColor="#f5f5fe">
-        <SimpleGrid columns={{ sm: 1, lg: 2 }} spacing="20px">
-          <Box pl="12">
+        <Grid templateColumns={{ base: "repeat(1, 1fr)", lg: "repeat(5, 1fr)" }} spacing="20px">
+          <GridItem colSpan={{ base: "1", lg: "3" }}  px="12">
             <Box as="h2">
               <Text as="span" display="block" mb={1} variant="editorialContentH1" color="#2a2a2a">
                 La bonne alternance révèle
@@ -30,13 +30,13 @@ const AlgoRecruiter = () => {
               </ListItem>
               <ListItem mb="3">Les présentes conditions d’utilisation peuvent être modifiées à tout moment et la date de mise à jour est mentionnée.</ListItem>
             </UnorderedList>
-          </Box>
-          <Box display="flex" justifyContent="center" alignItems="center">
-            <div className="c-algo-img d-flex-center">
+          </GridItem>
+          <GridItem colSpan={{ base: "2" }}>
+            <Box display="flex" justifyContent="center" alignItems="center">
               <img className="" src="/images/icons/algo_recruiter.svg" alt="" />
-            </div>
-          </Box>
-        </SimpleGrid>
+            </Box>
+          </GridItem>
+        </Grid>
       </Box>
     </Box>
   )
