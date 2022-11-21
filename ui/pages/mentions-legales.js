@@ -6,8 +6,11 @@ import ScrollToTop from "../components/ScrollToTop"
 
 import ExternalLink from "../components/externalLink"
 import Footer from "../components/footer"
+
+import { Box } from "@chakra-ui/react"
+
 const MentionsLegales = () => (
-  <div>
+  <Box>
     <NextSeo title="Mentions Légales | La bonne alternance | Trouvez votre alternance" description="Mentions légales du site." />
     <ScrollToTop />
     <Navigation />
@@ -142,7 +145,7 @@ const MentionsLegales = () => (
     </div>
     <div className="mb-3">&nbsp;</div>
     <Footer />
-  </div>
+  </Box>
 )
 
 export default MentionsLegales
