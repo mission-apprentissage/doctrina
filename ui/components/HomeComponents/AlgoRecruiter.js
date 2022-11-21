@@ -1,4 +1,5 @@
 import React from "react"
+import { Divider, Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react"
 
 const AlgoRecruiter = () => {
   return (
@@ -8,7 +9,7 @@ const AlgoRecruiter = () => {
           <span className="d-block c-algo-title__top">La bonne alternance révèle</span>
           <span className="d-block c-algo-title__down">le marché caché de l&apos;emploi</span>
         </h2>
-        <hr className="c-page-title-separator" align="left"></hr>
+        <Divider variant="pageTitleDivider" my={12} />
         <p className="c-algo-text">
           Le saviez-vous ? Afin d&apos;aider les candidats intéressés par l&apos;alternance à trouver un contrat, nous exposons différents types d&apos;entreprises sur notre
           service :
