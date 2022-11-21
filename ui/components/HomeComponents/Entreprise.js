@@ -11,7 +11,7 @@ const Entreprise = () => {
     <Box as="section" p={3} mb={{ base: "2", md: "5" }} backgroundColor="white">
       <SimpleGrid columns={{ sm: 1, md: 2 }} spacing="40px">
         <Box>
-          <Text as="h1" variant="homeEditorialH1">
+          <Text as="h1" variant="homeEditorialH1" mb={3}>
             Vous êtes une entreprise
           </Text>
           <Text as="h2" variant="homeEditorialH2" mb={{ base: "3", lg: "5" }}>
