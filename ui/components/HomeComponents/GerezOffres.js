@@ -20,12 +20,20 @@ const GerezOffres = () => {
           </Box>
           <Box>
             <Box>
-              <Text as="h2">Gérez vos offres de manière collaborative</Text>
-              <Text>Un accès multi-comptes permettra à plusieurs personnes de votre entreprise d’accéder et de gérer vos offres d&apos;emploi.</Text>
+              <Text as="h2" variant="homeEditorialH2" mb={{ base: "3", lg: "5" }}>
+                Gérez vos offres de manière collaborative
+              </Text>
+              <Box variant="homeEditorialText">
+                Un accès multi-comptes permettra à plusieurs personnes de votre entreprise d’accéder et de gérer vos offres d&apos;emploi.
+              </Box>
             </Box>
             <Box>
-              <Text as="h2">Consultez et gérez vos candidatures</Text>
-              <Text>Vérifiez d&apos;un coup d&apos;œil la progression des candidatures pour définir les prochaines étapes.</Text>
+              <Text as="h2" variant="homeEditorialH2" mb={{ base: "3", lg: "5" }}>
+                Consultez et gérez vos candidatures
+              </Text>
+              <Box variant="homeEditorialText">
+                Vérifiez d&apos;un coup d&apos;œil la progression des candidatures pour définir les prochaines étapes.
+              </Box>
             </Box>
           </Box>
         </SimpleGrid>
