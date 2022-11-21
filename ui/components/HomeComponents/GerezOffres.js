@@ -9,9 +9,10 @@ const GerezOffres = () => {
           <Box>&nbsp;</Box>
         </Show>
         <Box>
-          <Button>Bientôt</Button>
+          <Box as="span" background="linear-gradient(90deg,#6a11cb,#2575fc)" color="#fff" borderRadius="80" lineHeight="32px" px={9} py={2} fontSize="20px" fontWeight="700">Bientôt</Box>
         </Box>
       </SimpleGrid>
+      <Box>&nbsp;</Box>
       <SimpleGrid columns={{ sm: 1, md: 2 }} spacing="40px">
         <Box>
           <Image src="/images/home_pics/illu-candidatures.svg" alt="" />
