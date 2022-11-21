@@ -32,7 +32,7 @@ const AlgoRecruiter = () => {
             </UnorderedList>
           </GridItem>
           <GridItem colSpan={{ base: "2" }}>
-            <Box display="flex" justifyContent="center" alignItems="center">
+            <Box display="flex" justifyContent="center" alignItems="center" pr={{base: 0, lg: 12}}>
               <img className="" src="/images/icons/algo_recruiter.svg" alt="" />
             </Box>
           </GridItem>
