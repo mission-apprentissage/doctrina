@@ -10,7 +10,7 @@ import GerezOffres from "../components/HomeComponents/GerezOffres"
 import FollowLinkedIn from "../components/HomeComponents/FollowLinkedIn"
 import AlgoRecruiter from "../components/HomeComponents/AlgoRecruiter"
 import ConnectionActions from "../components/HomeComponents/ConnectionActions"
-import { Box, Container, Divider, Grid, GridItem, Text, Spinner } from "@chakra-ui/react"
+import { Box, Container, Text } from "@chakra-ui/react"
 
 import { NextSeo } from "next-seo"
 
@@ -42,11 +42,14 @@ const AccesRecruteur = () => (
         <AlgoRecruiter />
       </Box>
 
-      <Box as="section">
-        <Text as="h2" mb={5}>Vous souhaitez recruter un alternant pour votre entreprise ?</Text>
-        <Box ml={4}>
+      <Box as="section" pb={24} backgroundColor="white">
+        <Text as="h2" align="center" variant="homeEditorialH2">Vous souhaitez recruter un alternant pour votre entreprise ?</Text>
+        <Box display="flex" justifyContent="center" alignItems="center">
           <ConnectionActions service="entreprise" />
         </Box>
+      </Box>
+
+      <Box as="section">
       </Box>
 
       <FollowLinkedIn />
