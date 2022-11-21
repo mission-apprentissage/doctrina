@@ -27,7 +27,7 @@ const AccesRecruteur = () => (
     <Navigation currentPage="acces-recruteur" />
     <Breadcrumb forPage="acces-recruteur" label="Accès recruteur" />
 
-    <Container px={0} my={0} mb={[0, 12]} variant="pageContainer">
+    <Container my={0} px={0} variant="pageContainer">
       <Entreprise />
 
       <Box as="section" mb={5}>

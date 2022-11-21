@@ -8,7 +8,7 @@ import parcoursupImage from "../../public/images/home_pics/parcoursup.svg"
 
 const Entreprise = () => {
   return (
-    <Box as="section" p={3} mb={{ base: "2", md: "5" }}>
+    <Box as="section" p={3} mb={{ base: "2", md: "5" }} backgroundColor="white">
       <SimpleGrid columns={{ sm: 1, md: 2 }} spacing="40px">
         <Box>
           <Text as="h1" variant="homeEditorialH1">
