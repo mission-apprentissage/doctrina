@@ -4,7 +4,7 @@ import { Box, Image, SimpleGrid, Text, Show, Button } from "@chakra-ui/react"
 const GerezOffres = () => {
   return (
     <Box as="section" py={24} backgroundColor="white">
-      <Box backgroundColor="#f8f8f8">
+      <Box py={12} backgroundColor="#f8f8f8">
         <SimpleGrid columns={{ sm: 1, md: 2 }} spacing="40px">
           <Show above="md">
             <Box>&nbsp;</Box>
