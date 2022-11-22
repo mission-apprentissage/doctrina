@@ -33,6 +33,7 @@ import { MapListSwitchButton, ChoiceColumn } from "./components"
 import { WidgetHeader, InitWidgetSearchParameters } from "components/WidgetHeader"
 import { currentPage, setCurrentPage, currentSearch, setCurrentSearch } from "utils/currentPage"
 import updateUiFromHistory from "services/updateUiFromHistory"
+import { Flex, Grid, GridItem } from "@chakra-ui/react"
 
 const SearchForTrainingsAndJobs = () => {
   const scopeContext = useContext(ScopeContext)
@@ -345,12 +346,17 @@ const SearchForTrainingsAndJobs = () => {
     }
   }
 
+  /*
+   c-searchfor*/
   return (
-    <div className="page demoPage c-searchfor">
+    <Flex direction="column" sx={{ height: "100vh" }} className="page demoPage">
       <InitWidgetSearchParameters handleSearchSubmit={handleSearchSubmit} handleItemLoad={handleItemLoad} setIsLoading={setIsLoading} />
       <WidgetHeader handleSearchSubmit={handleSearchSubmit} />
-      <Row className={`c-searchfor__row is-visible-${isFormVisible} is-welcome-${shouldShowWelcomeMessage} `}>
-        <Col className={`choiceCol-container leftShadow ${visiblePane === "resultList" ? "activeXSPane" : "inactiveXSPane"}`} xs="12" md="5">
+      <Grid templateColumns={["1fr", "1fr", "5fr 7fr"]} overflow="hidden" height="100%">
+        {/*className={`c-searchfor__row is-visible-${isFormVisible} is-welcome-${shouldShowWelcomeMessage} `}*/}
+
+        <GridItem bg="red" className={`${visiblePane === "resultList" ? "activeXSPane" : "inactiveXSPane"}`}>
+          {/* className={`choiceCol-container leftShadow ${visiblePane === "resultList" ? "activeXSPane" : "inactiveXSPane"}`}*/}
           <ChoiceColumn
             shouldShowWelcomeMessage={shouldShowWelcomeMessage}
             handleSearchSubmit={handleSearchSubmit}
@@ -369,13 +375,14 @@ const SearchForTrainingsAndJobs = () => {
             setActiveFilter={setActiveFilter}
             activeFilter={activeFilter}
           />
-        </Col>
-        <Col className={`p-0 ${visiblePane === "resultMap" ? "activeXSPane" : "inactiveXSPane"}`} xs="12" md="7">
+        </GridItem>
+        <GridItem bg="blue" className={`${visiblePane === "resultMap" ? "activeXSPane" : "inactiveXSPane"}`}>
+          {/*className={`p-0 ${visiblePane === "resultMap" ? "activeXSPane" : "inactiveXSPane"}`}*/}
           <Map handleSearchSubmit={handleSearchSubmit} showSearchForm={showSearchForm} selectItemOnMap={selectItemOnMap} />
-        </Col>
-      </Row>
+        </GridItem>
+      </Grid>
       <MapListSwitchButton showSearchForm={showSearchForm} showResultMap={showResultMap} showResultList={showResultList} isFormVisible={isFormVisible} />
-    </div>
+    </Flex>
   )
 }
 

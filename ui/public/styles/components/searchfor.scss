@@ -266,7 +266,7 @@
   left: 0;
   bottom: 0;
   @include media-breakpoint-up(md) {
-    position: absolute;
+    position: relative;
   }
 }
 
