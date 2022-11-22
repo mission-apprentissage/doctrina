@@ -95,70 +95,90 @@ const MentionsLegales = () => (
                 href="https://www.numerique.gouv.fr/publications/rgaa-accessibilite"
                 aria-label="Accès au Référentiel général d'amélioration de l'accessibilité"
                 title="RGAA v3"
+                isExternal
               >RGAA v3</Link>
               . La déclaration de conformité sera publiée ultérieurement.
             </Text>
 
-            <h3>Nos engagements</h3>
-            <p>
+            <Text as="h2" mb="3" variant="homeEditorialH2">
+              Nos engagements
+            </Text>
+            <Text as="p" mb="2">
               Audit de mise en conformité (en cours) pour nous aider à détecter les potentiels oublis d&apos;accessibilité.
               <br />
               Déclaration d&apos;accessibilité (en cours) pour expliquer en toute transparence notre démarche.
               <br />
               Mise à jour de cette page pour vous tenir informés de notre progression.
-            </p>
+            </Text>
 
-            <p>Nos équipes ont ainsi travaillé sur les contrastes de couleur, la présentation et la structure de l&apos;information ou la clarté des formulaires.</p>
+            <Text as="p" mb="2">
+              Nos équipes ont ainsi travaillé sur les contrastes de couleur, la présentation et la structure de l&apos;information ou la clarté des formulaires.
+            </Text>
+            <Text as="p" mb="2">
+              Des améliorations vont être apportées régulièrement.
+            </Text>
 
-            <p>Des améliorations vont être apportées régulièrement.</p>
 
-            <h3>Améliorations et contact</h3>
-            <p>L&apos;équipe de La bonne alternance reste à votre écoute et entière disposition, si vous souhaitez nous signaler le moindre défaut de conception.</p>
+            <Text as="h2" mb="3" variant="homeEditorialH2">
+              Améliorations et contact
+            </Text>
+            <Text as="p" mb="2">
+              L&apos;équipe de La bonne alternance reste à votre écoute et entière disposition, si vous souhaitez nous signaler le moindre défaut de conception.
+            </Text>
 
-            <p>
+            <Text as="p" mb="2">
               Vous pouvez nous aider à améliorer l&apos;accessibilité du site en nous signalant les problèmes éventuels que vous rencontrez :{" "}
-              <a
-                aria-label="Envoi d'un email à labonnealternance@apprentissage.beta.gouv.fr"
+              <Link
                 href="mailto:labonnealternance@apprentissage.beta.gouv.fr?subject=CGU%20-%20Améliorer%20accessibilité"
-              >
-                Contactez-nous
-              </a>
+                aria-label="Envoi d'un email à labonnealternance@apprentissage.beta.gouv.fr"
+                title="Contactez-nous"
+                isExternal
+              >Contactez-nous</Link>
               .
-            </p>
+            </Text>
 
-            <p>
+            <Text as="p" mb="2">
               Vous pouvez également soumettre vos demandes de modification sur la plate-forme{" "}
-              <ExternalLink url="https://github.com/mission-apprentissage/labonnealternance" aria-label="Accès à Github" title="Github" />.
-            </p>
+              <Link href="https://github.com/mission-apprentissage/labonnealternance"
+                    aria-label="Accès à Github"
+                    title="Github"
+                    isExternal >
+                Github
+              </Link>.
+            </Text>
 
-            <p>
+            <Text as="p" mb="2">
               Si vous rencontrez un défaut d’accessibilité vous empêchant d’accéder à un contenu ou une fonctionnalité du site, merci de nous en faire part.
               <br />
               Si vous n’obtenez pas de réponse rapide de notre part, vous êtes en droit de faire parvenir vos doléances ou une demande de saisine au Défenseur des droits.
-            </p>
+            </Text>
 
-            <h3>En savoir plus</h3>
-            <p>
+            <Text as="h2" mb="3" variant="homeEditorialH2">
+              En savoir plus
+            </Text>
+            <Text as="p" mb="2">
               Pour en savoir plus sur la politique d’accessibilité numérique de l’État :<br />
-              <ExternalLink
-                url="http://references.modernisation.gouv.fr/accessibilite-numerique"
+              <Link
+                href="http://references.modernisation.gouv.fr/accessibilite-numerique"
                 aria-label="Accès à la politique d’accessibilité numérique de l’État"
                 title="http://references.modernisation.gouv.fr/accessibilite-numerique"
-              />
-            </p>
+                isExternal
+              >http://references.modernisation.gouv.fr/accessibilite-numerique</Link>
+            </Text>
 
-            <h3>Sécurité</h3>
-            <p>
+            <Text as="h2" mb="3" variant="homeEditorialH2">
+              Sécurité
+            </Text>
+            <Text as="p" mb="2">
               Le site est protégé par un certificat électronique, matérialisé pour la grande majorité des navigateurs par un cadenas. Cette protection participe à la confidentialité
               des échanges.
               <br />
               En aucun cas les services associés à au site ne seront à l’origine d’envoi de courriels pour demander la saisie d’informations personnelles.
-            </p>
+            </Text>
           </Box>
         </GridItem>
       </Grid>
     </Container>
-
 
     <Footer />
   </Box>
