@@ -6,7 +6,7 @@ const HomeHero = () => {
   return (
     <Box backgroundSize="contain" backgroundRepeat="no-repeat">
       <Container variant="responsiveContainer" pt={{ base: 3, sm: 12 }} pb={{ base: 0, sm: 12 }}>
-        <Box boxShadow="0 4px 12px 2px rgb(0 0 0 / 21%)" pb="12" bg="#fff" backgroundClip="border-box" borderRadius="10px">
+        <Box boxShadow="0 4px 12px 2px rgb(0 0 0 / 21%)" pt="6" pb="10" bg="#fff" backgroundClip="border-box" borderRadius="10px">
           <StartForm />
         </Box>
       </Container>
