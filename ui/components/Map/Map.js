@@ -166,7 +166,9 @@ const Map = ({ handleSearchSubmit, showSearchForm, selectItemOnMap }) => {
   const staticMapStyleParams = {
     background: "center no-repeat url('/images/static_map.svg'), #fff",
     backgroundSize: "auto 85%",
-    backgroundPositionY: "10px",
+    sx: {
+      backgroundPositionY: "10px",
+    },
     height: "100%",
     paddingTop: "150px",
     boxShadow: "0px 0px 12px 2px rgb(0 0 0 / 21%)",
