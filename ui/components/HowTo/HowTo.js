@@ -6,11 +6,12 @@ import howtoline1 from "../../public/images/howtoline1.svg"
 import howtoline2a from "../../public/images/howtoline2a.svg"
 import howtoline3a from "../../public/images/howtoline3a.svg"
 import howtoline3b from "../../public/images/howtoline3b.svg"
+import { Image, Text, UnorderedList, ListItem, Divider, GridItem, Grid, Container } from "@chakra-ui/react"
 
 const HowTo = () => {
   return (
     <>
-      <section className="c-howto container">
+      <Container variant="responsiveContainer">
         <div className="c-howto-cards card-deck">
           <div className="card border-0 position-relative">
             <img src={howto1} className="card-img-top" alt="" />
@@ -38,7 +39,7 @@ const HowTo = () => {
             </div>
           </div>
         </div>
-      </section>
+      </Container>
     </>
   )
 }
