@@ -347,16 +347,16 @@ const SearchForTrainingsAndJobs = () => {
 
   /*
    c-searchfor*/
+
+  let listDisplayParameters = visiblePane === "resultList" ? "flex" : ["none", "none", "flex"]
+  let mapDisplayParameters = visiblePane === "resultMap" ? "block" : ["none", "none", "block"]
+
   return (
     <Flex direction="column" sx={{ height: "100vh" }} className="page demoPage">
       <InitWidgetSearchParameters handleSearchSubmit={handleSearchSubmit} handleItemLoad={handleItemLoad} setIsLoading={setIsLoading} />
       <WidgetHeader handleSearchSubmit={handleSearchSubmit} />
       <Flex direction="row" overflow="hidden" height="100%">
-        {/*className={`c-searchfor__row is-visible-${isFormVisible} is-welcome-${shouldShowWelcomeMessage} `}*/}
-
-        <Box flex="5" bg="red" display="flex" height="100%" overflow="hidden" direction="column" className={`${visiblePane === "resultList" ? "activeXSPane" : "inactiveXSPane"}`}>
-          {/* className={`choiceCol-container leftShadow ${visiblePane === "resultList" ? "activeXSPane" : "inactiveXSPane"}`}*/}
-
+        <Box flex="5" display={listDisplayParameters} height="100%" overflow="hidden" direction="column">
           <ChoiceColumn
             shouldShowWelcomeMessage={shouldShowWelcomeMessage}
             handleSearchSubmit={handleSearchSubmit}
@@ -376,8 +376,7 @@ const SearchForTrainingsAndJobs = () => {
             activeFilter={activeFilter}
           />
         </Box>
-        <Box flex="7" bg="blue" className={`${visiblePane === "resultMap" ? "activeXSPane" : "inactiveXSPane"}`}>
-          {/*className={`p-0 ${visiblePane === "resultMap" ? "activeXSPane" : "inactiveXSPane"}`}*/}
+        <Box p="0" flex="7" display={mapDisplayParameters}>
           <Map handleSearchSubmit={handleSearchSubmit} showSearchForm={showSearchForm} selectItemOnMap={selectItemOnMap} />
         </Box>
       </Flex>

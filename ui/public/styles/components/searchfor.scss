@@ -345,16 +345,6 @@
   flex-direction: column;
   height: 100vh;
 }
-.c-searchfor__row {
-  flex: 1;
-  overflow: hidden;
-  &.is-visible-true {
-    overflow: inherit;
-  }
-  &.is-visible-true.is-welcome-true {
-    overflow: hidden;
-  }
-}
 .choiceCol-container {
   overflow: hidden;
   height: 100%;
