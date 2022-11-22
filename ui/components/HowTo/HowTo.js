@@ -6,7 +6,7 @@ import howtoline1 from "../../public/images/howtoline1.svg"
 import howtoline2a from "../../public/images/howtoline2a.svg"
 import howtoline3a from "../../public/images/howtoline3a.svg"
 import howtoline3b from "../../public/images/howtoline3b.svg"
-import { Image, Text, UnorderedList, ListItem, Divider, GridItem, Grid, Container, Box, Show, Hide } from "@chakra-ui/react"
+import { Image, Text, GridItem, Grid, Container, Box, Show } from "@chakra-ui/react"
 
 const HowTo = () => {
   return (
