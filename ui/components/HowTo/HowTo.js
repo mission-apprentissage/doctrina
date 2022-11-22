@@ -12,8 +12,8 @@ const HowTo = () => {
   return (
     <>
       <Container variant="responsiveContainer">
-        <Grid templateColumns={{ base: "1fr", md: "repeat(3, 1fr)" }} gap="24">
-          <GridItem position="relative" width={{ base: "200px", md: "auto" }} mx="auto" mt={{base: "12", md: "0" }} mb="12">
+        <Grid templateColumns={{ base: "1fr", md: "repeat(3, 1fr)" }} gap={{ base: "10", md: "24" }}>
+          <GridItem position="relative" width={{ base: "200px", md: "auto" }} mx="auto">
             <Image src={howto1} alt="" zIndex="2" position="inherit"/>
             <Show above="md">
               <Image src={howtoline1} alt="" position="absolute" top="85px" left="-162px" />
@@ -23,7 +23,7 @@ const HowTo = () => {
               <Text as="p">Renseignez le métier que vous souhaitez faire et la localisation (Ville ou Code postal)</Text>
             </Box>
           </GridItem>
-          <GridItem position="relative" width={{ base: "200px", md: "auto" }} mx="auto" mt={{base: "12", md: "0" }} mb="12">
+          <GridItem position="relative" width={{ base: "200px", md: "auto" }} mx="auto">
             <Image src={howto2} alt="" zIndex="2" position="inherit" />
             <Show above="md">
               <Image src={howtoline2a} alt="" position="absolute" top="47px" left="-208px" />
@@ -33,7 +33,7 @@ const HowTo = () => {
               <Text as="p">Obtenez la liste des formations et entreprises proches de chez vous dans le domaine recherché.</Text>
             </Box>
           </GridItem>
-          <GridItem position="relative" width={{ base: "200px", md: "auto" }} mx="auto" mt={{base: "12", md: "0" }} mb="12">
+          <GridItem position="relative" width={{ base: "200px", md: "auto" }} mx="auto" mb="12">
             <Image src={howto3} alt="" zIndex="2" position="inherit" />
             <Show above="md">
               <Image src={howtoline3a} alt="" position="absolute" top="47px" left="-200px" />
