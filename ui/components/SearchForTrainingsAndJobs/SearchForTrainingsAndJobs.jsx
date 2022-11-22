@@ -345,9 +345,6 @@ const SearchForTrainingsAndJobs = () => {
     }
   }
 
-  /*
-   c-searchfor*/
-
   let listDisplayParameters = visiblePane === "resultList" ? "flex" : ["none", "none", "flex"]
   let mapDisplayParameters = visiblePane === "resultMap" ? "block" : ["none", "none", "block"]
 
