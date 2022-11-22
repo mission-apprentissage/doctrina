@@ -5,12 +5,12 @@ const AmeliorerLBA = () => {
   return (
     <Box as="section" p="8" mb="5" backgroundColor="#f5f5fe" borderRadius="10px">
       <Grid templateColumns={{ base: "1fr", md: "1fr 1fr" }} spacing={{base: "20px"}}>
-        <GridItem>
+        <GridItem display="flex" justifyContent="center" alignItems="center">
           <Image src="/images/home_pics/illu-support.svg" alt="" />
         </GridItem>
-        <GridItem>
-          <Text fontWeight="700">Donnez votre avis</Text>
-          <Text as="h2" color="#000091" fontSize="2rem" fontWeight="500">Aidez-nous à améliorer La bonne alternance</Text>
+        <GridItem pl="8">
+          <Text fontWeight="700" my="5">Donnez votre avis</Text>
+          <Text as="h2" color="#000091" fontSize="2rem" fontWeight="500" my="5">Aidez-nous à améliorer La bonne alternance</Text>
           <Text>
             La bonne alternance est un service en construction. Pour le faire évoluer, nous interrogeons régulièrement les utilisateurs du service.
           </Text>
@@ -18,7 +18,7 @@ const AmeliorerLBA = () => {
             <strong>Nous vous invitions à participer à un échange en visio d’une trentaine de minutes avec un membre de notre équipe pour répondre à quelques questions et nous partager
               votre avis.</strong>
           </Text>
-          <Box mt="3">
+          <Box mt="7">
             <Link
               href="https://calendly.com/rdv-labonnealternance/discussion-labonnealternance"
               aria-label="Planifier un échange avec l'équipe"
