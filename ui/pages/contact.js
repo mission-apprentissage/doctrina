@@ -9,7 +9,7 @@ import { Button, Box, Container, Divider, Grid, GridItem, Link, Text } from "@ch
 
 import { NextSeo } from "next-seo"
 
-const contact = () => (
+const Contact = () => (
   <Box>
     <NextSeo title="Contact | La bonne alternance | Trouvez votre alternance" description="Une remarque, un avis, une suggestion d’amélioration ? Contactez-nous !" />
     <ScrollToTop />
@@ -95,4 +95,4 @@ const contact = () => (
   </Box>
 )
 
-export default contact
+export default Contact
