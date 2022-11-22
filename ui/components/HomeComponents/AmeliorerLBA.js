@@ -1,9 +1,10 @@
 import React from "react"
 import ExternalLink from "../externalLink"
+import { Box } from "@chakra-ui/react"
 
 const AmeliorerLBA = () => {
   return (
-    <section className="c-homecomponent__blue p-3 mb-5">
+    <Box as="section" p="3" mb="5">
       <div className="row">
         <div className="col-12 col-md-6">
           <img className="c-homecomponent-illustration mr-3 my-3" src="/images/home_pics/illu-support.svg" alt="" />
@@ -26,7 +27,7 @@ const AmeliorerLBA = () => {
           </div>
         </div>
       </div>
-    </section>
+    </Box>
   )
 }
 export default AmeliorerLBA
