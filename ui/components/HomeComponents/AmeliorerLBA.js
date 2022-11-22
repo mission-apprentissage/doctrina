@@ -3,14 +3,14 @@ import { Box, Grid, GridItem, Link, Image, Text } from "@chakra-ui/react"
 
 const AmeliorerLBA = () => {
   return (
-    <Box as="section" p="3" mb="5" backgroundColor="#f5f5fe" borderRadius="10px">
-      <Grid templateColumns={{base: "1fr", md: "1fr 1fr"}}>
+    <Box as="section" p="8" mb="5" backgroundColor="#f5f5fe" borderRadius="10px">
+      <Grid templateColumns={{ base: "1fr", md: "1fr 1fr" }} spacing={{base: "20px"}}>
         <GridItem>
           <Image src="/images/home_pics/illu-support.svg" alt="" />
         </GridItem>
         <GridItem>
-          <Text>Donnez votre avis</Text>
-          <Text as="h2">Aidez-nous à améliorer La bonne alternance</Text>
+          <Text fontWeight="700">Donnez votre avis</Text>
+          <Text as="h2" color="#000091" fontSize="2rem" fontWeight="500">Aidez-nous à améliorer La bonne alternance</Text>
           <Text>
             La bonne alternance est un service en construction. Pour le faire évoluer, nous interrogeons régulièrement les utilisateurs du service.
           </Text>
