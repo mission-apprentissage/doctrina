@@ -14,9 +14,9 @@ const HowTo = () => {
       <Container variant="responsiveContainer">
         <Grid templateColumns={{ base: "1fr", md: "repeat(3, 1fr)" }} gap="24">
           <GridItem position="relative" width={{ base: "200px", md: "auto" }} mx="auto" mt={{base: "12", md: "0" }} mb="12">
-            <Image src={howto1} alt="" />
+            <Image src={howto1} alt="" zIndex="2" position="inherit"/>
             <Show above="md">
-              <Image src={howtoline1} alt="" position="absolute" top="85px" left="-162px" zIndex="-1" />
+              <Image src={howtoline1} alt="" position="absolute" top="85px" left="-162px" />
             </Show>
             <Box>
               <Text as="h3" fontSize="1.25rem" fontWeight="500" mb="3">Le job de vos rêves</Text>
@@ -24,9 +24,9 @@ const HowTo = () => {
             </Box>
           </GridItem>
           <GridItem position="relative" width={{ base: "200px", md: "auto" }} mx="auto" mt={{base: "12", md: "0" }} mb="12">
-            <Image src={howto2} alt=""  />
+            <Image src={howto2} alt="" zIndex="2" position="inherit" />
             <Show above="md">
-              <Image src={howtoline2a} alt="" position="absolute" top="47px" left="-208px" zIndex="-1" />
+              <Image src={howtoline2a} alt="" position="absolute" top="47px" left="-208px" />
             </Show>
             <Box>
               <Text as="h3" fontSize="1.25rem" fontWeight="500" mb="3">En un clin d’&oelig;il</Text>
@@ -34,10 +34,10 @@ const HowTo = () => {
             </Box>
           </GridItem>
           <GridItem position="relative" width={{ base: "200px", md: "auto" }} mx="auto" mt={{base: "12", md: "0" }} mb="12">
-            <Image src={howto3} alt=""  />
+            <Image src={howto3} alt="" zIndex="2" position="inherit" />
             <Show above="md">
-              <Image src={howtoline3a} alt="" position="absolute" top="47px" left="-208px" zIndex="-1" />
-              <Image src={howtoline3b} alt="" position="absolute" top="47px" left="158px" zIndex="-1" />
+              <Image src={howtoline3a} alt="" position="absolute" top="47px" left="-200px" />
+              <Image src={howtoline3b} alt="" position="absolute" top="47px" left="158px" />
             </Show>
             <Box>
               <Text as="h3" fontSize="1.25rem" fontWeight="500" mb="3">Un contact facile</Text>
