@@ -34,8 +34,8 @@ const AlgoHome = () => {
             </ListItem>
           </UnorderedList>
         </GridItem>
-        <GridItem colSpan="4">
-          <Image src="/images/icons/algo_home.svg" alt="" />
+        <GridItem colSpan="4" display="flex" justifyContent="center" alignItems="center">
+          <Image src="/images/icons/algo_home.svg" alt="" mt="5" />
         </GridItem>
       </Grid>
     </Container>
