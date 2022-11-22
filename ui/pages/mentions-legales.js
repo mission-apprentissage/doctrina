@@ -7,7 +7,7 @@ import ScrollToTop from "../components/ScrollToTop"
 import ExternalLink from "../components/externalLink"
 import Footer from "../components/footer"
 
-import { Box, Divider, Container, Grid, GridItem, Text } from "@chakra-ui/react"
+import { Box, Divider, Container, Grid, GridItem, Text, Link } from "@chakra-ui/react"
 
 const MentionsLegales = () => (
   <Box>
@@ -41,55 +41,63 @@ const MentionsLegales = () => (
               75987 Paris cedex 20
               <br />
               Tél. :{" "}
-              <a href="tel:+33140306000" aria-label="Appel du numéro +33140306000">
-                01 40 30 60 00
-              </a>
+              <Link href="tel:+33140306000" aria-label="Appel du numéro +33140306000" title="01 40 30 60 00" >01 40 30 60 00</Link>
               <br />
             </Text>
 
-            <h3>Directeur de la publication</h3>
-            <p>Monsieur Jean Bassères, Directeur Général.</p>
+            <Text as="h2" mb="3" variant="homeEditorialH2">
+              Directeur de la publication
+            </Text>
+            <Text as="p" mb="2">
+              Monsieur Jean Bassères, Directeur Général.
+            </Text>
 
-            <h3>Hébergement du site</h3>
-            <p>
+            <Text as="h2" mb="3" variant="homeEditorialH2">
+              Hébergement du site
+            </Text>
+            <Text as="p" mb="2">
               Ce site est hébergé par OVH :<br />
               2 rue Kellermann
               <br />
               59100 Roubaix
               <br />
               Tél. :{" "}
-              <a href="tel:+33972101007" aria-label="Appel du numéro +33972101007">
-                09 72 10 10 07
-              </a>
-            </p>
+              <Link href="tel:+33972101007" aria-label="Appel du numéro +33972101007" title="09 72 10 10 07" >09 72 10 10 07</Link>
+            </Text>
 
-            <h3>Accessibilité</h3>
-            <p>L&apos;initiative internationale pour l&apos;accessibilité du Web (Web Accessiblility Initiative) définit l&apos;accessibilité du Web comme suit :</p>
-            <p>
+            <Text as="h2" mb="3" variant="homeEditorialH2">
+              Accessibilité
+            </Text>
+            <Text as="p" mb="2">
+              L&apos;initiative internationale pour l&apos;accessibilité du Web (Web Accessiblility Initiative) définit l&apos;accessibilité du Web comme suit :
+            </Text>
+            <Text as="p" mb="2">
               L&apos;accessibilité du Web signifie que les personnes en situation de handicap peuvent utiliser le Web. Plus précisément, qu&apos;elles peuvent percevoir, comprendre,
               naviguer et interagir avec le Web, et qu&apos;elles peuvent contribuer sur le Web. L&apos;accessibilité du Web bénéficie aussi à d&apos;autres, notamment les personnes
               âgées dont les capacités changent avec l&apos;âge. L&apos;accessibilité du Web comprend tous les handicaps qui affectent l&apos;accès au Web, ce qui inclut les
               handicaps visuels, auditifs, physiques, de paroles, cognitives et neurologiques.
-            </p>
-            <p>
+            </Text>
+            <Text as="p" mb="2">
               L&apos;article 47 de la loi n° 2005-102 du 11 février 2005 pour l&apos;égalité des droits et des chances, la participation et la citoyenneté des personnes handicapées
               fait de l&apos;accessibilité une exigence pour tous les services de communication publique en ligne de l&apos;État, les collectivités territoriales et les
               établissements publics qui en dépendent.
-            </p>
-            <p>Il stipule que les informations diffusées par ces services doivent être accessibles à tous.</p>
-            <p>
+            </Text>
+            <Text as="p" mb="2">
+              Il stipule que les informations diffusées par ces services doivent être accessibles à tous.
+            </Text>
+            <Text as="p" mb="2">
               Le référentiel général d&apos;accessibilité pour les administrations (RGAA) rendra progressivement accessible l&apos;ensemble des informations fournies par ces
               services.
-            </p>
-            <p>
+            </Text>
+            <Text as="p" mb="2">
               Le site La bonne alternance est en cours d&apos;optimisation afin de le rendre conforme au{" "}
-              <ExternalLink
-                url="https://www.numerique.gouv.fr/publications/rgaa-accessibilite"
+              <Link
+                href="https://www.numerique.gouv.fr/publications/rgaa-accessibilite"
                 aria-label="Accès au Référentiel général d'amélioration de l'accessibilité"
                 title="RGAA v3"
-              />
+              >RGAA v3</Link>
               . La déclaration de conformité sera publiée ultérieurement.
-            </p>
+            </Text>
 
             <h3>Nos engagements</h3>
             <p>
