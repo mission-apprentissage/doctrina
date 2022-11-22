@@ -1,10 +1,10 @@
 import React from "react"
-import { Box, Grid, GridItem, Link } from "@chakra-ui/react"
+import { Box, Grid, GridItem, Link, Image, Text } from "@chakra-ui/react"
 
 const AmeliorerLBA = () => {
   return (
-    <Box as="section" p="3" mb="5">
-      <Grid templateColumns="repeat(12, 1fr)">
+    <Box as="section" p="3" mb="5" backgroundColor="#f5f5fe" borderRadius="10px">
+      <Grid templateColumns={{base: "1fr", md: "1fr 1fr"}}>
         <GridItem>
           <Image src="/images/home_pics/illu-support.svg" alt="" />
         </GridItem>
@@ -23,6 +23,9 @@ const AmeliorerLBA = () => {
               href="https://calendly.com/rdv-labonnealternance/discussion-labonnealternance"
               aria-label="Planifier un échange avec l'équipe"
               title="Je participe à l'étude"
+              color="#000091"
+              border="1px solid #000091"
+              padding="10px 24px"
               isExternal
             >Je participe à l'étude</Link>
           </Box>
