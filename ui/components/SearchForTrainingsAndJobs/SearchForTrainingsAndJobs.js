@@ -355,8 +355,9 @@ const SearchForTrainingsAndJobs = () => {
       <Grid templateColumns={["1fr", "1fr", "5fr 7fr"]} overflow="hidden" height="100%">
         {/*className={`c-searchfor__row is-visible-${isFormVisible} is-welcome-${shouldShowWelcomeMessage} `}*/}
 
-        <GridItem bg="red" className={`${visiblePane === "resultList" ? "activeXSPane" : "inactiveXSPane"}`}>
+        <GridItem bg="red" display="flex" height="100%" overflow="hidden" direction="column" className={`${visiblePane === "resultList" ? "activeXSPane" : "inactiveXSPane"}`}>
           {/* className={`choiceCol-container leftShadow ${visiblePane === "resultList" ? "activeXSPane" : "inactiveXSPane"}`}*/}
+
           <ChoiceColumn
             shouldShowWelcomeMessage={shouldShowWelcomeMessage}
             handleSearchSubmit={handleSearchSubmit}
