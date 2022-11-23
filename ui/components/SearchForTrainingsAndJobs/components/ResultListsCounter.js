@@ -1,12 +1,11 @@
 import React from "react"
 import FilterButton from "./FilterButton"
 import purpleFilterIcon from "../../../public/images/icons/purpleFilter.svg"
-import { Box, Flex, Spinner, Text } from "@chakra-ui/react"
+import { Box, Button, Flex, Image, Spinner, Text } from "@chakra-ui/react"
 
 const ResultListsCounter = (props) => {
   const scopeContext = props.scopeContext
   const filterButtonClicked = props.filterButtonClicked
-  const displayCount = props.displayCount
   const getJobCount = props.getJobCount
   const allJobSearchError = props.allJobSearchError
   const trainingSearchError = props.trainingSearchError
@@ -19,9 +18,6 @@ const ResultListsCounter = (props) => {
 
   if (allJobSearchError && trainingSearchError) return ""
 
-  let count = 0
-
-  let jobPart = ""
   let jobLoading = ""
   let jobCount = 0
 
@@ -35,41 +31,22 @@ const ResultListsCounter = (props) => {
       )
     } else if (!allJobSearchError) {
       jobCount = getJobCount(jobs)
-      count += jobCount
-      jobPart = `${jobCount === 0 ? "aucune entreprise" : jobCount}`
-
-      if (jobCount === 1) {
-        jobPart += " entreprise"
-      } else if (jobCount > 1) {
-        jobPart += " entreprises"
-      }
     }
   }
 
   let trainingCount = 0
-  let trainingPart = ""
   let trainingLoading = ""
 
   if (scopeContext.isTraining) {
     if (isTrainingSearchLoading) {
       trainingLoading = (
         <Flex p={5} color="greensoft.500">
-          <Text>Recherche des formations en cours</Text>
+          <Text mr={4}>Recherche des formations en cours</Text>
           <Spinner thickness="4px" />
         </Flex>
       )
     } else if (!trainingSearchError) {
       trainingCount = trainings ? trainings.length : 0
-
-      count += trainingCount
-
-      trainingPart = `${trainingCount === 0 ? "Aucune formation" : trainingCount}`
-
-      if (trainingCount === 1) {
-        trainingPart += " formation"
-      } else if (trainingCount > 1) {
-        trainingPart += " formations"
-      }
     }
   }
 
@@ -108,9 +85,19 @@ const ResultListsCounter = (props) => {
               <FilterButton type="all" count={jobCount + trainingCount} isActive={activeFilter === "all"} handleFilterButtonClicked={filterButtonClicked} />
               <FilterButton type="jobs" count={jobCount} isActive={activeFilter === "jobs"} handleFilterButtonClicked={filterButtonClicked} />
               <FilterButton type="trainings" count={trainingCount} isActive={activeFilter === "trainings"} handleFilterButtonClicked={filterButtonClicked} />
-              <div className="c-resultlist-purplefilter" onClick={showSearchForm}>
-                <img src={purpleFilterIcon} alt="Filtrer les résultats" />
-              </div>
+              <Button
+                background="none"
+                border="none"
+                title="Accéder aux filtrage des résultats"
+                display={["flex", "flex", "none"]}
+                mt="-10px"
+                ml="auto"
+                mr="30px"
+                pt="15px"
+                onClick={showSearchForm}
+              >
+                <Image width="24px" height="24px" src={purpleFilterIcon} alt="" />
+              </Button>
             </Flex>
           </>
         ) : (

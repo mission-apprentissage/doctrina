@@ -42,23 +42,6 @@
   line-height: 17px;
 }
 
-.c-resultlist-purplefilter {
-  margin-top: -10px;
-  margin-left: auto;
-  margin-right: 30px;
-  cursor: pointer;
-  display: flex;
-  @include media-breakpoint-up(md) {
-    display: none;
-  }
-  padding-top: 15px;
-
-  img {
-    width: 24px;
-    height: 24px;
-  }
-}
-
 .c-result-list__text {
   padding-bottom: 100px;
   @include media-breakpoint-up(md) {
