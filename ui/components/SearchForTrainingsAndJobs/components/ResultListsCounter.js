@@ -1,7 +1,7 @@
 import React from "react"
-import { Spinner } from "reactstrap"
 import FilterButton from "./FilterButton"
 import purpleFilterIcon from "../../../public/images/icons/purpleFilter.svg"
+import { Box, Flex, Spinner, Text } from "@chakra-ui/react"
 
 const ResultListsCounter = (props) => {
   const scopeContext = props.scopeContext
@@ -28,12 +28,10 @@ const ResultListsCounter = (props) => {
   if (scopeContext.isJob) {
     if (isJobSearchLoading) {
       jobLoading = (
-        <span className="jobColor">
-          <div className="searchLoading">
-            Recherche des entreprises en cours
-            <Spinner />
-          </div>
-        </span>
+        <Flex p={5} color="pinksoft.600">
+          <Text mr={4}>Recherche des entreprises en cours</Text>
+          <Spinner thickness="4px" />
+        </Flex>
       )
     } else if (!allJobSearchError) {
       jobCount = getJobCount(jobs)
@@ -55,12 +53,10 @@ const ResultListsCounter = (props) => {
   if (scopeContext.isTraining) {
     if (isTrainingSearchLoading) {
       trainingLoading = (
-        <span className="trainingColor">
-          <div className="searchLoading">
-            Recherche des formations en cours
-            <Spinner />
-          </div>
-        </span>
+        <Flex p={5} color="greensoft.500">
+          <Text>Recherche des formations en cours</Text>
+          <Spinner thickness="4px" />
+        </Flex>
       )
     } else if (!trainingSearchError) {
       trainingCount = trainings ? trainings.length : 0
@@ -77,49 +73,51 @@ const ResultListsCounter = (props) => {
     }
   }
 
-  let correspondText = `${count === 0 ? " ne" : ""}${count <= 1 ? " correspond" : " correspondent"} à votre recherche`
+  const resultListProperties = {
+    textAlign: "left",
+    marginLeft: "10px",
+    color: "grey.650",
+    fontWeight: 600,
+    fontSize: "22px",
+    marginBottom: "0px",
+    padding: "0 20px",
+    mt: [0, 0, 2],
+  }
+
+  const filterZoneProperties = {
+    justifyContent: "left",
+    paddingLeft: "31px",
+    marginBottom: "4px",
+    alignItems: ["left", "left", "left", "center"],
+  }
 
   return (
-    <div className="pt-0">
-      <div className="resultTitle mt-0 mt-md-2">
-        {trainingLoading ? (
-          <>
-            <br />
-            <br />
-            {trainingLoading}
-          </>
-        ) : (
-          ""
-        )}
-        {jobLoading ? (
-          <>
-            <br />
-            <br />
-            {jobLoading}
-          </>
-        ) : (
-          ""
-        )}
-      </div>
+    <Box pt="0">
+      <Box {...resultListProperties}>
+        {trainingLoading}
+        {jobLoading}
+      </Box>
 
-      <div className="c-filterzone mt-3">
+      <Flex direction={["column", "column", "column", "row"]} wrap="wrap" mt={4} {...filterZoneProperties}>
         {!trainingLoading && !jobLoading && scopeContext.isJob && scopeContext.isTraining ? (
           <>
-            <div className="c-filterbuttons-hint mr-3">Que souhaitez-vous voir ?</div>
-            <div className="c-filterbuttons">
+            <Box mr={4} textAlign="left" fontSize="14px" display={["none", "none", "block"]}>
+              Que souhaitez-vous voir ?
+            </Box>
+            <Flex>
               <FilterButton type="all" count={jobCount + trainingCount} isActive={activeFilter === "all"} handleFilterButtonClicked={filterButtonClicked} />
               <FilterButton type="jobs" count={jobCount} isActive={activeFilter === "jobs"} handleFilterButtonClicked={filterButtonClicked} />
               <FilterButton type="trainings" count={trainingCount} isActive={activeFilter === "trainings"} handleFilterButtonClicked={filterButtonClicked} />
               <div className="c-resultlist-purplefilter" onClick={showSearchForm}>
                 <img src={purpleFilterIcon} alt="Filtrer les résultats" />
               </div>
-            </div>
+            </Flex>
           </>
         ) : (
           ""
         )}
-      </div>
-    </div>
+      </Flex>
+    </Box>
   )
 }
 
