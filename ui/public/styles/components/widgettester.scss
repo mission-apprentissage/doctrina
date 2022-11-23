@@ -192,18 +192,6 @@
   border: 2px solid #066ee7;
   background: #066ee7;
 }
-.widgetTestPage form .filterButton {
-  background-image: url(/images/icons/filter.svg);
-  background-position: 4px;
-  background-repeat: no-repeat;
-  width: 80px;
-  text-align: right;
-}
-.widgetTestPage form .filterButton:hover {
-  background-image: url("/images/icons/filter_white.svg");
-  background-position: 4px;
-  background-repeat: no-repeat;
-}
 .widgetTestPage form .noOpportunityFound {
   margin-top: 30px;
 }
@@ -216,13 +204,5 @@
 @media only screen and (max-width: 900px) {
   .widgetTestPage .hiddenSM {
     display: none;
-  }
-  .widgetTestPage .filterButton {
-    background-position: 8px !important;
-    width: 42px !important;
-    height: 42px !important;
-  }
-  .widgetTestPage .filterButton:hover {
-    background-position: 8px !important;
   }
 }
