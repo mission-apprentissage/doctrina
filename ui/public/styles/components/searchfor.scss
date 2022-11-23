@@ -28,54 +28,6 @@
   display: none;
 }
 
-.demoPage .floatingButtons {
-  @include media-breakpoint-up(md) {
-    display: none;
-  }
-}
-.demoPage .floatingButtons.is-hidden-true {
-  display: none;
-}
-
-.demoPage .floatingButtons button {
-  cursor: pointer;
-  margin-right: 30px;
-  background-color: $gray-750;
-  font-size: 14px;
-  color: #fff;
-  border-radius: 58px;
-  border: none;
-  padding: 10px 20px;
-  margin-top: -2rem;
-}
-.demoPage .floatingButtons button:focus {
-  box-shadow: none;
-}
-
-@media only screen and (max-width: 350px) {
-  .demoPage .floatingButtons {
-    display: block;
-    position: fixed;
-    bottom: 40px;
-    right: unset;
-    left: 50%;
-    transform: translateX(-40%);
-  }
-}
-@media only screen and (min-width: 351px) and (max-width: 767px) {
-  .demoPage .floatingButtons {
-    &.is-hidden-true {
-      display: none;
-    }
-    &.is-hidden-false {
-      display: block;
-    }
-    position: fixed;
-    bottom: 22px;
-    left: 50%;
-    transform: translateX(-40%);
-  }
-}
 .demoPage .inFormIcon {
   margin-top: 13px;
   margin-left: 15px;

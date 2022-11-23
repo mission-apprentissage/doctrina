@@ -23,33 +23,6 @@
 .widgetTestPage .hiddenItemDetail {
   display: none;
 }
-.widgetTestPage .floatingButtons {
-  display: none;
-}
-.widgetTestPage .floatingButtons button {
-  cursor: pointer;
-  margin-right: 30px;
-  background-color: #0061df;
-  font-size: 14px;
-  color: #fff;
-  border-radius: 19px;
-  border: none;
-  padding: 10px 20px;
-}
-.widgetTestPage .floatingButtons button:focus {
-  box-shadow: none;
-}
-@media only screen and (max-width: 767px) {
-  .widgetTestPage .floatingButtons {
-    display: block;
-    position: fixed;
-    bottom: 40px;
-    right: 40%;
-  }
-  .widgetTestPage .floatingButtons.resultList {
-    right: 30px;
-  }
-}
 .widgetTestPage .inFormIcon {
   margin-top: 13px;
   margin-left: 15px;

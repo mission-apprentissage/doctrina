@@ -9,46 +9,33 @@ const MapListSwitchButton = ({ showResultMap, showResultList, isFormVisible }) =
   const { hasSearch } = React.useContext(SearchResultContext)
   const { visiblePane } = React.useContext(DisplayContext)
 
-  /*
-
-.demoPage .floatingButtons button {
-  cursor: pointer;
-  margin-right: 30px;
-  background-color: $gray-750;
-  font-size: 14px;
-  color: #fff;
-  border-radius: 58px;
-  border: none;
-  padding: 10px 20px;
-  margin-top: -2rem;
-}
-.demoPage .floatingButtons button:focus {
-  box-shadow: none;
-}
-
-
-.widgetTestPage .floatingButtons button {
-  cursor: pointer;
-  margin-right: 30px;
-  background-color: #0061df;
-  font-size: 14px;
-  color: #fff;
-  border-radius: 19px;
-  border: none;
-  padding: 10px 20px;
-}
-.widgetTestPage .floatingButtons button:focus {
-  box-shadow: none;
-
-  */
-
   const floatingButtonProperties = {
     position: "fixed",
     bottom: ["2.5rem", "1.5rem"],
     left: "50%",
     right: ["unset", "40%"],
     transform: "translateX(-40%)",
+    minWidth: "110px",
   }
+
+  const buttonProperties = {
+    cursor: "pointer",
+    marginRight: "2rem",
+    backgroundColor: "grey.750",
+    fontSize: "14px",
+    fontWeight: 700,
+    color: "white",
+    borderRadius: "19px",
+    border: "none",
+    padding: "10px 20px",
+    _focus: {
+      boxShadow: "none",
+    },
+    _hover: {
+      backgroundColor: "grey.750",
+    },
+  }
+
   const resultListFloatingButtonDisplayProperty = isFormVisible ? "none" : ["block", "block", "none"]
   const mapFloatingButtonDisplayProperty = ["block", "block", "none"]
 
@@ -56,10 +43,10 @@ const MapListSwitchButton = ({ showResultMap, showResultList, isFormVisible }) =
     if (hasSearch)
       return (
         <Box display={resultListFloatingButtonDisplayProperty} {...floatingButtonProperties}>
-          <Button onClick={showResultMap} title="Afficher la carte">
+          <Button {...buttonProperties} onClick={showResultMap} title="Afficher la carte">
             <Flex alignItems="center">
               <Image src={toggleCard} alt="" />
-              <Text as="span" marginLeft={2} className="c-resultlist-card">
+              <Text as="span" marginLeft={2}>
                 Carte
               </Text>
             </Flex>
@@ -71,10 +58,10 @@ const MapListSwitchButton = ({ showResultMap, showResultList, isFormVisible }) =
     return (
       <Box display={mapFloatingButtonDisplayProperty} {...floatingButtonProperties}>
         {hasSearch ? (
-          <Button onClick={showResultList} title="Afficher la liste">
+          <Button {...buttonProperties} onClick={showResultList} title="Afficher la liste">
             <Flex alignItems="center">
               <Image src={toggleList} alt="" />
-              <Text as="span" marginLeft={2} className="c-resultlist-card">
+              <Text as="span" marginLeft={2}>
                 Liste
               </Text>
             </Flex>
