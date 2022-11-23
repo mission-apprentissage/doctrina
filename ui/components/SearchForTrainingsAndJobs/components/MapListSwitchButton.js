@@ -3,7 +3,7 @@ import toggleList from "../../../public/images/icons/toggleList.svg"
 import toggleCard from "../../../public/images/icons/toggleCard.svg"
 import { SearchResultContext } from "../../../context/SearchResultContextProvider"
 import { DisplayContext } from "../../../context/DisplayContextProvider"
-import { Box, Button, Image, Text } from "@chakra-ui/react"
+import { Box, Button, Flex, Image, Text } from "@chakra-ui/react"
 
 const MapListSwitchButton = ({ showResultMap, showResultList, isFormVisible }) => {
   const { hasSearch } = React.useContext(SearchResultContext)
@@ -56,11 +56,13 @@ const MapListSwitchButton = ({ showResultMap, showResultList, isFormVisible }) =
     if (hasSearch)
       return (
         <Box display={resultListFloatingButtonDisplayProperty} {...floatingButtonProperties}>
-          <Button onClick={showResultMap} className="d-flex align-items-center">
-            <Image src={toggleCard} alt="Basculer vers la carte" />
-            <Text as="span" className="ml-2 c-resultlist-card">
-              Carte
-            </Text>
+          <Button onClick={showResultMap} title="Afficher la carte">
+            <Flex alignItems="center">
+              <Image src={toggleCard} alt="" />
+              <Text as="span" marginLeft={2} className="c-resultlist-card">
+                Carte
+              </Text>
+            </Flex>
           </Button>
         </Box>
       )
@@ -69,11 +71,13 @@ const MapListSwitchButton = ({ showResultMap, showResultList, isFormVisible }) =
     return (
       <Box display={mapFloatingButtonDisplayProperty} {...floatingButtonProperties}>
         {hasSearch ? (
-          <Button onClick={showResultList} className="d-flex align-items-center">
-            <Image src={toggleList} alt="Basculer vers la liste" />
-            <Text as="span" className="ml-2 c-resultlist-card">
-              Liste
-            </Text>
+          <Button onClick={showResultList} title="Afficher la liste">
+            <Flex alignItems="center">
+              <Image src={toggleList} alt="" />
+              <Text as="span" marginLeft={2} className="c-resultlist-card">
+                Liste
+              </Text>
+            </Flex>
           </Button>
         ) : (
           ""
