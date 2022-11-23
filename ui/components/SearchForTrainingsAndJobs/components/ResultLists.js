@@ -12,6 +12,7 @@ import { isCfaEntreprise } from "../../../services/cfaEntreprise"
 
 import { renderJob, renderTraining, renderLbb } from "../services/renderOneResult"
 import hasAlsoEmploi from "../../ItemDetail/ItemDetailServices/hasAlsoEmploi"
+import { Box, Flex } from "@chakra-ui/react"
 
 const ResultLists = (props) => {
   const scopeContext = useContext(ScopeContext)
@@ -189,12 +190,12 @@ const ResultLists = (props) => {
 
   const [displayCount, setDisplayCount] = useState(true)
   const handleScroll = () => {
-    setDisplayCount(document.querySelector(".c-result-list__text").scrollTop < 30)
+    setDisplayCount(document.querySelector("#resultList").scrollTop < 30)
   }
 
   return (
-    <div className={`c-result-list d-md-flex ${isFormVisible ? "hiddenResultList" : ""} ${props.selectedItem ? "c-result-list--item" : ""}`}>
-      <div className={`c-result-list__header ${props.shouldShowWelcomeMessage || props.selectedItem ? "d-none" : ""}`}>
+    <Flex direction="column" height={props.selectedItem ? "0%" : "100%"} display={isFormVisible ? "none" : "flex"}>
+      <Box bg="beige" display={props.shouldShowWelcomeMessage || props.selectedItem ? "none" : ""}>
         <ResultListsCounter
           scopeContext={scopeContext}
           filterButtonClicked={filterButtonClicked}
@@ -210,12 +211,20 @@ const ResultLists = (props) => {
           showSearchForm={props.showSearchForm}
         />
         {getErrorMessages()}
-      </div>
-      <div onScroll={handleScroll} id="resultList" className={`c-result-list__text ${props.shouldShowWelcomeMessage || props.selectedItem ? "d-none" : ""}`}>
+      </Box>
+      <Box
+        flex="1"
+        pb={["100px", "100px", 0]}
+        overflow="auto"
+        onScroll={handleScroll}
+        id="resultList"
+        display={props.shouldShowWelcomeMessage || props.selectedItem ? "none" : ""}
+        bg="beige"
+      >
         {getTrainingResult()}
         {getJobResult()}
-      </div>
-    </div>
+      </Box>
+    </Flex>
   )
 }
 
