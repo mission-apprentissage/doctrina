@@ -34,11 +34,9 @@ const ResultLists = (props) => {
   const getTrainingResult = () => {
     if (hasSearch && scopeContext.isTraining && (props.activeFilter === "all" || props.activeFilter === "trainings")) {
       return (
-        <>
-          <div id="trainingResult" className="trainingResult">
-            {getTrainingList()}
-          </div>
-        </>
+        <Box bg="beige" id="trainingResult">
+          {getTrainingList()}
+        </Box>
       )
     } else {
       return ""
@@ -80,12 +78,12 @@ const ResultLists = (props) => {
       if (jobCount) {
         if (extendedSearch) {
           const mergedJobList = getMergedJobList()
-          return <div className="jobResult">{mergedJobList ? <>{mergedJobList}</> : ""}</div>
+          return <Box bg="beige">{mergedJobList ? <>{mergedJobList}</> : ""}</Box>
         } else {
           const jobList = getJobList()
           const lbbCompanyList = getLbbCompanyList()
           return (
-            <div className="jobResult">
+            <Box bg="beige" textAlign="center">
               {jobList || lbbCompanyList ? (
                 <>
                   {jobList}
@@ -95,10 +93,10 @@ const ResultLists = (props) => {
               ) : (
                 <>
                   <NoJobResult />
-                  <ExtendedSearchButton title="Étendre la sélection" hasJob="true" handleExtendedSearch={props.handleExtendedSearch} />
+                  <ExtendedSearchButton title="Étendre la sélection" handleExtendedSearch={props.handleExtendedSearch} />
                 </>
               )}
-            </div>
+            </Box>
           )
         }
       } else {
@@ -107,7 +105,7 @@ const ResultLists = (props) => {
           return (
             <>
               <NoJobResult />
-              <ExtendedSearchButton title="Étendre la sélection" hasJob="false" handleExtendedSearch={props.handleExtendedSearch} />
+              <ExtendedSearchButton title="Étendre la sélection" handleExtendedSearch={props.handleExtendedSearch} />
             </>
           )
       }
