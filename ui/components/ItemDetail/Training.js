@@ -11,6 +11,7 @@ import { getSearchQueryParameters } from "../../utils/getSearchParameters"
 import { SearchResultContext } from "../../context/SearchResultContextProvider"
 import { ParameterContext } from "../../context/ParameterContextProvider"
 import { DisplayContext } from "../../context/DisplayContextProvider"
+import { Button, Image, Text } from "@chakra-ui/react"
 
 const Training = ({ training, handleSelectItem, showTextOnly, searchForJobsOnNewCenter, hasAlsoJob, isCfa }) => {
   const { selectedMapPopupItem } = React.useContext(SearchResultContext)
@@ -43,10 +44,38 @@ const Training = ({ training, handleSelectItem, showTextOnly, searchForJobsOnNew
   }
 
   const getCenterSearchOnTrainingButton = () => {
+    /*
+      .resultCard .extendedJobSearchButton,
+      .resultCard .extendedTrainingSearchButton {
+        cursor: pointer !important;
+        background: none !important;
+        border: none !important;
+        padding: 0px 5px 10px 0 !important;
+        font-size: 14px !important;
+        width: fit-content !important;
+        max-width: unset !important;
+      }
+
+    */
+
+    const buttonProperties = {
+      color: "#ff8d7e",
+      display: "flex",
+      cursor: "pointer",
+      background: "none",
+      border: "none",
+      padding: "0px 5px 10px 0",
+      fontSize: "14px",
+      width: "fit-content",
+    }
+
     return (
-      <button className="extendedJobSearchButton" onClick={centerSearchOnTraining}>
-        <img src={extendedSearchPin} alt="" /> <span>Voir les entreprises proches</span>
-      </button>
+      <Button title="Voir les entreprises proches" {...buttonProperties} onClick={centerSearchOnTraining}>
+        <Image mb="2px" mr="5px" src={extendedSearchPin} alt="" />{" "}
+        <Text textDecoration="underline" as="span">
+          Voir les entreprises proches
+        </Text>
+      </Button>
     )
   }
 

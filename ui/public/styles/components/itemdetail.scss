@@ -113,7 +113,6 @@ a.resultCard:hover {
   color: #4a4a4a;
   cursor: pointer;
 }
-.resultCard .extendedJobSearchButton,
 .resultCard .extendedTrainingSearchButton {
   cursor: pointer !important;
   background: none !important;
@@ -123,18 +122,12 @@ a.resultCard:hover {
   width: fit-content !important;
   max-width: unset !important;
 }
-.resultCard .extendedJobSearchButton img,
 .resultCard .extendedTrainingSearchButton img {
   margin-bottom: 2px !important;
   margin-right: 5px !important;
 }
-.resultCard .extendedJobSearchButton span,
 .resultCard .extendedTrainingSearchButton span {
   text-decoration: underline !important;
-}
-.resultCard .extendedJobSearchButton {
-  color: #ff8d7e !important;
-  display: flex;
 }
 .resultCard .extendedTrainingSearchButton {
   color: #01ac8c !important;
