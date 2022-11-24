@@ -1,22 +1,6 @@
 import React from "react"
-
 import bookIcon from "public/images/book.svg"
-import { Flex, Image, Text } from "@chakra-ui/react"
-
-/*
-.c-media-tag.c-media-tag--2nd {
-  margin-left: 0px;
-  margin-top: 3px;
-  margin-right: 4px;
-
-  @include media-breakpoint-up(lg) {
-    margin-left: 4px;
-    margin-right: 0px;
-  }
-}
-
-
-  */
+import { Image, Text } from "@chakra-ui/react"
 
 const tagProperties = {
   fontSize: "12px",
