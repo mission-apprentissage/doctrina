@@ -11,7 +11,7 @@ import { getSearchQueryParameters } from "../../utils/getSearchParameters"
 import { SearchResultContext } from "../../context/SearchResultContextProvider"
 import { ParameterContext } from "../../context/ParameterContextProvider"
 import { DisplayContext } from "../../context/DisplayContextProvider"
-import { Button, Image, Link, Text } from "@chakra-ui/react"
+import { Box, Button, Flex, Image, Link, Text } from "@chakra-ui/react"
 
 const Training = ({ training, handleSelectItem, showTextOnly, searchForJobsOnNewCenter, hasAlsoJob, isCfa }) => {
   const { selectedMapPopupItem } = React.useContext(SearchResultContext)
@@ -129,14 +129,18 @@ const Training = ({ training, handleSelectItem, showTextOnly, searchForJobsOnNew
 
   return (
     <Link as="a" className="resultCard" {...cardProperties} onClick={onSelectItem} onMouseOver={highlightItemOnMap} onMouseOut={dimItemOnMap} href={actualLink}>
-      <div className="c-media" id={`id${training.id}`}>
-        <div className="c-media-body">
-          <div className="row no-gutters">
-            <div className="col-12 col-lg-6 text-left">
-              <div className="title d-inline-block">{training.title ? training.title : training.longTitle}</div>
-            </div>
-            <div className="col-12 col-lg-6  d-lg-flex flex-column text-left text-lg-right my-1 my-lg-0">{isCfa ? <TagCfaDEntreprise /> : <TagFormation />}</div>
-          </div>
+      <Flex align="flex-start" id={`id${training.id}`}>
+        <Box flex="1">
+          <Flex m="0">
+            <Box flex="initial" textAlign="left">
+              <Box color="black" fontSize="1rem" fontWeight={700}>
+                {training.title ? training.title : training.longTitle}
+              </Box>
+            </Box>
+            <Box my={[1, 1, 1, "0"]} flex="auto" textAlign="right">
+              {isCfa ? <TagCfaDEntreprise /> : <TagFormation />}
+            </Box>
+          </Flex>
 
           <div className="cardText pt-3 pt-lg-1">{training.company.name}</div>
           <div className="cardText pt-2">{training.place.fullAddress}</div>
@@ -158,15 +162,13 @@ const Training = ({ training, handleSelectItem, showTextOnly, searchForJobsOnNew
           ) : (
             <>{(training.place.distance === null || Math.round(training.place.distance) > currentSearchRadius) && scopeContext.isJob ? getCenterSearchOnTrainingButton() : ""}</>
           )}
-        </div>
-      </div>
+        </Box>
+      </Flex>
     </Link>
   )
 }
 
 /*
-  
-
 
 .resultCard .cardDistance {
   display: flex;
@@ -185,11 +187,6 @@ const Training = ({ training, handleSelectItem, showTextOnly, searchForJobsOnNew
   font-size: 14px;
   font-weight: 500;
   line-height: 24px;
-}
-.resultCard .title {
-  font-size: 16px;
-  font-weight: bold;
-  color: #000;
 }
 .resultCard .body {
   font-size: 14px;
