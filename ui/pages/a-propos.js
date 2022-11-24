@@ -43,7 +43,7 @@ const StartupCard = ({ logoUrl, url, title }) => {
         <Image src={logoUrl} width="134px" alt="" />
       </Box>
       <Box pl={2}>
-        <Link url={url} isExternal>
+        <Link href={url} isExternal>
           {title}
         </Link>
       </Box>
@@ -58,7 +58,7 @@ const ServiceLink = ({ url, text, title }) => {
         •
       </GridItem>
       <GridItem ml={4} colSpan={[11, 11, 4]}>
-        <Link sx={{ "text-underline-offset": "3px" }} textDecoration="underline" textDecorationThickness="2px" fontWeight="700" url={url} isExternal>
+        <Link sx={{ "text-underline-offset": "3px" }} textDecoration="underline" textDecorationThickness="2px" fontWeight="700" href={url} isExternal>
           {title}
         </Link>
       </GridItem>
