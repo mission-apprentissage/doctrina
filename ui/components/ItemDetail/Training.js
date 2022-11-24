@@ -11,7 +11,7 @@ import { getSearchQueryParameters } from "../../utils/getSearchParameters"
 import { SearchResultContext } from "../../context/SearchResultContextProvider"
 import { ParameterContext } from "../../context/ParameterContextProvider"
 import { DisplayContext } from "../../context/DisplayContextProvider"
-import { Button, Image, Text } from "@chakra-ui/react"
+import { Button, Image, Link, Text } from "@chakra-ui/react"
 
 const Training = ({ training, handleSelectItem, showTextOnly, searchForJobsOnNewCenter, hasAlsoJob, isCfa }) => {
   const { selectedMapPopupItem } = React.useContext(SearchResultContext)
@@ -29,10 +29,6 @@ const Training = ({ training, handleSelectItem, showTextOnly, searchForJobsOnNew
     handleSelectItem(training, "training")
   }
 
-  const getHightlightClass = () => {
-    return shouldBeHighlighted() ? "c-resultcard--highlight" : ""
-  }
-
   const shouldBeHighlighted = () => {
     if (selectedMapPopupItem?.ideaType === "formation") {
       return selectedMapPopupItem.items.find((item) => {
@@ -43,48 +39,26 @@ const Training = ({ training, handleSelectItem, showTextOnly, searchForJobsOnNew
     }
   }
 
+  const centerSearchButtonProperties = {
+    color: "#ff8d7e",
+    display: "flex",
+    cursor: "pointer",
+    background: "none",
+    border: "none",
+    padding: "0px 5px 10px 0",
+    fontSize: "14px",
+    width: "fit-content",
+  }
+
   const getCenterSearchOnTrainingButton = () => {
-    /*
-      .resultCard .extendedJobSearchButton,
-      .resultCard .extendedTrainingSearchButton {
-        cursor: pointer !important;
-        background: none !important;
-        border: none !important;
-        padding: 0px 5px 10px 0 !important;
-        font-size: 14px !important;
-        width: fit-content !important;
-        max-width: unset !important;
-      }
-
-    */
-
-    const buttonProperties = {
-      color: "#ff8d7e",
-      display: "flex",
-      cursor: "pointer",
-      background: "none",
-      border: "none",
-      padding: "0px 5px 10px 0",
-      fontSize: "14px",
-      width: "fit-content",
-    }
-
     return (
-      <Button title="Voir les entreprises proches" {...buttonProperties} onClick={centerSearchOnTraining}>
+      <Button title="Voir les entreprises proches" {...centerSearchButtonProperties} onClick={centerSearchOnTraining}>
         <Image mb="2px" mr="5px" src={extendedSearchPin} alt="" />{" "}
         <Text textDecoration="underline" as="span">
           Voir les entreprises proches
         </Text>
       </Button>
     )
-  }
-
-  const getDebugClass = () => {
-    if (itemParameters?.mode === "debug" && formValues?.job?.rncps.indexOf(training.rncpCode) < 0) {
-      return "debugRemoved"
-    } else {
-      return ""
-    }
   }
 
   const centerSearchOnTraining = async (e) => {
@@ -131,14 +105,30 @@ const Training = ({ training, handleSelectItem, showTextOnly, searchForJobsOnNew
 
   const actualLink = `/recherche-apprentissage?display=list&page=fiche&${getItemQueryParameters(training)}&${getSearchQueryParameters(formValues)}`
 
+  /*
+  .itemDetail .resultCard {
+    box-shadow: none;
+  }
+  */
+  let cardProperties = {
+    color: "grey.650",
+    cursor: "pointer",
+    bg: "white",
+    textAlign: "left",
+    m: ["0.5rem 0", "18px 25px", "0.5rem 0", "0.5rem 25px"],
+    p: ["20px 10px", "20px 25px", "20px 10px", "20px 25px"],
+    _hover: {
+      textDecoration: "none",
+      color: "inherit",
+    },
+  }
+
+  if (shouldBeHighlighted()) {
+    cardProperties.filter = "drop-shadow(0px 0px 8px rgba(30, 30, 30, 0.25))"
+  }
+
   return (
-    <a
-      className={`resultCard trainingCard gtmSavoirPlus gtmFormation gtmListe ${getHightlightClass()} ${getDebugClass()}`}
-      onClick={onSelectItem}
-      onMouseOver={highlightItemOnMap}
-      onMouseOut={dimItemOnMap}
-      href={actualLink}
-    >
+    <Link as="a" className="resultCard" {...cardProperties} onClick={onSelectItem} onMouseOver={highlightItemOnMap} onMouseOut={dimItemOnMap} href={actualLink}>
       <div className="c-media" id={`id${training.id}`}>
         <div className="c-media-body">
           <div className="row no-gutters">
@@ -170,8 +160,72 @@ const Training = ({ training, handleSelectItem, showTextOnly, searchForJobsOnNew
           )}
         </div>
       </div>
-    </a>
+    </Link>
   )
 }
+
+/*
+  
+
+
+.resultCard .cardDistance {
+  display: flex;
+  font-size: 14px;
+  font-weight: 400;
+  color: $gray-600;
+}
+
+.resultCard .knowMore button.c-resultcard-knowmore {
+  font-size: 14px;
+  margin-left: auto;
+  line-height: 17px;
+}
+
+.cardText {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
+}
+.resultCard .title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #000;
+}
+.resultCard .body {
+  font-size: 14px;
+}
+.resultCard .body > div {
+  margin-top: 5px;
+}
+.resultCard .knowMore {
+  margin-left: auto;
+}
+.resultCard .knowMore button {
+  color: $gray-700 !important;
+  background: none;
+  border: none;
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 5px;
+  padding-top: 0px;
+  width: fit-content;
+  border-bottom: 2px solid $gray-700;
+}
+.resultCard .knowMore button:hover {
+  color: #000;
+}
+.resultCard .hasJob {
+  font-weight: bold;
+}
+.resultCard .companySize > img {
+  margin-right: 5px;
+  margin-top: -5px;
+}
+.resultCard .body a,
+.resultCard .body a:hover,
+.resultCard .body a:visited {
+  color: black;
+}
+*/
 
 export default Training
