@@ -9,7 +9,7 @@ const tagProperties = {
   lineHeight: "15px",
   letterSpacing: "0px",
   margin: "3px 4px 0 0",
-  width: "fit-content",
+  width: "max-content",
   borderRadius: "6px",
   padding: "0.5rem",
   paddingTop: "0.25rem",

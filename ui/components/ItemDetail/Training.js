@@ -142,21 +142,36 @@ const Training = ({ training, handleSelectItem, showTextOnly, searchForJobsOnNew
             </Box>
           </Flex>
 
-          <div className="cardText pt-3 pt-lg-1">{training.company.name}</div>
-          <div className="cardText pt-2">{training.place.fullAddress}</div>
-          {itemParameters?.mode === "debug" ? <div className="cardText pt-2">{`${training.rncpCode} - romes :${training.romes.map((rome) => " " + rome.code)}`}</div> : ""}
-          <span className="cardDistance pt-1">
+          <Box pt={[4, 4, 4, 1]} fw={500} fs="14p" lineHeight="24px">
+            {training.company.name}
+          </Box>
+          <Box pt={2} fw={500} fs="14p" lineHeight="24px">
+            {training.place.fullAddress}
+          </Box>
+          <Text display="flex" fs="14px" color="grey.600" as="span" pt={1}>
             {training.place.distance !== null ? `${Math.round(training.place.distance)} km(s) du lieu de recherche` : ""}
             {showTextOnly ? (
               ""
             ) : (
-              <>
-                <span className="knowMore d-none d-md-block">
-                  <button className="c-resultcard-knowmore">En savoir plus</button>
-                </span>
-              </>
+              <Text ml="auto" as="span" display={["none", "none", "block"]}>
+                <Button
+                  color="grey.700"
+                  width="max-content"
+                  p="0 0 5px 0"
+                  borderRadius="none"
+                  ml="auto"
+                  lineHeight="17px"
+                  bg="none"
+                  border="none"
+                  borderBottom="2px solid"
+                  borderColor="grey.700"
+                  _hover={{ color: "black" }}
+                >
+                  En savoir plus
+                </Button>
+              </Text>
             )}
-          </span>
+          </Text>
           {showTextOnly ? (
             ""
           ) : (
@@ -167,62 +182,5 @@ const Training = ({ training, handleSelectItem, showTextOnly, searchForJobsOnNew
     </Link>
   )
 }
-
-/*
-
-.resultCard .cardDistance {
-  display: flex;
-  font-size: 14px;
-  font-weight: 400;
-  color: $gray-600;
-}
-
-.resultCard .knowMore button.c-resultcard-knowmore {
-  font-size: 14px;
-  margin-left: auto;
-  line-height: 17px;
-}
-
-.cardText {
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 24px;
-}
-.resultCard .body {
-  font-size: 14px;
-}
-.resultCard .body > div {
-  margin-top: 5px;
-}
-.resultCard .knowMore {
-  margin-left: auto;
-}
-.resultCard .knowMore button {
-  color: $gray-700 !important;
-  background: none;
-  border: none;
-  padding-left: 0;
-  padding-right: 0;
-  padding-bottom: 5px;
-  padding-top: 0px;
-  width: fit-content;
-  border-bottom: 2px solid $gray-700;
-}
-.resultCard .knowMore button:hover {
-  color: #000;
-}
-.resultCard .hasJob {
-  font-weight: bold;
-}
-.resultCard .companySize > img {
-  margin-right: 5px;
-  margin-top: -5px;
-}
-.resultCard .body a,
-.resultCard .body a:hover,
-.resultCard .body a:visited {
-  color: black;
-}
-*/
 
 export default Training
