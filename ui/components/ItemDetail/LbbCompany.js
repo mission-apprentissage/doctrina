@@ -25,11 +25,25 @@ const LbbCompany = ({ company, handleSelectItem, showTextOnly, searchForTraining
     handleSelectItem(company, company.ideaType)
   }
 
+  const centerSearchButtonProperties = {
+    color: "#01ac8c",
+    display: "flex",
+    cursor: "pointer",
+    background: "none",
+    border: "none",
+    padding: "0px 5px 10px 0",
+    fontSize: "14px",
+    width: "fit-content",
+  }
+
   const getCenterSearchOnCompanyButton = () => {
     return (
-      <button className="extendedTrainingSearchButton" onClick={centerSearchOnCompany}>
-        <img src={extendedSearchPin} alt="" /> <span>Voir les formations proches</span>
-      </button>
+      <Button title="Voir les formations proches" {...centerSearchButtonProperties} onClick={centerSearchOnCompany}>
+        <Image mb="2px" mr="5px" src={extendedSearchPin} alt="" />{" "}
+        <Text textDecoration="underline" as="span">
+          Voir les formations proches
+        </Text>
+      </Button>
     )
   }
 
