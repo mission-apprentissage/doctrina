@@ -15,7 +15,6 @@ import { Box, Button, Flex, Image, Link, Text } from "@chakra-ui/react"
 
 const Training = ({ training, handleSelectItem, showTextOnly, searchForJobsOnNewCenter, hasAlsoJob, isCfa }) => {
   const { selectedMapPopupItem } = React.useContext(SearchResultContext)
-  const { itemParameters } = React.useContext(ParameterContext)
   const { formValues } = React.useContext(DisplayContext)
   const scopeContext = useContext(ScopeContext)
 
@@ -105,11 +104,6 @@ const Training = ({ training, handleSelectItem, showTextOnly, searchForJobsOnNew
 
   const actualLink = `/recherche-apprentissage?display=list&page=fiche&${getItemQueryParameters(training)}&${getSearchQueryParameters(formValues)}`
 
-  /*
-  .itemDetail .resultCard {
-    box-shadow: none;
-  }
-  */
   let cardProperties = {
     color: "grey.650",
     cursor: "pointer",
