@@ -4,22 +4,26 @@ import Navigation from "../components/navigation"
 import ScrollToTop from "../components/ScrollToTop"
 
 import Footer from "../components/footer"
+import { Box, Grid, GridItem, Text } from "@chakra-ui/react"
+import { Container } from "reactstrap"
 
 const stats = () => (
-  <div>
+  <Box>
     <ScrollToTop />
     <Navigation />
     <Breadcrumb forPage="stats" label="Statistiques" />
 
-    <div className="c-page-container container my-0 mb-sm-5 p-5">
-      <div className="row">
-        <div className="col-12 col-md-5">
-          <h1>
-            <span className="d-block c-page-title is-color-2">Statistiques</span>
-          </h1>
+    <Container>
+      <Grid>
+        <GridItem>
+          <Text as="h1">
+            <Text as="span" display="block">
+              Statistiques
+            </Text>
+          </Text>
           <hr className="c-page-title-separator" align="left" />
-        </div>
-        <div className="col-12 col-md-7">
+        </GridItem>
+        <GridItem>
           <h3>Statistiques</h3>
           <p>
             La bonne alternance est une startup d’Etat incubée par beta.gouv. Nous développons un service à destination des publics selon les principes du{" "}
@@ -33,12 +37,11 @@ const stats = () => (
               consulter ici
             </a>
           </p>
-        </div>
-      </div>
-    </div>
-    <div className="mb-3">&nbsp;</div>
+        </GridItem>
+      </Grid>
+    </Container>
     <Footer />
-  </div>
+  </Box>
 )
 
 export default stats
