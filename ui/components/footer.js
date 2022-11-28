@@ -8,13 +8,13 @@ const Footer = (props) => {
   return (
     <Box as="footer" maxWidth="1310px" mx="auto">
       <Box as="nav">
-        <Box>
+        <Box pl={{ base: 8, lg: 0 }}>
           <Grid templateColumns={{ base: "1fr", lg: "repeat(4, 1fr)" }}>
             <GridItem colSpan={{ base: 1, lg: 1 }}>
-              <Image src="/images/marianne.svg#svgView(viewBox(0 0 162 78))" alt="" width="290" height="130" />
+              <Image src="/images/marianne.svg#svgView(viewBox(12 0 162 78))" alt="" width="290" height="130" />
             </GridItem>
             <GridItem colSpan={{ base: 1, lg: 1 }}>
-              <Box>
+              <Box pl={{ base: 0, lg: 4 }} height="100%" display="flex" alignItems="center">
                 <Image src="/images/france_relance.svg" alt="" width="81" height="81" />
               </Box>
             </GridItem>
