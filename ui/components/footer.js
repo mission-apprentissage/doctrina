@@ -51,52 +51,52 @@ const Footer = (props) => {
           <Grid>
             <GridItem>
               <UnorderedList listStyleType="none" color="#666" fontSize={12} marginInlineStart={0}>
-                <ListItem mt={{ base: 3, lg: 0 }}>
+                <ListItem mt={{ base: 3, lg: 0 }} display={{ base: "inherit", lg: "inline-block" }}>
                   <Link href="/mentions-legales">
                     <a aria-label="Accès aux mentions légales">Mentions légales</a>
                   </Link>
                 </ListItem>
-                <ListItem mt={{ base: 3, lg: 0 }}>
+                <ListItem mt={{ base: 3, lg: 0 }} display={{ base: "inherit", lg: "inline-block" }}>
                   <Link href="/cgu" aria-label="Accès aux conditions générales d'utilisation">
                     CGU
                   </Link>
                 </ListItem>
-                <ListItem mt={{ base: 3, lg: 0 }}>
+                <ListItem mt={{ base: 3, lg: 0 }} display={{ base: "inherit", lg: "inline-block" }}>
                   <Link href="/cookies" aria-label="Accès à la page Cookies">
                     Cookies
                   </Link>
                 </ListItem>
-                <ListItem mt={{ base: 3, lg: 0 }}>
+                <ListItem mt={{ base: 3, lg: 0 }} display={{ base: "inherit", lg: "inline-block" }}>
                   <Link href="/stats" aria-label="Accès aux statistiques du service">
                     Statistiques
                   </Link>
                 </ListItem>
-                <ListItem mt={{ base: 3, lg: 0 }}>
+                <ListItem mt={{ base: 3, lg: 0 }} display={{ base: "inherit", lg: "inline-block" }}>
                   <Link href="/faq" aria-label="Accès à la foire aux questions">
                     FAQ
                   </Link>
                 </ListItem>
-                <ListItem mt={{ base: 3, lg: 0 }}>
+                <ListItem mt={{ base: 3, lg: 0 }} display={{ base: "inherit", lg: "inline-block" }}>
                   <Link href="/contact" aria-label="Accès à la page Contact">
                     Contact
                   </Link>
                 </ListItem>
-                <ListItem mt={{ base: 3, lg: 0 }}>
+                <ListItem mt={{ base: 3, lg: 0 }} display={{ base: "inherit", lg: "inline-block" }}>
                   <Link href="/metiers" aria-label="Accès à la page Métiers">
                     Métiers
                   </Link>
                 </ListItem>
-                <ListItem mt={{ base: 3, lg: 0 }}>
+                <ListItem mt={{ base: 3, lg: 0 }} display={{ base: "inherit", lg: "inline-block" }}>
                   <Link href="/a-propos" aria-label="Accès à la page A propos">
                     A propos
                   </Link>
                 </ListItem>
-                <ListItem mt={{ base: 3, lg: 0 }}>
+                <ListItem mt={{ base: 3, lg: 0 }} display={{ base: "inherit", lg: "inline-block" }}>
                   <Link href="/developpeurs" aria-label="Accès à la page Développeurs">
                     Développeurs
                   </Link>
                 </ListItem>
-                <ListItem mt={{ base: 3, lg: 0 }}>
+                <ListItem mt={{ base: 3, lg: 0 }} display={{ base: "inherit", lg: "inline-block" }}>
                   <Link>Accessibilité : non conforme</Link>
                 </ListItem>
               </UnorderedList>
