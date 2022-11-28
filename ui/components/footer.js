@@ -6,7 +6,7 @@ const Footer = () => {
   const router = useRouter()
 
   return (
-    <Box as="footer">
+    <Box as="footer" ml={{ base: 0, lg: 6 }}>
       <Box maxWidth="1310px" mx="auto">
         <Box as="nav" pl={{ base: 8, lg: 0 }}>
           <Grid templateColumns={{ base: "1fr", lg: "repeat(4, 1fr)" }}>
