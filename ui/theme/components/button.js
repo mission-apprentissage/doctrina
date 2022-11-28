@@ -110,6 +110,18 @@ const Button = {
         bg: "bluefrance.100",
       },
     },
+    centerSearch: {
+      display: "flex",
+      cursor: "pointer",
+      background: "none",
+      border: "none",
+      padding: "0px 5px 10px 0",
+      fontSize: "14px",
+      width: "fit-content",
+      _hover: {
+        background: "white",
+      },
+    },
   },
 }
 
