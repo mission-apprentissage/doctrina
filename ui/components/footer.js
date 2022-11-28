@@ -1,6 +1,6 @@
 import { useRouter } from "next/router"
 import React from "react"
-import { Box, Image, GridItem, Grid, Container, Link, UnorderedList, ListItem } from "@chakra-ui/react"
+import { Box, Image, GridItem, Grid, Container, Link, UnorderedList, ListItem, Flex } from "@chakra-ui/react"
 
 const Footer = (props) => {
   const router = useRouter()
@@ -25,7 +25,7 @@ const Footer = (props) => {
               <Box fontSize="14px" color="#1e1e1e" mt="6">
                 La bonne alternance est proposée par les services suivants :
               </Box>
-              <Box mt="6">
+              <Flex flexDirection={{ base: "column", lg: "row" }} mt="6">
                 <Link href="https://pole-emploi.fr" aria-label="Accès au site de Pôle emploi" isExternal fontSize={14} fontWeight={700} color="#666" mr={4}>
                   pole-emploi.fr
                 </Link>
@@ -38,7 +38,7 @@ const Footer = (props) => {
                 <Link href="https://data.gouv.fr" aria-label="Accès au site data.gouv" isExternal fontSize={14} fontWeight={700} color="#666" mr={4}>
                   data.gouv.fr
                 </Link>
-              </Box>
+              </Flex>
             </Box>
           </GridItem>
         </Grid>
