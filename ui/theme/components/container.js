@@ -1,8 +1,5 @@
 const Container = {
   variants: {
-    wideContainer: {
-      maxWidth: ["480px", "540px", "720px", "960px", "1310px"],
-    },
     responsiveContainer: {
       maxWidth: ["480px", "540px", "720px", "960px", "1140px"],
     },
