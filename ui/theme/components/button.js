@@ -122,6 +122,24 @@ const Button = {
         background: "white",
       },
     },
+    knowMore: {
+      color: "grey.700",
+      fontSize: "14px",
+      fontWeight: 400,
+      width: "max-content",
+      height: "auto",
+      padding: "0 0 5px 0",
+      borderRadius: "none",
+      marginLeft: "auto",
+      lineHeight: "17px",
+      background: "none",
+      border: "none",
+      borderBottom: "2px solid",
+      borderColor: "grey.700",
+      _hover: {
+        color: "black",
+      },
+    },
   },
 }
 
