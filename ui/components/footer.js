@@ -7,43 +7,41 @@ const Footer = (props) => {
 
   return (
     <Box as="footer" maxWidth="1310px" mx="auto">
-      <Box as="nav">
-        <Box pl={{ base: 8, lg: 0 }}>
-          <Grid templateColumns={{ base: "1fr", lg: "repeat(4, 1fr)" }}>
-            <GridItem colSpan={{ base: 1, lg: 1 }}>
-              <Image src="/images/marianne.svg#svgView(viewBox(12 0 162 78))" alt="" width="290" height="130" />
-            </GridItem>
-            <GridItem colSpan={{ base: 1, lg: 1 }}>
-              <Box pl={{ base: 0, lg: 4 }} height="100%" display="flex" alignItems="center">
-                <Image src="/images/france_relance.svg" alt="" width="81" height="81" />
+      <Box as="nav" pl={{ base: 8, lg: 0 }}>
+        <Grid templateColumns={{ base: "1fr", lg: "repeat(4, 1fr)" }}>
+          <GridItem colSpan={{ base: 1, lg: 1 }}>
+            <Image src="/images/marianne.svg#svgView(viewBox(12 0 162 78))" alt="" width="290" height="130" />
+          </GridItem>
+          <GridItem colSpan={{ base: 1, lg: 1 }}>
+            <Box pl={{ base: 0, lg: 4 }} height="100%" display="flex" alignItems="center">
+              <Image src="/images/france_relance.svg" alt="" width="81" height="81" />
+            </Box>
+          </GridItem>
+          <GridItem colSpan={{ base: 1, lg: 2 }}>
+            <Box pl={{ base: 0, lg: 8 }}>
+              <Box fontSize="14px" color="#1e1e1e">
+                La bonne alternance. Trouvez votre alternance.
               </Box>
-            </GridItem>
-            <GridItem colSpan={{ base: 1, lg: 2 }}>
-              <Box pl={{ base: 0, lg: 8 }}>
-                <Box fontSize="14px" color="#1e1e1e">
-                  La bonne alternance. Trouvez votre alternance.
-                </Box>
-                <Box fontSize="14px" color="#1e1e1e" mt="6">
-                  La bonne alternance est proposée par les services suivants :
-                </Box>
-                <Box mt="6">
-                  <Link href="https://pole-emploi.fr" aria-label="Accès au site de Pôle emploi" isExternal fontSize={14} fontWeight={700} color="#666" mr={4}>
-                    pole-emploi.fr
-                  </Link>
-                  <Link href="https://gouvernement.fr" aria-label="Accès au site gouvernement.fr" isExternal fontSize={14} fontWeight={700} color="#666" mr={4}>
-                    gouvernement.fr
-                  </Link>
-                  <Link href="https://service-public.fr" aria-label="Accès au site service-public.fr" isExternal fontSize={14} fontWeight={700} color="#666" mr={4}>
-                    service-public.fr
-                  </Link>
-                  <Link href="https://data.gouv.fr" aria-label="Accès au site data.gouv" isExternal fontSize={14} fontWeight={700} color="#666" mr={4}>
-                    data.gouv.fr
-                  </Link>
-                </Box>
+              <Box fontSize="14px" color="#1e1e1e" mt="6">
+                La bonne alternance est proposée par les services suivants :
               </Box>
-            </GridItem>
-          </Grid>
-        </Box>
+              <Box mt="6">
+                <Link href="https://pole-emploi.fr" aria-label="Accès au site de Pôle emploi" isExternal fontSize={14} fontWeight={700} color="#666" mr={4}>
+                  pole-emploi.fr
+                </Link>
+                <Link href="https://gouvernement.fr" aria-label="Accès au site gouvernement.fr" isExternal fontSize={14} fontWeight={700} color="#666" mr={4}>
+                  gouvernement.fr
+                </Link>
+                <Link href="https://service-public.fr" aria-label="Accès au site service-public.fr" isExternal fontSize={14} fontWeight={700} color="#666" mr={4}>
+                  service-public.fr
+                </Link>
+                <Link href="https://data.gouv.fr" aria-label="Accès au site data.gouv" isExternal fontSize={14} fontWeight={700} color="#666" mr={4}>
+                  data.gouv.fr
+                </Link>
+              </Box>
+            </Box>
+          </GridItem>
+        </Grid>
       </Box>
       <Box as="nav">
         <Container>
