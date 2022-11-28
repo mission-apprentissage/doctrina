@@ -6,8 +6,8 @@ const Footer = () => {
   const router = useRouter()
 
   return (
-    <Box as="footer" ml={{ base: 0, lg: 6 }}>
-      <Box maxWidth="1310px" mx="auto">
+    <Box as="footer" borderTop="1px solid #3a55d1" pt={6}>
+      <Box maxWidth="1330px" mx="auto" pl={{ base: 0, lg: 6 }}>
         <Box as="nav" pl={{ base: 8, lg: 0 }}>
           <Grid templateColumns={{ base: "1fr", lg: "repeat(4, 1fr)" }}>
             <GridItem colSpan={{ base: 1, lg: 1 }}>
@@ -46,7 +46,7 @@ const Footer = () => {
         </Box>
       </Box>
       <Divider mt={6} mb={2}></Divider>
-      <Box maxWidth="1310px" mx="auto">
+      <Box maxWidth="1310px" mx="auto" pl={{ base: 0, lg: 6 }}>
         <Box as="nav" pl={{ base: 8, lg: 0 }}>
           <Grid>
             <GridItem>
@@ -161,7 +161,7 @@ const Footer = () => {
               </UnorderedList>
             </GridItem>
             <GridItem>
-              <Box color="#666" fontSize={12} my={4}>
+              <Box color="#666" fontSize={12} mt={6} pb={12}>
                 Sauf mention contraire, tous les contenus de ce site sont sous licence{" "}
                 <Link
                   href="https://www.etalab.gouv.fr/licence-version-2-0-de-la-licence-ouverte-suite-a-la-consultation-et-presentation-du-decret"
