@@ -132,7 +132,7 @@ export default async (components) => {
   // TracingHandler creates a trace for every incoming request
   app.use(Sentry.Handlers.tracingHandler())
 
-  app.use(express.json({ limit: "50mb" }))
+  app.use(express.json({ limit: "5mb" }))
 
   app.use(corsMiddleware())
 
