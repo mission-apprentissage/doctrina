@@ -8,7 +8,7 @@ import { getItemQueryParameters } from "../../utils/getItemId"
 import { getSearchQueryParameters } from "../../utils/getSearchParameters"
 import { SearchResultContext } from "../../context/SearchResultContextProvider"
 import { DisplayContext } from "../../context/DisplayContextProvider"
-import { Box, Button, Flex, Link, Text } from "@chakra-ui/react"
+import { Box, Button, Flex, Image, Link, Text } from "@chakra-ui/react"
 
 const LbbCompany = ({ company, handleSelectItem, showTextOnly, searchForTrainingsOnNewCenter }) => {
   const { selectedMapPopupItem } = React.useContext(SearchResultContext)
@@ -24,20 +24,9 @@ const LbbCompany = ({ company, handleSelectItem, showTextOnly, searchForTraining
     handleSelectItem(company, company.ideaType)
   }
 
-  const centerSearchButtonProperties = {
-    color: "#01ac8c",
-    display: "flex",
-    cursor: "pointer",
-    background: "none",
-    border: "none",
-    padding: "0px 5px 10px 0",
-    fontSize: "14px",
-    width: "fit-content",
-  }
-
   const getCenterSearchOnCompanyButton = () => {
     return (
-      <Button title="Voir les formations proches" {...centerSearchButtonProperties} onClick={centerSearchOnCompany}>
+      <Button variant="centerSearch" title="Voir les formations proches" color="#01ac8c" onClick={centerSearchOnCompany}>
         <Image mb="2px" mr="5px" src={extendedSearchPin} alt="" />{" "}
         <Text textDecoration="underline" as="span">
           Voir les formations proches

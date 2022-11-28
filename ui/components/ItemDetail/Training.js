@@ -38,20 +38,9 @@ const Training = ({ training, handleSelectItem, showTextOnly, searchForJobsOnNew
     }
   }
 
-  const centerSearchButtonProperties = {
-    color: "#ff8d7e",
-    display: "flex",
-    cursor: "pointer",
-    background: "none",
-    border: "none",
-    padding: "0px 5px 10px 0",
-    fontSize: "14px",
-    width: "fit-content",
-  }
-
   const getCenterSearchOnTrainingButton = () => {
     return (
-      <Button title="Voir les entreprises proches" {...centerSearchButtonProperties} onClick={centerSearchOnTraining}>
+      <Button variant="centerSearch" color="#ff8d7e" title="Voir les entreprises proches" {...centerSearchButtonProperties} onClick={centerSearchOnTraining}>
         <Image mb="2px" mr="5px" src={extendedSearchPin} alt="" />{" "}
         <Text textDecoration="underline" as="span">
           Voir les entreprises proches
