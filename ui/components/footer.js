@@ -1,8 +1,8 @@
 import { useRouter } from "next/router"
 import React from "react"
-import { Box, Image, GridItem, Grid, Container, Link, UnorderedList, ListItem, Flex, Divider } from "@chakra-ui/react"
+import { Box, Image, GridItem, Grid, Link, UnorderedList, ListItem, Flex, Divider } from "@chakra-ui/react"
 
-const Footer = (props) => {
+const Footer = () => {
   const router = useRouter()
 
   return (
@@ -19,7 +19,7 @@ const Footer = (props) => {
               </Box>
             </GridItem>
             <GridItem colSpan={{ base: 1, lg: 2 }}>
-              <Box pl={{ base: 0, lg: 8 }}>
+              <Box pl={{ base: 0, lg: 8 }} mt={{ base: 8, lg: 0 }}>
                 <Box fontSize="14px" color="#1e1e1e">
                   La bonne alternance. Trouvez votre alternance.
                 </Box>
@@ -45,64 +45,123 @@ const Footer = (props) => {
           </Grid>
         </Box>
       </Box>
-      <Divider my={6}></Divider>
+      <Divider mt={6} mb={2}></Divider>
       <Box maxWidth="1310px" mx="auto">
         <Box as="nav" pl={{ base: 8, lg: 0 }}>
           <Grid>
             <GridItem>
               <UnorderedList listStyleType="none" color="#666" fontSize={12} marginInlineStart={0}>
-                <ListItem mt={{ base: 3, lg: 0 }} display={{ base: "inherit", lg: "inline-block" }}>
-                  <Link href="/mentions-legales">
-                    <a aria-label="Accès aux mentions légales">Mentions légales</a>
+                <ListItem
+                  mt={{ base: 3, lg: 0 }}
+                  display={{ base: "inherit", lg: "inline-block" }}
+                  borderRight={{ base: "none", lg: "1px solid #e5e5e5" }}
+                  paddingRight={{ base: 0, lg: 3 }}
+                >
+                  <Link href="/mentions-legales" aria-label="Accès aux mentions légales">
+                    Mentions légales
                   </Link>
                 </ListItem>
-                <ListItem mt={{ base: 3, lg: 0 }} display={{ base: "inherit", lg: "inline-block" }}>
+                <ListItem
+                  mt={{ base: 3, lg: 0 }}
+                  display={{ base: "inherit", lg: "inline-block" }}
+                  borderRight={{ base: "none", lg: "1px solid #e5e5e5" }}
+                  paddingRight={{ base: 0, lg: 3 }}
+                  paddingLeft={{ base: 0, lg: 3 }}
+                >
                   <Link href="/cgu" aria-label="Accès aux conditions générales d'utilisation">
                     CGU
                   </Link>
                 </ListItem>
-                <ListItem mt={{ base: 3, lg: 0 }} display={{ base: "inherit", lg: "inline-block" }}>
+                <ListItem
+                  mt={{ base: 3, lg: 0 }}
+                  display={{ base: "inherit", lg: "inline-block" }}
+                  borderRight={{ base: "none", lg: "1px solid #e5e5e5" }}
+                  paddingRight={{ base: 0, lg: 3 }}
+                  paddingLeft={{ base: 0, lg: 3 }}
+                >
                   <Link href="/cookies" aria-label="Accès à la page Cookies">
                     Cookies
                   </Link>
                 </ListItem>
-                <ListItem mt={{ base: 3, lg: 0 }} display={{ base: "inherit", lg: "inline-block" }}>
+                <ListItem
+                  mt={{ base: 3, lg: 0 }}
+                  display={{ base: "inherit", lg: "inline-block" }}
+                  borderRight={{ base: "none", lg: "1px solid #e5e5e5" }}
+                  paddingRight={{ base: 0, lg: 3 }}
+                  paddingLeft={{ base: 0, lg: 3 }}
+                >
                   <Link href="/stats" aria-label="Accès aux statistiques du service">
                     Statistiques
                   </Link>
                 </ListItem>
-                <ListItem mt={{ base: 3, lg: 0 }} display={{ base: "inherit", lg: "inline-block" }}>
+                <ListItem
+                  mt={{ base: 3, lg: 0 }}
+                  display={{ base: "inherit", lg: "inline-block" }}
+                  borderRight={{ base: "none", lg: "1px solid #e5e5e5" }}
+                  paddingRight={{ base: 0, lg: 3 }}
+                  paddingLeft={{ base: 0, lg: 3 }}
+                >
                   <Link href="/faq" aria-label="Accès à la foire aux questions">
                     FAQ
                   </Link>
                 </ListItem>
-                <ListItem mt={{ base: 3, lg: 0 }} display={{ base: "inherit", lg: "inline-block" }}>
+                <ListItem
+                  mt={{ base: 3, lg: 0 }}
+                  display={{ base: "inherit", lg: "inline-block" }}
+                  borderRight={{ base: "none", lg: "1px solid #e5e5e5" }}
+                  paddingRight={{ base: 0, lg: 3 }}
+                  paddingLeft={{ base: 0, lg: 3 }}
+                >
                   <Link href="/contact" aria-label="Accès à la page Contact">
                     Contact
                   </Link>
                 </ListItem>
-                <ListItem mt={{ base: 3, lg: 0 }} display={{ base: "inherit", lg: "inline-block" }}>
+                <ListItem
+                  mt={{ base: 3, lg: 0 }}
+                  display={{ base: "inherit", lg: "inline-block" }}
+                  borderRight={{ base: "none", lg: "1px solid #e5e5e5" }}
+                  paddingRight={{ base: 0, lg: 3 }}
+                  paddingLeft={{ base: 0, lg: 3 }}
+                >
                   <Link href="/metiers" aria-label="Accès à la page Métiers">
                     Métiers
                   </Link>
                 </ListItem>
-                <ListItem mt={{ base: 3, lg: 0 }} display={{ base: "inherit", lg: "inline-block" }}>
+                <ListItem
+                  mt={{ base: 3, lg: 0 }}
+                  display={{ base: "inherit", lg: "inline-block" }}
+                  borderRight={{ base: "none", lg: "1px solid #e5e5e5" }}
+                  paddingRight={{ base: 0, lg: 3 }}
+                  paddingLeft={{ base: 0, lg: 3 }}
+                >
                   <Link href="/a-propos" aria-label="Accès à la page A propos">
                     A propos
                   </Link>
                 </ListItem>
-                <ListItem mt={{ base: 3, lg: 0 }} display={{ base: "inherit", lg: "inline-block" }}>
+                <ListItem
+                  mt={{ base: 3, lg: 0 }}
+                  display={{ base: "inherit", lg: "inline-block" }}
+                  borderRight={{ base: "none", lg: "1px solid #e5e5e5" }}
+                  paddingRight={{ base: 0, lg: 3 }}
+                  paddingLeft={{ base: 0, lg: 3 }}
+                >
                   <Link href="/developpeurs" aria-label="Accès à la page Développeurs">
                     Développeurs
                   </Link>
                 </ListItem>
-                <ListItem mt={{ base: 3, lg: 0 }} display={{ base: "inherit", lg: "inline-block" }}>
+                <ListItem
+                  mt={{ base: 3, lg: 0 }}
+                  display={{ base: "inherit", lg: "inline-block" }}
+                  borderRight={{ base: "none", lg: "1px solid #e5e5e5" }}
+                  paddingRight={{ base: 0, lg: 3 }}
+                  paddingLeft={{ base: 0, lg: 3 }}
+                >
                   <Link>Accessibilité : non conforme</Link>
                 </ListItem>
               </UnorderedList>
             </GridItem>
             <GridItem>
-              <Box color="#666" fontSize={12}>
+              <Box color="#666" fontSize={12} my={4}>
                 Sauf mention contraire, tous les contenus de ce site sont sous licence{" "}
                 <Link
                   href="https://www.etalab.gouv.fr/licence-version-2-0-de-la-licence-ouverte-suite-a-la-consultation-et-presentation-du-decret"
