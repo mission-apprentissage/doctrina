@@ -136,10 +136,10 @@ const Training = ({ training, handleSelectItem, showTextOnly, searchForJobsOnNew
             </Box>
           </Flex>
 
-          <Box pt={[4, 4, 4, 1]} fw={500} fs="14p" lineHeight="24px">
+          <Box pt={[4, 4, 4, 1]} fw={500} fs="14px" lineHeight="24px">
             {training.company.name}
           </Box>
-          <Box pt={2} fw={500} fs="14p" lineHeight="24px">
+          <Box pt={2} fw={500} fs="14px" lineHeight="24px">
             {training.place.fullAddress}
           </Box>
           <Text display="flex" fs="14px" color="grey.600" as="span" pt={1}>
