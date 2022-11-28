@@ -19,21 +19,27 @@ const Footer = (props) => {
               </Box>
             </GridItem>
             <GridItem colSpan={{ base: 1, lg: 2 }}>
-              <Box>La bonne alternance. Trouvez votre alternance.</Box>
-              <Box>La bonne alternance est proposée par les services suivants :</Box>
-              <Box>
-                <Link href="https://pole-emploi.fr" aria-label="Accès au site de Pôle emploi" isExternal>
-                  pole-emploi.fr
-                </Link>
-                <Link href="https://gouvernement.fr" aria-label="Accès au site gouvernement.fr" isExternal>
-                  gouvernement.fr
-                </Link>
-                <Link href="https://service-public.fr" aria-label="Accès au site service-public.fr" isExternal>
-                  service-public.fr
-                </Link>
-                <Link href="https://data.gouv.fr" aria-label="Accès au site data.gouv" isExternal>
-                  data.gouv.fr
-                </Link>
+              <Box pl={{ base: 0, lg: 8 }}>
+                <Box fontSize="14px" color="#1e1e1e">
+                  La bonne alternance. Trouvez votre alternance.
+                </Box>
+                <Box fontSize="14px" color="#1e1e1e" mt="6">
+                  La bonne alternance est proposée par les services suivants :
+                </Box>
+                <Box mt="6">
+                  <Link href="https://pole-emploi.fr" aria-label="Accès au site de Pôle emploi" isExternal fontSize={14} fontWeight={700} color="#666" mr={4}>
+                    pole-emploi.fr
+                  </Link>
+                  <Link href="https://gouvernement.fr" aria-label="Accès au site gouvernement.fr" isExternal fontSize={14} fontWeight={700} color="#666" mr={4}>
+                    gouvernement.fr
+                  </Link>
+                  <Link href="https://service-public.fr" aria-label="Accès au site service-public.fr" isExternal fontSize={14} fontWeight={700} color="#666" mr={4}>
+                    service-public.fr
+                  </Link>
+                  <Link href="https://data.gouv.fr" aria-label="Accès au site data.gouv" isExternal fontSize={14} fontWeight={700} color="#666" mr={4}>
+                    data.gouv.fr
+                  </Link>
+                </Box>
               </Box>
             </GridItem>
           </Grid>
