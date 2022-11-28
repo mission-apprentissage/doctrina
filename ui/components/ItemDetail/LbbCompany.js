@@ -143,21 +143,7 @@ const LbbCompany = ({ company, handleSelectItem, showTextOnly, searchForTraining
               ""
             ) : (
               <Text ml="auto" as="span" display={["none", "none", "block"]}>
-                <Button
-                  color="grey.700"
-                  width="max-content"
-                  p="0 0 5px 0"
-                  borderRadius="none"
-                  ml="auto"
-                  lineHeight="17px"
-                  bg="none"
-                  border="none"
-                  borderBottom="2px solid"
-                  borderColor="grey.700"
-                  _hover={{ color: "black" }}
-                >
-                  En savoir plus
-                </Button>
+                <Button variant="knowMore">En savoir plus</Button>
               </Text>
             )}
           </Text>
