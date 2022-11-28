@@ -39,7 +39,7 @@ const Footer = (props) => {
           </Grid>
         </Container>
       </Box>
-      <nav>
+      <Box as="nav">
         <Container>
           <Grid>
             <GridItem>
@@ -49,56 +49,48 @@ const Footer = (props) => {
                     <a aria-label="Accès aux mentions légales">Mentions légales</a>
                   </Link>
                 </ListItem>
-
                 <ListItem>
-                  <Link href="/cgu">
-                    <a aria-label="Accès aux conditions générales d'utilisation">CGU</a>
-                  </Link>
-                </ListItem>
-
-                <ListItem>
-                  <Link href="/cookies">
-                    <a aria-label="Accès à la page Cookies">Cookies</a>
-                  </Link>
-                </ListItem>
-
-                <ListItem>
-                  <Link href="/stats">
-                    <a aria-label="Accès aux statistiques du service">Statistiques</a>
-                  </Link>
-                </ListItem>
-
-                <ListItem>
-                  <Link href="/faq">
-                    <a aria-label="Accès à la foire aux questions">FAQ</a>
-                  </Link>
-                </ListItem>
-
-                <ListItem>
-                  <Link href="/contact">
-                    <a aria-label="Accès à la page Contact">Contact</a>
-                  </Link>
-                </ListItem>
-
-                <ListItem>
-                  <Link href="/metiers">
-                    <a aria-label="Accès à la page Métiers">Métiers</a>
-                  </Link>
-                </ListItem>
-
-                <ListItem>
-                  <Link href="/a-propos">
-                    <a aria-label="Accès à la page A propos">A propos</a>
-                  </Link>
-                </ListItem>
-
-                <ListItem>
-                  <Link href="/developpeurs">
-                    <a aria-label="Accès à la page Développeurs">Développeurs</a>
+                  <Link href="/cgu" aria-label="Accès aux conditions générales d'utilisation">
+                    CGU
                   </Link>
                 </ListItem>
                 <ListItem>
-                  <a>Accessibilité : non conforme</a>
+                  <Link href="/cookies" aria-label="Accès à la page Cookies">
+                    Cookies
+                  </Link>
+                </ListItem>
+                <ListItem>
+                  <Link href="/stats" aria-label="Accès aux statistiques du service">
+                    Statistiques
+                  </Link>
+                </ListItem>
+                <ListItem>
+                  <Link href="/faq" aria-label="Accès à la foire aux questions">
+                    FAQ
+                  </Link>
+                </ListItem>
+                <ListItem>
+                  <Link href="/contact" aria-label="Accès à la page Contact">
+                    Contact
+                  </Link>
+                </ListItem>
+                <ListItem>
+                  <Link href="/metiers" aria-label="Accès à la page Métiers">
+                    Métiers
+                  </Link>
+                </ListItem>
+                <ListItem>
+                  <Link href="/a-propos" aria-label="Accès à la page A propos">
+                    A propos
+                  </Link>
+                </ListItem>
+                <ListItem>
+                  <Link href="/developpeurs" aria-label="Accès à la page Développeurs">
+                    Développeurs
+                  </Link>
+                </ListItem>
+                <ListItem>
+                  <Link>Accessibilité : non conforme</Link>
                 </ListItem>
               </UnorderedList>
             </GridItem>
@@ -115,7 +107,7 @@ const Footer = (props) => {
             </GridItem>
           </Grid>
         </Container>
-      </nav>
+      </Box>
     </>
   )
 }
