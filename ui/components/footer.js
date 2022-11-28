@@ -6,9 +6,9 @@ const Footer = (props) => {
   const router = useRouter()
 
   return (
-    <Box as="footer">
+    <Box as="footer" maxWidth="1310px" mx="auto">
       <Box as="nav">
-        <Container variant="wideContainer">
+        <Box>
           <Grid templateColumns={{ base: "1fr", lg: "repeat(4, 1fr)" }}>
             <GridItem colSpan={{ base: 1, lg: 1 }}>
               <Image src="/images/marianne.svg#svgView(viewBox(0 0 162 78))" alt="" width="290" height="130" />
@@ -37,7 +37,7 @@ const Footer = (props) => {
               </Box>
             </GridItem>
           </Grid>
-        </Container>
+        </Box>
       </Box>
       <Box as="nav">
         <Container>
