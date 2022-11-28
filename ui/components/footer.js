@@ -6,19 +6,19 @@ const Footer = (props) => {
   const router = useRouter()
 
   return (
-    <>
+    <Box as="footer">
       <Box as="nav">
         <Container>
-          <Grid>
-            <GridItem>
+          <Grid templateColumns={{ base: "1fr", lg: "repeat(4, 1fr)" }}>
+            <GridItem colSpan={{ base: 1, lg: 2 }}>
               <Image src="/images/marianne.svg#svgView(viewBox(0 0 162 78))" alt="" width="290" height="130" />
             </GridItem>
-            <GridItem>
+            <GridItem colSpan={{ base: 1, lg: 2 }}>
               <Box>
                 <Image src="/images/france_relance.svg" alt="" width="81" height="81" />
               </Box>
             </GridItem>
-            <GridItem>
+            <GridItem colSpan={{ base: 1, lg: 4 }}>
               <Box>La bonne alternance. Trouvez votre alternance.</Box>
               <Box>La bonne alternance est proposée par les services suivants :</Box>
               <Box>
@@ -108,7 +108,7 @@ const Footer = (props) => {
           </Grid>
         </Container>
       </Box>
-    </>
+    </Box>
   )
 }
 
