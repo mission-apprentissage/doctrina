@@ -1,38 +1,46 @@
 import Link from "next/link"
 import { useRouter } from "next/router"
 import React from "react"
-import { Col, Container, Row } from "reactstrap"
 import ExternalLink from "./externalLink"
+import { Box, Image, GridItem, Grid, Container, Link } from "@chakra-ui/react"
 
 const Footer = (props) => {
   const router = useRouter()
 
   return (
     <>
-      <nav className="c-footer c-footer--one py-4 border-bottom">
-        <Container>
-          <Row>
-            <Col className="col-12 col-lg-3">
-              <img src="/images/marianne.svg#svgView(viewBox(0 0 162 78))" alt="" width="290" height="130" />
-            </Col>
-            <Col className="col-12 col-lg-3">
-              <div className="c-footer-francerelance">
-                <img src="/images/france_relance.svg" alt="" width="81" height="81" />
-              </div>
-            </Col>
-            <Col className="col-12 col-lg-6 c-footer-text">
-              <div>La bonne alternance. Trouvez votre alternance.</div>
-              <div className="mt-4">La bonne alternance est proposée par les services suivants :</div>
-              <div className="mt-4 c-footer-official-links">
-                <ExternalLink className="c-footer-official-link" url="https://pole-emploi.fr" aria-label="Accès au site de Pôle emploi" title="pole-emploi.fr" />
-                <ExternalLink className="c-footer-official-link" url="https://gouvernement.fr" aria-label="Accès au site gouvernement.fr" title="gouvernement.fr" />
-                <ExternalLink className="c-footer-official-link" url="https://service-public.fr" aria-label="Accès au site service-public.fr" title="service-public.fr" />
-                <ExternalLink className="c-footer-official-link" url="https://data.gouv.fr" aria-label="Accès au site data.gouv" title="data.gouv.fr" />
-              </div>
-            </Col>
-          </Row>
-        </Container>
-      </nav>
+      <Box as="nav">
+        <Grid>
+          <Grid>
+            <GridItem className="col-12 col-lg-3">
+              <Image src="/images/marianne.svg#svgView(viewBox(0 0 162 78))" alt="" width="290" height="130" />
+            </GridItem>
+            <GridItem className="col-12 col-lg-3">
+              <Box>
+                <Image src="/images/france_relance.svg" alt="" width="81" height="81" />
+              </Box>
+            </GridItem>
+            <GridItem className="col-12 col-lg-6 c-footer-text">
+              <Box>La bonne alternance. Trouvez votre alternance.</Box>
+              <Box>La bonne alternance est proposée par les services suivants :</Box>
+              <Box>
+                <Link href="https://pole-emploi.fr" aria-label="Accès au site de Pôle emploi">
+                  pole-emploi.fr
+                </Link>
+                <Link href="https://gouvernement.fr" aria-label="Accès au site gouvernement.fr">
+                  gouvernement.fr
+                </Link>
+                <Link href="https://service-public.fr" aria-label="Accès au site service-public.fr">
+                  service-public.fr
+                </Link>
+                <Link href="https://data.gouv.fr" aria-label="Accès au site data.gouv">
+                  data.gouv.fr
+                </Link>
+              </Box>
+            </GridItem>
+          </Grid>
+        </Grid>
+      </Box>
       <nav className="c-footer pt-2 pb-5">
         <Container>
           <Row>
