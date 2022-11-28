@@ -8,17 +8,17 @@ const Footer = (props) => {
   return (
     <Box as="footer">
       <Box as="nav">
-        <Container>
+        <Container variant="wideContainer">
           <Grid templateColumns={{ base: "1fr", lg: "repeat(4, 1fr)" }}>
-            <GridItem colSpan={{ base: 1, lg: 2 }}>
+            <GridItem colSpan={{ base: 1, lg: 1 }}>
               <Image src="/images/marianne.svg#svgView(viewBox(0 0 162 78))" alt="" width="290" height="130" />
             </GridItem>
-            <GridItem colSpan={{ base: 1, lg: 2 }}>
+            <GridItem colSpan={{ base: 1, lg: 1 }}>
               <Box>
                 <Image src="/images/france_relance.svg" alt="" width="81" height="81" />
               </Box>
             </GridItem>
-            <GridItem colSpan={{ base: 1, lg: 4 }}>
+            <GridItem colSpan={{ base: 1, lg: 2 }}>
               <Box>La bonne alternance. Trouvez votre alternance.</Box>
               <Box>La bonne alternance est proposée par les services suivants :</Box>
               <Box>
