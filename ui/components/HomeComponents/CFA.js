@@ -11,9 +11,9 @@ const CFA = () => {
             Vous êtes un organisme de formation
           </Text>
           <Text as="h2" variant="homeEditorialH2">
-            Diffusez et gérez simplement les offres d’emploi de vos entreprises partenaires.
+            Attirez des candidats en offrant plus de visibilité à vos formations et offres d’emplois
           </Text>
-          <Box mt="12">Créez le compte de votre CFA pour administrer vos offres et être contacté par des entreprises à la recherche d’alternants.</Box>
+          <Box mt="12">Créez le compte de votre CFA pour diffuser les offres de vos entreprises partenaires, et recevoir les candidatures.</Box>
           <ConnectionActions service="cfa" />
         </GridItem>
         <GridItem colSpan={{ base: 1, md: 6 }}>

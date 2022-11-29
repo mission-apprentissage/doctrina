@@ -7,6 +7,7 @@ import Footer from "../components/footer"
 import CFA from "../components/HomeComponents/CFA"
 import ConnectionActions from "../components/HomeComponents/ConnectionActions"
 import PostezVotreOffreAlternance from "../components/HomeComponents/PostezVotreOffreAlternance"
+import FacilitezRDVA from "../components/HomeComponents/FacilitezRDVA"
 import OffresGratuites from "../components/HomeComponents/OffresGratuites"
 import ReseauEntreprise from "../components/HomeComponents/ReseauEntreprise"
 import GerezEntreprise from "../components/HomeComponents/GerezEntreprise"
@@ -26,6 +27,9 @@ const Organisme = () => {
       <Container maxW="container.lg" px={4} py={4}>
         <CFA />
 
+        <Box as="section">
+          <FacilitezRDVA />
+        </Box>
         <Box as="section">
           <PostezVotreOffreAlternance />
           <GerezEntreprise />
