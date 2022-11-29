@@ -20,10 +20,10 @@ const Footer = () => {
             </GridItem>
             <GridItem colSpan={{ base: 1, lg: 2 }}>
               <Box pl={{ base: 0, lg: 4 }} mt={{ base: 8, lg: 0 }}>
-                <Box fontSize="14px" color="#1e1e1e">
+                <Box fontSize="14px" color="grey.800">
                   La bonne alternance. Trouvez votre alternance.
                 </Box>
-                <Box fontSize="14px" color="#1e1e1e" mt="6">
+                <Box fontSize="14px" color="grey.800" mt="6">
                   La bonne alternance est proposée par les services suivants :
                 </Box>
                 <Flex flexDirection={{ base: "column", lg: "row" }} mt="6">
