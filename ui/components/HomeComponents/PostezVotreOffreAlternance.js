@@ -14,7 +14,7 @@ const PostezVotreOffreAlternance = () => {
             <Text>Vos offres regroupant formation et emploi seront mises en avant sur les différents sites.</Text>
           </Box>
         </Box>
-        <Box>
+        <Box order={{ base: "-1", md: "1" }}>
           <Image src="/images/home_pics/illu-offreemploi.svg" alt=""></Image>
         </Box>
       </SimpleGrid>
