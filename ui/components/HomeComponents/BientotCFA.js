@@ -1,19 +1,19 @@
 import React from "react"
 
-import { Box, Image, Link, Grid, GridItem, Text } from "@chakra-ui/react"
+import { Box, Image, Grid, GridItem, Text } from "@chakra-ui/react"
 
 const BientotCFA = () => {
   return (
     <Box>
-      <Grid>
-        <GridItem>
-          <Box>Bientôt</Box>
-        </GridItem>
-        <GridItem>
+      <Grid templateColumns={{ base: "1fr", lg: "repeat(4, 1fr)" }} templateRows={{ base: "auto", lg: "repeat(6, 1fr)" }}>
+        <GridItem gridColumn={{ base: "1fr", lg: "1 / span 2" }} gridRow={{ base: "auto", lg: "1 / 4" }}>
           <Image src="/images/home_pics/illu-offrecouplee.svg" alt="" />
         </GridItem>
-        <GridItem>
+        <GridItem gridColumn={{ base: "1fr", lg: "1 / span 2" }} gridRow={{ base: "auto", lg: "2 / 5" }}>
           <Image src="/images/home_pics/illu-candidatures.svg" alt="" />
+        </GridItem>
+        <GridItem>
+          <Box>Bientôt</Box>
         </GridItem>
         <GridItem>
           <Text as="h2" variant="homeEditorialH2">
