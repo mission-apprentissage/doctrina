@@ -13,7 +13,7 @@ const CFA = () => {
           <Text as="h2" variant="homeEditorialH2">
             Attirez des candidats en offrant plus de visibilité à vos formations et offres d’emplois
           </Text>
-          <Box mt="12">Créez le compte de votre CFA pour diffuser les offres de vos entreprises partenaires, et recevoir les candidatures.</Box>
+          <Box my="6">Créez le compte de votre CFA pour diffuser les offres de vos entreprises partenaires, et recevoir les candidatures.</Box>
           <ConnectionActions service="cfa" />
         </GridItem>
         <GridItem colSpan={{ base: 1, md: 6 }}>
