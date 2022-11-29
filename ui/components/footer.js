@@ -27,16 +27,16 @@ const Footer = () => {
                   La bonne alternance est proposée par les services suivants :
                 </Box>
                 <Flex flexDirection={{ base: "column", lg: "row" }} mt="6">
-                  <Link href="https://pole-emploi.fr" aria-label="Accès au site de Pôle emploi" isExternal fontSize={14} fontWeight={700} color="#666" mr={4}>
+                  <Link href="https://pole-emploi.fr" aria-label="Accès au site de Pôle emploi" isExternal fontSize={14} fontWeight={700} color="grey.425" mr={4}>
                     pole-emploi.fr
                   </Link>
-                  <Link href="https://gouvernement.fr" aria-label="Accès au site gouvernement.fr" isExternal fontSize={14} fontWeight={700} color="#666" mr={4}>
+                  <Link href="https://gouvernement.fr" aria-label="Accès au site gouvernement.fr" isExternal fontSize={14} fontWeight={700} color="grey.425" mr={4}>
                     gouvernement.fr
                   </Link>
-                  <Link href="https://service-public.fr" aria-label="Accès au site service-public.fr" isExternal fontSize={14} fontWeight={700} color="#666" mr={4}>
+                  <Link href="https://service-public.fr" aria-label="Accès au site service-public.fr" isExternal fontSize={14} fontWeight={700} color="grey.425" mr={4}>
                     service-public.fr
                   </Link>
-                  <Link href="https://data.gouv.fr" aria-label="Accès au site data.gouv" isExternal fontSize={14} fontWeight={700} color="#666" mr={4}>
+                  <Link href="https://data.gouv.fr" aria-label="Accès au site data.gouv" isExternal fontSize={14} fontWeight={700} color="grey.425" mr={4}>
                     data.gouv.fr
                   </Link>
                 </Flex>
