@@ -13,7 +13,7 @@ import GerezEntreprise from "../components/HomeComponents/GerezEntreprise"
 import BientotCFA from "../components/HomeComponents/BientotCFA"
 import GerezOffresCFA from "../components/HomeComponents/GerezOffresCFA"
 import FollowLinkedIn from "../components/HomeComponents/FollowLinkedIn"
-import { Box, Container } from "@chakra-ui/react"
+import { Box, Container, Text } from "@chakra-ui/react"
 
 const Organisme = () => {
   return (
@@ -23,7 +23,7 @@ const Organisme = () => {
       <Navigation bgcolor="is-white" currentPage="organisme-de-formation" />
       <Breadcrumb forPage="organisme-de-formation" label="Organisme de formation" />
 
-      <Container>
+      <Container maxW="container.xl" px={4} py={4}>
         <CFA />
 
         <Box as="section">
@@ -47,6 +47,7 @@ const Organisme = () => {
 
         <FollowLinkedIn />
       </Container>
+
       <Footer />
     </Box>
   )
