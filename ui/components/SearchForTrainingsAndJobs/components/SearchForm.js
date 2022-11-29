@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react"
-import { Row, Col, Input } from "reactstrap"
+import { Input } from "reactstrap"
 import { Formik, Form, ErrorMessage } from "formik"
 import { AutoCompleteField } from "../../../components/AutoCompleteField/AutoCompleteField"
 
@@ -17,7 +17,7 @@ import validateFormik from "../../../services/validateFormik"
 import { SearchResultContext } from "../../../context/SearchResultContextProvider"
 import { ParameterContext } from "../../../context/ParameterContextProvider"
 import { DisplayContext } from "../../../context/DisplayContextProvider"
-import { Box, Flex, Text } from "@chakra-ui/react"
+import { Box, Button, Flex, Text } from "@chakra-ui/react"
 
 const SearchForm = (props) => {
   const { hasSearch } = useContext(SearchResultContext)
@@ -61,64 +61,59 @@ const SearchForm = (props) => {
       >
         {({ isSubmitting, setFieldValue, errors }) => (
           <Form className={`c-searchform c-searchform--column is-home-${props.isHome}`}>
-            <Box>
-              <Text as="h1" className="card-title">
-                <Text as="span" className="c-home-hero__title c-home-hero__title1 d-block d-md-inline">
+            <Box p="0">
+              <Text as="h1" fontSize={["26px", "29px"]} fontWeight={700}>
+                <Text as="span" display={{ base: "block", md: "inline" }}>
                   Se former et travailler{" "}
                 </Text>
-                <Text as="span" className="c-home-hero__title c-home-hero__title2 d-block d-md-inline">
+                <Text as="span" color="info" display={{ base: "block", md: "inline" }}>
                   en alternance
                 </Text>
               </Text>
               <Flex direction={{ base: "column", lg: "row" }}>
-                œ{" "}
-                <Box>
-                  <div className="formGroup">
-                    <h1 className="h6 font-weight-bold">Votre recherche</h1>
-                    <div>
-                      <AutoCompleteField
-                        kind="Métier ou diplôme *"
-                        items={[]}
-                        hasError={errors.job}
-                        initialSelectedItem={contextFormValues?.job || null}
-                        itemToStringFunction={autoCompleteToStringFunction}
-                        onSelectedItemChangeFunction={partialRight(updateValuesFromJobAutoComplete, setDiplomas)}
-                        compareItemFunction={compareAutoCompleteValues}
-                        onInputValueChangeFunction={jobChanged}
-                        name="jobField"
-                        placeholder="Indiquez un métier ou diplôme"
-                        searchPlaceholder="Indiquez un métier ou diplôme ci-dessus"
-                        isDisabled={widgetParameters?.parameters?.jobName && widgetParameters?.parameters?.romes && widgetParameters?.parameters?.frozenJob}
-                        splitItemsByTypes={[
-                          { type: "job", typeLabel: "Métiers", size: 4 },
-                          { type: "diploma", typeLabel: "Diplômes", size: 4 },
-                          { typeLabel: "...autres métiers et diplômes" },
-                        ]}
-                      />
-                      <ErrorMessage name="job" className="errorField" component="div" />
-                    </div>
-                  </div>
+                <Box mb={4}>
+                  <Text as="p" my={2} fontWeight={700}>
+                    Votre recherche
+                  </Text>
+                  <AutoCompleteField
+                    kind="Métier ou diplôme *"
+                    items={[]}
+                    hasError={errors.job}
+                    initialSelectedItem={contextFormValues?.job || null}
+                    itemToStringFunction={autoCompleteToStringFunction}
+                    onSelectedItemChangeFunction={partialRight(updateValuesFromJobAutoComplete, setDiplomas)}
+                    compareItemFunction={compareAutoCompleteValues}
+                    onInputValueChangeFunction={jobChanged}
+                    name="jobField"
+                    placeholder="Indiquez un métier ou diplôme"
+                    searchPlaceholder="Indiquez un métier ou diplôme ci-dessus"
+                    isDisabled={widgetParameters?.parameters?.jobName && widgetParameters?.parameters?.romes && widgetParameters?.parameters?.frozenJob}
+                    splitItemsByTypes={[
+                      { type: "job", typeLabel: "Métiers", size: 4 },
+                      { type: "diploma", typeLabel: "Diplômes", size: 4 },
+                      { typeLabel: "...autres métiers et diplômes" },
+                    ]}
+                  />
+                  <ErrorMessage name="job" className="onErrorFieldColumn" component="div" />
                 </Box>
-                <Box xs="12">
-                  <div className={`formGroup mt-3`}>
-                    <AutoCompleteField
-                      kind="Lieu"
-                      items={[]}
-                      hasError={errors.location}
-                      initialSelectedItem={contextFormValues?.location ?? null}
-                      itemToStringFunction={autoCompleteToStringFunction}
-                      onSelectedItemChangeFunction={partialRight(formikUpdateValue, "location")}
-                      compareItemFunction={compareAutoCompleteValues}
-                      onInputValueChangeFunction={addressChanged}
-                      name="placeField"
-                      placeholder="Adresse, ville ou code postal"
-                      searchPlaceholder="Indiquez le lieu recherché ci-dessus"
-                    />
-                    <ErrorMessage name="location" className="errorField" component="div" />
-                  </div>
+                <Box mb={4}>
+                  <AutoCompleteField
+                    kind="Lieu"
+                    items={[]}
+                    hasError={errors.location}
+                    initialSelectedItem={contextFormValues?.location ?? null}
+                    itemToStringFunction={autoCompleteToStringFunction}
+                    onSelectedItemChangeFunction={partialRight(formikUpdateValue, "location")}
+                    compareItemFunction={compareAutoCompleteValues}
+                    onInputValueChangeFunction={addressChanged}
+                    name="placeField"
+                    placeholder="Adresse, ville ou code postal"
+                    searchPlaceholder="Indiquez le lieu recherché ci-dessus"
+                  />
+                  <ErrorMessage name="location" className="onErrorFieldColumn" component="div" />
                 </Box>
-                <Box xs="12">
-                  <div className="c-logobar-formgroup formGroup mt-3 d-none d-md-block">
+                <Box mb={4}>
+                  <div className="c-logobar-formgroup formGroup d-none d-md-block">
                     <label htmlFor="jobField" className="c-logobar-label">
                       Rayon
                     </label>
@@ -128,13 +123,13 @@ const SearchForm = (props) => {
                       </Input>
                     </div>
                   </div>
-                  <div className="mt-3 d-block d-md-none formGroup">
+                  <div className="d-block d-md-none formGroup">
                     <h3 className="h6 font-weight-bold">Rayon</h3>
                     <div className="c-logobar-field">{buildRayonsButtons(locationRadius, (evt) => handleSelectChange(evt, setFieldValue, setLocationRadius, "radius"))}</div>
                   </div>
                 </Box>
-                <Box xs="12">
-                  <div className="formGroup c-logobar-formgroup mt-3 d-none d-md-block">
+                <Box mb={10}>
+                  <div className="formGroup c-logobar-formgroup d-none d-md-block">
                     <div className="">
                       <label htmlFor="jobField" className="c-logobar-label">
                         Niveau d&apos;études visé
@@ -146,17 +141,29 @@ const SearchForm = (props) => {
                       </div>
                     </div>
                   </div>
-                  <div className="mt-3 d-block d-md-none formGroup">
+                  <div className="d-block d-md-none formGroup">
                     <h3 className="h6 font-weight-bold">Niveau d&apos;études visé</h3>
                     <div className="c-diplomas-buttons">
                       {buildAvailableDiplomasButtons(diploma, diplomas, (evt) => handleSelectChange(evt, setFieldValue, setDiploma, "diploma"))}
                     </div>
                   </div>
                 </Box>
-                <Box className="formGroup submitGroup">
-                  <button type="submit" className="d-block btn btn-lg btn-dark w-100 font-weight-bold c-regular-darkbtn mt-5" disabled={isSubmitting} alt="Lancer la recherche">
+                <Box>
+                  <Button
+                    type="submit"
+                    py="0.35rem"
+                    height="3rem"
+                    fontSize="18px"
+                    textDecoration="none"
+                    fontWeight={700}
+                    width="100%"
+                    margin="auto"
+                    variant="blackButton"
+                    disabled={isSubmitting}
+                    alt="Lancer la recherche"
+                  >
                     C&apos;est parti
-                  </button>
+                  </Button>
                 </Box>
               </Flex>
             </Box>
