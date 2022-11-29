@@ -40,7 +40,6 @@ const Organisme = () => {
 
         <Box as="section">
           <BientotCFA />
-          <GerezOffresCFA />
         </Box>
 
         <Box>
