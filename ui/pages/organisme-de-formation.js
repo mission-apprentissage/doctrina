@@ -23,7 +23,7 @@ const Organisme = () => {
       <Navigation bgcolor="is-white" currentPage="organisme-de-formation" />
       <Breadcrumb forPage="organisme-de-formation" label="Organisme de formation" />
 
-      <Container maxW="container.xl" px={4} py={4}>
+      <Container maxW="container.lg" px={4} py={4}>
         <CFA />
 
         <Box as="section">
