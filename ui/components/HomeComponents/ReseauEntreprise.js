@@ -3,7 +3,7 @@ import { Box, Image, Text, SimpleGrid } from "@chakra-ui/react"
 
 const ReseauEntreprise = () => {
   return (
-    <Box as="section" p={3} mb={{ base: "2", md: "5" }}>
+    <Box as="section" p={3} mb={{ base: "2", md: "8" }}>
       <SimpleGrid columns={{ sm: 1, md: 2 }} spacing="40px" alignItems={"center"} mt={12}>
         <Box>
           <Image src="/images/home_pics/illu-miseenrelation.svg" alt=""></Image>

@@ -23,14 +23,14 @@ const Organisme = () => {
       <Navigation bgcolor="is-white" currentPage="organisme-de-formation" />
       <Breadcrumb forPage="organisme-de-formation" label="Organisme de formation" />
 
-      <Container variant="pageContainer">
+      <Container variant="pageContainer" bg="white">
         <CFA />
 
         <Box as="section" mt="16">
           <FacilitezRDVA />
         </Box>
 
-        <Box as="section" bg="beige" borderRadius={10} p={12} mt={16}>
+        <Box as="section" bg="beige" borderRadius={10} px={12} py={6} mt={16}>
           <PostezVotreOffreAlternance />
           <GerezEntreprise />
           <OffresGratuites />

@@ -4,7 +4,7 @@ import { Box, Grid, GridItem, Image, Show, Text } from "@chakra-ui/react"
 
 const CFA = () => {
   return (
-    <Box>
+    <Box mt="8">
       <Grid templateColumns={{ base: "1fr", md: "repeat(12, 1fr)" }}>
         <GridItem colSpan={{ base: 1, md: 6 }}>
           <Text as="h1" variant="homeEditorialH1" mb={3}>
