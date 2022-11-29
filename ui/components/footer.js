@@ -6,7 +6,7 @@ const Footer = () => {
   const router = useRouter()
 
   return (
-    <Box as="footer" borderTop="1px solid #3a55d1" pt={6}>
+    <Box as="footer" borderTop="1px solid" borderTopColor="info" pt={6}>
       <Box maxWidth="1350px" mx="auto" pl={{ base: 0, lg: 6 }}>
         <Box as="nav" pl={{ base: 8, lg: 0 }}>
           <Grid templateColumns={{ base: "1fr", lg: "repeat(4, 1fr)" }}>
@@ -54,7 +54,8 @@ const Footer = () => {
                 <ListItem
                   mt={{ base: 3, lg: 0 }}
                   display={{ base: "inherit", lg: "inline-block" }}
-                  borderRight={{ base: "none", lg: "1px solid #e5e5e5" }}
+                  borderRight={{ base: "none", lg: "1px solid" }}
+                  borderRightColor={{ base: "none", lg: "grey.300" }}
                   paddingRight={{ base: 0, lg: 4 }}
                 >
                   <Link href="/mentions-legales" aria-label="Accès aux mentions légales">
@@ -64,7 +65,8 @@ const Footer = () => {
                 <ListItem
                   mt={{ base: 3, lg: 0 }}
                   display={{ base: "inherit", lg: "inline-block" }}
-                  borderRight={{ base: "none", lg: "1px solid #e5e5e5" }}
+                  borderRight={{ base: "none", lg: "1px solid" }}
+                  borderRightColor={{ base: "none", lg: "grey.300" }}
                   paddingRight={{ base: 0, lg: 4 }}
                   paddingLeft={{ base: 0, lg: 4 }}
                 >
@@ -75,7 +77,8 @@ const Footer = () => {
                 <ListItem
                   mt={{ base: 3, lg: 0 }}
                   display={{ base: "inherit", lg: "inline-block" }}
-                  borderRight={{ base: "none", lg: "1px solid #e5e5e5" }}
+                  borderRight={{ base: "none", lg: "1px solid" }}
+                  borderRightColor={{ base: "none", lg: "grey.300" }}
                   paddingRight={{ base: 0, lg: 4 }}
                   paddingLeft={{ base: 0, lg: 4 }}
                 >
@@ -86,7 +89,8 @@ const Footer = () => {
                 <ListItem
                   mt={{ base: 3, lg: 0 }}
                   display={{ base: "inherit", lg: "inline-block" }}
-                  borderRight={{ base: "none", lg: "1px solid #e5e5e5" }}
+                  borderRight={{ base: "none", lg: "1px solid" }}
+                  borderRightColor={{ base: "none", lg: "grey.300" }}
                   paddingRight={{ base: 0, lg: 4 }}
                   paddingLeft={{ base: 0, lg: 4 }}
                 >
@@ -97,7 +101,8 @@ const Footer = () => {
                 <ListItem
                   mt={{ base: 3, lg: 0 }}
                   display={{ base: "inherit", lg: "inline-block" }}
-                  borderRight={{ base: "none", lg: "1px solid #e5e5e5" }}
+                  borderRight={{ base: "none", lg: "1px solid" }}
+                  borderRightColor={{ base: "none", lg: "grey.300" }}
                   paddingRight={{ base: 0, lg: 4 }}
                   paddingLeft={{ base: 0, lg: 4 }}
                 >
@@ -108,7 +113,8 @@ const Footer = () => {
                 <ListItem
                   mt={{ base: 3, lg: 0 }}
                   display={{ base: "inherit", lg: "inline-block" }}
-                  borderRight={{ base: "none", lg: "1px solid #e5e5e5" }}
+                  borderRight={{ base: "none", lg: "1px solid" }}
+                  borderRightColor={{ base: "none", lg: "grey.300" }}
                   paddingRight={{ base: 0, lg: 4 }}
                   paddingLeft={{ base: 0, lg: 4 }}
                 >
@@ -119,7 +125,8 @@ const Footer = () => {
                 <ListItem
                   mt={{ base: 3, lg: 0 }}
                   display={{ base: "inherit", lg: "inline-block" }}
-                  borderRight={{ base: "none", lg: "1px solid #e5e5e5" }}
+                  borderRight={{ base: "none", lg: "1px solid" }}
+                  borderRightColor={{ base: "none", lg: "grey.300" }}
                   paddingRight={{ base: 0, lg: 4 }}
                   paddingLeft={{ base: 0, lg: 4 }}
                 >
@@ -130,7 +137,8 @@ const Footer = () => {
                 <ListItem
                   mt={{ base: 3, lg: 0 }}
                   display={{ base: "inherit", lg: "inline-block" }}
-                  borderRight={{ base: "none", lg: "1px solid #e5e5e5" }}
+                  borderRight={{ base: "none", lg: "1px solid" }}
+                  borderRightColor={{ base: "none", lg: "grey.300" }}
                   paddingRight={{ base: 0, lg: 4 }}
                   paddingLeft={{ base: 0, lg: 4 }}
                 >
@@ -141,7 +149,8 @@ const Footer = () => {
                 <ListItem
                   mt={{ base: 3, lg: 0 }}
                   display={{ base: "inherit", lg: "inline-block" }}
-                  borderRight={{ base: "none", lg: "1px solid #e5e5e5" }}
+                  borderRight={{ base: "none", lg: "1px solid" }}
+                  borderRightColor={{ base: "none", lg: "grey.300" }}
                   paddingRight={{ base: 0, lg: 4 }}
                   paddingLeft={{ base: 0, lg: 4 }}
                 >
@@ -152,7 +161,8 @@ const Footer = () => {
                 <ListItem
                   mt={{ base: 3, lg: 0 }}
                   display={{ base: "inherit", lg: "inline-block" }}
-                  borderRight={{ base: "none", lg: "1px solid #e5e5e5" }}
+                  borderRight={{ base: "none", lg: "1px solid" }}
+                  borderRightColor={{ base: "none", lg: "grey.300" }}
                   paddingRight={{ base: 0, lg: 4 }}
                   paddingLeft={{ base: 0, lg: 4 }}
                 >
