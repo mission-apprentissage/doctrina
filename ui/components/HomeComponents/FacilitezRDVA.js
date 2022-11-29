@@ -1,5 +1,5 @@
 import React from "react"
-import { Box, Image, Text, Grid, GridItem } from "@chakra-ui/react"
+import { Box, Image, Text, Grid, GridItem, Link } from "@chakra-ui/react"
 
 const FacilitezRDVA = () => {
   return (
@@ -33,7 +33,12 @@ const FacilitezRDVA = () => {
               <GridItem colSpan={23} fontSize={{ base: "15px" }} lineHeight="28px" ml={2}>
                 <Text>Vous souhaitez référencer votre formation, modifier vos coordonnées, être visible sur Parcoursup ?</Text>
                 <Text mt={{ base: 2, lg: 0 }}>Vous souhaitez activer le service de demande de rendez-vous, consulter vos demandes de rendez-vous ?</Text>
-                <Text mt={{ base: 2, lg: 0 }}>Visitez notre FAQ pour trouver toutes les réponses à vos questions.</Text>
+                <Text mt={{ base: 2, lg: 0 }}>
+                  <Link href="/faq" variant="homeEditorialLink">
+                    Visitez notre FAQ
+                  </Link>{" "}
+                  pour trouver toutes les réponses à vos questions.
+                </Text>
               </GridItem>
             </Grid>
           </Box>
