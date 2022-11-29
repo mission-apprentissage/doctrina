@@ -41,9 +41,11 @@ const Organisme = () => {
           <BientotCFA />
         </Box>
 
-        <Box>
-          <Text as="h2">Vous souhaitez attirer de nouveaux candidats?</Text>
-          <Box ml="4">
+        <Box my={12}>
+          <Text as="h2" textAlign="center" fontSize="32" fontWeight={700}>
+            Vous souhaitez attirer de nouveaux candidats?
+          </Text>
+          <Box ml="4" display="flex" justifyContent="center" mt={10}>
             <ConnectionActions service="cfa" />
           </Box>
         </Box>
