@@ -12,7 +12,6 @@ import OffresGratuites from "../components/HomeComponents/OffresGratuites"
 import ReseauEntreprise from "../components/HomeComponents/ReseauEntreprise"
 import GerezEntreprise from "../components/HomeComponents/GerezEntreprise"
 import BientotCFA from "../components/HomeComponents/BientotCFA"
-import GerezOffresCFA from "../components/HomeComponents/GerezOffresCFA"
 import FollowLinkedIn from "../components/HomeComponents/FollowLinkedIn"
 import { Box, Container, Text } from "@chakra-ui/react"
 
