@@ -50,7 +50,7 @@ const Footer = () => {
         <Box as="nav" pl={{ base: 8, lg: 0 }}>
           <Grid>
             <GridItem>
-              <UnorderedList listStyleType="none" color="#666" fontSize={12} marginInlineStart={0}>
+              <UnorderedList listStyleType="none" color="grey.425" fontSize={12} marginInlineStart={0}>
                 <ListItem
                   mt={{ base: 3, lg: 0 }}
                   display={{ base: "inherit", lg: "inline-block" }}
@@ -171,7 +171,7 @@ const Footer = () => {
               </UnorderedList>
             </GridItem>
             <GridItem>
-              <Box color="#666" fontSize={12} mt={6} pb={12}>
+              <Box color="grey.425" fontSize={12} mt={6} pb={12}>
                 Sauf mention contraire, tous les contenus de ce site sont sous licence{" "}
                 <Link
                   href="https://www.etalab.gouv.fr/licence-version-2-0-de-la-licence-ouverte-suite-a-la-consultation-et-presentation-du-decret"
