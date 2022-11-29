@@ -27,7 +27,7 @@ const Organisme = () => {
       <Container maxW="container.lg" px={4} py={4}>
         <CFA />
 
-        <Box as="section">
+        <Box as="section" mt="16">
           <FacilitezRDVA />
         </Box>
         <Box as="section">

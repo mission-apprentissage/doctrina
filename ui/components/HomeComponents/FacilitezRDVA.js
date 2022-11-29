@@ -8,10 +8,12 @@ const FacilitezRDVA = () => {
         <Box bg="beige" borderRadius={10} p={12}>
           <Grid templateColumns={{ base: "1fr", lg: "repeat(2, 1fr)" }}>
             <GridItem>
-              <Image src="/images/home_pics/facilitezRDVA.svg" alt=""></Image>
+              <Box display="flex" alignItems="center" justifyContent={{ base: "center", lg: "flex-end" }} mr={{ base: 0, lg: 4 }} height="100%">
+                <Image src="/images/home_pics/facilitezRDVA.svg" alt="" width={{ base: "300px", lg: "420px" }}></Image>
+              </Box>
             </GridItem>
             <GridItem>
-              <Text as="h2" variant="homeEditorialH2">
+              <Text as="h2" variant="homeEditorialH2" mt={{ base: 8, lg: 0 }}>
                 Facilitez la prise de contact des jeunes intéressés par vos formations.
               </Text>
               <Text fontSize="18px" mt={4}>
