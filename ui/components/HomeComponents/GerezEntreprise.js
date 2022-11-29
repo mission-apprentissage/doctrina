@@ -1,18 +1,20 @@
 import React from "react"
-import { Box, Image, Text, Grid, GridItem } from "@chakra-ui/react"
+import { Box, Image, Text, SimpleGrid } from "@chakra-ui/react"
 
 const GerezEntreprise = () => {
   return (
-    <Box as="section">
-      <Grid>
-        <GridItem className="col-12 col-md-6">
+    <Box as="section" p={3} mb={{ base: "2", md: "5" }}>
+      <SimpleGrid columns={{ sm: 1, md: 2 }} spacing="40px" alignItems={"center"} mt={12}>
+        <Box>
           <Image src="/images/home_pics/illu-listeoffres.svg" alt=""></Image>
-        </GridItem>
-        <GridItem className="col-12 col-md-6 pt-md-5 mb-2 mb-md-5">
-          <Text as="h2">Gérez vos entreprises partenaires et leurs offres grâce à un tableau de bord</Text>
+        </Box>
+        <Box pl={{ base: 5 }}>
+          <Text as="h2" variant="homeEditorialH2">
+            Gérez vos entreprises partenaires et leurs offres grâce à un tableau de bord
+          </Text>
           <Text>Modifiez les offres, recevez les candidatures et préqualifiez les candidats pour vos entreprises et vos formations.</Text>
-        </GridItem>
-      </Grid>
+        </Box>
+      </SimpleGrid>
     </Box>
   )
 }
