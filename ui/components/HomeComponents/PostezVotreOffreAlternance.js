@@ -1,21 +1,23 @@
 import React from "react"
-import { Box, Image, Text, Grid, GridItem } from "@chakra-ui/react"
+import { Box, Image, Text, SimpleGrid } from "@chakra-ui/react"
 
 const PostezVotreOffreAlternance = () => {
   return (
-    <Box as="section">
-      <Grid>
-        <GridItem>
-          <Image src="/images/home_pics/illu-offreemploi.svg" alt=""></Image>
-        </GridItem>
-        <GridItem>
-          <Text as="h2">Déposez des offres d’alternance pour vos entreprises partenaires</Text>
+    <Box as="section" p={3} mb={{ base: "2", md: "5" }}>
+      <SimpleGrid columns={{ sm: 1, md: 2 }} spacing="40px" alignItems={"center"} mt={12}>
+        <Box pl={{ base: 5 }}>
+          <Text as="h2" variant="homeEditorialH2">
+            Déposez des offres d’alternance pour vos entreprises partenaires
+          </Text>
           <Box>
-            <Text>3 étapes seulement pour mettre en ligne les besoins de vos entreprises partenaires.</Text>
+            <Text mt="3">3 étapes seulement pour mettre en ligne les besoins de vos entreprises partenaires.</Text>
             <Text>Vos offres regroupant formation et emploi seront mises en avant sur les différents sites.</Text>
           </Box>
-        </GridItem>
-      </Grid>
+        </Box>
+        <Box>
+          <Image src="/images/home_pics/illu-offreemploi.svg" alt=""></Image>
+        </Box>
+      </SimpleGrid>
     </Box>
   )
 }
