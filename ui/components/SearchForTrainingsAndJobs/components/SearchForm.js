@@ -161,9 +161,7 @@ const SearchForm = (props) => {
                     <Text as="p" my={2} fontWeight={700}>
                       Niveau d&apos;études visé
                     </Text>
-                    <Box className="c-diplomas-buttons">
-                      {buildAvailableDiplomasButtons(diploma, diplomas, (evt) => handleSelectChange(evt, setFieldValue, setDiploma, "diploma"))}
-                    </Box>
+                    <Box>{buildAvailableDiplomasButtons(diploma, diplomas, (evt) => handleSelectChange(evt, setFieldValue, setDiploma, "diploma"))}</Box>
                   </Box>
                 </Box>
                 <Box>
