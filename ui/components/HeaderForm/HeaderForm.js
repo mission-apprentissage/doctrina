@@ -18,7 +18,7 @@ import { autoCompleteToStringFunction, compareAutoCompleteValues } from "../../s
 import validateFormik from "../../services/validateFormik"
 import { ParameterContext } from "../../context/ParameterContextProvider"
 import { DisplayContext } from "../../context/DisplayContextProvider"
-import { Box } from "@chakra-ui/react"
+import { Box, Button, Image } from "@chakra-ui/react"
 
 const HeaderForm = ({ handleSearchSubmit, isHome }) => {
   const { widgetParameters } = React.useContext(ParameterContext)
@@ -55,7 +55,7 @@ const HeaderForm = ({ handleSearchSubmit, isHome }) => {
       <Formik validate={(values) => validateFormik(values, widgetParameters)} initialValues={{ job: {}, location: {}, radius: 30, diploma: "" }} onSubmit={handleSearchSubmit}>
         {({ isSubmitting, setFieldValue, errors, touched }) => (
           <Form className="c-logobar-form c-searchform">
-            <div className={`formGroup formGroup--logobar`}>
+            <Box className={`formGroup formGroup--logobar`}>
               <AutoCompleteField
                 kind="Métier ou diplôme *"
                 items={[]}
@@ -75,9 +75,9 @@ const HeaderForm = ({ handleSearchSubmit, isHome }) => {
                   { typeLabel: "...autres métiers et diplômes" },
                 ]}
               />
-            </div>
-            <div className="ml-3">
-              <div className={`formGroup formGroup--logobar`}>
+            </Box>
+            <Box className="ml-3">
+              <Box className={`formGroup formGroup--logobar`}>
                 <AutoCompleteField
                   kind="Lieu"
                   items={[]}
@@ -91,9 +91,9 @@ const HeaderForm = ({ handleSearchSubmit, isHome }) => {
                   placeholder={isHome ? "A quel endroit ?" : "Adresse, ville ou code postal"}
                   searchPlaceholder="Indiquez le lieu recherché ci-dessus"
                 />
-              </div>
-            </div>
-            <div className="ml-3">
+              </Box>
+            </Box>
+            <Box className="ml-3">
               <div className="c-logobar-formgroup c-logobar-formgroup--rayon">
                 <label htmlFor="jobField" className="c-logobar-label c-logobar-label--rayon">
                   Rayon
@@ -104,8 +104,8 @@ const HeaderForm = ({ handleSearchSubmit, isHome }) => {
                   </Input>
                 </div>
               </div>
-            </div>
-            <div className="c-logobar-formgroup c-logobar-formgroup--diploma ml-3">
+            </Box>
+            <Box className="c-logobar-formgroup c-logobar-formgroup--diploma ml-3">
               <label htmlFor="jobField" className="c-logobar-label c-logobar-label--diploma">
                 Niveau d&apos;études visé
               </label>
@@ -114,18 +114,19 @@ const HeaderForm = ({ handleSearchSubmit, isHome }) => {
                   {buildAvailableDiplomasOptions(diplomas)}
                 </Input>
               </div>
-            </div>
-            <div className="c-logobar-formgroup ml-md-1 ml-lg-3 border-0 c-logobar-submit-container">
-              <button
-                type="submit"
-                className={`btn btn-lg btn-dark w-100 font-weight-bold c-regular-darkbtn c-logobar-submit is-home-${isHome}`}
-                disabled={isSubmitting}
-                alt="Lancer la recherche"
-              >
-                <img alt="Lancer la recherche" src={glassImage} />
-                {isHome ? <div className="c-logobar-letstart">C&apos;est parti</div> : ""}
-              </button>
-            </div>
+            </Box>
+            <Box className="c-logobar-formgroup ml-md-1 ml-lg-3 border-0 c-logobar-submit-container">
+              <Button type="submit" variant="blackButton" disabled={isSubmitting} alt="Lancer la recherche" height="57px" paddingTop="3px">
+                <Image height="24px" fontSize="18px" fontWeight={700} alt="Lancer la recherche" src={glassImage} />
+                {isHome ? (
+                  <Box fontSize="18px" mx={3} display={{ base: "none", xl: "inline-block" }}>
+                    C&apos;est parti
+                  </Box>
+                ) : (
+                  ""
+                )}
+              </Button>
+            </Box>
           </Form>
         )}
       </Formik>
