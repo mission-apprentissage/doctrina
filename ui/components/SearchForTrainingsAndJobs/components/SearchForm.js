@@ -192,19 +192,28 @@ const SearchForm = (props) => {
   }
 
   return (
-    <div className={isFormVisible ? "" : "hiddenSearchForm"}>
-      <div className="formGroup">
-        {hasSearch && !props.isHome ? (
-          <button className="c-detail-back px-3 py-1" onClick={props.showResultList}>
-            ← Retour
-          </button>
-        ) : (
-          ""
-        )}
-      </div>
+    <Box display={isFormVisible ? "" : "none"}>
+      {hasSearch && !props.isHome ? (
+        <Button
+          px={4}
+          py={1}
+          fontSize="12px"
+          border="1px solid #e0e0e0"
+          height="30px"
+          borderRadius="4px"
+          background="white"
+          fontWeight={700}
+          marginBottom="1rem"
+          onClick={props.showResultList}
+        >
+          ← Retour
+        </Button>
+      ) : (
+        ""
+      )}
 
       {domainError || diplomaError ? <DomainError setDomainError={setDomainError} setDiplomaError={setDiplomaError} /> : renderFormik()}
-    </div>
+    </Box>
   )
 }
 
