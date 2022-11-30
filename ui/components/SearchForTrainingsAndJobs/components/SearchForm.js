@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext } from "react"
-import { Input } from "reactstrap"
 import { Formik, Form, ErrorMessage } from "formik"
 import { AutoCompleteField } from "../../../components/AutoCompleteField/AutoCompleteField"
 
@@ -17,7 +16,26 @@ import validateFormik from "../../../services/validateFormik"
 import { SearchResultContext } from "../../../context/SearchResultContextProvider"
 import { ParameterContext } from "../../../context/ParameterContextProvider"
 import { DisplayContext } from "../../../context/DisplayContextProvider"
-import { Box, Button, Flex, Text } from "@chakra-ui/react"
+import { Box, Button, Flex, Select, Text } from "@chakra-ui/react"
+
+const selectProperties = {
+  fontSize: "1rem",
+  border: "none",
+  height: "2rem",
+  marginLeft: "5px",
+  width: "95%",
+  fontWeight: 600,
+}
+
+const formGroupProperties = {
+  display: "flex",
+  flexDirection: "column",
+  position: "relative",
+  border: "1px solid",
+  borderColor: "grey.300",
+  borderRadius: "10px",
+  padding: "0.1rem",
+}
 
 const SearchForm = (props) => {
   const { hasSearch } = useContext(SearchResultContext)
@@ -60,7 +78,7 @@ const SearchForm = (props) => {
         onSubmit={props.handleSearchSubmit}
       >
         {({ isSubmitting, setFieldValue, errors }) => (
-          <Form className={`c-searchform c-searchform--column is-home-${props.isHome}`}>
+          <Form>
             <Box p="0">
               <Text as="h1" fontSize={["26px", "29px"]} fontWeight={700}>
                 <Text as="span" display={{ base: "block", md: "inline" }}>
@@ -86,6 +104,7 @@ const SearchForm = (props) => {
                     onInputValueChangeFunction={jobChanged}
                     name="jobField"
                     placeholder="Indiquez un métier ou diplôme"
+                    inputVariant="homeAutocomplete"
                     searchPlaceholder="Indiquez un métier ou diplôme ci-dessus"
                     isDisabled={widgetParameters?.parameters?.jobName && widgetParameters?.parameters?.romes && widgetParameters?.parameters?.frozenJob}
                     splitItemsByTypes={[
@@ -113,40 +132,45 @@ const SearchForm = (props) => {
                   <ErrorMessage name="location" className="onErrorFieldColumn" component="div" />
                 </Box>
                 <Box mb={4}>
-                  <div className="c-logobar-formgroup formGroup d-none d-md-block">
-                    <label htmlFor="jobField" className="c-logobar-label">
+                  <Box display={["none", "none", "block"]} border="1px solid" borderColor="grey.300" borderRadius="10px" padding="0.1rem">
+                    <Text as="label" htmlFor="locationRadius" variant="defaultAutocomplete">
                       Rayon
-                    </label>
-                    <div className="c-logobar-field">
-                      <Input onChange={(evt) => handleSelectChange(evt, setFieldValue, setLocationRadius, "radius")} type="select" value={locationRadius} name="locationRadius">
+                    </Text>
+                    <Box className="c-logobar-field">
+                      <Select
+                        onChange={(evt) => handleSelectChange(evt, setFieldValue, setLocationRadius, "radius")}
+                        value={locationRadius}
+                        name="locationRadius"
+                        {...selectProperties}
+                      >
                         {buildRayonsOptions()}
-                      </Input>
-                    </div>
-                  </div>
-                  <div className="d-block d-md-none formGroup">
-                    <h3 className="h6 font-weight-bold">Rayon</h3>
-                    <div className="c-logobar-field">{buildRayonsButtons(locationRadius, (evt) => handleSelectChange(evt, setFieldValue, setLocationRadius, "radius"))}</div>
-                  </div>
+                      </Select>
+                    </Box>
+                  </Box>
+                  <Box display={["block", "block", "none"]}>
+                    <Text as="p" my={2} fontWeight={700}>
+                      Rayon
+                    </Text>
+                    <Box className="c-logobar-field">{buildRayonsButtons(locationRadius, (evt) => handleSelectChange(evt, setFieldValue, setLocationRadius, "radius"))}</Box>
+                  </Box>
                 </Box>
                 <Box mb={10}>
-                  <div className="formGroup c-logobar-formgroup d-none d-md-block">
-                    <div className="">
-                      <label htmlFor="jobField" className="c-logobar-label">
-                        Niveau d&apos;études visé
-                      </label>
-                      <div className="c-logobar-field">
-                        <Input onChange={(evt) => handleSelectChange(evt, setFieldValue, setDiploma, "diploma")} value={diploma} type="select" name="diploma">
-                          {buildAvailableDiplomasOptions(diplomas)}
-                        </Input>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="d-block d-md-none formGroup">
-                    <h3 className="h6 font-weight-bold">Niveau d&apos;études visé</h3>
-                    <div className="c-diplomas-buttons">
+                  <Box display={["none", "none", "block"]} border="1px solid" borderColor="grey.300" borderRadius="10px" padding="0.1rem">
+                    <Text as="label" htmlFor="diploma" variant="defaultAutocomplete">
+                      Niveau d&apos;études visé
+                    </Text>
+                    <Select onChange={(evt) => handleSelectChange(evt, setFieldValue, setDiploma, "diploma")} value={diploma} name="diploma" {...selectProperties}>
+                      {buildAvailableDiplomasOptions(diplomas)}
+                    </Select>
+                  </Box>
+                  <Box display={["block", "block", "none"]}>
+                    <Text as="p" my={2} fontWeight={700}>
+                      Niveau d&apos;études visé
+                    </Text>
+                    <Box className="c-diplomas-buttons">
                       {buildAvailableDiplomasButtons(diploma, diplomas, (evt) => handleSelectChange(evt, setFieldValue, setDiploma, "diploma"))}
-                    </div>
-                  </div>
+                    </Box>
+                  </Box>
                 </Box>
                 <Box>
                   <Button
