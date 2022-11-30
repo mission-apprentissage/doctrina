@@ -20,11 +20,12 @@ import { DisplayContext } from "../../context/DisplayContextProvider"
 import { Box, Button, Flex, Image, Select, Text } from "@chakra-ui/react"
 
 const selectProperties = {
-  fontSize: "1rem",
+  fontSize: "14px",
   border: "none",
-  height: "26px",
+  height: "23px",
   fontWeight: 600,
   background: "white",
+  minWidth: "100px",
   sx: {
     padding: "0px 10px",
     marginBottom: "5px",
@@ -123,18 +124,18 @@ const HeaderForm = ({ handleSearchSubmit, isHome }) => {
                 </Box>
               </Box>
               <Box ml={3} border="1px solid" borderColor="grey.300" borderRadius="10px" padding="0.1rem">
-                <Text as="label" htmlFor="diploma">
+                <Text as="label" htmlFor="diploma" variant="defaultAutocomplete">
                   Niveau d&apos;études visé
                 </Text>
                 <Box>
-                  <Select variant="widgetHeaderForm" onChange={(evt) => handleSelectChange(evt, setFieldValue, setDiploma, "diploma")} value={diploma} name="diploma">
+                  <Select {...selectProperties} onChange={(evt) => handleSelectChange(evt, setFieldValue, setDiploma, "diploma")} value={diploma} name="diploma">
                     {buildAvailableDiplomasOptions(diplomas)}
                   </Select>
                 </Box>
               </Box>
               <Box ml={[1, 1, 1, 3]}>
                 <Button type="submit" variant="blackButton" disabled={isSubmitting} alt="Lancer la recherche" height="57px" paddingTop="3px">
-                  <Image height="24px" fontSize="18px" fontWeight={700} alt="Lancer la recherche" src={glassImage} />
+                  <Image maxWidth="unset" alt="Lancer la recherche" src={glassImage} />
                   {isHome ? (
                     <Box fontSize="18px" mx={3} display={{ base: "none", xl: "inline-block" }}>
                       C&apos;est parti

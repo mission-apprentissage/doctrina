@@ -44,18 +44,6 @@ const Select = {
         ...commonFieldStyle,
       },
     },
-    widgetHeaderForm: {
-      fontSize: "1rem",
-      border: "none",
-      height: "26px",
-      fontWeight: 600,
-      background: "white",
-      sx: {
-        padding: "0px 10px",
-        marginBottom: "5px",
-      },
-      border: "none !important",
-    },
   },
 }
 
