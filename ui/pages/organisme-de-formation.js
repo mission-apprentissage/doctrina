@@ -45,7 +45,7 @@ const Organisme = () => {
           <Text as="h2" textAlign="center" fontSize="32" fontWeight={700}>
             Vous souhaitez attirer de nouveaux candidats?
           </Text>
-          <Box ml="4" display="flex" justifyContent="center" mt={10}>
+          <Box ml="4" display="flex" justifyContent="center" mt={2}>
             <ConnectionActions service="cfa" />
           </Box>
         </Box>
