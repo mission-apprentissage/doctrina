@@ -121,6 +121,7 @@ const SearchForm = (props) => {
                     onInputValueChangeFunction={addressChanged}
                     name="placeField"
                     placeholder="Adresse, ville ou code postal"
+                    inputVariant="homeAutocomplete"
                     searchPlaceholder="Indiquez le lieu recherché ci-dessus"
                   />
                   <ErrorMessage name="location" className="onErrorFieldColumn" component="div" />
