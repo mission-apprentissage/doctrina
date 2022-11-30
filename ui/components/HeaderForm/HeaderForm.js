@@ -18,6 +18,7 @@ import { autoCompleteToStringFunction, compareAutoCompleteValues } from "../../s
 import validateFormik from "../../services/validateFormik"
 import { ParameterContext } from "../../context/ParameterContextProvider"
 import { DisplayContext } from "../../context/DisplayContextProvider"
+import { Box } from "@chakra-ui/react"
 
 const HeaderForm = ({ handleSearchSubmit, isHome }) => {
   const { widgetParameters } = React.useContext(ParameterContext)
@@ -131,11 +132,7 @@ const HeaderForm = ({ handleSearchSubmit, isHome }) => {
     )
   }
 
-  return (
-    <div className="c-logobar">
-      {domainError || diplomaError ? <DomainError position="header" setDomainError={setDomainError} setDiplomaError={setDiplomaError} /> : renderFormik()}
-    </div>
-  )
+  return <Box>{domainError || diplomaError ? <DomainError position="header" setDomainError={setDomainError} setDiplomaError={setDiplomaError} /> : renderFormik()}</Box>
 }
 
 export default HeaderForm
