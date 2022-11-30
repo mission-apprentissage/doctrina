@@ -4,7 +4,7 @@ import { Box, Image, Grid, GridItem, Text } from "@chakra-ui/react"
 
 const BientotCFA = () => {
   return (
-    <Box bg="beige" mt="16" borderRadius="10" px="12">
+    <Box bg="beige" mt="16" borderRadius="10" px="12" py={{ base: 12, lg: 0 }}>
       <Grid templateColumns={{ base: "1fr", lg: "repeat(4, 1fr)" }} templateRows={{ base: "auto", lg: "repeat(12, 1fr)" }}>
         <GridItem gridColumn={{ base: "1fr", lg: "1 / 3" }} gridRow={{ base: "auto", lg: "1 / 7" }} order={{ base: "2", md: "auto" }}>
           <Box display="flex" alignItems="center" justifyContent="center" height="100%" mr={{ base: 0, lg: 6 }}>
