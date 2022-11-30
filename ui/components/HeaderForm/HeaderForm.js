@@ -17,7 +17,20 @@ import { autoCompleteToStringFunction, compareAutoCompleteValues } from "../../s
 import validateFormik from "../../services/validateFormik"
 import { ParameterContext } from "../../context/ParameterContextProvider"
 import { DisplayContext } from "../../context/DisplayContextProvider"
-import { Box, Button, Flex, Image, Select } from "@chakra-ui/react"
+import { Box, Button, Flex, Image, Select, Text } from "@chakra-ui/react"
+
+const selectProperties = {
+  fontSize: "1rem",
+  border: "none",
+  height: "26px",
+  fontWeight: 600,
+  background: "white",
+  sx: {
+    padding: "0px 10px",
+    marginBottom: "5px",
+  },
+  border: "none !important",
+}
 
 const HeaderForm = ({ handleSearchSubmit, isHome }) => {
   const { widgetParameters } = React.useContext(ParameterContext)
@@ -93,23 +106,31 @@ const HeaderForm = ({ handleSearchSubmit, isHome }) => {
                   />
                 </Box>
               </Box>
-              <Box ml={3}>
-                <div>
-                  <label htmlFor="locationRadius">Rayon</label>
-                  <div>
-                    <Select onChange={(evt) => handleSelectChange(evt, setFieldValue, setLocationRadius, "radius")} type="select" value={locationRadius} name="locationRadius">
-                      {buildRayonsOptions()}
-                    </Select>
-                  </div>
-                </div>
+              <Box ml={3} border="1px solid" borderColor="grey.300" borderRadius="10px" padding="0.1rem">
+                <Text as="label" htmlFor="locationRadius" variant="defaultAutocomplete">
+                  Rayon
+                </Text>
+                <Box>
+                  <Select
+                    {...selectProperties}
+                    onChange={(evt) => handleSelectChange(evt, setFieldValue, setLocationRadius, "radius")}
+                    type="select"
+                    value={locationRadius}
+                    name="locationRadius"
+                  >
+                    {buildRayonsOptions()}
+                  </Select>
+                </Box>
               </Box>
-              <Box ml={3}>
-                <label htmlFor="diploma">Niveau d&apos;études visé</label>
-                <div>
-                  <Select onChange={(evt) => handleSelectChange(evt, setFieldValue, setDiploma, "diploma")} type="select" value={diploma} name="diploma">
+              <Box ml={3} border="1px solid" borderColor="grey.300" borderRadius="10px" padding="0.1rem">
+                <Text as="label" htmlFor="diploma">
+                  Niveau d&apos;études visé
+                </Text>
+                <Box>
+                  <Select variant="widgetHeaderForm" onChange={(evt) => handleSelectChange(evt, setFieldValue, setDiploma, "diploma")} value={diploma} name="diploma">
                     {buildAvailableDiplomasOptions(diplomas)}
                   </Select>
-                </div>
+                </Box>
               </Box>
               <Box ml={[1, 1, 1, 3]}>
                 <Button type="submit" variant="blackButton" disabled={isSubmitting} alt="Lancer la recherche" height="57px" paddingTop="3px">
