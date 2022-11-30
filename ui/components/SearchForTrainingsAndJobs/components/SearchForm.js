@@ -21,20 +21,14 @@ import { Box, Button, Flex, Select, Text } from "@chakra-ui/react"
 const selectProperties = {
   fontSize: "1rem",
   border: "none",
-  height: "2rem",
-  marginLeft: "5px",
-  width: "95%",
+  height: "26px",
   fontWeight: 600,
-}
-
-const formGroupProperties = {
-  display: "flex",
-  flexDirection: "column",
-  position: "relative",
-  border: "1px solid",
-  borderColor: "grey.300",
-  borderRadius: "10px",
-  padding: "0.1rem",
+  background: "white",
+  sx: {
+    padding: "0px 10px",
+    marginBottom: "5px",
+  },
+  border: "none !important",
 }
 
 const SearchForm = (props) => {
@@ -136,7 +130,7 @@ const SearchForm = (props) => {
                     <Text as="label" htmlFor="locationRadius" variant="defaultAutocomplete">
                       Rayon
                     </Text>
-                    <Box className="c-logobar-field">
+                    <Box>
                       <Select
                         onChange={(evt) => handleSelectChange(evt, setFieldValue, setLocationRadius, "radius")}
                         value={locationRadius}
@@ -151,7 +145,7 @@ const SearchForm = (props) => {
                     <Text as="p" my={2} fontWeight={700}>
                       Rayon
                     </Text>
-                    <Box className="c-logobar-field">{buildRayonsButtons(locationRadius, (evt) => handleSelectChange(evt, setFieldValue, setLocationRadius, "radius"))}</Box>
+                    <Box>{buildRayonsButtons(locationRadius, (evt) => handleSelectChange(evt, setFieldValue, setLocationRadius, "radius"))}</Box>
                   </Box>
                 </Box>
                 <Box mb={10}>
