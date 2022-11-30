@@ -192,7 +192,7 @@ const SearchForm = (props) => {
   }
 
   return (
-    <Box display={isFormVisible ? "" : "none"}>
+    <Box display={props.isHome || isFormVisible ? "block" : "none"}>
       {hasSearch && !props.isHome ? (
         <Button
           px={4}
