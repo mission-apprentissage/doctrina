@@ -68,7 +68,7 @@ export default {
         multi_diffuser: {
           type: "boolean",
           default: null,
-          description: "Definit si l'offre est diffusée sur d'autre jobboard que La bonne alternance",
+          description: "Definit si l'offre est diffusée sur d'autres jobboard que La bonne alternance",
         },
         delegate: {
           type: "boolean",
