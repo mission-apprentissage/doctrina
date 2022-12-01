@@ -15,6 +15,7 @@ import { inviteEtablissementToPremium } from "./jobs/rdv/inviteEtablissementToPr
 import { inviteEtablissementToPremiumFollowUp } from "./jobs/rdv/inviteEtablissementToPremiumFollowUp.js"
 import { parcoursupEtablissementStat } from "./jobs/rdv/parcoursupEtablissementStat.js"
 import { syncEtablissementsAndFormations } from "./jobs/rdv/syncEtablissementsAndFormations.js"
+import importFormations from "./jobs/FormationsCatalogue/FormationsCatalogue.js"
 import { runScript } from "./jobs/scriptWrapper.js"
 
 cli.addHelpText("after")
@@ -147,6 +148,14 @@ cli
   .description("Récupère la liste de toutes les formations du Catalogue et les enregistre.")
   .action(() => {
     runScript((components) => syncEtablissementsAndFormations(components))
+  })
+
+cli
+  .command("import-trainings-from-catalogue")
+  .option("-only-change-master, [OnlyChangeMaster]", "n'importe pas de nouvelles formations mais procède à une permutation de l'index master", false)
+  .description("Importe les formations depuis le Catalogue")
+  .action((options) => {
+    runScript(() => importFormations(options))
   })
 
 cli.parse(process.argv)
