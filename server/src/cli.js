@@ -17,6 +17,7 @@ import { parcoursupEtablissementStat } from "./jobs/rdv/parcoursupEtablissementS
 import { syncEtablissementsAndFormations } from "./jobs/rdv/syncEtablissementsAndFormations.js"
 import importFormations from "./jobs/FormationsCatalogue/FormationsCatalogue.js"
 import updateSendinblueBlockedEmails from "./jobs/updateSendinblueBlockedEmails/updateSendinblueBlockedEmails.js"
+import anonymizeOldApplications from "./jobs/anonymizeOldApplications/anonymizeOldApplications.js"
 import { runScript } from "./jobs/scriptWrapper.js"
 
 cli.addHelpText("after")
@@ -165,6 +166,13 @@ cli
   .description("Récupère auprès de Sendinblue la liste des adresses emails bloquées le jour précédent (défaut) ou toutes les adresses bloquées (option)")
   .action((options) => {
     runScript(() => updateSendinblueBlockedEmails(options))
+  })
+
+cli
+  .command("anonymize-1-year-old-applications")
+  .description("Anonymise toutes les candidatures de plus de an qui ne sont pas déjà anonymisées")
+  .action(() => {
+    runScript(() => anonymizeOldApplications())
   })
 
 cli.parse(process.argv)
