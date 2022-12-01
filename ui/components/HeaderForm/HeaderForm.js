@@ -136,12 +136,10 @@ const HeaderForm = ({ handleSearchSubmit, isHome }) => {
               <Box ml={[1, 1, 1, 3]}>
                 <Button type="submit" variant="blackButton" disabled={isSubmitting} alt="Lancer la recherche" height="57px" paddingTop="3px">
                   <Image maxWidth="unset" alt="Lancer la recherche" src={glassImage} />
-                  {isHome ? (
+                  {isHome && (
                     <Box fontSize="18px" mx={3} display={{ base: "none", xl: "inline-block" }}>
                       C&apos;est parti
                     </Box>
-                  ) : (
-                    ""
                   )}
                 </Button>
               </Box>

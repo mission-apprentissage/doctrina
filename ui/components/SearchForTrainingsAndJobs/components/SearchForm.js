@@ -192,7 +192,7 @@ const SearchForm = (props) => {
 
   return (
     <Box display={props.isHome || isFormVisible ? "block" : "none"}>
-      {hasSearch && !props.isHome ? (
+      {hasSearch && !props.isHome && (
         <Button
           px={4}
           py={1}
@@ -207,8 +207,6 @@ const SearchForm = (props) => {
         >
           ← Retour
         </Button>
-      ) : (
-        ""
       )}
 
       {domainError || diplomaError ? <DomainError setDomainError={setDomainError} setDiplomaError={setDiplomaError} /> : renderFormik()}

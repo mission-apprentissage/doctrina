@@ -24,10 +24,10 @@ const WidgetHeader = ({ handleSearchSubmit, isHome }) => {
   return (
     <Box zIndex={9} display={formDisplayValue} boxShadow={isHome ? "none" : "0 0 12px 2px rgb(0 0 0 / 21%)"} padding="8px">
       <Flex>
-        {isHome ? "" : <LogoIdea />}
+        {!isHome && <LogoIdea />}
 
         <Box>
-          {isHome ? (
+          {isHome && (
             <Text mb={3} as="h1" fontSize={["26px", "29px"]} fontWeight={700}>
               <Text as="span" display={{ base: "block", md: "inline" }}>
                 Se former et travailler{" "}
@@ -36,8 +36,6 @@ const WidgetHeader = ({ handleSearchSubmit, isHome }) => {
                 en alternance
               </Text>
             </Text>
-          ) : (
-            ""
           )}
           <HeaderForm handleSearchSubmit={handleSearchSubmitFunction} isHome={isHome} />
         </Box>
