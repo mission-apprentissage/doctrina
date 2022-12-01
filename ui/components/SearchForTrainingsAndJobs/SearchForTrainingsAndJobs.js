@@ -362,6 +362,7 @@ const SearchForTrainingsAndJobs = () => {
             unSelectItem={unSelectItem}
             searchRadius={searchRadius}
             isTrainingSearchLoading={isTrainingSearchLoading}
+            isFormVisible={isFormVisible}
             searchForTrainings={searchForTrainings}
             trainingSearchError={trainingSearchError}
             searchForJobs={searchForJobs}
