@@ -353,7 +353,7 @@ const SearchForTrainingsAndJobs = () => {
       <InitWidgetSearchParameters handleSearchSubmit={handleSearchSubmit} handleItemLoad={handleItemLoad} setIsLoading={setIsLoading} />
       <WidgetHeader handleSearchSubmit={handleSearchSubmit} />
       <Flex direction="row" overflow="hidden" height="100%">
-        <Box flex="5" display={listDisplayParameters} height="100%" overflow="hidden" direction="column">
+        <Box flex="5" display={listDisplayParameters} height="100%" overflow="auto" direction="column">
           <ChoiceColumn
             shouldShowWelcomeMessage={shouldShowWelcomeMessage}
             handleSearchSubmit={handleSearchSubmit}
