@@ -16,6 +16,7 @@ import { inviteEtablissementToPremiumFollowUp } from "./jobs/rdv/inviteEtablisse
 import { parcoursupEtablissementStat } from "./jobs/rdv/parcoursupEtablissementStat.js"
 import { syncEtablissementsAndFormations } from "./jobs/rdv/syncEtablissementsAndFormations.js"
 import importFormations from "./jobs/FormationsCatalogue/FormationsCatalogue.js"
+import updateSendinblueBlockedEmails from "./jobs/updateSendinblueBlockedEmails/updateSendinblueBlockedEmails.js"
 import { runScript } from "./jobs/scriptWrapper.js"
 
 cli.addHelpText("after")
@@ -156,6 +157,14 @@ cli
   .description("Importe les formations depuis le Catalogue")
   .action((options) => {
     runScript(() => importFormations(options))
+  })
+
+cli
+  .command("update-sendinblue-blocked-email-addresses")
+  .option("-all-addresses, [AllAddresses]", "pour récupérer toutes les adresses bloquées", false)
+  .description("Récupère auprès de Sendinblue la liste des adresses emails bloquées le jour précédent (défaut) ou toutes les adresses bloquées (option)")
+  .action((options) => {
+    runScript(() => updateSendinblueBlockedEmails(options))
   })
 
 cli.parse(process.argv)
