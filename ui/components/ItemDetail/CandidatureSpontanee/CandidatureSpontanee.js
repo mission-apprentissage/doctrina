@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { Button, Modal, ModalHeader } from "reactstrap"
+import { Modal, ModalHeader } from "reactstrap"
 import { useFormik } from "formik"
 import CandidatureSpontaneeNominalBodyFooter from "./CandidatureSpontaneeNominalBodyFooter"
 import CandidatureSpontaneeWorked from "./CandidatureSpontaneeWorked"
@@ -13,6 +13,7 @@ import hasAlreadySubmittedCandidature from "./services/hasAlreadySubmittedCandid
 import { getItemId } from "../../../utils/getItemId"
 import { SendPlausibleEvent } from "../../../utils/plausible"
 import { capitalizeFirstLetter } from "../../../utils/strutils"
+import { Box, Button, Image, Text } from "@chakra-ui/react"
 
 const CandidatureSpontanee = (props) => {
   const [modal, setModal] = useState(false)
@@ -64,9 +65,9 @@ const CandidatureSpontanee = (props) => {
   })
 
   return (
-    <div className="c-candidature" data-testid="CandidatureSpontanee">
-      <div className="c-detail-description-me">
-        <div className="c-detail-pelink my-3">
+    <Box data-testid="CandidatureSpontanee">
+      <Box>
+        <Box my={4}>
           {hasAlreadySubmittedCandidature({ applied, modal }) ? (
             <>
               <div data-testid="already-applied">
@@ -81,8 +82,18 @@ const CandidatureSpontanee = (props) => {
           ) : (
             <>
               <Button
+                ml={1}
+                padding="8px 24px"
+                color="white"
+                background="bluefrance.500"
+                borderRadius="8px"
+                sx={{
+                  textDecoration: "none",
+                  _hover: {
+                    background: "bluesoft.500",
+                  },
+                }}
                 onClick={openApplicationForm}
-                className={`btn btn-blue ml-1 gtmFormulaireCandidature gtm${capitalizeFirstLetter(kind)}`}
                 aria-label="jenvoie-une-candidature-spontanee"
               >
                 J&apos;envoie ma candidature{with_str(kind).amongst(["lbb", "lba"]) ? " spontanée" : ""}
@@ -112,23 +123,21 @@ const CandidatureSpontanee = (props) => {
               </Modal>
             </>
           )}
-        </div>
-        {props?.item?.company?.mandataire ? (
-          <>
-            <div className="c-mandataire-hint d-flex-center my-3">
-              <span className="c-mandataire-hintimg">
-                <img className="" src="/images/icons/small_info.svg" alt="point info" />
-              </span>
-              <span className="c-mandataire-hinttext ml-2">
-                <span className="">Votre candidature sera envoyée au centre de formation en charge du recrutement pour le compte de l’entreprise. </span>
-              </span>
-            </div>
-          </>
-        ) : (
-          ""
+        </Box>
+        {props?.item?.company?.mandataire && (
+          <Box className="c-mandataire-hint d-flex-center my-3">
+            <Text as="span" className="c-mandataire-hintimg">
+              <Image className="" src="/images/icons/small_info.svg" alt="point info" />
+            </Text>
+            <Text as="span" className="c-mandataire-hinttext ml-2">
+              <Text as="span" className="">
+                Votre candidature sera envoyée au centre de formation en charge du recrutement pour le compte de l’entreprise.{" "}
+              </Text>
+            </Text>
+          </Box>
         )}
-      </div>
-    </div>
+      </Box>
+    </Box>
   )
 }
 
