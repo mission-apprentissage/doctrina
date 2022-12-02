@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react"
-import { Modal, ModalHeader } from "reactstrap"
 import { useFormik } from "formik"
 import CandidatureSpontaneeNominalBodyFooter from "./CandidatureSpontaneeNominalBodyFooter"
 import CandidatureSpontaneeWorked from "./CandidatureSpontaneeWorked"
@@ -12,10 +11,11 @@ import useLocalStorage from "./services/useLocalStorage"
 import hasAlreadySubmittedCandidature from "./services/hasAlreadySubmittedCandidature"
 import { getItemId } from "../../../utils/getItemId"
 import { SendPlausibleEvent } from "../../../utils/plausible"
-import { Box, Button, Image, Text } from "@chakra-ui/react"
+import { Box, Button, Image, Modal, ModalContent, ModalHeader, ModalOverlay, Text, useDisclosure } from "@chakra-ui/react"
 
 const CandidatureSpontanee = (props) => {
-  const [modal, setModal] = useState(false)
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const { isOpen, onOpen, onClose } = useDisclosure()
   const [sendingState, setSendingState] = useState("not_sent")
   const kind = props?.item?.ideaType || ""
 
@@ -26,11 +26,12 @@ const CandidatureSpontanee = (props) => {
   const actualLocalStorage = props.fakeLocalStorage || window.localStorage || {}
 
   const toggle = () => {
-    toggleCandidature({ modal, setSendingState, setModal })
+    toggleCandidature({ isModalOpen, setSendingState, setIsModalOpen })
   }
 
   const openApplicationForm = () => {
-    toggle()
+    //toggle()
+    onOpen()
     SendPlausibleEvent(props.item.ideaType === "matcha" ? "Clic Postuler - Fiche entreprise Offre LBA" : "Clic Postuler - Fiche entreprise Algo", {
       info_fiche: getItemId(props.item),
     })
@@ -39,7 +40,7 @@ const CandidatureSpontanee = (props) => {
   const [applied, setApplied] = useLocalStorage(uniqId(kind, props.item), null, actualLocalStorage)
 
   useEffect(() => {
-    setModal(false)
+    setIsModalOpen(false)
 
     // HACK HERE : reapply setApplied to currentUniqId to re-detect
     // if user already applied each time the user swap to another item.
@@ -67,17 +68,15 @@ const CandidatureSpontanee = (props) => {
     <Box data-testid="CandidatureSpontanee">
       <Box>
         <Box my={4}>
-          {hasAlreadySubmittedCandidature({ applied, modal }) ? (
-            <>
-              <div data-testid="already-applied">
-                Vous avez déjà postulé le{" "}
-                {new Date(parseInt(applied, 10)).toLocaleDateString("fr-FR", {
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                })}
-              </div>
-            </>
+          {hasAlreadySubmittedCandidature({ applied, isModalOpen }) ? (
+            <Box data-testid="already-applied">
+              Vous avez déjà postulé le{" "}
+              {new Date(parseInt(applied, 10)).toLocaleDateString("fr-FR", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
+            </Box>
           ) : (
             <>
               <Button
@@ -97,28 +96,31 @@ const CandidatureSpontanee = (props) => {
               >
                 J&apos;envoie ma candidature{with_str(kind).amongst(["lbb", "lba"]) ? " spontanée" : ""}
               </Button>
-              <Modal isOpen={modal} toggle={toggle} className={"c-candidature-modal"} backdrop="static">
-                <form onSubmit={formik.handleSubmit} className="c-candidature-form">
-                  <ModalHeader toggle={toggle} className={"c-candidature-modal-header"}></ModalHeader>
+              <Modal isOpen={isOpen} onClose={onClose} backdrop="static">
+                <ModalOverlay />
+                <ModalContent>
+                  <form onSubmit={formik.handleSubmit} className="c-candidature-form">
+                    <ModalHeader toggle={toggle} className={"c-candidature-modal-header"}></ModalHeader>
 
-                  {with_str(sendingState).amongst(["not_sent", "currently_sending"]) ? (
-                    <CandidatureSpontaneeNominalBodyFooter formik={formik} sendingState={sendingState} company={props?.item?.company?.name} item={props?.item} kind={kind} />
-                  ) : (
-                    <></>
-                  )}
+                    {with_str(sendingState).amongst(["not_sent", "currently_sending"]) ? (
+                      <CandidatureSpontaneeNominalBodyFooter formik={formik} sendingState={sendingState} company={props?.item?.company?.name} item={props?.item} kind={kind} />
+                    ) : (
+                      <></>
+                    )}
 
-                  {with_str(sendingState).amongst(["ok_sent"]) ? (
-                    <CandidatureSpontaneeWorked kind={kind} email={formik.values.email} company={props?.item?.company?.name} />
-                  ) : (
-                    <></>
-                  )}
+                    {with_str(sendingState).amongst(["ok_sent"]) ? (
+                      <CandidatureSpontaneeWorked kind={kind} email={formik.values.email} company={props?.item?.company?.name} />
+                    ) : (
+                      <></>
+                    )}
 
-                  {with_str(sendingState).amongst(["not_sent_because_of_errors", "email temporaire non autorisé", "max candidatures atteint", "Too Many Requests"]) ? (
-                    <CandidatureSpontaneeFailed sendingState={sendingState} />
-                  ) : (
-                    <></>
-                  )}
-                </form>
+                    {with_str(sendingState).amongst(["not_sent_because_of_errors", "email temporaire non autorisé", "max candidatures atteint", "Too Many Requests"]) ? (
+                      <CandidatureSpontaneeFailed sendingState={sendingState} />
+                    ) : (
+                      <></>
+                    )}
+                  </form>
+                </ModalContent>
               </Modal>
             </>
           )}
