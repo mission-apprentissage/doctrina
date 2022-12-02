@@ -4,71 +4,43 @@ import error2 from "../../../public/images/icons/input_value_error.svg"
 
 const CandidatureSpontaneeFailed = ({ sendingState }) => {
   const errorReasonText = () => {
-    let res = (
+    let title = "Une erreur est survenue"
+    let text = "Vous pourrez essayer ultérieurement"
+    let dataTestId = "CandidatureSpontaneeFailedTitle"
+
+    if (sendingState === "email temporaire non autorisé") {
+      title = "Les adresses emails temporaires ne sont pas acceptées"
+      text = (
+        <>
+          Les adresses emails temporaires ne sont pas acceptées pour envoyer des candidatures via La bonne alternance.
+          <br />
+          Merci d&apos;utiliser une adresse email permanente
+        </>
+      )
+      dataTestId = "CandidatureSpontaneeFailedTempEmailTitle"
+    } else if (sendingState === "Too Many Requests") {
+      title = "Trop de candidatures envoyées en peu de temps"
+      text = "Veuillez patienter quelques instants et réessayer"
+      dataTestId = "CandidatureSpontaneeFailedTempEmailTitle"
+    } else if (sendingState === "max candidatures atteint") {
+      title = "Vous avez atteint le nombre maximum de candidature pour aujourd'hui"
+      text = "Vous pourrez en envoyer de nouveau demain"
+      dataTestId = "CandidatureSpontaneeFailedTempEmailTitle"
+    }
+
+    return (
       <>
         <Flex direction="row" alignItems="center">
           <Image src={error2} mr={4} alt="" />
-          <Text as="h2" fontWeight={700} fontSize="20px" data-testid="CandidatureSpontaneeFailedTitle">
-            Une erreur est survenue.
+          <Text as="h2" fontWeight={700} fontSize="20px" data-testid={dataTestId}>
+            {title}
           </Text>
         </Flex>
         <Box mt={10} mb={12} fontSize="18px">
-          Vous pourrez essayer ultérieurement.
+          {text}
         </Box>
       </>
     )
-
-    if (sendingState === "email temporaire non autorisé") {
-      res = (
-        <>
-          <Flex direction="row" alignItems="center">
-            <Image src={error2} mr={4} alt="" />
-            <Text as="h2" fontWeight={700} fontSize="20px" data-testid="CandidatureSpontaneeFailedTempEmailTitle">
-              Les adresses emails temporaires ne sont pas acceptées
-            </Text>
-          </Flex>
-          <Box mt={10} mb={12} fontSize="18px">
-            Les adresses emails temporaires ne sont pas acceptées pour envoyer des candidatures via La bonne alternance.
-            <br />
-            Merci d&apos;utiliser une adresse email permanente
-          </Box>
-        </>
-      )
-    }
-
-    if (sendingState === "Too Many Requests") {
-      res = (
-        <>
-          <Flex direction="row" alignItems="center">
-            <Image src={error2} mr={4} alt="" />
-            <Text as="h2" fontWeight={700} fontSize="20px" data-testid="CandidatureSpontaneeFailedTempEmailTitle">
-              Trop de candidatures envoyées en peu de temps
-            </Text>
-          </Flex>
-          <Box mt={10} mb={12} fontSize="18px">
-            Veuillez patienter quelques instants et réessayer
-          </Box>
-        </>
-      )
-    }
-
-    if (sendingState === "max candidatures atteint") {
-      res = (
-        <>
-          <Flex direction="row" alignItems="center">
-            <Image src={error2} mr={4} alt="" />
-            <Text as="h2" fontWeight={700} fontSize="20px" data-testid="CandidatureSpontaneeFailedTempEmailTitle">
-              Vous avez atteint le nombre maximum de candidature pour aujourd&apos;hui
-            </Text>
-          </Flex>
-          <Box mt={10} mb={12} fontSize="18px">
-            Vous pourrez en envoyer de nouveau demain
-          </Box>
-        </>
-      )
-    }
-
-    return res
   }
 
   return (
