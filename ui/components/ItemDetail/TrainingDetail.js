@@ -129,7 +129,7 @@ const TrainingDetail = ({ training, hasAlsoJob }) => {
         )}
         <div className="mt-2 mb-2">
           Vous vous posez des questions sur votre orientation ou votre recherche d&apos;emploi ?
-          <a href="https://dinum-beta.didask.com/courses/demonstration/60abc18c075edf000065c987" target="_blank" rel="noopener noreferrer" className="c-nice-link">
+          <a href="https://dinum-beta.didask.com/courses/demonstration/60abc18c075edf000065c987" target="_blank" rel="noopener noreferrer" className="c-nice-link" aria-label="Accès au module pédagogique">
             &nbsp;Préparez votre premier contact avec un CFA&nbsp;
             <img src={gotoIcon} alt="Ouverture dans un nouvel onglet" />
           </a>
