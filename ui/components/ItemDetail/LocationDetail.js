@@ -201,7 +201,7 @@ const LocationDetail = ({ item, isCfa }) => {
                     <ExternalLink
                       className="c-nice-link"
                       url="https://dinum-beta.didask.com/courses/demonstration/60abc18c075edf000065c987"
-                      title="Préparez votre premier contact avec un CFA"
+                      title="Accès au module pédagogique"
                       withPic={<img src={gotoIcon} alt="Ouverture dans un nouvel onglet" />}
                     />
                   </span>
