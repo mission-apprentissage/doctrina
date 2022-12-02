@@ -153,7 +153,7 @@ cli
   })
 
 cli
-  .command("import-trainings-from-catalogue")
+  .command("sync-catalogue-trainings")
   .option("-only-change-master, [OnlyChangeMaster]", "n'importe pas de nouvelles formations mais procède à une permutation de l'index master", false)
   .description("Importe les formations depuis le Catalogue")
   .action((options) => {
@@ -161,7 +161,7 @@ cli
   })
 
 cli
-  .command("update-sendinblue-blocked-email-addresses")
+  .command("sync-sib-hardbounce")
   .option("-all-addresses, [AllAddresses]", "pour récupérer toutes les adresses bloquées", false)
   .description("Récupère auprès de Sendinblue la liste des adresses emails bloquées le jour précédent (défaut) ou toutes les adresses bloquées (option)")
   .action((options) => {
@@ -169,7 +169,7 @@ cli
   })
 
 cli
-  .command("anonymize-1-year-old-applications")
+  .command("anonymize-applications")
   .description("Anonymise toutes les candidatures de plus de an qui ne sont pas déjà anonymisées")
   .action(() => {
     runScript(() => anonymizeOldApplications())
