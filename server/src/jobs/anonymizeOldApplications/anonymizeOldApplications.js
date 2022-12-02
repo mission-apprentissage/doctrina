@@ -1,3 +1,4 @@
+import Sentry from "@sentry/node"
 import { get } from "lodash-es"
 import { logger } from "../../common/logger.js"
 import { notifyToSlack } from "../../common/utils/slackUtils.js"
@@ -56,6 +57,7 @@ export default async function () {
       result: "Anonymisation des candidatures terminée",
     }
   } catch (err) {
+    Sentry.captureException(err)
     logger.error(err)
     let error_msg = get(err, "meta.body") ?? err.message
     await notifyToSlack({ subject: "ANONYMISATION CANDIDATURES", message: `ECHEC anonymisation des candidatures ${error_msg}` })
