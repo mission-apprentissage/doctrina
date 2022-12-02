@@ -12,7 +12,6 @@ import useLocalStorage from "./services/useLocalStorage"
 import hasAlreadySubmittedCandidature from "./services/hasAlreadySubmittedCandidature"
 import { getItemId } from "../../../utils/getItemId"
 import { SendPlausibleEvent } from "../../../utils/plausible"
-import { capitalizeFirstLetter } from "../../../utils/strutils"
 import { Box, Button, Image, Text } from "@chakra-ui/react"
 
 const CandidatureSpontanee = (props) => {
@@ -125,14 +124,12 @@ const CandidatureSpontanee = (props) => {
           )}
         </Box>
         {props?.item?.company?.mandataire && (
-          <Box className="c-mandataire-hint d-flex-center my-3">
-            <Text as="span" className="c-mandataire-hintimg">
-              <Image className="" src="/images/icons/small_info.svg" alt="point info" />
+          <Box display="flex" alignItems="center" my={4}>
+            <Text as="span">
+              <Image src="/images/icons/small_info.svg" alt="" />
             </Text>
-            <Text as="span" className="c-mandataire-hinttext ml-2">
-              <Text as="span" className="">
-                Votre candidature sera envoyée au centre de formation en charge du recrutement pour le compte de l’entreprise.{" "}
-              </Text>
+            <Text as="span" ml={2} fontSize="12px" fontStyle="italic">
+              Votre candidature sera envoyée au centre de formation en charge du recrutement pour le compte de l’entreprise.{" "}
             </Text>
           </Box>
         )}
