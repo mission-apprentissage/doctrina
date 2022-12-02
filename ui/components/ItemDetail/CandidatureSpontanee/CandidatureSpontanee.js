@@ -11,7 +11,8 @@ import useLocalStorage from "./services/useLocalStorage"
 import hasAlreadySubmittedCandidature from "./services/hasAlreadySubmittedCandidature"
 import { getItemId } from "../../../utils/getItemId"
 import { SendPlausibleEvent } from "../../../utils/plausible"
-import { Box, Button, Image, Modal, ModalContent, ModalHeader, ModalOverlay, Text, useDisclosure } from "@chakra-ui/react"
+import { Box, Button, CloseButton, Image, Modal, ModalContent, ModalHeader, ModalOverlay, Text, useDisclosure } from "@chakra-ui/react"
+import { CloseIcon } from "@chakra-ui/icons"
 
 const CandidatureSpontanee = (props) => {
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -96,28 +97,34 @@ const CandidatureSpontanee = (props) => {
               >
                 J&apos;envoie ma candidature{with_str(kind).amongst(["lbb", "lba"]) ? " spontanée" : ""}
               </Button>
-              <Modal isOpen={isOpen} onClose={onClose} backdrop="static">
+              <Modal isOpen={isOpen} onClose={onClose} closeOnOverlayClick={false} size="3xl">
                 <ModalOverlay />
                 <ModalContent>
-                  <form onSubmit={formik.handleSubmit} className="c-candidature-form">
-                    <ModalHeader toggle={toggle} className={"c-candidature-modal-header"}></ModalHeader>
-
-                    {with_str(sendingState).amongst(["not_sent", "currently_sending"]) ? (
+                  <ModalHeader align="right">
+                    <Button
+                      fontSize="14px"
+                      color="bluefrance.500"
+                      fontWeight={400}
+                      background="none"
+                      alignItems="baseline"
+                      sx={{
+                        _hover: {
+                          background: "none",
+                          textDecoration: "none",
+                        },
+                      }}
+                      onClick={onClose}
+                    >
+                      Fermer <CloseIcon w={2} h={2} ml={2} />
+                    </Button>
+                  </ModalHeader>
+                  <form onSubmit={formik.handleSubmit}>
+                    {with_str(sendingState).amongst(["not_sent", "currently_sending"]) && (
                       <CandidatureSpontaneeNominalBodyFooter formik={formik} sendingState={sendingState} company={props?.item?.company?.name} item={props?.item} kind={kind} />
-                    ) : (
-                      <></>
                     )}
-
-                    {with_str(sendingState).amongst(["ok_sent"]) ? (
-                      <CandidatureSpontaneeWorked kind={kind} email={formik.values.email} company={props?.item?.company?.name} />
-                    ) : (
-                      <></>
-                    )}
-
-                    {with_str(sendingState).amongst(["not_sent_because_of_errors", "email temporaire non autorisé", "max candidatures atteint", "Too Many Requests"]) ? (
+                    {with_str(sendingState).amongst(["ok_sent"]) && <CandidatureSpontaneeWorked kind={kind} email={formik.values.email} company={props?.item?.company?.name} />}
+                    {with_str(sendingState).amongst(["not_sent_because_of_errors", "email temporaire non autorisé", "max candidatures atteint", "Too Many Requests"]) && (
                       <CandidatureSpontaneeFailed sendingState={sendingState} />
-                    ) : (
-                      <></>
                     )}
                   </form>
                 </ModalContent>
