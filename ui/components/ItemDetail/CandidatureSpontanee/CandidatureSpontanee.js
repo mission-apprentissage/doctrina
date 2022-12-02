@@ -11,7 +11,7 @@ import useLocalStorage from "./services/useLocalStorage"
 import hasAlreadySubmittedCandidature from "./services/hasAlreadySubmittedCandidature"
 import { getItemId } from "../../../utils/getItemId"
 import { SendPlausibleEvent } from "../../../utils/plausible"
-import { Box, Button, CloseButton, Image, Modal, ModalContent, ModalHeader, ModalOverlay, Text, useDisclosure } from "@chakra-ui/react"
+import { Box, Button, Image, Modal, ModalContent, ModalHeader, ModalOverlay, Text, useDisclosure } from "@chakra-ui/react"
 import { CloseIcon } from "@chakra-ui/icons"
 
 const CandidatureSpontanee = (props) => {
@@ -100,17 +100,21 @@ const CandidatureSpontanee = (props) => {
               <Modal isOpen={isOpen} onClose={onClose} closeOnOverlayClick={false} size="3xl">
                 <ModalOverlay />
                 <ModalContent>
-                  <ModalHeader align="right">
+                  <ModalHeader align="right" paddingTop="8px" paddingBottom="0">
                     <Button
                       fontSize="14px"
                       color="bluefrance.500"
                       fontWeight={400}
                       background="none"
                       alignItems="baseline"
+                      height="1.5rem"
                       sx={{
                         _hover: {
                           background: "none",
                           textDecoration: "none",
+                        },
+                        _active: {
+                          background: "none",
                         },
                       }}
                       onClick={onClose}
