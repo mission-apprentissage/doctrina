@@ -15,16 +15,6 @@
   max-width: 793px;
 }
 
-.c-candidature-form {
-  // See https://stackoverflow.com/a/6046196/2595513
-  input,
-  label {
-    display: block;
-  }
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .c-candidature-field input {
   border: none;
   background: #f0f0f0;
@@ -90,14 +80,6 @@ input:-webkit-autofill:active {
   }
 }
 
-h1.c-candidature-title {
-  font-family: Marianne;
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 32px;
-  letter-spacing: 0em;
-}
-
 .c-candidature-erreur {
   font-family: Marianne;
   font-size: 12px;
@@ -144,10 +126,6 @@ h1.c-candidature-title {
   line-height: 24px;
   letter-spacing: 0em;
   color: #161616;
-}
-.c-candidature-message-title-optional {
-  font-size: 14px;
-  color: #6a6a6a;
 }
 
 .c-candidature-message-subtitle {

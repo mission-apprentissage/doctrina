@@ -1,3 +1,4 @@
+import { Box, Text, Textarea } from "@chakra-ui/react"
 import React from "react"
 
 const CandidatureSpontaneeMessage = ({ formik, kind }) => {
@@ -15,7 +16,10 @@ const CandidatureSpontaneeMessage = ({ formik, kind }) => {
   const getFieldTitle = () => {
     return (
       <>
-        Votre message au responsable du recrutement <span className="c-candidature-message-title-optional">(Facultatif)</span>
+        Votre message au responsable du recrutement{" "}
+        <Text as="span" fontSize="14px" color="grey.600">
+          (Facultatif)
+        </Text>
       </>
     )
   }
@@ -24,9 +28,13 @@ const CandidatureSpontaneeMessage = ({ formik, kind }) => {
     let errorMsg = ""
     if (kind === "matcha") {
       if (formik.touched.message && formik.errors.message) {
-        errorMsg = <div className="c-candidature-erreur visible">{formik.errors.message}</div>
+        errorMsg = (
+          <Box fontSize="12px" color="#e10600">
+            {formik.errors.message}
+          </Box>
+        )
       } else {
-        errorMsg = <div className="c-candidature-erreur invisible">{"pas d'erreur"}</div>
+        errorMsg = <Box display="none">{"pas d'erreur"}</Box>
       }
     }
     return errorMsg
@@ -34,15 +42,17 @@ const CandidatureSpontaneeMessage = ({ formik, kind }) => {
 
   return (
     <>
-      <fieldset data-testid="fieldset-message" className={getClass()}>
-        <h2 className="c-candidature-message-title mb-0">{getFieldTitle()}</h2>
-        <div className="c-candidature-message-subtitle mb-2">
+      <Box data-testid="fieldset-message" className={getClass()}>
+        <Text as="h2" mb="0" color="#161616">
+          {getFieldTitle()}
+        </Text>
+        <Text mb={2} fontSize="14px" color="grey.600">
           Indiquez pourquoi vous souhaitez réaliser votre alternance dans son établissement. <br />
           Un message personnalisé augmente vos chances d&apos;obtenir un contact avec le recruteur. <br />
           La taille du champ n&apos;est pas limitée.
-        </div>
-        <textarea id="message" data-testid="message" name="message" onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.message} />
-      </fieldset>
+        </Text>
+        <Textarea id="message" data-testid="message" name="message" onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.message} size="xl" />
+      </Box>
       {getFieldError()}
     </>
   )

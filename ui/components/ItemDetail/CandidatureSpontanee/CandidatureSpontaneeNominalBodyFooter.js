@@ -5,7 +5,7 @@ import CandidatureSpontaneeMessage from "./CandidatureSpontaneeMessage"
 import CandidatureSpontaneeMandataireMessage from "./CandidatureSpontaneeMandataireMessage"
 import { testingParameters } from "../../../utils/testingParameters"
 import emailMisspelled, { top100 } from "email-misspelled"
-import { Container, ModalBody, ModalFooter } from "@chakra-ui/react"
+import { Container, Flex, ModalBody, ModalFooter, Text } from "@chakra-ui/react"
 
 const emailChecker = emailMisspelled({ maxMisspelled: 3, domains: top100 })
 
@@ -39,7 +39,7 @@ const CandidatureSpontaneeNominalBodyFooter = ({ formik, sendingState, company, 
   return (
     <>
       <PostulerBody fromWidget={fromWidget}>
-        <h1 className="c-candidature-title" data-testid="CandidatureSpontaneeTitle">
+        <Text as="h1" fontWeight={700} fontSize="24px" data-testid="CandidatureSpontaneeTitle">
           {kind === "matcha" ? (
             <>
               Postuler à l&apos;offre {fromWidget ? `${item.title} ` : ""}de {company}
@@ -47,9 +47,9 @@ const CandidatureSpontaneeNominalBodyFooter = ({ formik, sendingState, company, 
           ) : (
             <>Candidature spontanée{fromWidget ? ` auprès de ${company}` : ""}</>
           )}
-        </h1>
+        </Text>
 
-        <div className="c-candidature-personaldata d-flex flex-column flex-md-row mt-4">
+        <Flex direction={["column", "column", "row"]} mt={6}>
           <fieldset
             data-testid="fieldset-lastname"
             className={`mr-0 mr-md-3 c-candidature-field ${formik.touched.lastName ? `is-valid-${!formik.errors.lastName}` : "is-not-validated"}`}
@@ -75,11 +75,11 @@ const CandidatureSpontaneeNominalBodyFooter = ({ formik, sendingState, company, 
               <div className="invisible">{"pas d'erreur"}</div>
             )}
           </fieldset>
-        </div>
+        </Flex>
 
-        {testingParameters?.simulatedRecipient ? <div>Les emails seront envoyés à {testingParameters.simulatedRecipient}</div> : ""}
+        {testingParameters?.simulatedRecipient && <Text>Les emails seront envoyés à {testingParameters.simulatedRecipient}</Text>}
 
-        <div className="d-flex flex-column flex-md-row mt-0 mt-md-3">
+        <Flex direction={["column", "column", "row"]} mt={[null, null, 4]}>
           <fieldset
             data-testid="fieldset-email"
             className={`mt-1 mt-md-0 mr-0 mr-md-3 c-candidature-field ${formik.touched.email ? `is-valid-${!formik.errors.email}` : "is-not-validated"}`}
@@ -114,17 +114,17 @@ const CandidatureSpontaneeNominalBodyFooter = ({ formik, sendingState, company, 
               <div className="invisible">{"pas d'erreur"}</div>
             )}
           </fieldset>
-        </div>
+        </Flex>
 
         <CandidatureSpontaneeMessage formik={formik} kind={kind} />
 
-        <div className="c-candidature-message mt-3">
+        <Box mt={4}>
           <CandidatureSpontaneeFileDropzone formik={formik} setFileValue={setFileValue} />
-        </div>
+        </Box>
 
-        <div className="c-candidature-message mt-3">
+        <Box mt={4}>
           <CandidatureSpontaneeMandataireMessage item={item} />
-        </div>
+        </Box>
 
         <fieldset data-testid="fieldset-terms" className="c-candidature-terms mt-3">
           <label htmlFor="terms" className="c-candidature-terms-text">
