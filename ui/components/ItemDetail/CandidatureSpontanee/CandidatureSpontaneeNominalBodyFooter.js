@@ -1,27 +1,23 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import CandidatureSpontaneeSubmit from "./CandidatureSpontaneeSubmit"
-import { Container, ModalBody, ModalFooter } from "reactstrap"
 import CandidatureSpontaneeFileDropzone from "./CandidatureSpontaneeFileDropzone"
 import CandidatureSpontaneeMessage from "./CandidatureSpontaneeMessage"
 import CandidatureSpontaneeMandataireMessage from "./CandidatureSpontaneeMandataireMessage"
 import { testingParameters } from "../../../utils/testingParameters"
 import emailMisspelled, { top100 } from "email-misspelled"
+import { Container, ModalBody, ModalFooter } from "@chakra-ui/react"
 
 const emailChecker = emailMisspelled({ maxMisspelled: 3, domains: top100 })
 
 const PostulerBody = (props) => {
-  return props.fromWidget ? <Container>{props.children}</Container> : <ModalBody data-testid="modalbody-nominal">{props.children}</ModalBody>
+  return props.fromWidget ? <Container maxW="2xl">{props.children}</Container> : <ModalBody data-testid="modalbody-nominal">{props.children}</ModalBody>
 }
 
 const PostulerFooter = (props) => {
-  return props.fromWidget ? <Container>{props.children}</Container> : <ModalFooter>{props.children}</ModalFooter>
+  return props.fromWidget ? <Container maxW="2xl">{props.children}</Container> : <ModalFooter>{props.children}</ModalFooter>
 }
 
 const CandidatureSpontaneeNominalBodyFooter = ({ formik, sendingState, company, item, kind, fromWidget = false }) => {
-  /*useEffect(() => {
-    formik.values.interetOffresMandataire = false;
-  }, [company]);*/
-
   const setFileValue = (fileValue) => {
     formik.values.fileName = fileValue?.fileName || null
     formik.values.fileContent = fileValue?.fileContent || null

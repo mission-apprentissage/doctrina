@@ -4,7 +4,6 @@ import CandidatureSpontaneeNominalBodyFooter from "./CandidatureSpontaneeNominal
 import CandidatureSpontaneeWorked from "./CandidatureSpontaneeWorked"
 import CandidatureSpontaneeFailed from "./CandidatureSpontaneeFailed"
 import submitCandidature from "./services/submitCandidature"
-import toggleCandidature from "./services/toggleCandidature"
 import { getValidationSchema, getInitialSchemaValues } from "./services/getSchema"
 import { string_wrapper as with_str } from "../../../utils/wrapper_utils"
 import useLocalStorage from "./services/useLocalStorage"
@@ -15,7 +14,6 @@ import { Box, Button, Image, Modal, ModalContent, ModalHeader, ModalOverlay, Tex
 import { CloseIcon } from "@chakra-ui/icons"
 
 const CandidatureSpontanee = (props) => {
-  const [isModalOpen, setIsModalOpen] = useState(false)
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [sendingState, setSendingState] = useState("not_sent")
   const kind = props?.item?.ideaType || ""
@@ -26,12 +24,7 @@ const CandidatureSpontanee = (props) => {
 
   const actualLocalStorage = props.fakeLocalStorage || window.localStorage || {}
 
-  const toggle = () => {
-    toggleCandidature({ isModalOpen, setSendingState, setIsModalOpen })
-  }
-
   const openApplicationForm = () => {
-    //toggle()
     onOpen()
     SendPlausibleEvent(props.item.ideaType === "matcha" ? "Clic Postuler - Fiche entreprise Offre LBA" : "Clic Postuler - Fiche entreprise Algo", {
       info_fiche: getItemId(props.item),
@@ -41,7 +34,7 @@ const CandidatureSpontanee = (props) => {
   const [applied, setApplied] = useLocalStorage(uniqId(kind, props.item), null, actualLocalStorage)
 
   useEffect(() => {
-    setIsModalOpen(false)
+    onClose()
 
     // HACK HERE : reapply setApplied to currentUniqId to re-detect
     // if user already applied each time the user swap to another item.
@@ -69,7 +62,7 @@ const CandidatureSpontanee = (props) => {
     <Box data-testid="CandidatureSpontanee">
       <Box>
         <Box my={4}>
-          {hasAlreadySubmittedCandidature({ applied, isModalOpen }) ? (
+          {hasAlreadySubmittedCandidature({ applied, isOpen }) ? (
             <Box data-testid="already-applied">
               Vous avez déjà postulé le{" "}
               {new Date(parseInt(applied, 10)).toLocaleDateString("fr-FR", {
