@@ -5,7 +5,7 @@ import CandidatureSpontaneeMessage from "./CandidatureSpontaneeMessage"
 import CandidatureSpontaneeMandataireMessage from "./CandidatureSpontaneeMandataireMessage"
 import { testingParameters } from "../../../utils/testingParameters"
 import emailMisspelled, { top100 } from "email-misspelled"
-import { Container, Flex, ModalBody, ModalFooter, Text } from "@chakra-ui/react"
+import { Box, Container, Flex, ModalBody, ModalFooter, Text } from "@chakra-ui/react"
 
 const emailChecker = emailMisspelled({ maxMisspelled: 3, domains: top100 })
 
