@@ -86,7 +86,7 @@ const Navigation = ({ currentPage, bgcolor }) => {
                     <Link href="/espace-pro/authentification">
                       <a className="nav-link" aria-label="Connexion">
                         <img src="/images/icons/blue_lock.svg" alt="Locking tool" />
-                        <span className="mx-1">Connexion</span>
+                        <span className="mx-2">Connexion</span>
                       </a>
                     </Link>
                   </NavItem>
