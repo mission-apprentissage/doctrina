@@ -126,15 +126,15 @@ const SearchForTrainingsAndJobs = () => {
     let item
 
     if (type === "training") {
-      item = trainings.find((el) => el.id === itemId)
+      item = trainings?.find((el) => el.id === itemId)
     } else if (type === "peJob") {
-      item = jobs.peJobs.find((el) => el.job.id === itemId)
+      item = jobs?.peJobs?.find((el) => el.job.id === itemId)
     } else if (type === "lba") {
-      item = jobs.lbaCompanies.find((el) => el.company.siret === itemId)
+      item = jobs?.lbaCompanies?.find((el) => el.company.siret === itemId)
     } else if (type === "lbb") {
-      item = jobs.lbbCompanies.find((el) => el.company.siret === itemId)
+      item = jobs?.lbbCompanies?.find((el) => el.company.siret === itemId)
     } else if (type === "matcha") {
-      item = jobs.matchas.find((el) => el.job.id === itemId)
+      item = jobs?.matchas?.find((el) => el.job.id === itemId)
     }
 
     return item
