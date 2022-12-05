@@ -3,7 +3,7 @@ import React from "react"
 
 const CandidatureSpontaneeMessage = ({ formik, kind }) => {
   const getClass = () => {
-    let className = "mt-3 c-candidature-message"
+    let className = ""
 
     if (kind === "matcha") {
       className += " c-candidature-field "
@@ -42,7 +42,7 @@ const CandidatureSpontaneeMessage = ({ formik, kind }) => {
 
   return (
     <>
-      <Box data-testid="fieldset-message" className={getClass()}>
+      <Box data-testid="fieldset-message" mt={4} className={getClass()}>
         <Text as="h2" mb="0" color="#161616">
           {getFieldTitle()}
         </Text>
@@ -51,7 +51,17 @@ const CandidatureSpontaneeMessage = ({ formik, kind }) => {
           Un message personnalisé augmente vos chances d&apos;obtenir un contact avec le recruteur. <br />
           La taille du champ n&apos;est pas limitée.
         </Text>
-        <Textarea id="message" data-testid="message" name="message" onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.message} size="xl" />
+        <Textarea
+          id="message"
+          data-testid="message"
+          name="message"
+          onBlur={formik.handleBlur}
+          onChange={formik.handleChange}
+          value={formik.values.message}
+          borderRadius="4px 4px 0px 0px"
+          height="80px"
+          width={{ base: "90%", lg: "650px" }}
+        />
       </Box>
       {getFieldError()}
     </>
