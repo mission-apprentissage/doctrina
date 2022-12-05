@@ -5,7 +5,7 @@ import CandidatureSpontaneeMessage from "./CandidatureSpontaneeMessage"
 import CandidatureSpontaneeMandataireMessage from "./CandidatureSpontaneeMandataireMessage"
 import { testingParameters } from "../../../utils/testingParameters"
 import emailMisspelled, { top100 } from "email-misspelled"
-import { Box, Container, Flex, ModalBody, ModalFooter, Text } from "@chakra-ui/react"
+import { Box, Container, Flex, FormControl, FormErrorMessage, FormLabel, Input, ModalBody, ModalFooter, Text } from "@chakra-ui/react"
 
 const emailChecker = emailMisspelled({ maxMisspelled: 3, domains: top100 })
 
@@ -50,43 +50,53 @@ const CandidatureSpontaneeNominalBodyFooter = ({ formik, sendingState, company, 
         </Text>
 
         <Flex direction={["column", "column", "row"]} mt={6}>
-          <fieldset
-            data-testid="fieldset-lastname"
-            className={`mr-0 mr-md-3 c-candidature-field ${formik.touched.lastName ? `is-valid-${!formik.errors.lastName}` : "is-not-validated"}`}
-          >
-            <label htmlFor="lastName">Nom *</label>
-            <input id="lastName" data-testid="lastName" name="lastName" type="text" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.lastName} />
-            {formik.touched.lastName && formik.errors.lastName ? (
-              <div className="c-candidature-erreur visible">{formik.errors.lastName}</div>
-            ) : (
-              <div className="invisible">{"pas d'erreur"}</div>
-            )}
-          </fieldset>
+          <FormControl data-testid="fieldset-lastname" mt={{ base: 1, md: "0" }} isInvalid={formik.touched.lastName && formik.errors.lastName}>
+            <FormLabel htmlFor="lastName">Nom *</FormLabel>
+            <Input
+              id="lastName"
+              data-testid="lastName"
+              name="lastName"
+              type="text"
+              width={{ base: "95%", md: "317px" }}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.lastName}
+            />
+            {formik.touched.lastName && formik.errors.lastName && <FormErrorMessage>{formik.errors.lastName}</FormErrorMessage>}
+          </FormControl>
 
-          <fieldset
-            data-testid="fieldset-firstname"
-            className={`mt-1 mt-md-0 c-candidature-field ${formik.touched.firstName ? `is-valid-${!formik.errors.firstName}` : "is-not-validated"}`}
-          >
-            <label htmlFor="firstName">Prénom *</label>
-            <input id="firstName" data-testid="firstName" name="firstName" type="text" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.firstName} />
-            {formik.touched.firstName && formik.errors.firstName ? (
-              <div className="c-candidature-erreur visible">{formik.errors.firstName}</div>
-            ) : (
-              <div className="invisible">{"pas d'erreur"}</div>
-            )}
-          </fieldset>
+          <FormControl data-testid="fieldset-firstname" mt={{ base: 1, md: "0" }} isInvalid={formik.touched.firstName && formik.errors.firstName}>
+            <FormLabel htmlFor="firstName">Prénom *</FormLabel>
+            <Input
+              id="firstName"
+              data-testid="firstName"
+              name="firstName"
+              type="text"
+              width={{ base: "95%", md: "317px" }}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.firstName}
+            />
+            {formik.touched.firstName && formik.errors.firstName && <FormErrorMessage>{formik.errors.firstName}</FormErrorMessage>}
+          </FormControl>
         </Flex>
 
         {testingParameters?.simulatedRecipient && <Text>Les emails seront envoyés à {testingParameters.simulatedRecipient}</Text>}
 
         <Flex direction={["column", "column", "row"]} mt={[null, null, 4]}>
-          <fieldset
-            data-testid="fieldset-email"
-            className={`mt-1 mt-md-0 mr-0 mr-md-3 c-candidature-field ${formik.touched.email ? `is-valid-${!formik.errors.email}` : "is-not-validated"}`}
-          >
-            <label htmlFor="email">E-mail *</label>
-            <input id="email" data-testid="email" name="email" type="email" onChange={onEmailChange} onBlur={formik.handleBlur} value={formik.values.email} />
-            {suggestedEmails.length > 0 ? (
+          <FormControl data-testid="fieldset-email" mt={{ base: 1, md: "0" }} isInvalid={formik.touched.email && formik.errors.email}>
+            <FormLabel htmlFor="email">E-mail *</FormLabel>
+            <Input
+              id="email"
+              data-testid="email"
+              name="email"
+              type="text"
+              width={{ base: "95%", md: "317px" }}
+              onChange={onEmailChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.email}
+            />
+            {suggestedEmails.length > 0 && (
               <div className="c-candidature-misspelled">
                 <span className="c-candidature-misspelled__prompt">Voulez vous dire ?</span>
                 {suggestedEmails.map((sE) => (
@@ -95,25 +105,24 @@ const CandidatureSpontaneeNominalBodyFooter = ({ formik, sendingState, company, 
                   </button>
                 ))}
               </div>
-            ) : (
-              ""
             )}
-            {formik.touched.email && formik.errors.email ? (
-              <div className="c-candidature-erreur visible">{formik.errors.email}</div>
-            ) : (
-              <div className="c-candidature-erreur invisible">{"pas d'erreur"}</div>
-            )}
-          </fieldset>
+            {formik.touched.email && formik.errors.email && <FormErrorMessage>{formik.errors.email}</FormErrorMessage>}
+          </FormControl>
 
-          <fieldset data-testid="fieldset-phone" className={`mt-1 mt-md-0 c-candidature-field ${formik.touched.phone ? `is-valid-${!formik.errors.phone}` : "is-not-validated"}`}>
-            <label htmlFor="email">Téléphone *</label>
-            <input id="phone" data-testid="phone" name="phone" type="text" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.phone} />
-            {formik.touched.phone && formik.errors.phone ? (
-              <div className="c-candidature-erreur visible">{formik.errors.phone}</div>
-            ) : (
-              <div className="invisible">{"pas d'erreur"}</div>
-            )}
-          </fieldset>
+          <FormControl data-testid="fieldset-phone" mt={{ base: 1, md: "0" }} isInvalid={formik.touched.phone && formik.errors.phone}>
+            <FormLabel htmlFor="email">Téléphone *</FormLabel>
+            <Input
+              id="phone"
+              data-testid="phone"
+              name="phone"
+              type="text"
+              width={{ base: "95%", md: "317px" }}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.phone}
+            />
+            {formik.touched.phone && formik.errors.phone && <FormErrorMessage>{formik.errors.phone}</FormErrorMessage>}
+          </FormControl>
         </Flex>
 
         <CandidatureSpontaneeMessage formik={formik} kind={kind} />
