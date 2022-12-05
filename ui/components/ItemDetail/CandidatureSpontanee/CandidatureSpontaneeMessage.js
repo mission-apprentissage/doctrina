@@ -2,17 +2,6 @@ import { Box, Text, Textarea } from "@chakra-ui/react"
 import React from "react"
 
 const CandidatureSpontaneeMessage = ({ formik, kind }) => {
-  const getClass = () => {
-    let className = ""
-
-    if (kind === "matcha") {
-      className += " c-candidature-field "
-      className += formik.touched.message ? `is-valid-${!formik.errors.message}` : "is-not-validated"
-    }
-
-    return className
-  }
-
   const getFieldTitle = () => {
     return (
       <>
@@ -42,7 +31,7 @@ const CandidatureSpontaneeMessage = ({ formik, kind }) => {
 
   return (
     <>
-      <Box data-testid="fieldset-message" mt={4} className={getClass()}>
+      <Box data-testid="fieldset-message" mt={4}>
         <Text as="h2" mb="0" color="#161616">
           {getFieldTitle()}
         </Text>
@@ -60,7 +49,7 @@ const CandidatureSpontaneeMessage = ({ formik, kind }) => {
           value={formik.values.message}
           borderRadius="4px 4px 0px 0px"
           height="80px"
-          width={{ base: "90%", lg: "650px" }}
+          width={{ base: "95%", lg: "650px" }}
         />
       </Box>
       {getFieldError()}
