@@ -57,7 +57,7 @@ const CandidatureSpontaneeNominalBodyFooter = ({ formik, sendingState, company, 
               data-testid="lastName"
               name="lastName"
               type="text"
-              width={{ base: "95%", md: "317px" }}
+              width="95%"
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.lastName}
@@ -72,7 +72,7 @@ const CandidatureSpontaneeNominalBodyFooter = ({ formik, sendingState, company, 
               data-testid="firstName"
               name="firstName"
               type="text"
-              width={{ base: "95%", md: "317px" }}
+              width="95%"
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.firstName}
@@ -86,16 +86,7 @@ const CandidatureSpontaneeNominalBodyFooter = ({ formik, sendingState, company, 
         <Flex direction={["column", "column", "row"]} mt={[null, null, 4]}>
           <FormControl data-testid="fieldset-email" mt={{ base: 1, md: "0" }} isInvalid={formik.touched.email && formik.errors.email}>
             <FormLabel htmlFor="email">E-mail *</FormLabel>
-            <Input
-              id="email"
-              data-testid="email"
-              name="email"
-              type="text"
-              width={{ base: "95%", md: "317px" }}
-              onChange={onEmailChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.email}
-            />
+            <Input id="email" data-testid="email" name="email" type="text" width="95%" onChange={onEmailChange} onBlur={formik.handleBlur} value={formik.values.email} />
             {suggestedEmails.length > 0 && (
               <div className="c-candidature-misspelled">
                 <span className="c-candidature-misspelled__prompt">Voulez vous dire ?</span>
@@ -111,16 +102,7 @@ const CandidatureSpontaneeNominalBodyFooter = ({ formik, sendingState, company, 
 
           <FormControl data-testid="fieldset-phone" mt={{ base: 1, md: "0" }} isInvalid={formik.touched.phone && formik.errors.phone}>
             <FormLabel htmlFor="email">Téléphone *</FormLabel>
-            <Input
-              id="phone"
-              data-testid="phone"
-              name="phone"
-              type="text"
-              width={{ base: "95%", md: "317px" }}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.phone}
-            />
+            <Input id="phone" data-testid="phone" name="phone" type="text" width="95%" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.phone} />
             {formik.touched.phone && formik.errors.phone && <FormErrorMessage>{formik.errors.phone}</FormErrorMessage>}
           </FormControl>
         </Flex>

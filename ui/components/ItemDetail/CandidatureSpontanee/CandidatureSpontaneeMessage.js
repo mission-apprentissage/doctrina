@@ -49,7 +49,7 @@ const CandidatureSpontaneeMessage = ({ formik, kind }) => {
           value={formik.values.message}
           borderRadius="4px 4px 0px 0px"
           height="80px"
-          width={{ base: "95%", lg: "650px" }}
+          width="97%"
         />
       </Box>
       {getFieldError()}
