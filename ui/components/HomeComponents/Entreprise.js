@@ -24,7 +24,7 @@ const Entreprise = () => {
         </Box>
         <Show above="md">
           <Box>
-            <Image src={votrebesoinImage} alt="Votre besoin" />
+            <Image src={votrebesoinImage} alt="" />
           </Box>
         </Show>
       </SimpleGrid>
