@@ -13,6 +13,10 @@ const CandidatureSpontaneeFileDropzone = ({ setFileValue, formik }) => {
     setFileData(null)
   }
 
+  const hasSelectedFile = () => {
+    return fileData?.fileName
+  }
+
   const onDrop = (files) => {
     const reader = new FileReader()
     let fileName = null
@@ -54,7 +58,7 @@ const CandidatureSpontaneeFileDropzone = ({ setFileValue, formik }) => {
 
   const getFileDropzone = () => {
     return (
-      <FormControl isInvalid={formik.touched.fileName && formik.errors.fileName}>
+      <FormControl cursor={hasSelectedFile() ? "auto" : "pointer"} isInvalid={formik.touched.fileName && formik.errors.fileName}>
         <Input {...getInputProps()} data-testid="fileDropzone" />
         {isDragActive ? (
           <Text ml={6}>Déposez le fichier ici</Text>
@@ -116,7 +120,7 @@ const CandidatureSpontaneeFileDropzone = ({ setFileValue, formik }) => {
 
   return (
     <Box p="20px" width="97%" border="1px dashed" borderColor="grey.600" {...getRootProps()}>
-      {fileLoading ? getSpinner() : fileData?.fileName ? getSelectedFile() : getFileDropzone()}
+      {fileLoading ? getSpinner() : hasSelectedFile() ? getSelectedFile() : getFileDropzone()}
     </Box>
   )
 }
