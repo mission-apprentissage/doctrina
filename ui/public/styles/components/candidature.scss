@@ -1,20 +1,3 @@
-.c-candidature-modal {
-  font-family: Marianne;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0em;
-}
-
-.c-candidature-modal .modal-content {
-  @media only screen and (min-width: 800px) {
-    width: 793px;
-  }
-}
-.c-candidature-modal.modal-dialog {
-  max-width: 793px;
-}
-
 .c-candidature-field input {
   border: none;
   background: #f0f0f0;
@@ -51,34 +34,6 @@ input:-webkit-autofill:active {
   box-shadow: 0 0 0 30px #f0f0f0 inset !important;
 }
 
-.c-candidature-modal .modal-content {
-  padding: 1rem 1rem 1rem 1rem;
-}
-.c-candidature-modal .modal-body {
-  padding: 0;
-}
-.c-candidature-modal .modal-footer {
-  border-top: none;
-}
-
-.c-candidature-modal button.close span::before {
-  content: "Fermer ";
-}
-.c-candidature-modal-header.modal-header {
-  border-bottom: none;
-  border-radius: 0;
-  button {
-    color: #000091;
-    opacity: 1;
-    font-family: Marianne;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 24px;
-    letter-spacing: 0em;
-    text-transform: capitalize;
-    padding: 0;
-  }
-}
 
 .c-candidature-erreur {
   font-family: Marianne;
@@ -86,20 +41,6 @@ input:-webkit-autofill:active {
   line-height: 20px;
   letter-spacing: 0em;
   color: #e10600;
-}
-
-.c-candidature-message-title {
-  font-family: Marianne;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0em;
-  color: #161616;
-}
-
-.c-candidature-message-subtitle {
-  font-size: 14px;
-  color: #6a6a6a;
 }
 
 .c-candidature-terms {
@@ -121,10 +62,6 @@ input:-webkit-autofill:active {
   input {
     outline: 2px solid #e10600;
   }
-}
-
-.c-candidature-filedropzone.c-candidature-filedropzone_selectedfile {
-  cursor: auto;
 }
 
 .btn.btn-blue {
