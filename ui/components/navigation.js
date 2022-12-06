@@ -1,8 +1,7 @@
-import Link from "next/link"
 import { useRouter } from "next/router"
 import { useState } from "react"
 import { Collapse, Nav, Navbar, NavbarBrand, NavbarToggler, NavItem } from "reactstrap"
-import { Box, Image, Link, Image } from "@chakra-ui/react"
+import { Box, Image, Link } from "@chakra-ui/react"
 
 const Navigation = ({ currentPage, bgcolor }) => {
   const router = useRouter()
