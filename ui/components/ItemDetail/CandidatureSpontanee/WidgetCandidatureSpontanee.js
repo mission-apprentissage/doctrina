@@ -65,12 +65,10 @@ const WidgetCandidatureSpontanee = (props) => {
   return (
     <Box my={4} className="c-candidature__widget" data-testid="CandidatureSpontanee">
       {!with_str(sendingState).amongst(["ok_sent"]) && hasAlreadySubmittedCandidature({ applied }) ? (
-        <>
-          <Container maxW="2xl">{getAPostuleMessage()}</Container>
-        </>
+        <Container maxW="2xl">{getAPostuleMessage()}</Container>
       ) : (
         <form onSubmit={formik.handleSubmit}>
-          {with_str(sendingState).amongst(["not_sent", "currently_sending"]) ? (
+          {with_str(sendingState).amongst(["not_sent", "currently_sending"]) && (
             <CandidatureSpontaneeNominalBodyFooter
               formik={formik}
               sendingState={sendingState}
@@ -79,16 +77,12 @@ const WidgetCandidatureSpontanee = (props) => {
               kind={kind}
               fromWidget={true}
             />
-          ) : (
-            <></>
           )}
 
-          {with_str(sendingState).amongst(["ok_sent"]) ? <CandidatureSpontaneeWorked kind={kind} email={formik.values.email} company={props?.item?.company?.name} /> : <></>}
+          {with_str(sendingState).amongst(["ok_sent"]) && <CandidatureSpontaneeWorked kind={kind} email={formik.values.email} company={props?.item?.company?.name} />}
 
-          {with_str(sendingState).amongst(["not_sent_because_of_errors", "email temporaire non autorisé", "max candidatures atteint", "Too Many Requests"]) ? (
+          {with_str(sendingState).amongst(["not_sent_because_of_errors", "email temporaire non autorisé", "max candidatures atteint", "Too Many Requests"]) && (
             <CandidatureSpontaneeFailed sendingState={sendingState} />
-          ) : (
-            <></>
           )}
         </form>
       )}
