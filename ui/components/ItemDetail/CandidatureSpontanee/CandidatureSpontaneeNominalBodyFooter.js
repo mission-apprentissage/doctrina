@@ -5,7 +5,7 @@ import CandidatureSpontaneeMessage from "./CandidatureSpontaneeMessage"
 import CandidatureSpontaneeMandataireMessage from "./CandidatureSpontaneeMandataireMessage"
 import { testingParameters } from "../../../utils/testingParameters"
 import emailMisspelled, { top100 } from "email-misspelled"
-import { Box, Container, Flex, FormControl, FormErrorMessage, FormLabel, Input, ModalBody, ModalFooter, Text } from "@chakra-ui/react"
+import { Box, Container, Flex, FormControl, FormErrorMessage, FormLabel, Input, Link, ModalBody, ModalFooter, Text } from "@chakra-ui/react"
 
 const emailChecker = emailMisspelled({ maxMisspelled: 3, domains: top100 })
 
@@ -117,17 +117,15 @@ const CandidatureSpontaneeNominalBodyFooter = ({ formik, sendingState, company, 
           <CandidatureSpontaneeMandataireMessage item={item} />
         </Box>
 
-        <fieldset data-testid="fieldset-terms" className="c-candidature-terms mt-3">
-          <label htmlFor="terms" className="c-candidature-terms-text">
-            <div>
-              En remplissant ce formulaire, vous acceptez les{" "}
-              <a href="/cgu" className="c-candidature-link" target="_blank">
-                Conditions générales d&apos;utilisation.
-              </a>{" "}
-              du service La bonne alternance et acceptez le partage de vos informations avec l&apos;établissement {company}
-            </div>
-          </label>
-        </fieldset>
+        <Box width="95%" my={4}>
+          <Text>
+            En remplissant ce formulaire, vous acceptez les{" "}
+            <Link href="/cgu" color="grey.800" textDecoration="underline" target="_blank">
+              Conditions générales d&apos;utilisation.
+            </Link>{" "}
+            du service La bonne alternance et acceptez le partage de vos informations avec l&apos;établissement {company}
+          </Text>
+        </Box>
       </PostulerBody>
       <PostulerFooter fromWidget={fromWidget}>
         <CandidatureSpontaneeSubmit item={item} sendingState={sendingState} />
