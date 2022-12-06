@@ -3,8 +3,6 @@ import { Box, Image, SimpleGrid, Text, Show } from "@chakra-ui/react"
 
 import ConnectionActions from "./ConnectionActions"
 import votrebesoinImage from "../../public/images/home_pics/illu-votrebesoin.svg"
-import ujusImage from "../../public/images/home_pics/1j1s.svg"
-import parcoursupImage from "../../public/images/home_pics/parcoursup.svg"
 
 const Entreprise = () => {
   return (
