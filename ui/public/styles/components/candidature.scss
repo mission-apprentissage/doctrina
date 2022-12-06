@@ -88,37 +88,6 @@ input:-webkit-autofill:active {
   color: #e10600;
 }
 
-.c-candidature-misspelled {
-  font-size: 12px;
-  color: #6a6a6a;
-  width: 90%;
-
-  @include media-breakpoint-up(md) {
-    width: 317px;
-  }
-
-  .c-candidature-misspelled__prompt {
-    margin-right: 10px;
-  }
-
-  .c-candidature-misspelled__suggestion {
-    text-align: center;
-    font-size: 12px;
-    line-height: 24px;
-    width: fit-content;
-    outline: none;
-    border: none;
-    margin-right: 5px;
-    padding-left: 5px;
-    padding-right: 5px;
-    color: #000091;
-    background: #e3e3fd;
-    border-radius: 40px;
-    margin-top: 3px;
-    padding-bottom: 3px;
-  }
-}
-
 .c-candidature-message-title {
   font-family: Marianne;
   font-size: 16px;

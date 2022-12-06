@@ -5,7 +5,7 @@ import CandidatureSpontaneeMessage from "./CandidatureSpontaneeMessage"
 import CandidatureSpontaneeMandataireMessage from "./CandidatureSpontaneeMandataireMessage"
 import { testingParameters } from "../../../utils/testingParameters"
 import emailMisspelled, { top100 } from "email-misspelled"
-import { Box, Container, Flex, FormControl, FormErrorMessage, FormLabel, Input, Link, ModalBody, ModalFooter, Text } from "@chakra-ui/react"
+import { Box, Button, Container, Flex, FormControl, FormErrorMessage, FormLabel, Input, Link, ModalBody, ModalFooter, Text } from "@chakra-ui/react"
 
 const emailChecker = emailMisspelled({ maxMisspelled: 3, domains: top100 })
 
@@ -88,14 +88,29 @@ const CandidatureSpontaneeNominalBodyFooter = ({ formik, sendingState, company, 
             <FormLabel htmlFor="email">E-mail *</FormLabel>
             <Input id="email" data-testid="email" name="email" type="text" width="95%" onChange={onEmailChange} onBlur={formik.handleBlur} value={formik.values.email} />
             {suggestedEmails.length > 0 && (
-              <div className="c-candidature-misspelled">
-                <span className="c-candidature-misspelled__prompt">Voulez vous dire ?</span>
+              <Box mt={2} fs="12px" color="grey.600">
+                <Text as="span" mr={2}>
+                  Voulez vous dire ?
+                </Text>
                 {suggestedEmails.map((sE) => (
-                  <button key={sE.corrected} onClick={clickSuggestion} className="c-candidature-misspelled__suggestion">
+                  <Button
+                    key={sE.corrected}
+                    onClick={clickSuggestion}
+                    textAlign="center"
+                    fs="12px"
+                    width="fit-content"
+                    px="5px"
+                    pb="3px"
+                    mr="5px"
+                    mt="3px"
+                    color="bluefrance.500"
+                    bg="#e3e3fd"
+                    borderRadius="40px"
+                  >
                     {sE.corrected}
-                  </button>
+                  </Button>
                 ))}
-              </div>
+              </Box>
             )}
             <FormErrorMessage>{formik.errors.email}</FormErrorMessage>
           </FormControl>
