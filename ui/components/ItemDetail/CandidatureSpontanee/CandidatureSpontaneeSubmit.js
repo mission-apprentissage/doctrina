@@ -10,7 +10,7 @@ const CandidatureSpontaneeSubmit = (props) => {
   let res = ""
   if (sendingState === "not_sent") {
     res = (
-      <Button aria-label="je-postule" variant="blackButton" type="submit">
+      <Button aria-label="je-postule" variant="blackButton" type="submit" data-testId="candidature-not-sent">
         {amongst(kind, ["lbb", "lba"]) ? "J'envoie ma candidature spontanée" : "J'envoie ma candidature"}
       </Button>
     )
@@ -22,7 +22,7 @@ const CandidatureSpontaneeSubmit = (props) => {
     )
   } else if (sendingState === "currently_sending") {
     res = (
-      <Flex alignItems="center" direction="row">
+      <Flex alignItems="center" direction="row" data-testId="candidature-currently-sending">
         <Spinner mr={4} />
         <Text>Veuillez patienter</Text>
       </Flex>
