@@ -62,7 +62,7 @@ const CandidatureSpontaneeNominalBodyFooter = ({ formik, sendingState, company, 
               onBlur={formik.handleBlur}
               value={formik.values.lastName}
             />
-            {formik.touched.lastName && formik.errors.lastName && <FormErrorMessage>{formik.errors.lastName}</FormErrorMessage>}
+            <FormErrorMessage>{formik.errors.lastName}</FormErrorMessage>
           </FormControl>
 
           <FormControl data-testid="fieldset-firstname" mt={{ base: 1, md: "0" }} isInvalid={formik.touched.firstName && formik.errors.firstName}>
@@ -77,7 +77,7 @@ const CandidatureSpontaneeNominalBodyFooter = ({ formik, sendingState, company, 
               onBlur={formik.handleBlur}
               value={formik.values.firstName}
             />
-            {formik.touched.firstName && formik.errors.firstName && <FormErrorMessage>{formik.errors.firstName}</FormErrorMessage>}
+            <FormErrorMessage>{formik.errors.firstName}</FormErrorMessage>
           </FormControl>
         </Flex>
 
@@ -97,13 +97,13 @@ const CandidatureSpontaneeNominalBodyFooter = ({ formik, sendingState, company, 
                 ))}
               </div>
             )}
-            {formik.touched.email && formik.errors.email && <FormErrorMessage>{formik.errors.email}</FormErrorMessage>}
+            <FormErrorMessage>{formik.errors.email}</FormErrorMessage>
           </FormControl>
 
           <FormControl data-testid="fieldset-phone" mt={{ base: 1, md: "0" }} isInvalid={formik.touched.phone && formik.errors.phone}>
             <FormLabel htmlFor="email">Téléphone *</FormLabel>
             <Input id="phone" data-testid="phone" name="phone" type="text" width="95%" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.phone} />
-            {formik.touched.phone && formik.errors.phone && <FormErrorMessage>{formik.errors.phone}</FormErrorMessage>}
+            <FormErrorMessage>{formik.errors.phone}</FormErrorMessage>
           </FormControl>
         </Flex>
 

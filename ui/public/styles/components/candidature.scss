@@ -133,18 +133,6 @@ input:-webkit-autofill:active {
   color: #6a6a6a;
 }
 
-.c-candidature-message textarea {
-  border: none;
-  background: #f0f0f0;
-  border-radius: 4px 4px 0px 0px;
-  width: 90%;
-  height: 80px;
-  padding-left: 1rem;
-  @include media-breakpoint-up(md) {
-    width: 650px;
-    height: 110px;
-  }
-}
 .c-candidature-terms {
   max-width: 90%;
   label {
@@ -164,46 +152,6 @@ input:-webkit-autofill:active {
   input {
     outline: 2px solid #e10600;
   }
-}
-
-label.c-candidature-terms-text {
-  cursor: pointer;
-  input {
-    cursor: pointer;
-  }
-}
-
-.c-candidature-filedropzone {
-  border: 1px dashed #6a6a6a;
-  width: 90%;
-
-  padding: 20px;
-
-  @include media-breakpoint-up(md) {
-    width: 650px;
-  }
-
-  cursor: pointer;
-}
-
-.c-candidature-filedropzone-instruction {
-  margin-left: 0;
-
-  @include media-breakpoint-up(md) {
-    margin-left: 10%;
-  }
-}
-
-.c-candidature-filedropzone-instruction_title,
-.c-candidature-filedropzone-filename {
-  font-size: 14px;
-  font-weight: bold;
-  color: #383838;
-}
-
-.c-candidature-filedropzone-instruction_sub {
-  font-size: 12px;
-  color: #383838;
 }
 
 .c-candidature-filedropzone.c-candidature-filedropzone_selectedfile {
