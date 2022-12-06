@@ -50,7 +50,7 @@ const CandidatureSpontaneeNominalBodyFooter = ({ formik, sendingState, company, 
         </Text>
 
         <Flex direction={["column", "column", "row"]} mt={6}>
-          <FormControl data-testid="fieldset-lastname" mt={{ base: 1, md: "0" }} isInvalid={formik.touched.lastName && formik.errors.lastName}>
+          <FormControl data-testid="fieldset-lastname" mt={{ base: 3, md: "0" }} isInvalid={formik.touched.lastName && formik.errors.lastName}>
             <FormLabel htmlFor="lastName">Nom *</FormLabel>
             <Input
               id="lastName"
@@ -65,7 +65,7 @@ const CandidatureSpontaneeNominalBodyFooter = ({ formik, sendingState, company, 
             <FormErrorMessage>{formik.errors.lastName}</FormErrorMessage>
           </FormControl>
 
-          <FormControl data-testid="fieldset-firstname" mt={{ base: 1, md: "0" }} isInvalid={formik.touched.firstName && formik.errors.firstName}>
+          <FormControl data-testid="fieldset-firstname" mt={{ base: 3, md: "0" }} isInvalid={formik.touched.firstName && formik.errors.firstName}>
             <FormLabel htmlFor="firstName">Prénom *</FormLabel>
             <Input
               id="firstName"
@@ -84,7 +84,7 @@ const CandidatureSpontaneeNominalBodyFooter = ({ formik, sendingState, company, 
         {testingParameters?.simulatedRecipient && <Text>Les emails seront envoyés à {testingParameters.simulatedRecipient}</Text>}
 
         <Flex direction={["column", "column", "row"]} mt={[null, null, 4]}>
-          <FormControl data-testid="fieldset-email" mt={{ base: 1, md: "0" }} isInvalid={formik.touched.email && formik.errors.email}>
+          <FormControl data-testid="fieldset-email" mt={{ base: 3, md: "0" }} isInvalid={formik.touched.email && formik.errors.email}>
             <FormLabel htmlFor="email">E-mail *</FormLabel>
             <Input id="email" data-testid="email" name="email" type="text" width="95%" onChange={onEmailChange} onBlur={formik.handleBlur} value={formik.values.email} />
             {suggestedEmails.length > 0 && (
@@ -115,7 +115,7 @@ const CandidatureSpontaneeNominalBodyFooter = ({ formik, sendingState, company, 
             <FormErrorMessage>{formik.errors.email}</FormErrorMessage>
           </FormControl>
 
-          <FormControl data-testid="fieldset-phone" mt={{ base: 1, md: "0" }} isInvalid={formik.touched.phone && formik.errors.phone}>
+          <FormControl data-testid="fieldset-phone" mt={{ base: 3, md: "0" }} isInvalid={formik.touched.phone && formik.errors.phone}>
             <FormLabel htmlFor="email">Téléphone *</FormLabel>
             <Input id="phone" data-testid="phone" name="phone" type="text" width="95%" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.phone} />
             <FormErrorMessage>{formik.errors.phone}</FormErrorMessage>
