@@ -2,7 +2,7 @@ import Link from "next/link"
 import { useRouter } from "next/router"
 import { useState } from "react"
 import { Collapse, Nav, Navbar, NavbarBrand, NavbarToggler, NavItem } from "reactstrap"
-import { Box, Image, Link } from "@chakra-ui/react"
+import { Box, Image, Link, Image } from "@chakra-ui/react"
 
 const Navigation = ({ currentPage, bgcolor }) => {
   const router = useRouter()
@@ -84,11 +84,11 @@ const Navigation = ({ currentPage, bgcolor }) => {
                 <>
                   <Box className="ml-2 c-navigation__separator"></Box>
                   <NavItem className="ml-lg-2">
-                    <Link href="/espace-pro/authentification">
-                      <a className="nav-link" aria-label="Connexion">
-                        <img src="/images/icons/blue_lock.svg" alt="" />
-                        <span className="mx-2">Connexion</span>
-                      </a>
+                    <Link href="/espace-pro/authentification" aria-label="Connexion">
+                      <Image src="/images/icons/blue_lock.svg" alt="" />
+                      <Box as="span" mx="2">
+                        Connexion
+                      </Box>
                     </Link>
                   </NavItem>
                 </>
