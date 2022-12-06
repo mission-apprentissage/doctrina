@@ -1,5 +1,5 @@
+import { Button, Flex, Spinner, Text } from "@chakra-ui/react"
 import React from "react"
-import { Spinner } from "reactstrap"
 import { amongst } from "../../../utils/arrayutils"
 import { capitalizeFirstLetter } from "../../../utils/strutils"
 
@@ -7,27 +7,32 @@ const CandidatureSpontaneeSubmit = (props) => {
   const sendingState = props.sendingState
   const kind = props?.item?.ideaType || ""
 
-  let res = <></>
+  let res = ""
   if (sendingState === "not_sent") {
     res = (
-      <button
-        aria-label="je-postule"
-        className={`btn btn-dark btn-dark-action c-candidature-submit c-candidature-submit--default gtmEnvoiCandidature gtm${capitalizeFirstLetter(kind)}`}
-        type="submit"
-      >
+      <Button aria-label="je-postule" variant="blackButton" type="submit">
         {amongst(kind, ["lbb", "lba"]) ? "J'envoie ma candidature spontanée" : "J'envoie ma candidature"}
-      </button>
+      </Button>
     )
   } else if (sendingState === "ok_sent") {
-    res = <span className="c-candidature-submit-ok">Succès</span>
+    res = (
+      <Text as="span" data-testId="candidature-submit-ok">
+        Succès
+      </Text>
+    )
   } else if (sendingState === "currently_sending") {
     res = (
-      <span className="c-candidature-submit-sending">
-        <Spinner color="primary" /> Veuillez patienter
-      </span>
+      <Flex alignItems="center" direction="row">
+        <Spinner mr={4} />
+        <Text>Veuillez patienter</Text>
+      </Flex>
     )
   } else if (sendingState === "not_sent_because_of_errors") {
-    res = <span className="c-candidature-submit-error">Erreur lors de l&apos;envoi, veuillez réessayer plus tard</span>
+    res = (
+      <Text fontWeight={700} color="red.500" as="span" data-testId="candidature-submit-error">
+        ⚠ Erreur lors de l&apos;envoi, veuillez réessayer plus tard
+      </Text>
+    )
   }
   return res
 }
