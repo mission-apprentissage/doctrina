@@ -71,7 +71,13 @@ const ItemDetail = ({ selectedItem, handleClose, handleSelectItem, activeFilter 
     <Box
       as="section"
       onScroll={handleScroll}
-      className={`c-detail itemDetail ${kind ? `gtmDetail${capitalizeFirstLetter(kind)}` : ""} ${selectedItem ? "" : "hiddenItemDetail"}`}
+      display={selectedItem ? "block" : "none"}
+      height="100%"
+      sx={{
+        overflowY: "auto",
+        position: "relative",
+      }}
+      className="c-detail itemDetail"
       {...swipeHandlers}
     >
       <header className={`c-detail-header c-detail--collapse-header-${collapseHeader}`}>
