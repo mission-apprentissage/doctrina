@@ -11,7 +11,7 @@ const CandidatureSpontaneeSubmit = (props) => {
   if (sendingState === "not_sent") {
     res = (
       <button
-        aria-label="Envoi de la candidature spontanée"
+        aria-label="Envoyer la candidature spontanée"
         className={`btn btn-dark btn-dark-action c-candidature-submit c-candidature-submit--default gtmEnvoiCandidature gtm${capitalizeFirstLetter(kind)}`}
         type="submit"
       >
