@@ -85,7 +85,7 @@ const Navigation = ({ currentPage, bgcolor }) => {
                   <NavItem className="ml-lg-2">
                     <Link href="/espace-pro/authentification">
                       <a className="nav-link" aria-label="Connexion">
-                        <img className="c-homecomponent-bluelock mr-2" src="/images/icons/blue_lock.svg"/>
+                        <img className="c-homecomponent-bluelock mr-2" src="/images/icons/blue_lock.svg" alt=""/>
                         <span className="mx-1">Connexion</span>
                       </a>
                     </Link>
