@@ -83,7 +83,7 @@ const CandidatureSpontanee = (props) => {
               <Button
                 onClick={openApplicationForm}
                 className={`btn btn-blue ml-1 gtmFormulaireCandidature gtm${capitalizeFirstLetter(kind)}`}
-                aria-label="Envoi de la candidature spontanée"
+                aria-label="Ouvrir le formulaire d'envoi de candidature spontanée"
               >
                 J&apos;envoie ma candidature{with_str(kind).amongst(["lbb", "lba"]) ? " spontanée" : ""}
               </Button>
