@@ -94,7 +94,7 @@ const MapPopup = ({ type, item, handleSelectItem, setSelectedItem, setSelectedMa
         {list.map((training, idx) => (
           <li key={idx} className="c-mapboxpopup-li">
             <span>
-              <button className={`c-mapboxpopup--link gtmSavoirPlus gtmFormation gtmMap`} aria-label="Accès au détail de la formation" onClick={() => openItemDetail(training)}>
+              <button className={`c-mapboxpopup--link gtmSavoirPlus gtmFormation gtmMap`} aria-label="Accéder au détail de la formation" onClick={() => openItemDetail(training)}>
                 {training.title ? training.title : training.longTitle}
               </button>
             </span>
