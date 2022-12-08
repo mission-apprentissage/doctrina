@@ -56,7 +56,7 @@ const ItemDetail = ({ selectedItem, handleClose, handleSelectItem, activeFilter 
   const [collapseHeader, setCollapseHeader] = useState(false)
   const maxScroll = 100
   const handleScroll = () => {
-    let currentScroll = document.querySelector(".c-detail").scrollTop
+    let currentScroll = document.querySelector("#itemDetailColumn").scrollTop
     currentScroll += collapseHeader ? 100 : -100
     setCollapseHeader(currentScroll > maxScroll)
   }
@@ -73,14 +73,21 @@ const ItemDetail = ({ selectedItem, handleClose, handleSelectItem, activeFilter 
       onScroll={handleScroll}
       display={selectedItem ? "block" : "none"}
       height="100%"
+      id="itemDetailColumn"
       sx={{
         overflowY: "auto",
         position: "relative",
       }}
-      className="c-detail itemDetail"
+      className="itemDetail"
       {...swipeHandlers}
     >
-      <header className={`c-detail-header c-detail--collapse-header-${collapseHeader}`}>
+      <Box
+        as="header"
+        sx={{
+          filter: "drop-shadow(0px 4px 4px rgba(213, 213, 213, 0.25))",
+        }}
+        className={`c-detail--collapse-header-${collapseHeader}`}
+      >
         <div className="w-100 pl-0 pl-sm-3">
           <div className="d-flex justify-content-end mb-2 c-tiny-btn-bar">
             {getTags({ kind, isCfa, isMandataire, hasAlsoJob })}
@@ -91,7 +98,7 @@ const ItemDetail = ({ selectedItem, handleClose, handleSelectItem, activeFilter 
           <h1 className={"c-detail-title c-detail-title--" + kind}>{defaultTo(actualTitle, "")}</h1>
           {getSoustitre({ selectedItem, kind })}
 
-          {buttonJePostuleShouldBeDisplayed(kind, selectedItem) ? (
+          {buttonJePostuleShouldBeDisplayed(kind, selectedItem) && (
             <div className="c-detail-description-me">
               <div className="c-detail-pelink my-3">
                 <a className="btn btn-blue gtmContactPE" onClick={postuleSurPoleEmploi} target="poleemploi" href={selectedItem.url}>
@@ -99,36 +106,25 @@ const ItemDetail = ({ selectedItem, handleClose, handleSelectItem, activeFilter 
                 </a>
               </div>
             </div>
-          ) : (
-            ""
           )}
 
-          {isCandidatureSpontanee(selectedItem) ? (
+          {isCandidatureSpontanee(selectedItem) && (
             <>
               <hr className="c-detail-header-separator mt-0" />
               <CandidatureSpontanee item={selectedItem} />
             </>
-          ) : (
-            ""
           )}
 
-          {kind === "formation" ? (
+          {kind === "formation" && buttonPRDVShouldBeDisplayed(selectedItem) && (
             <>
-              {buttonPRDVShouldBeDisplayed(selectedItem) ? (
-                <>
-                  <hr className={"c-detail-header-separator c-detail-header-separator--upperformation"} />
-                  <div className="c-detail-prdv mt-3 pb-4 w-75">{buildPrdvButton(selectedItem)}</div>
-                </>
-              ) : (
-                ""
-              )}
+              <hr className={"c-detail-header-separator c-detail-header-separator--upperformation"} />
+              <div className="c-detail-prdv mt-3 pb-4 w-75">{buildPrdvButton(selectedItem)}</div>
             </>
-          ) : (
-            <></>
           )}
+
           <div className="c-detail-emptyspace">&nbsp;</div>
         </div>
-      </header>
+      </Box>
 
       {kind === "peJob" ? <PeJobDetail job={selectedItem} seeInfo={seeInfo} setSeeInfo={setSeeInfo} /> : ""}
       {kind === "matcha" ? <MatchaDetail job={selectedItem} seeInfo={seeInfo} setSeeInfo={setSeeInfo} /> : ""}
