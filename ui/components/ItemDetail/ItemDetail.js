@@ -67,6 +67,18 @@ const ItemDetail = ({ selectedItem, handleClose, handleSelectItem, activeFilter 
     })
   }
 
+  const stickyHeaderProperties = isCollapsedHeader
+    ? {
+        position: "sticky",
+        zIndex: "1",
+        top: "0",
+        left: "0",
+        display: "flex",
+        width: "100%",
+        background: "#fff",
+      }
+    : {}
+
   return (
     <Box
       as="section"
@@ -86,47 +98,18 @@ const ItemDetail = ({ selectedItem, handleClose, handleSelectItem, activeFilter 
         sx={{
           filter: "drop-shadow(0px 4px 4px rgba(213, 213, 213, 0.25))",
         }}
-        className={`c-detail--collapse-header-`}
+        {...stickyHeaderProperties}
       >
         {/*
-.c-detail--collapse-header-false {
-  .c-tiny-btn-bar {
-    @extend .mb-2;
-  }
-}
 
 .c-tagcfa-container {
   margin-bottom: 1rem;
 }
 
-.c-detail-emptyspace {
-  line-height: 0.01;
-}
+*/}
 
-.c-detail--collapse-header-true {
-  position: sticky;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  display: flex;
-  width: 100%;
-  background: #fff;
-}
-
-.c-detail--collapse-header-true {
-  .c-detail-emptyspace {
-    display: none;
-  }
-  .c-detail-title--entreprise {
-    display: none;
-  }
-  .c-tiny-btn-bar {
-    @extend .mb-0;
-  }
-}*/}
-
-        <div className="w-100 pl-0 pl-sm-3">
-          <Flex className="justify-content-end mb-2 c-tiny-btn-bar">
+        <Box pl={["0", 4]} pb={isCollapsedHeader ? "0" : 2}>
+          <Flex mb={2} justifyContent="flex-end">
             {getTags({ kind, isCfa, isMandataire, hasAlsoJob })}
             {getNavigationButtons({ goPrev, goNext, setSeeInfo, handleClose })}
           </Flex>
@@ -142,11 +125,12 @@ const ItemDetail = ({ selectedItem, handleClose, handleSelectItem, activeFilter 
 
           {!isCollapsedHeader && getJobSurtitre({ selectedItem, kind, isMandataire })}
 
-          <Text as="h1"
+          <Text
+            as="h1"
             fontSize={isCollapsedHeader ? "20px" : "28px"}
+            corlor={kind !== "formation" ? "pinksoft.600" : "greensoft.500"}
             sx={{
               fontWeight: 700,
-              color: "pinksoft.600",
               marginBottom: "11px",
               paddingBottom: "0",
               textAlign: "left",
@@ -156,7 +140,7 @@ const ItemDetail = ({ selectedItem, handleClose, handleSelectItem, activeFilter 
           >
             {defaultTo(actualTitle, "")}
           </Text>
-          
+
           {!isCollapsedHeader && getSoustitre({ selectedItem, kind })}
 
           {buttonJePostuleShouldBeDisplayed(kind, selectedItem) && (
@@ -182,9 +166,7 @@ const ItemDetail = ({ selectedItem, handleClose, handleSelectItem, activeFilter 
               <div className="c-detail-prdv mt-3 pb-4 w-75">{buildPrdvButton(selectedItem)}</div>
             </>
           )}
-
-          <div className="c-detail-emptyspace">&nbsp;</div>
-        </div>
+        </Box>
       </Box>
 
       {kind === "peJob" ? <PeJobDetail job={selectedItem} seeInfo={seeInfo} setSeeInfo={setSeeInfo} /> : ""}

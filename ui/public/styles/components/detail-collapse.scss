@@ -1,9 +1,3 @@
-.c-detail--collapse-header-false {
-  .c-tiny-btn-bar {
-    @extend .mb-2;
-  }
-}
-
 .c-tagcfa-container {
   margin-bottom: 1rem;
 }
@@ -25,8 +19,5 @@
 .c-detail--collapse-header-true {
   .c-detail-emptyspace {
     display: none;
-  }
-  .c-tiny-btn-bar {
-    @extend .mb-0;
   }
 }
