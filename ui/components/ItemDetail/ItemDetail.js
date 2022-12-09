@@ -5,7 +5,6 @@ import LbbCompanyDetail from "./LbbCompanyDetail"
 import TrainingDetail from "./TrainingDetail"
 import { defaultTo } from "lodash"
 import { amongst } from "../../utils/arrayutils"
-import { capitalizeFirstLetter } from "../../utils/strutils"
 import { isCfaEntreprise } from "../../services/cfaEntreprise"
 import { filterLayers } from "../../utils/mapTools"
 import ExternalLink from "../externalLink"
@@ -26,7 +25,7 @@ import { buttonJePostuleShouldBeDisplayed, buttonPRDVShouldBeDisplayed, buildPrd
 import GoingToContactQuestion, { getGoingtoId } from "./GoingToContactQuestion"
 import gotoIcon from "../../public/images/icons/goto.svg"
 import { SendPlausibleEvent } from "../../utils/plausible"
-import { Box, Flex, Text } from "@chakra-ui/react"
+import { Box, Divider, Flex, Text } from "@chakra-ui/react"
 
 const ItemDetail = ({ selectedItem, handleClose, handleSelectItem, activeFilter }) => {
   const kind = selectedItem?.ideaType
@@ -120,7 +119,7 @@ const ItemDetail = ({ selectedItem, handleClose, handleSelectItem, activeFilter 
           <Text
             as="h1"
             fontSize={isCollapsedHeader ? "20px" : "28px"}
-            corlor={kind !== "formation" ? "pinksoft.600" : "greensoft.500"}
+            color={kind !== "formation" ? "pinksoft.600" : "greensoft.500"}
             sx={{
               fontWeight: 700,
               marginBottom: "11px",
@@ -128,7 +127,6 @@ const ItemDetail = ({ selectedItem, handleClose, handleSelectItem, activeFilter 
               textAlign: "left",
               wordBreak: "break-word",
             }}
-            className={"c-detail-title c-detail-title--" + kind}
           >
             {defaultTo(actualTitle, "")}
           </Text>
@@ -147,7 +145,7 @@ const ItemDetail = ({ selectedItem, handleClose, handleSelectItem, activeFilter 
 
           {isCandidatureSpontanee(selectedItem) && (
             <>
-              <hr className="c-detail-header-separator mt-0" />
+              <Divider my="0" />
               <CandidatureSpontanee item={selectedItem} />
             </>
           )}
