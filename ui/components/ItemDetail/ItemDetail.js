@@ -100,15 +100,7 @@ const ItemDetail = ({ selectedItem, handleClose, handleSelectItem, activeFilter 
         }}
         {...stickyHeaderProperties}
       >
-        {/*
-
-.c-tagcfa-container {
-  margin-bottom: 1rem;
-}
-
-*/}
-
-        <Box pl={["0", 4]} pb={isCollapsedHeader ? "0" : 2}>
+        <Box width="100%" pl={["0", 4]} pb={isCollapsedHeader ? "0" : 2}>
           <Flex mb={2} justifyContent="flex-end">
             {getTags({ kind, isCfa, isMandataire, hasAlsoJob })}
             {getNavigationButtons({ goPrev, goNext, setSeeInfo, handleClose })}
