@@ -10,7 +10,7 @@ const detailActivityProperties = {
   color: "grey.600",
 }
 
-export default function getSurtitre({ selectedItem, kind, isMandataire, isCollapsedHeader }) {
+export default function getJobSurtitre({ selectedItem, kind, isMandataire, isCollapsedHeader }) {
   let res = ""
   let companyName = selectedItem?.company?.name || ""
 
@@ -66,17 +66,6 @@ export default function getSurtitre({ selectedItem, kind, isMandataire, isCollap
         </Text>
       )
     }
-  }
-
-  if (kind === "formation") {
-    res = (
-      <Text as="p" my={4} fontSize="1rem" {...detailActivityProperties}>
-        <Text as="span">{`${companyName} (${selectedItem.company.place.city})`}</Text>
-        <Text as="span" fontWeight={400}>
-          &nbsp;propose cette formation
-        </Text>
-      </Text>
-    )
   }
 
   return res

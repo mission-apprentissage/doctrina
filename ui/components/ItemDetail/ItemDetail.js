@@ -15,7 +15,7 @@ import LocationDetail from "./LocationDetail"
 import DidYouKnow from "./DidYouKnow"
 import CandidatureSpontanee from "./CandidatureSpontanee/CandidatureSpontanee"
 import isCandidatureSpontanee from "./CandidatureSpontanee/services/isCandidatureSpontanee"
-import getSurtitre from "./ItemDetailServices/getSurtitre"
+import getJobSurtitre from "./ItemDetailServices/getJobSurtitre"
 import hasAlsoEmploi from "./ItemDetailServices/hasAlsoEmploi"
 import getSoustitre from "./ItemDetailServices/getSoustitre"
 import getActualTitle from "./ItemDetailServices/getActualTitle"
@@ -26,7 +26,7 @@ import { buttonJePostuleShouldBeDisplayed, buttonPRDVShouldBeDisplayed, buildPrd
 import GoingToContactQuestion, { getGoingtoId } from "./GoingToContactQuestion"
 import gotoIcon from "../../public/images/icons/goto.svg"
 import { SendPlausibleEvent } from "../../utils/plausible"
-import { Box, Flex } from "@chakra-ui/react"
+import { Box, Flex, Text } from "@chakra-ui/react"
 
 const ItemDetail = ({ selectedItem, handleClose, handleSelectItem, activeFilter }) => {
   const kind = selectedItem?.ideaType
@@ -86,7 +86,7 @@ const ItemDetail = ({ selectedItem, handleClose, handleSelectItem, activeFilter 
         sx={{
           filter: "drop-shadow(0px 4px 4px rgba(213, 213, 213, 0.25))",
         }}
-        className={`c-detail--collapse-header-${collapseHeader}`}
+        className={`c-detail--collapse-header-`}
       >
         {/*
 .c-detail--collapse-header-false {
@@ -126,13 +126,23 @@ const ItemDetail = ({ selectedItem, handleClose, handleSelectItem, activeFilter 
 }*/}
 
         <div className="w-100 pl-0 pl-sm-3">
-          <div className="d-flex justify-content-end mb-2 c-tiny-btn-bar">
+          <Flex className="justify-content-end mb-2 c-tiny-btn-bar">
             {getTags({ kind, isCfa, isMandataire, hasAlsoJob })}
             {getNavigationButtons({ goPrev, goNext, setSeeInfo, handleClose })}
-          </div>
+          </Flex>
 
-          {getSurtitre({ selectedItem, kind, isMandataire, isCollapsedHeader })}
-          <h1
+          {kind === "formation" && (
+            <Text as="p" textAlign="left" color="grey.600" mt={4} mb={3} fontWeight={700} fontSize="1rem">
+              <Text as="span">{`${selectedItem?.company?.name || ""} (${selectedItem.company.place.city})`}</Text>
+              <Text as="span" fontWeight={400}>
+                &nbsp;propose cette formation
+              </Text>
+            </Text>
+          )}
+
+          {!isCollapsedHeader && getJobSurtitre({ selectedItem, kind, isMandataire })}
+
+          <Text as="h1"
             fontSize={isCollapsedHeader ? "20px" : "28px"}
             sx={{
               fontWeight: 700,
@@ -145,7 +155,8 @@ const ItemDetail = ({ selectedItem, handleClose, handleSelectItem, activeFilter 
             className={"c-detail-title c-detail-title--" + kind}
           >
             {defaultTo(actualTitle, "")}
-          </h1>
+          </Text>
+          
           {!isCollapsedHeader && getSoustitre({ selectedItem, kind })}
 
           {buttonJePostuleShouldBeDisplayed(kind, selectedItem) && (
