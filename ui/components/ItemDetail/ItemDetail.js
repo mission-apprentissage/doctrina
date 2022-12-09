@@ -53,12 +53,12 @@ const ItemDetail = ({ selectedItem, handleClose, handleSelectItem, activeFilter 
 
   const { swipeHandlers, goNext, goPrev } = BuildSwipe({ currentList, handleSelectItem, selectedItem })
 
-  const [collapseHeader, setCollapseHeader] = useState(false)
+  const [isCollapsedHeader, setIsCollapsedHeader] = useState(false)
   const maxScroll = 100
   const handleScroll = () => {
     let currentScroll = document.querySelector("#itemDetailColumn").scrollTop
-    currentScroll += collapseHeader ? 100 : -100
-    setCollapseHeader(currentScroll > maxScroll)
+    currentScroll += isCollapsedHeader ? 100 : -100
+    setIsCollapsedHeader(currentScroll > maxScroll)
   }
 
   const postuleSurPoleEmploi = () => {
@@ -88,15 +88,65 @@ const ItemDetail = ({ selectedItem, handleClose, handleSelectItem, activeFilter 
         }}
         className={`c-detail--collapse-header-${collapseHeader}`}
       >
+        {/*
+.c-detail--collapse-header-false {
+  .c-tiny-btn-bar {
+    @extend .mb-2;
+  }
+}
+
+.c-tagcfa-container {
+  margin-bottom: 1rem;
+}
+
+.c-detail-emptyspace {
+  line-height: 0.01;
+}
+
+.c-detail--collapse-header-true {
+  position: sticky;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  background: #fff;
+}
+
+.c-detail--collapse-header-true {
+  .c-detail-emptyspace {
+    display: none;
+  }
+  .c-detail-title--entreprise {
+    display: none;
+  }
+  .c-tiny-btn-bar {
+    @extend .mb-0;
+  }
+}*/}
+
         <div className="w-100 pl-0 pl-sm-3">
           <div className="d-flex justify-content-end mb-2 c-tiny-btn-bar">
             {getTags({ kind, isCfa, isMandataire, hasAlsoJob })}
             {getNavigationButtons({ goPrev, goNext, setSeeInfo, handleClose })}
           </div>
 
-          {getSurtitre({ selectedItem, kind, isMandataire })}
-          <h1 className={"c-detail-title c-detail-title--" + kind}>{defaultTo(actualTitle, "")}</h1>
-          {getSoustitre({ selectedItem, kind })}
+          {getSurtitre({ selectedItem, kind, isMandataire, isCollapsedHeader })}
+          <h1
+            fontSize={isCollapsedHeader ? "20px" : "28px"}
+            sx={{
+              fontWeight: 700,
+              color: "pinksoft.600",
+              marginBottom: "11px",
+              paddingBottom: "0",
+              textAlign: "left",
+              wordBreak: "break-word",
+            }}
+            className={"c-detail-title c-detail-title--" + kind}
+          >
+            {defaultTo(actualTitle, "")}
+          </h1>
+          {!isCollapsedHeader && getSoustitre({ selectedItem, kind })}
 
           {buttonJePostuleShouldBeDisplayed(kind, selectedItem) && (
             <div className="c-detail-description-me">

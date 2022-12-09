@@ -1,7 +1,4 @@
 .c-detail--collapse-header-false {
-  .c-detail-address-section {
-    text-align: left;
-  }
   .c-tiny-btn-bar {
     @extend .mb-2;
   }
@@ -26,19 +23,7 @@
 }
 
 .c-detail--collapse-header-true {
-  .c-detail-address-section {
-    display: none;
-  }
   .c-detail-emptyspace {
-    display: none;
-  }
-  .c-detail-title.c-detail-title--formation {
-    margin-top: 16px;
-    margin-bottom: 16px;
-    font-size: 16px;
-    line-height: 24px;
-  }
-  .c-detail-title--entreprise {
     display: none;
   }
   .c-tiny-btn-bar {

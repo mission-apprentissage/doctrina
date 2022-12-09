@@ -1,3 +1,4 @@
+import { Box, Text } from "@chakra-ui/react"
 import React from "react"
 
 export default function getSoustitre({ selectedItem }) {
@@ -5,7 +6,7 @@ export default function getSoustitre({ selectedItem }) {
 
   selectedItem?.company?.mandataire
     ? (res = (
-        <div className="mt-4 c-detail-address-section">
+        <Box textAlign="left" className="mt-4">
           <div>
             <svg width="18" height="22" viewBox="0 0 18 22" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
@@ -27,10 +28,10 @@ export default function getSoustitre({ selectedItem }) {
             <span className="c-detail-address">{selectedItem?.place?.zipCode}</span>
             <span className="c-detail-address">&nbsp;{selectedItem?.place?.city || selectedItem?.place?.address}</span>
           </div>
-        </div>
+        </Box>
       ))
     : (res = (
-        <p className="mt-4 c-detail-address-section">
+        <Text as="p" textAlign="left" className="mt-4">
           <span className="d-block">
             <svg width="18" height="22" viewBox="0 0 18 22" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
@@ -41,7 +42,7 @@ export default function getSoustitre({ selectedItem }) {
             <span className="c-detail-address">&nbsp;{selectedItem?.place?.zipCode}</span>
             <span className="c-detail-address">&nbsp;{selectedItem?.place?.city || selectedItem?.place?.address}</span>
           </span>
-        </p>
+        </Text>
       ))
 
   return res
