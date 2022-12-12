@@ -147,7 +147,7 @@ const ItemDetail = ({ selectedItem, handleClose, handleSelectItem, activeFilter 
             </>
           )}
 
-          {kind === "formation" && true /*buttonPRDVShouldBeDisplayed(selectedItem)*/ && (
+          {kind === "formation" && buttonPRDVShouldBeDisplayed(selectedItem) && (
             <>
               <Divider my={2} />
               <Box mt={4} pb={6}>
