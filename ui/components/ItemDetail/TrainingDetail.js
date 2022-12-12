@@ -13,7 +13,8 @@ import fetchTrainingDetails from "../../services/fetchTrainingDetails"
 import sendTrainingOpenedEventToCatalogue from "../../services/sendTrainingOpenedEventToCatalogue"
 import { SendPlausibleEvent, SendTrackEvent } from "../../utils/plausible"
 import { formatDate } from "../../utils/strutils"
-import { Flex } from "@chakra-ui/react"
+import { Box, Flex, Image, Link, Text } from "@chakra-ui/react"
+import { ExternalLinkIcon } from "@chakra-ui/icons"
 
 const TrainingDetail = ({ training, hasAlsoJob }) => {
   const [loading, setLoading] = useState(true)
@@ -112,21 +113,21 @@ const TrainingDetail = ({ training, hasAlsoJob }) => {
       {getTrainingDetails(training.training)}
       <div className="c-detail-newadvice mt-4 pl-4">
         <Flex alignItems="center" pt={1} pb={2}>
-          <img src={questionmarkIcon} alt="" />
-          <span className="c-detail-newadvice-title ml-2">{training.title ? training.title : training.longTitle}</span>
+          <Image src={questionmarkIcon} alt="" />
+          <Text as="span" ml={2} fontWeight={700}>
+            {training.title ? training.title : training.longTitle}
+          </Text>
         </Flex>
-        {training.onisepUrl ? (
-          <div>
-            <span>Descriptif du {training.title ? training.title : training.longTitle} sur&nbsp;</span>
-            <span className="c-detail-traininglink">
-              <a href={training.onisepUrl} target="_blank" rel="noopener noreferrer" className="c-nice-link">
+        {training.onisepUrl && (
+          <Box>
+            <Text as="span">Descriptif du {training.title ? training.title : training.longTitle} sur&nbsp;</Text>
+            <Text as="span" className="c-detail-traininglink">
+              <Link href={training.onisepUrl} isExternal>
                 le site Onisep&nbsp;
-                <img src={gotoIcon} alt="Ouverture dans un nouvel onglet" />
-              </a>
-            </span>
-          </div>
-        ) : (
-          ""
+                <ExternalLinkIcon ml={2} />
+              </Link>
+            </Text>
+          </Box>
         )}
         <div className="mt-2 mb-2">
           Vous vous posez des questions sur votre orientation ou votre recherche d&apos;emploi ?&nbsp;

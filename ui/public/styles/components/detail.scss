@@ -63,10 +63,6 @@
   filter: drop-shadow(0px 4px 4px rgba(213, 213, 213, 0.25));
 }
 
-.c-detail-header-separator {
-  margin-bottom: 0;
-}
-
 .c-detail-body {
   text-align: left;
   position: relative;
@@ -199,13 +195,6 @@
   background: #f6f6f6;
   border-radius: 8px;
   padding: 10px;
-}
-
-.c-detail-newadvice-title {
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 24px;
-  letter-spacing: 0em;
 }
 
 .c-detail-advice {
@@ -423,14 +412,6 @@ a.c-detail-lbb-siretbutton {
   padding: 11px 0px;
   margin-bottom: 20px;
   margin-top: 4px;
-}
-
-.c-detail-header-separator.c-detail-header-separator--matcha {
-  margin: 0;
-}
-
-.c-detail-header-separator--upperformation {
-  border: 1px solid #e7e7e7;
 }
 
 .c-detail-sizetext.c-detail-sizetext--matcha {

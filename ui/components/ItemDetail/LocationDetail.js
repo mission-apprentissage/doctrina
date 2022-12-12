@@ -1,3 +1,4 @@
+import { Flex, Image, Text } from "@chakra-ui/react"
 import { round } from "lodash"
 import React from "react"
 import gotoIcon from "../../public/images/icons/goto.svg"
@@ -181,10 +182,12 @@ const LocationDetail = ({ item, isCfa }) => {
           <>
             <div className="pb-3">
               <div className="c-detail-newadvice">
-                <div className="pt-1 mb-2">
-                  <img src="/images/info.svg" alt="Information pratique" width="24" height="24" />
-                  <span className="c-detail-newadvice-title ml-2">Cet établissement est un CFA d&apos;entreprise</span>
-                </div>
+                <Flex alignItems="center" pt={1} pb={2}>
+                  <Image src="/images/info.svg" alt="" width="24px" height="24px" />
+                  <Text as="span" ml={2} fontWeight={700}>
+                    Cet établissement est un CFA d&apos;entreprise
+                  </Text>
+                </Flex>
                 <p>
                   La particularité ? Il s&apos;agit d&apos;une formule complète <strong>Emploi + Formation</strong> ! Cette formation vous intéresse ? La marche à suivre diffère
                   selon le CFA d&apos;entreprise concerné :

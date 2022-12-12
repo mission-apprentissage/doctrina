@@ -142,14 +142,14 @@ const ItemDetail = ({ selectedItem, handleClose, handleSelectItem, activeFilter 
 
           {isCandidatureSpontanee(selectedItem) && (
             <>
-              <Divider my="0" />
+              <Divider my={2} />
               <CandidatureSpontanee item={selectedItem} />
             </>
           )}
 
-          {kind === "formation" && buttonPRDVShouldBeDisplayed(selectedItem) && (
+          {kind === "formation" && true /*buttonPRDVShouldBeDisplayed(selectedItem)*/ && (
             <>
-              <hr className={"c-detail-header-separator c-detail-header-separator--upperformation"} />
+              <Divider my={2} />
               <Box mt={4} pb={6}>
                 {buildPrdvButton(selectedItem)}
               </Box>
