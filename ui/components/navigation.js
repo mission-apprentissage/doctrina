@@ -1,6 +1,5 @@
 import { useRouter } from "next/router"
-import { useState } from "react"
-import { Box, Container, Flex, Image, Link, useDisclosure, Stack, Show } from "@chakra-ui/react"
+import { Box, Flex, Image, Link, useDisclosure, Stack, Show } from "@chakra-ui/react"
 
 import { HamburgerIcon } from "@chakra-ui/icons"
 
@@ -35,20 +34,20 @@ const Navigation = ({ currentPage, bgcolor, ...props }) => {
 
   return (
     <Box>
-      <Flex py={2} px={4} direction={["column", "row"]} justify="space-between" bg="orange.400">
+      <Flex py={2} px={4} direction={["column", "column", "row"]} justify="space-between" bg="orange.400">
         <Flex alignItems="center" wrap="wrap">
           <Flex flexGrow={1}>
-            <Box ml={[4, 0]} display="flex">
+            <Box ml={[4, 4, 0]} display="flex">
               <Image src="/images/marianne.svg#svgView(viewBox(12 0 162 78))" alt="" width="162" height="78" />
               <Show above="lg">
                 <Image src={`/images/${getLogo()}`} alt="Redirection vers la page d'accueil" width="110" height="76" />
               </Show>
             </Box>
           </Flex>
-          <HamburgerIcon onClick={isOpen ? onClose : onOpen} display={["inline", "none"]} />
+          <HamburgerIcon onClick={isOpen ? onClose : onOpen} display={["inline", "inline", "none"]} />
         </Flex>
-        <Flex display={[isOpen ? "flex" : "none", "flex"]} bg={["teal.500", "orange.400"]}>
-          <Stack align="left" direction={["column", "row"]}>
+        <Flex display={[isOpen ? "flex" : "none", "flex"]} bg={["teal.500", "teal.500", "orange.400"]}>
+          <Stack align="left" direction={["column", "column", "row"]}>
             <Link href="/" aria-label="Accès espace candidat">
               <Box as="span" mx="1">
                 Candidat
