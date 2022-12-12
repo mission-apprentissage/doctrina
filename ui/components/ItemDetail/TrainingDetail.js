@@ -121,8 +121,8 @@ const TrainingDetail = ({ training, hasAlsoJob }) => {
         {training.onisepUrl && (
           <Box>
             <Text as="span">Descriptif du {training.title ? training.title : training.longTitle} sur&nbsp;</Text>
-            <Text as="span" className="c-detail-traininglink">
-              <Link href={training.onisepUrl} isExternal>
+            <Text as="span">
+              <Link variant="basicUnderlined" href={training.onisepUrl} isExternal>
                 le site Onisep&nbsp;
                 <ExternalLinkIcon ml={2} />
               </Link>

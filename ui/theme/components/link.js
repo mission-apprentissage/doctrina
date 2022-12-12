@@ -50,6 +50,16 @@ const Link = {
         textUnderlineOffset: "5px",
       },
     },
+    basicUnderlined: {
+      color: "grey.700",
+      textDecoration: "underline",
+      textUnderlineOffset: "5px",
+      _hover: {
+        color: "grey.700",
+        textDecoration: "underline",
+        textUnderlineOffset: "5px",
+      },
+    },
   },
 }
 
