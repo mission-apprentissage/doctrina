@@ -205,40 +205,19 @@ const ItemDetail = ({ selectedItem, handleClose, handleSelectItem, activeFilter 
 
       <LocationDetail item={selectedItem} isCfa={isCfa}></LocationDetail>
 
-      {kind === "peJob" ? (
+      {kind === "peJob" && (
         <>
           <DidYouKnow item={selectedItem}></DidYouKnow>
-
-          {buttonJePostuleShouldBeDisplayed(kind, selectedItem) ? (
-            ""
-          ) : (
+          {!buttonJePostuleShouldBeDisplayed(kind, selectedItem) && (
             <GoingToContactQuestion kind={kind} uniqId={getGoingtoId(kind, selectedItem)} key={getGoingtoId(kind, selectedItem)} item={selectedItem} />
           )}
         </>
-      ) : (
-        <></>
       )}
-      {kind === "formation" ? (
-        <>
-          {buttonPRDVShouldBeDisplayed(selectedItem) ? (
-            ""
-          ) : (
-            <GoingToContactQuestion kind={kind} uniqId={getGoingtoId(kind, selectedItem)} key={getGoingtoId(kind, selectedItem)} item={selectedItem} />
-          )}
-        </>
-      ) : (
-        <></>
+      {kind === "formation" && !buttonPRDVShouldBeDisplayed(selectedItem) && (
+        <GoingToContactQuestion kind={kind} uniqId={getGoingtoId(kind, selectedItem)} key={getGoingtoId(kind, selectedItem)} item={selectedItem} />
       )}
-      {kind === "lbb" || kind === "lba" ? (
-        <>
-          {isCandidatureSpontanee(selectedItem) ? (
-            ""
-          ) : (
-            <GoingToContactQuestion kind={kind} uniqId={getGoingtoId(kind, selectedItem)} key={getGoingtoId(kind, selectedItem)} item={selectedItem} />
-          )}
-        </>
-      ) : (
-        <></>
+      {(kind === "lbb" || kind === "lba") && !isCandidatureSpontanee(selectedItem) && (
+        <GoingToContactQuestion kind={kind} uniqId={getGoingtoId(kind, selectedItem)} key={getGoingtoId(kind, selectedItem)} item={selectedItem} />
       )}
     </Box>
   )
