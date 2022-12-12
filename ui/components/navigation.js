@@ -38,10 +38,10 @@ const Navigation = ({ currentPage, bgcolor, ...props }) => {
         <Flex py={2} px={4} direction={["column", "column", "row"]} justify="space-between">
           <Flex alignItems="center" wrap="wrap">
             <Flex flexGrow={1}>
-              <Box ml={[4, 4, 0]} display="flex">
+              <Box ml={[4, 4, 0]} display="flex" alignItems="center">
                 <Image src="/images/marianne.svg#svgView(viewBox(12 0 162 78))" alt="" width="162" height="78" />
                 <Show above="lg">
-                  <Image src={`/images/${getLogo()}`} alt="Redirection vers la page d'accueil" width="110" height="76" />
+                  <Image src={`/images/${getLogo()}`} alt="Redirection vers la page d'accueil" width="150" height="57" ml={4} />
                 </Show>
               </Box>
             </Flex>
