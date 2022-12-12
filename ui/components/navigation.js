@@ -1,7 +1,7 @@
 import { useRouter } from "next/router"
 import { Box, Flex, Image, Link, useDisclosure, Stack, Show, Container } from "@chakra-ui/react"
 
-import { HamburgerIcon } from "@chakra-ui/icons"
+import { HamburgerIcon, LockIcon } from "@chakra-ui/icons"
 
 const Navigation = ({ currentPage, bgcolor, ...props }) => {
   const router = useRouter()
@@ -74,6 +74,21 @@ const Navigation = ({ currentPage, bgcolor, ...props }) => {
                   Organisme de formation
                 </Box>
               </Link>
+              {currentPage === "acces-recruteur" || currentPage === "organisme-de-formation" ? (
+                <>
+                  <Show above="md">
+                    <Box borderRight="1px solid" borderColor="grey.300" my="6" marginTop="10px !important;" marginBottom="10px !important;"></Box>
+                  </Show>
+                  <Link pl="3" href="/espace-pro/authentification" cursor="pointer" display="flex" alignItems="center">
+                    <LockIcon color="bluefrance.500" />
+                    <Box as="span" color="bluefrance.500" fontSize={14} px={2} py={2}>
+                      Connexion
+                    </Box>
+                  </Link>
+                </>
+              ) : (
+                ""
+              )}
             </Stack>
           </Flex>
         </Flex>
