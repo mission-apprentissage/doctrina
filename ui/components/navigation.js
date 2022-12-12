@@ -1,14 +1,8 @@
-import { useRouter } from "next/router"
 import { Box, Flex, Image, Link, useDisclosure, Stack, Show, Container } from "@chakra-ui/react"
 
 import { HamburgerIcon, LockIcon } from "@chakra-ui/icons"
 
-const Navigation = ({ currentPage, bgcolor, ...props }) => {
-  const router = useRouter()
-
-  let main_class_name = "c-navigation "
-  main_class_name += bgcolor ?? "is-filled"
-
+const Navigation = ({ currentPage, bgcolor }) => {
   const getLogo = () => {
     let logo = "logo_LBA_candidat.svg"
 
