@@ -1,4 +1,5 @@
-import { Flex, Image, Text } from "@chakra-ui/react"
+import { ExternalLinkIcon } from "@chakra-ui/icons"
+import { Box, Flex, Image, Link, Text } from "@chakra-ui/react"
 import { round } from "lodash"
 import React from "react"
 import gotoIcon from "../../public/images/icons/goto.svg"
@@ -93,7 +94,7 @@ const LocationDetail = ({ item, isCfa }) => {
                 className={`c-nice-link font-weight-normal gtm${capitalizeFirstLetter(kind)} gtmPathLink`}
                 url={getCompanyPathLink(item)}
                 title="Obtenir l'itinéraire"
-                withPic={<img className="mt-n1 ml-1" src="/images/square_link.svg" alt="Ouverture dans un nouvel onglet" />}
+                withPic={<img className="mt-n1 ml-1" src="/images/square_link.svg" alt="" />}
               />
             </span>
           </div>
@@ -197,17 +198,19 @@ const LocationDetail = ({ item, isCfa }) => {
                   <li>Ou commencez par postuler à une offre d&apos;emploi pour être ensuite inscrit en formation.</li>
                 </ul>
                 <p>Prenez contact avec cet établissement ou consultez son site web pour en savoir + !</p>
-                <p>
-                  Vous vous posez des questions sur votre orientation ou votre recherche d’emploi ?
-                  <span className="ml-1">
-                    <ExternalLink
-                      className="c-nice-link"
-                      url="https://dinum-beta.didask.com/courses/demonstration/60abc18c075edf000065c987"
-                      title="Préparez votre premier contact avec un CFA"
-                      withPic={<img src={gotoIcon} alt="Ouverture dans un nouvel onglet" />}
-                    />
-                  </span>
-                </p>
+
+                <Box my={2}>
+                  Vous vous posez des questions sur votre orientation ou votre recherche d&apos;emploi ?&nbsp;
+                  <Link
+                    isExternal
+                    variant="basicUnderlined"
+                    href="https://dinum-beta.didask.com/courses/demonstration/60abc18c075edf000065c987"
+                    aria-label="Lien vers des conseils pour préparer son premier contact avec un CFA"
+                  >
+                    Préparez votre premier contact avec un CFA&nbsp;
+                    <ExternalLinkIcon mb="3px" ml="2px" />
+                  </Link>
+                </Box>
               </div>
             </div>
           </>

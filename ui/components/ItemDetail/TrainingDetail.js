@@ -129,19 +129,18 @@ const TrainingDetail = ({ training, hasAlsoJob }) => {
             </Text>
           </Box>
         )}
-        <div className="mt-2 mb-2">
+        <Box my={2}>
           Vous vous posez des questions sur votre orientation ou votre recherche d&apos;emploi ?&nbsp;
-          <a
+          <Link
+            isExternal
+            variant="basicUnderlined"
             href="https://dinum-beta.didask.com/courses/demonstration/60abc18c075edf000065c987"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="c-nice-link"
             aria-label="Lien vers des conseils pour préparer son premier contact avec un CFA"
           >
             Préparez votre premier contact avec un CFA&nbsp;
-            <img src={gotoIcon} alt="Ouverture dans un nouvel onglet" />
-          </a>
-        </div>
+            <ExternalLinkIcon mb="3px" ml="2px" />
+          </Link>
+        </Box>
       </div>
     </div>
   )
