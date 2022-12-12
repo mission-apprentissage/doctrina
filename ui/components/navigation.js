@@ -49,18 +49,24 @@ const Navigation = ({ currentPage, bgcolor, ...props }) => {
           </Flex>
           <Flex display={[isOpen ? "flex" : "none", isOpen ? "flex" : "none", "flex"]} alignItems="center">
             <Stack align="left" direction={["column", "column", "row"]}>
-              <Link href="/" aria-label="Accès espace candidat">
-                <Box as="span" mx="1" color="bluefrance.500">
+              <Link href="/" aria-label="Accès espace candidat" display="inline-grid">
+                <Box as="span" mx="1" color="bluefrance.500" fontSize={14} px={3} py={2} bg={!currentPage ? "#00000014" : "none"}>
                   Candidat
                 </Box>
               </Link>
-              <Link href="/acces-recruteur" aria-label="Accès espace recruteur">
-                <Box as="span" mx="1" color="bluefrance.500">
+              <Show above="md">
+                <Box borderRight="1px solid" borderColor="grey.300"></Box>
+              </Show>
+              <Link href="/acces-recruteur" aria-label="Accès espace recruteur" display="inline-grid">
+                <Box as="span" mx="1" color="bluefrance.500" fontSize={14} px={3} py={2} bg={currentPage === "acces-recruteur" ? "#00000014" : "none"}>
                   Recruteur
                 </Box>
               </Link>
-              <Link href="/organisme-de-formation" aria-label="Accès espace organisme de formation">
-                <Box as="span" mx="1" color="bluefrance.500">
+              <Show above="md">
+                <Box borderRight="1px solid" borderColor="grey.300"></Box>
+              </Show>
+              <Link href="/organisme-de-formation" aria-label="Accès espace organisme de formation" display="inline-grid">
+                <Box as="span" mx="1" color="bluefrance.500" fontSize={14} px={3} py={2} bg={currentPage === "organisme-de-formation" ? "#00000014" : "none"}>
                   Organisme de formation
                 </Box>
               </Link>
