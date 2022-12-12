@@ -37,8 +37,8 @@ const Navigation = ({ currentPage, bgcolor, ...props }) => {
     <Box>
       <Flex py={2} px={4} direction={["column", "row"]} justify="space-between" bg="orange.400">
         <Flex alignItems="center" wrap="wrap">
-          <Flex flexGrow={1} justify="center">
-            <Box ml={[4, 0]}>
+          <Flex flexGrow={1}>
+            <Box ml={[4, 0]} display="flex">
               <Image src="/images/marianne.svg#svgView(viewBox(12 0 162 78))" alt="" width="162" height="78" />
               <Show above="lg">
                 <Image src={`/images/${getLogo()}`} alt="Redirection vers la page d'accueil" width="110" height="76" />
@@ -48,7 +48,7 @@ const Navigation = ({ currentPage, bgcolor, ...props }) => {
           <HamburgerIcon onClick={isOpen ? onClose : onOpen} display={["inline", "none"]} />
         </Flex>
         <Flex display={[isOpen ? "flex" : "none", "flex"]} bg={["teal.500", "orange.400"]}>
-          <Stack align="center" direction={["column", "row"]}>
+          <Stack align="left" direction={["column", "row"]}>
             <Link href="/" aria-label="Accès espace candidat">
               <Box as="span" mx="1">
                 Candidat
@@ -59,10 +59,8 @@ const Navigation = ({ currentPage, bgcolor, ...props }) => {
                 Recruteur
               </Box>
             </Link>
-            <Link href="/organisme-de-formation">
-              <a className="nav-link" aria-label="Accès espace organisme de formation">
-                <span className="mx-1">Organisme de formation</span>
-              </a>
+            <Link href="/organisme-de-formation" aria-label="Accès espace organisme de formation">
+              Organisme de formation
             </Link>
           </Stack>
         </Flex>
