@@ -23,9 +23,9 @@ import getTags from "./ItemDetailServices/getTags"
 import { buttonJePostuleShouldBeDisplayed, buttonPRDVShouldBeDisplayed, buildPrdvButton, getNavigationButtons, BuildSwipe } from "./ItemDetailServices/getButtons"
 
 import GoingToContactQuestion, { getGoingtoId } from "./GoingToContactQuestion"
-import gotoIcon from "../../public/images/icons/goto.svg"
 import { SendPlausibleEvent } from "../../utils/plausible"
-import { Box, Divider, Flex, Text } from "@chakra-ui/react"
+import { Box, Divider, Flex, Link, Text } from "@chakra-ui/react"
+import { ExternalLinkIcon } from "@chakra-ui/icons"
 
 const ItemDetail = ({ selectedItem, handleClose, handleSelectItem, activeFilter }) => {
   const kind = selectedItem?.ideaType
@@ -172,22 +172,16 @@ const ItemDetail = ({ selectedItem, handleClose, handleSelectItem, activeFilter 
           <ul className="c-needHelp-listLinks">
             <li>
               <span className="c-detail-traininglink ml-1">
-                <ExternalLink
-                  className="gtmDidask1 c-nice-link"
-                  url="https://dinum-beta.didask.com/courses/demonstration/60d21bf5be76560000ae916e"
-                  title="Chercher un employeur"
-                  withPic={<img src={gotoIcon} alt="Ouverture dans un nouvel onglet" />}
-                />
+                <Link isExternal href="https://dinum-beta.didask.com/courses/demonstration/60d21bf5be76560000ae916e">
+                  Chercher un employeur <ExternalLinkIcon mb="3px" mx="2px" />
+                </Link>
               </span>
             </li>
             <li>
               <span className="c-detail-traininglink ml-1">
-                <ExternalLink
-                  className="gtmDidask2 c-nice-link"
-                  url="https://dinum-beta.didask.com/courses/demonstration/60d1adbb877dae00003f0eac"
-                  title="Préparer un entretien avec un employeur"
-                  withPic={<img src={gotoIcon} alt="Ouverture dans un nouvel onglet" />}
-                />
+                <Link isExternal href="https://dinum-beta.didask.com/courses/demonstration/60d1adbb877dae00003f0eac">
+                  Préparer un entretien avec un employeur <ExternalLinkIcon mb="3px" mx="2px" />
+                </Link>
               </span>
             </li>
           </ul>
