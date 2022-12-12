@@ -32,7 +32,7 @@ const Navigation = ({ currentPage }) => {
         <Flex py={2} direction={["column", "column", "column", "row"]} justify="space-between">
           <Flex alignItems="center" wrap="wrap">
             <Flex flexGrow={1}>
-              <Box ml={[4, 4, 0]} display="flex" alignItems="center">
+              <Box ml={0} display="flex" alignItems="center">
                 <Link href="/" aria-label="Retour à l'accueil">
                   <Image src="/images/marianne.svg#svgView(viewBox(12 0 162 78))" alt="" width="162" height="78" />
                 </Link>
