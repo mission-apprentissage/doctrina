@@ -2,7 +2,7 @@ import { Box, Flex, Image, Link, useDisclosure, Stack, Show, Container } from "@
 
 import { HamburgerIcon, LockIcon } from "@chakra-ui/icons"
 
-const Navigation = ({ currentPage, bgcolor }) => {
+const Navigation = ({ currentPage }) => {
   const getLogo = () => {
     let logo = "logo_LBA_candidat.svg"
 
