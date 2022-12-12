@@ -44,9 +44,9 @@ const Navigation = ({ currentPage, bgcolor, ...props }) => {
               </Show>
             </Box>
           </Flex>
-          <HamburgerIcon onClick={isOpen ? onClose : onOpen} display={["inline", "inline", "none"]} />
+          <HamburgerIcon onClick={isOpen ? onClose : onOpen} display={["inline", "inline", "none"]} cursor="pointer" />
         </Flex>
-        <Flex display={[isOpen ? "flex" : "none", "flex"]} bg={["teal.500", "teal.500", "orange.400"]}>
+        <Flex display={[isOpen ? "flex" : "none", isOpen ? "flex" : "none", "flex"]}>
           <Stack align="left" direction={["column", "column", "row"]}>
             <Link href="/" aria-label="Accès espace candidat">
               <Box as="span" mx="1">
@@ -59,7 +59,9 @@ const Navigation = ({ currentPage, bgcolor, ...props }) => {
               </Box>
             </Link>
             <Link href="/organisme-de-formation" aria-label="Accès espace organisme de formation">
-              Organisme de formation
+              <Box as="span" mx="1">
+                Organisme de formation
+              </Box>
             </Link>
           </Stack>
         </Flex>
