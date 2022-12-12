@@ -164,7 +164,7 @@ const ItemDetail = ({ selectedItem, handleClose, handleSelectItem, activeFilter 
 
       {kind === "formation" ? <TrainingDetail training={selectedItem} hasAlsoJob={hasAlsoJob} /> : ""}
 
-      {amongst(kind, ["lbb", "lba"]) ? (
+      {amongst(kind, ["lbb", "lba"]) && (
         <Box bg="#f5f5fe" border="1px solid #e3e3fd" mx={8} mb={8} px={6} py={4}>
           <Box color="bluefrance.500" fontSize="22px" fontWeight={700}>
             Besoin d&apos;aide ?
@@ -201,8 +201,6 @@ const ItemDetail = ({ selectedItem, handleClose, handleSelectItem, activeFilter 
             </ListItem>
           </UnorderedList>
         </Box>
-      ) : (
-        ""
       )}
 
       <LocationDetail item={selectedItem} isCfa={isCfa}></LocationDetail>
