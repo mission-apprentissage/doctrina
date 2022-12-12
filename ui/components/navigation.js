@@ -55,7 +55,7 @@ const Navigation = ({ currentPage, bgcolor, ...props }) => {
                 </Box>
               </Link>
               <Show above="md">
-                <Box borderRight="1px solid" borderColor="grey.300"></Box>
+                <Box borderRight="1px solid" borderColor="grey.300" marginTop="10px !important;" marginBottom="10px !important;"></Box>
               </Show>
               <Link href="/acces-recruteur" aria-label="Accès espace recruteur" display="inline-grid">
                 <Box as="span" mx="1" color="bluefrance.500" fontSize={14} px={3} py={2} bg={currentPage === "acces-recruteur" ? "#00000014" : "none"}>
@@ -63,7 +63,7 @@ const Navigation = ({ currentPage, bgcolor, ...props }) => {
                 </Box>
               </Link>
               <Show above="md">
-                <Box borderRight="1px solid" borderColor="grey.300"></Box>
+                <Box borderRight="1px solid" borderColor="grey.300" my="6" marginTop="10px !important;" marginBottom="10px !important;"></Box>
               </Show>
               <Link href="/organisme-de-formation" aria-label="Accès espace organisme de formation" display="inline-grid">
                 <Box as="span" mx="1" color="bluefrance.500" fontSize={14} px={3} py={2} bg={currentPage === "organisme-de-formation" ? "#00000014" : "none"}>
