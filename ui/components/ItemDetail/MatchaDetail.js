@@ -5,6 +5,8 @@ import { formatDate } from "../../utils/strutils"
 import ExternalLink from "../externalLink"
 import MatchaCompetences from "./MatchaComponents/MatchaCompetences"
 import MatchaDescription from "./MatchaComponents/MatchaDescription"
+import { Box, Link } from "@chakra-ui/react"
+import { ExternalLinkIcon } from "@chakra-ui/icons"
 
 const getContractTypes = (contractTypes) => {
   return contractTypes instanceof Array ? contractTypes.join(", ") : contractTypes
@@ -84,17 +86,19 @@ const MatchaDetail = ({ job, seeInfo, setSeeInfo }) => {
               l&apos;établissement est activement à la recherche d&apos;un.e candidat.e.
             </p>
             <p>Vous avez donc tout intérêt à le contacter rapidement, avant que l&apos;offre ne soit pourvue !</p>
-            <p className="mb-0">Trouver et convaincre une entreprise de vous embaucher ?</p>
-            <p>
-              <span className="c-detail-traininglink">
-                <ExternalLink
-                  className="gtmDidask1"
-                  url="https://dinum-beta.didask.com/courses/demonstration/60d21bf5be76560000ae916e"
-                  title="On vous donne des conseils ici pour vous aider !"
-                  withPic={<img src="../../images/icons/goto.svg" alt="Ouverture dans un nouvel onglet" />}
-                />
-              </span>
-            </p>
+            <Box mb="0">
+              Trouver et convaincre une entreprise de vous embaucher ?
+              <br />
+              <Link
+                isExternal
+                variant="basicUnderlined"
+                href="https://dinum-beta.didask.com/courses/demonstration/60d21bf5be76560000ae916e"
+                aria-label="Lien vers des conseils pour préparer son premier contact avec un CFA"
+              >
+                On vous donne des conseils ici pour vous aider !
+                <ExternalLinkIcon mb="3px" ml="2px" />
+              </Link>
+            </Box>
           </>
         )}
       </div>
