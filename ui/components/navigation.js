@@ -39,13 +39,17 @@ const Navigation = ({ currentPage, bgcolor, ...props }) => {
           <Flex alignItems="center" wrap="wrap">
             <Flex flexGrow={1}>
               <Box ml={[4, 4, 0]} display="flex" alignItems="center">
-                <Image src="/images/marianne.svg#svgView(viewBox(12 0 162 78))" alt="" width="162" height="78" />
+                <Link href="/" aria-label="Retour à l'accueil">
+                  <Image src="/images/marianne.svg#svgView(viewBox(12 0 162 78))" alt="" width="162" height="78" />
+                </Link>
                 <Show above="lg">
-                  <Image src={`/images/${getLogo()}`} alt="Redirection vers la page d'accueil" width="150" height="57" ml={4} />
+                  <Link href={getLogoTargetUrl()} aria-label="Retour">
+                    <Image src={`/images/${getLogo()}`} alt="Redirection vers la page d'accueil" width="150" height="57" ml={4} />
+                  </Link>
                 </Show>
               </Box>
             </Flex>
-            <HamburgerIcon onClick={isOpen ? onClose : onOpen} display={["inline", "inline", "none"]} cursor="pointer" />
+            <HamburgerIcon boxSize={6} onClick={isOpen ? onClose : onOpen} display={["inline", "inline", "none"]} cursor="pointer" />
           </Flex>
           <Flex display={[isOpen ? "flex" : "none", isOpen ? "flex" : "none", "flex"]} alignItems="center">
             <Stack align="left" direction={["column", "column", "row"]}>
