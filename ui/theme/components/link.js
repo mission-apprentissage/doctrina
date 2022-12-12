@@ -35,6 +35,21 @@ const Link = {
       _hover: { color: "#2A2A2A" },
       _focus: { boxShadow: "none", outlineColor: "none" },
     },
+    postuler: {
+      background: "bluefrance.500",
+      border: "1px solid",
+      borderColor: "bluefrance.500",
+      borderRadius: "8px",
+      color: "white",
+      fontSize: "18px",
+      fontWeight: 700,
+      padding: ["6px 32px", "6px 32px", "6px 12px", "6px 32px"],
+      textAlign: "center",
+      _hover: {
+        color: "white",
+        textUnderlineOffset: "5px",
+      },
+    },
   },
 }
 

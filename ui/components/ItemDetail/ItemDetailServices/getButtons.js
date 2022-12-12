@@ -45,24 +45,7 @@ export const buildPrdvButton = (training) => {
       data-id-rco-formation={training.idRcoFormation}
       onClick={onClickPrdv}
     >
-      <Link
-        sx={{
-          background: "bluefrance.500",
-          border: "1px solid",
-          borderColor: "bluefrance.500",
-          borderRadius: "8px",
-          color: "white",
-          fontSize: "18px",
-          fontWeight: 700,
-          padding: ["6px 32px", "6px 32px", "6px 12px", "6px 32px"],
-          textAlign: "center",
-          _hover: {
-            color: "white",
-          },
-        }}
-        isExternal
-        href={training.prdvUrl}
-      >
+      <Link variant="postuler" isExternal href={training.prdvUrl}>
         Je prends rendez-vous
       </Link>
     </Box>

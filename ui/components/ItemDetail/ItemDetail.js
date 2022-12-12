@@ -133,13 +133,11 @@ const ItemDetail = ({ selectedItem, handleClose, handleSelectItem, activeFilter 
           {!isCollapsedHeader && getSoustitre({ selectedItem, kind })}
 
           {buttonJePostuleShouldBeDisplayed(kind, selectedItem) && (
-            <div className="c-detail-description-me">
-              <div className="c-detail-pelink my-3">
-                <a className="btn btn-blue gtmContactPE" onClick={postuleSurPoleEmploi} target="poleemploi" href={selectedItem.url}>
-                  Je postule sur Pôle emploi
-                </a>
-              </div>
-            </div>
+            <Box my={4}>
+              <Link variant="postuler" href={selectedItem.url} target="poleemploi" onClick={postuleSurPoleEmploi}>
+                Je postule sur Pôle emploi
+              </Link>
+            </Box>
           )}
 
           {isCandidatureSpontanee(selectedItem) && (
