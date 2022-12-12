@@ -152,7 +152,9 @@ const ItemDetail = ({ selectedItem, handleClose, handleSelectItem, activeFilter 
           {kind === "formation" && buttonPRDVShouldBeDisplayed(selectedItem) && (
             <>
               <hr className={"c-detail-header-separator c-detail-header-separator--upperformation"} />
-              <div className="c-detail-prdv mt-3 pb-4 w-75">{buildPrdvButton(selectedItem)}</div>
+              <Box mt={4} pb={6}>
+                {buildPrdvButton(selectedItem)}
+              </Box>
             </>
           )}
         </Box>

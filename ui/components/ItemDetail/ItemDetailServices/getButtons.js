@@ -2,12 +2,11 @@ import React from "react"
 import { findIndex } from "lodash"
 import { useSwipeable } from "react-swipeable"
 
-import ExternalLink from "../../externalLink"
 import chevronLeft from "../../../public/images/chevronleft.svg"
 import chevronRight from "../../../public/images/chevronright.svg"
 import chevronClose from "../../../public/images/close.svg"
 import { SendPlausibleEvent } from "../../../utils/plausible"
-import { Box, Button, Image } from "@chakra-ui/react"
+import { Box, Button, Image, Link } from "@chakra-ui/react"
 
 const navigationButtonProperties = {
   background: "white",
@@ -39,15 +38,34 @@ export const buildPrdvButton = (training) => {
   }
 
   return (
-    <div
-      className="widget-prdv gtmPrdv"
+    <Box
+      className="widget-prdv"
       data-referrer="lba"
       data-id-cle-ministere-educatif={training.cleMinistereEducatif}
       data-id-rco-formation={training.idRcoFormation}
       onClick={onClickPrdv}
     >
-      <ExternalLink className="gtmPrdv" url={training.prdvUrl} title="Je prends rendez-vous" />
-    </div>
+      <Link
+        sx={{
+          background: "bluefrance.500",
+          border: "1px solid",
+          borderColor: "bluefrance.500",
+          borderRadius: "8px",
+          color: "white",
+          fontSize: "18px",
+          fontWeight: 700,
+          padding: ["6px 32px", "6px 32px", "6px 12px", "6px 32px"],
+          textAlign: "center",
+          _hover: {
+            color: "white",
+          },
+        }}
+        isExternal
+        href={training.prdvUrl}
+      >
+        Je prends rendez-vous
+      </Link>
+    </Box>
   )
 }
 
