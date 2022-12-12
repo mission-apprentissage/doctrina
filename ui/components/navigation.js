@@ -1,6 +1,5 @@
 import { useRouter } from "next/router"
 import { useState } from "react"
-import { Collapse, Nav, Navbar, NavbarBrand, NavbarToggler, NavItem } from "reactstrap"
 import { Box, Image, Link } from "@chakra-ui/react"
 
 const Navigation = ({ currentPage, bgcolor }) => {
@@ -34,72 +33,7 @@ const Navigation = ({ currentPage, bgcolor }) => {
     return url
   }
 
-  return (
-    <Box className={main_class_name}>
-      <Navbar expand="lg" className="navbar-light">
-        <Box>
-          <NavbarBrand
-            href={getLogoTargetUrl()}
-            onClick={(e) => {
-              e.preventDefault()
-              router.push(getLogoTargetUrl())
-            }}
-          >
-            <Image src="/images/marianne.svg#svgView(viewBox(12 0 162 78))" alt="" width="162" height="78" />
-            <Image src={`/images/${getLogo()}`} alt="Redirection vers la page d'accueil" width="110" height="76" />
-          </NavbarBrand>
-          <NavbarToggler onClick={toggle} />
-          <Collapse isOpen={isOpen} navbar>
-            <Nav className="c-navbar-links ml-auto" navbar>
-              <NavItem className={`ml-lg-5 mr-2 ${!currentPage ? "selected" : ""}`}>
-                <Link href="/" aria-label="Accès espace candidat">
-                  <Box as="span" mx="1">
-                    Candidat
-                  </Box>
-                </Link>
-              </NavItem>
-
-              <Box></Box>
-
-              <NavItem className={`mr-2 ml-lg-2 ${currentPage === "acces-recruteur" ? "selected" : ""}`}>
-                <Link href="/acces-recruteur" aria-label="Accès espace recruteur">
-                  <Box as="span" mx="1">
-                    Recruteur
-                  </Box>
-                </Link>
-              </NavItem>
-
-              <Box></Box>
-
-              <NavItem className={`ml-lg-2 ${currentPage === "organisme-de-formation" ? "selected" : ""}`}>
-                <Link href="/organisme-de-formation">
-                  <a className="nav-link" aria-label="Accès espace organisme de formation">
-                    <span className="mx-1">Organisme de formation</span>
-                  </a>
-                </Link>
-              </NavItem>
-
-              {currentPage === "acces-recruteur" || currentPage === "organisme-de-formation" ? (
-                <>
-                  <Box className="ml-2 c-navigation__separator"></Box>
-                  <NavItem className="ml-lg-2">
-                    <Link href="/espace-pro/authentification" aria-label="Connexion">
-                      <Image src="/images/icons/blue_lock.svg" alt="" />
-                      <Box as="span" mx="2">
-                        Connexion
-                      </Box>
-                    </Link>
-                  </NavItem>
-                </>
-              ) : (
-                ""
-              )}
-            </Nav>
-          </Collapse>
-        </Box>
-      </Navbar>
-    </Box>
-  )
+  return <Box></Box>
 }
 
 export default Navigation
