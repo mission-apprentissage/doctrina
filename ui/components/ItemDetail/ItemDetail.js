@@ -207,7 +207,7 @@ const ItemDetail = ({ selectedItem, handleClose, handleSelectItem, activeFilter 
 
       {kind === "peJob" && (
         <>
-          <DidYouKnow item={selectedItem}></DidYouKnow>
+          <DidYouKnow />
           {!buttonJePostuleShouldBeDisplayed(kind, selectedItem) && (
             <GoingToContactQuestion kind={kind} uniqId={getGoingtoId(kind, selectedItem)} key={getGoingtoId(kind, selectedItem)} item={selectedItem} />
           )}

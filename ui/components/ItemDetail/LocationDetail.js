@@ -122,7 +122,7 @@ const LocationDetail = ({ item, isCfa }) => {
 
         <div className="c-locationdetail-line mt-3">
           <span className="c-locationdetail-imgcontainer">
-            <img className="" src="/images/icons/small_map_point.svg" alt="Adresse" />
+            <img className="" src="/images/icons/small_map_point.svg" alt="" />
           </span>
           <span className="c-detail-sizetext">
             <ExternalLink
