@@ -7,7 +7,6 @@ import { defaultTo } from "lodash"
 import { amongst } from "../../utils/arrayutils"
 import { isCfaEntreprise } from "../../services/cfaEntreprise"
 import { filterLayers } from "../../utils/mapTools"
-import ExternalLink from "../externalLink"
 import { SearchResultContext } from "../../context/SearchResultContextProvider"
 
 import LocationDetail from "./LocationDetail"
@@ -24,7 +23,7 @@ import { buttonJePostuleShouldBeDisplayed, buttonPRDVShouldBeDisplayed, buildPrd
 
 import GoingToContactQuestion, { getGoingtoId } from "./GoingToContactQuestion"
 import { SendPlausibleEvent } from "../../utils/plausible"
-import { Box, Divider, Flex, Link, Text } from "@chakra-ui/react"
+import { Box, Divider, Flex, Link, ListItem, Text, UnorderedList } from "@chakra-ui/react"
 import { ExternalLinkIcon } from "@chakra-ui/icons"
 
 const ItemDetail = ({ selectedItem, handleClose, handleSelectItem, activeFilter }) => {
@@ -166,26 +165,42 @@ const ItemDetail = ({ selectedItem, handleClose, handleSelectItem, activeFilter 
       {kind === "formation" ? <TrainingDetail training={selectedItem} hasAlsoJob={hasAlsoJob} /> : ""}
 
       {amongst(kind, ["lbb", "lba"]) ? (
-        <div className="c-needHelp">
-          <div className="c-needHelp-title">Besoin d&apos;aide ?</div>
-          <div className="c-needHelp-text">Découvrez les modules de formation de La bonne alternance. Des modules de quelques minutes pour bien préparer vos candidatures.</div>
-          <ul className="c-needHelp-listLinks">
-            <li>
-              <span className="c-detail-traininglink ml-1">
-                <Link isExternal href="https://dinum-beta.didask.com/courses/demonstration/60d21bf5be76560000ae916e">
-                  Chercher un employeur <ExternalLinkIcon mb="3px" mx="2px" />
-                </Link>
-              </span>
-            </li>
-            <li>
-              <span className="c-detail-traininglink ml-1">
-                <Link isExternal href="https://dinum-beta.didask.com/courses/demonstration/60d1adbb877dae00003f0eac">
-                  Préparer un entretien avec un employeur <ExternalLinkIcon mb="3px" mx="2px" />
-                </Link>
-              </span>
-            </li>
-          </ul>
-        </div>
+        <Box bg="#f5f5fe" border="1px solid #e3e3fd" mx={8} mb={8} px={6} py={4}>
+          <Box color="bluefrance.500" fontSize="22px" fontWeight={700}>
+            Besoin d&apos;aide ?
+          </Box>
+          <Box color="grey.700">Découvrez les modules de formation de La bonne alternance. Des modules de quelques minutes pour bien préparer vos candidatures.</Box>
+          <UnorderedList pl={6}>
+            <ListItem pt={4}>
+              <Link
+                sx={{
+                  textDecoration: "underline",
+                  _hover: {
+                    textDecoration: "underline",
+                  },
+                }}
+                isExternal
+                href="https://dinum-beta.didask.com/courses/demonstration/60d21bf5be76560000ae916e"
+              >
+                Chercher un employeur <ExternalLinkIcon mb="3px" mx="2px" />
+              </Link>
+            </ListItem>
+            <ListItem pt={4}>
+              <Link
+                sx={{
+                  textDecoration: "underline",
+                  _hover: {
+                    textDecoration: "underline",
+                  },
+                }}
+                isExternal
+                href="https://dinum-beta.didask.com/courses/demonstration/60d1adbb877dae00003f0eac"
+              >
+                Préparer un entretien avec un employeur <ExternalLinkIcon mb="3px" mx="2px" />
+              </Link>
+            </ListItem>
+          </UnorderedList>
+        </Box>
       ) : (
         ""
       )}
