@@ -35,7 +35,7 @@ const Navigation = ({ currentPage, bgcolor, ...props }) => {
   return (
     <Box>
       <Container variant="responsiveContainer">
-        <Flex py={2} px={4} direction={["column", "column", "row"]} justify="space-between" bg="orange.400">
+        <Flex py={2} px={4} direction={["column", "column", "row"]} justify="space-between">
           <Flex alignItems="center" wrap="wrap">
             <Flex flexGrow={1}>
               <Box ml={[4, 4, 0]} display="flex">
@@ -47,20 +47,20 @@ const Navigation = ({ currentPage, bgcolor, ...props }) => {
             </Flex>
             <HamburgerIcon onClick={isOpen ? onClose : onOpen} display={["inline", "inline", "none"]} cursor="pointer" />
           </Flex>
-          <Flex display={[isOpen ? "flex" : "none", isOpen ? "flex" : "none", "flex"]}>
+          <Flex display={[isOpen ? "flex" : "none", isOpen ? "flex" : "none", "flex"]} alignItems="center">
             <Stack align="left" direction={["column", "column", "row"]}>
               <Link href="/" aria-label="Accès espace candidat">
-                <Box as="span" mx="1">
+                <Box as="span" mx="1" color="bluefrance.500">
                   Candidat
                 </Box>
               </Link>
               <Link href="/acces-recruteur" aria-label="Accès espace recruteur">
-                <Box as="span" mx="1">
+                <Box as="span" mx="1" color="bluefrance.500">
                   Recruteur
                 </Box>
               </Link>
               <Link href="/organisme-de-formation" aria-label="Accès espace organisme de formation">
-                <Box as="span" mx="1">
+                <Box as="span" mx="1" color="bluefrance.500">
                   Organisme de formation
                 </Box>
               </Link>
