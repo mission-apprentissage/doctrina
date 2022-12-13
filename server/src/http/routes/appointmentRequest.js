@@ -242,7 +242,7 @@ export default ({ users, appointments, mailer, widgetParameters, etablissements 
       })
 
       if (!isOpenForAppointments) {
-        return res.status(400).send(notAllowedResponse)
+        return res.status(404).send(notAllowedResponse)
       }
 
       if (!isValidEmail(isOpenForAppointments?.email_rdv)) {
