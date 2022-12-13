@@ -98,26 +98,23 @@ const LocationDetail = ({ item, isCfa }) => {
         </Text>
 
         {item?.company?.mandataire && (
-          <div className="c-locationdetail-address mt-4">Le centre de formation peut vous renseigner sur cette offre d’emploi ainsi que les formations qu’il propose.</div>
+          <Box color="grey.700" mt={6}>
+            Le centre de formation peut vous renseigner sur cette offre d’emploi ainsi que les formations qu’il propose.
+          </Box>
         )}
 
-        <div className="c-locationdetail-address mt-4">{item?.place?.fullAddress}</div>
+        <Box color="grey.700" mt={6}>
+          {item?.place?.fullAddress}
+        </Box>
 
-        {item?.place?.distance && !item?.company?.mandataire && <div className="c-locationdetail-distance">{`${round(item.place.distance, 1)} km(s) du lieu de recherche`}</div>}
+        {item?.place?.distance && !item?.company?.mandataire && <Box color="grey.600" fontSize="14px">{`${round(item.place.distance, 1)} km(s) du lieu de recherche`}</Box>}
 
-        <div className="c-locationdetail-line mt-3">
-          <span className="c-locationdetail-imgcontainer">
-            <img className="" src="/images/icons/small_map_point.svg" alt="" />
-          </span>
-          <span className="c-detail-sizetext">
-            <ExternalLink
-              className={`c-nice-link font-weight-normal gtm${capitalizeFirstLetter(kind)} gtmPathLink`}
-              url={getPathLink(item)}
-              title="Obtenir l'itinéraire"
-              withPic={<img className="mt-n1 ml-1" src="/images/square_link.svg" alt="Ouverture dans un nouvel onglet" />}
-            />
-          </span>
-        </div>
+        <Flex mt={4} alignItems="center" direction="row">
+          <Image mt="2px" mr={2} src="/images/icons/small_map_point.svg" alt="" />
+          <Link variant="basicUnderlined" url={getPathLink(item)}>
+            Obtenir l'itinéraire <ExternalLinkIcon mb="3px" ml="2px" />
+          </Link>
+        </Flex>
 
         {item?.company?.url && (
           <div className="c-locationdetail-line mt-1">
