@@ -137,7 +137,7 @@ const Navigation = ({ currentPage }) => {
                       marginTop="10px !important;"
                       marginBottom="10px !important;"
                     ></Box>
-                    <Link href="/espace-pro/authentification" pl={[1, 1, 1, 3]} cursor="pointer" display="flex" alignItems="center" alt="Espace pro">
+                    <Link href="/espace-pro/authentification" pl={[1, 1, 1, 3]} cursor="pointer" display="flex" alignItems="center" alt="Espace pro" isExternal>
                       <LockIcon color="bluefrance.500" />
                       <Box as="span" color="bluefrance.500" fontSize={14} pl={[1, 1, 1, 2]} pr={2} py={2}>
                         Connexion
