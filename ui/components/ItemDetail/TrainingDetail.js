@@ -110,7 +110,7 @@ const TrainingDetail = ({ training, hasAlsoJob }) => {
     <div className="c-detail-body mt-4">
       {getLoading()}
       {getTrainingDetails(training.training)}
-      <div className="c-detail-newadvice mt-4 pl-4">
+      <Box background="#f6f6f6" borderRadius="8px" mt={8} pl={8} py="10px" pr="10px">
         <Flex alignItems="center" pt={1} pb={2}>
           <Image src={questionmarkIcon} alt="" />
           <Text as="span" ml={2} fontWeight={700}>
@@ -140,7 +140,7 @@ const TrainingDetail = ({ training, hasAlsoJob }) => {
             <ExternalLinkIcon mb="3px" ml="2px" />
           </Link>
         </Box>
-      </div>
+      </Box>
     </div>
   )
 }

@@ -61,7 +61,7 @@ const LocationDetail = ({ item, isCfa }) => {
   return (
     <>
       {kind === "matcha" && item?.company?.mandataire ? (
-        <div className="c-detail-body c-locationdetail mt-4">
+        <Box pb="0px" mt={6} position="relative" background="white" padding={["1px 12px 50px 12px", "1px 24px 50px 24px", "1px 12px 24px 12px"]} mx={["0", "30px"]}>
           <Text as="h2" variant="itemDetailH2" mt={2}>
             {getTitle({})}
           </Text>
@@ -100,7 +100,7 @@ const LocationDetail = ({ item, isCfa }) => {
               />
             </span>
           </div>
-        </div>
+        </Box>
       ) : (
         ""
       )}
@@ -185,38 +185,46 @@ const LocationDetail = ({ item, isCfa }) => {
 
         {isCfa ? (
           <>
-            <div className="pb-3">
-              <div className="c-detail-newadvice">
-                <Flex alignItems="center" pt={1} pb={2}>
-                  <Image src="/images/info.svg" alt="" width="24px" height="24px" />
-                  <Text as="span" ml={2} fontWeight={700}>
-                    Cet établissement est un CFA d&apos;entreprise
-                  </Text>
-                </Flex>
-                <p>
-                  La particularité ? Il s&apos;agit d&apos;une formule complète <strong>Emploi + Formation</strong> ! Cette formation vous intéresse ? La marche à suivre diffère
-                  selon le CFA d&apos;entreprise concerné :
-                </p>
-                <ul>
-                  <li>Commencez par vous inscrire à la formation pour accéder ensuite au contrat,</li>
-                  <li>Ou commencez par postuler à une offre d&apos;emploi pour être ensuite inscrit en formation.</li>
-                </ul>
-                <p>Prenez contact avec cet établissement ou consultez son site web pour en savoir + !</p>
+            <Box pb={4} background="#f6f6f6" borderRadiux="8px" p="10px">
+              <Flex alignItems="center" pt={1} pb={2}>
+                <Image src="/images/info.svg" alt="" width="24px" height="24px" />
+                <Text as="span" ml={2} fontWeight={700}>
+                  Cet établissement est un CFA d&apos;entreprise
+                </Text>
+              </Flex>
+              <Text>
+                La particularité ? Il s&apos;agit d&apos;une formule complète <strong>Emploi + Formation</strong> ! Cette formation vous intéresse ? La marche à suivre diffère
+                selon le CFA d&apos;entreprise concerné :
+              </Text>
 
-                <Box my={2}>
-                  Vous vous posez des questions sur votre orientation ou votre recherche d&apos;emploi ?&nbsp;
-                  <Link
-                    isExternal
-                    variant="basicUnderlined"
-                    href="https://dinum-beta.didask.com/courses/demonstration/60abc18c075edf000065c987"
-                    aria-label="Lien vers des conseils pour préparer son premier contact avec un CFA"
-                  >
-                    Préparez votre premier contact avec un CFA&nbsp;
-                    <ExternalLinkIcon mb="3px" ml="2px" />
-                  </Link>
-                </Box>
-              </div>
-            </div>
+              <Box mt={3}>
+                &bull;{" "}
+                <Text as="span" ml={4}>
+                  Commencez par vous inscrire à la formation pour accéder ensuite au contrat,
+                </Text>
+              </Box>
+              <Box mt={2}>
+                &bull;{" "}
+                <Text as="span" ml={4}>
+                  Ou commencez par postuler à une offre d&apos;emploi pour être ensuite inscrit en formation.
+                </Text>
+              </Box>
+
+              <Text>Prenez contact avec cet établissement ou consultez son site web pour en savoir + !</Text>
+
+              <Box my={2}>
+                Vous vous posez des questions sur votre orientation ou votre recherche d&apos;emploi ?&nbsp;
+                <Link
+                  isExternal
+                  variant="basicUnderlined"
+                  href="https://dinum-beta.didask.com/courses/demonstration/60abc18c075edf000065c987"
+                  aria-label="Lien vers des conseils pour préparer son premier contact avec un CFA"
+                >
+                  Préparez votre premier contact avec un CFA&nbsp;
+                  <ExternalLinkIcon mb="3px" ml="2px" />
+                </Link>
+              </Box>
+            </Box>
           </>
         ) : (
           <></>
