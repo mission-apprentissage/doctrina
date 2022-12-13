@@ -26,8 +26,6 @@ const Navigation = ({ currentPage }) => {
 
   const { isOpen, onOpen, onClose } = useDisclosure()
 
-  let hamburgerDisplayed = isOpen ? "inline" : "none"
-
   return (
     <Box>
       <Container variant="responsiveContainer">
@@ -45,12 +43,17 @@ const Navigation = ({ currentPage }) => {
                 </Show>
               </Box>
             </Flex>
-            <HamburgerIcon boxSize={6} onClick={isOpen ? onClose : onOpen} display={[hamburgerDisplayed, hamburgerDisplayed, hamburgerDisplayed, "none"]} cursor="pointer" />
+            <HamburgerIcon
+              boxSize={6}
+              onClick={isOpen ? onClose : onOpen}
+              display={[isOpen ? "none" : "inline", isOpen ? "none" : "inline", isOpen ? "none" : "inline", "none"]}
+              cursor="pointer"
+            />
             <CloseIcon
               boxSize={4}
               mr={1}
               onClick={isOpen ? onClose : onOpen}
-              display={[isOpen ? "none" : "inline", isOpen ? "none" : "inline", isOpen ? "none" : "inline", "none"]}
+              display={[isOpen ? "inline" : "none", isOpen ? "inline" : "none", isOpen ? "inline" : "none", "none"]}
               cursor="pointer"
             />
           </Flex>
