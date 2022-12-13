@@ -1,6 +1,7 @@
 import { useRouter } from "next/router"
 import React from "react"
 import { Box, Image, GridItem, Grid, Link, UnorderedList, ListItem, Flex, Divider } from "@chakra-ui/react"
+import NextLink from "next/link"
 
 const Footer = () => {
   const router = useRouter()
@@ -27,7 +28,7 @@ const Footer = () => {
                   La bonne alternance est proposée par les services suivants :
                 </Box>
                 <Flex flexDirection={{ base: "column", lg: "row" }} mt="6">
-                  <Link href="https://pole-emploi.fr" aria-label="Accès au site de Pôle emploi" isExternal fontSize={14} fontWeight={700} color="grey.425" mr={4}>
+                  <Link aria-label="Accès au site de Pôle emploi" isExternal fontSize={14} fontWeight={700} color="grey.425" mr={4}>
                     pole-emploi.fr
                   </Link>
                   <Link href="https://gouvernement.fr" aria-label="Accès au site gouvernement.fr" isExternal fontSize={14} fontWeight={700} color="grey.425" mr={4}>
@@ -58,9 +59,9 @@ const Footer = () => {
                   borderRightColor={{ base: "none", lg: "grey.300" }}
                   paddingRight={{ base: 0, lg: 4 }}
                 >
-                  <Link href="/mentions-legales" aria-label="Accès aux mentions légales">
-                    Mentions légales
-                  </Link>
+                  <NextLink passHref href="/mentions-legales">
+                    <Link aria-label="Accès aux mentions légales">Mentions légales</Link>
+                  </NextLink>
                 </ListItem>
                 <ListItem
                   mt={{ base: 3, lg: 0 }}
@@ -70,9 +71,9 @@ const Footer = () => {
                   paddingRight={{ base: 0, lg: 4 }}
                   paddingLeft={{ base: 0, lg: 4 }}
                 >
-                  <Link href="/cgu" aria-label="Accès aux conditions générales d'utilisation">
-                    CGU
-                  </Link>
+                  <NextLink passHref href="/cgu">
+                    <Link aria-label="Accès aux conditions générales d'utilisation">CGU</Link>
+                  </NextLink>
                 </ListItem>
                 <ListItem
                   mt={{ base: 3, lg: 0 }}
@@ -82,9 +83,9 @@ const Footer = () => {
                   paddingRight={{ base: 0, lg: 4 }}
                   paddingLeft={{ base: 0, lg: 4 }}
                 >
-                  <Link href="/cookies" aria-label="Accès à la page Cookies">
-                    Cookies
-                  </Link>
+                  <NextLink passHref href="/cookies">
+                    <Link aria-label="Accès à la page Cookies">Cookies</Link>
+                  </NextLink>
                 </ListItem>
                 <ListItem
                   mt={{ base: 3, lg: 0 }}
@@ -94,9 +95,9 @@ const Footer = () => {
                   paddingRight={{ base: 0, lg: 4 }}
                   paddingLeft={{ base: 0, lg: 4 }}
                 >
-                  <Link href="/stats" aria-label="Accès aux statistiques du service">
-                    Statistiques
-                  </Link>
+                  <NextLink passHref href="/stats">
+                    <Link aria-label="Accès aux statistiques du service">Statistiques</Link>
+                  </NextLink>
                 </ListItem>
                 <ListItem
                   mt={{ base: 3, lg: 0 }}
@@ -106,9 +107,9 @@ const Footer = () => {
                   paddingRight={{ base: 0, lg: 4 }}
                   paddingLeft={{ base: 0, lg: 4 }}
                 >
-                  <Link href="/faq" aria-label="Accès à la foire aux questions">
-                    FAQ
-                  </Link>
+                  <NextLink passHref href="/stats">
+                    <Link aria-label="Accès à la foire aux questions">FAQ</Link>
+                  </NextLink>
                 </ListItem>
                 <ListItem
                   mt={{ base: 3, lg: 0 }}
@@ -118,9 +119,9 @@ const Footer = () => {
                   paddingRight={{ base: 0, lg: 4 }}
                   paddingLeft={{ base: 0, lg: 4 }}
                 >
-                  <Link href="/contact" aria-label="Accès à la page Contact">
-                    Contact
-                  </Link>
+                  <NextLink passHref href="/contact">
+                    <Link aria-label="Accès à la page Contact">Contact</Link>
+                  </NextLink>
                 </ListItem>
                 <ListItem
                   mt={{ base: 3, lg: 0 }}
@@ -130,9 +131,9 @@ const Footer = () => {
                   paddingRight={{ base: 0, lg: 4 }}
                   paddingLeft={{ base: 0, lg: 4 }}
                 >
-                  <Link href="/metiers" aria-label="Accès à la page Métiers">
-                    Métiers
-                  </Link>
+                  <NextLink passHref href="/metiers">
+                    <Link aria-label="Accès à la page Métiers">Métiers</Link>
+                  </NextLink>
                 </ListItem>
                 <ListItem
                   mt={{ base: 3, lg: 0 }}
@@ -142,9 +143,9 @@ const Footer = () => {
                   paddingRight={{ base: 0, lg: 4 }}
                   paddingLeft={{ base: 0, lg: 4 }}
                 >
-                  <Link href="/a-propos" aria-label="Accès à la page A propos">
-                    A propos
-                  </Link>
+                  <NextLink passHref href="/a-propos">
+                    <Link aria-label="Accès à la page A propos">A propos</Link>
+                  </NextLink>
                 </ListItem>
                 <ListItem
                   mt={{ base: 3, lg: 0 }}
@@ -154,9 +155,9 @@ const Footer = () => {
                   paddingRight={{ base: 0, lg: 4 }}
                   paddingLeft={{ base: 0, lg: 4 }}
                 >
-                  <Link href="/developpeurs" aria-label="Accès à la page Développeurs">
-                    Développeurs
-                  </Link>
+                  <NextLink passHref href="/developpeurs">
+                    <Link aria-label="Accès à la page Développeurs">Développeurs</Link>
+                  </NextLink>
                 </ListItem>
                 <ListItem
                   mt={{ base: 3, lg: 0 }}
@@ -166,7 +167,7 @@ const Footer = () => {
                   paddingRight={{ base: 0, lg: 4 }}
                   paddingLeft={{ base: 0, lg: 4 }}
                 >
-                  <Link>Accessibilité : non conforme</Link>
+                  Accessibilité : non conforme
                 </ListItem>
               </UnorderedList>
             </GridItem>
@@ -177,6 +178,7 @@ const Footer = () => {
                   href="https://www.etalab.gouv.fr/licence-version-2-0-de-la-licence-ouverte-suite-a-la-consultation-et-presentation-du-decret"
                   aria-label="Accès au site Etalab"
                   textDecor="underline"
+                  isExternal="true"
                 >
                   etalab-2.0
                   <Image src="/images/square_link.svg" alt="Ouverture dans un nouvel onglet" display="inline-block" pl="1" />
