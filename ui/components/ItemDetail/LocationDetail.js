@@ -60,7 +60,7 @@ const LocationDetail = ({ item, isCfa }) => {
 
   return (
     <>
-      {kind === "matcha" && item?.company?.mandataire ? (
+      {kind === "matcha" && item?.company?.mandataire && (
         <Box pb="0px" mt={6} position="relative" background="white" padding={["1px 12px 50px 12px", "1px 24px 50px 24px", "1px 12px 24px 12px"]} mx={["0", "30px"]}>
           <Text as="h2" variant="itemDetailH2" mt={2}>
             {getTitle({})}
@@ -76,17 +76,15 @@ const LocationDetail = ({ item, isCfa }) => {
               <strong>Secteur d&apos;activité :&nbsp;</strong> {item?.nafs[0]?.label}
             </span>
           </div>
-          {item?.company?.creationDate && !isNaN(new Date(item.company.creationDate)) ? (
+          {item?.company?.creationDate && !isNaN(new Date(item.company.creationDate)) && (
             <div className="c-locationdetail-line mt-1">
               <span className="c-detail-sizetext">
                 <strong>Année de création de l&apos;entreprise :&nbsp;</strong> {new Date(item.company.creationDate).getFullYear()}
               </span>
             </div>
-          ) : (
-            ""
           )}
           <div className="c-locationdetail-address mt-2">{item?.company?.place?.city}</div>
-          {item?.place?.distance ? <div className="c-locationdetail-distance">{`${round(item.place.distance, 1)} km(s) du lieu de recherche`}</div> : ""}
+          {item?.place?.distance && <div className="c-locationdetail-distance">{`${round(item.place.distance, 1)} km(s) du lieu de recherche`}</div>}
           <div className="c-locationdetail-line mt-3">
             <span className="c-locationdetail-imgcontainer">
               <img className="" src="/images/icons/small_map_point.svg" alt="Adresse" />
@@ -101,8 +99,6 @@ const LocationDetail = ({ item, isCfa }) => {
             </span>
           </div>
         </Box>
-      ) : (
-        ""
       )}
 
       <div className="c-detail-body c-locationdetail mt-4">
@@ -110,19 +106,13 @@ const LocationDetail = ({ item, isCfa }) => {
           {getTitle(item)}
         </Text>
 
-        {item?.company?.mandataire ? (
+        {item?.company?.mandataire && (
           <div className="c-locationdetail-address mt-4">Le centre de formation peut vous renseigner sur cette offre d’emploi ainsi que les formations qu’il propose.</div>
-        ) : (
-          ""
         )}
 
         <div className="c-locationdetail-address mt-4">{item?.place?.fullAddress}</div>
 
-        {item?.place?.distance && !item?.company?.mandataire ? (
-          <div className="c-locationdetail-distance">{`${round(item.place.distance, 1)} km(s) du lieu de recherche`}</div>
-        ) : (
-          ""
-        )}
+        {item?.place?.distance && !item?.company?.mandataire && <div className="c-locationdetail-distance">{`${round(item.place.distance, 1)} km(s) du lieu de recherche`}</div>}
 
         <div className="c-locationdetail-line mt-3">
           <span className="c-locationdetail-imgcontainer">
@@ -138,34 +128,28 @@ const LocationDetail = ({ item, isCfa }) => {
           </span>
         </div>
 
-        {item?.company?.url ? (
-          <>
-            <div className="c-locationdetail-line mt-1">
-              <span className="c-locationdetail-imgcontainer">
-                <img className="" src="/images/icons/small_info.svg" alt="A noter" />
-              </span>
-              <span className="c-detail-sizetext">
-                <span className="">En savoir plus sur &nbsp;</span>
-                <ExternalLink className="c-nice-link gtmTrainingLink" url={item.company.url} title={item.company.url} />
-              </span>
-            </div>
-          </>
-        ) : (
-          ""
+        {item?.company?.url && (
+          <div className="c-locationdetail-line mt-1">
+            <span className="c-locationdetail-imgcontainer">
+              <img className="" src="/images/icons/small_info.svg" alt="A noter" />
+            </span>
+            <span className="c-detail-sizetext">
+              <span className="">En savoir plus sur &nbsp;</span>
+              <ExternalLink className="c-nice-link gtmTrainingLink" url={item.company.url} title={item.company.url} />
+            </span>
+          </div>
         )}
 
-        {shouldDisplayEmail(item) ? (
+        {shouldDisplayEmail(item) && (
           <div className="c-locationdetail-line mt-1">
             <span className="c-locationdetail-imgcontainer">
               <img className="" src="/images/icons/small_email.svg" alt="Email" />
             </span>
             <span className="c-detail-sizetext">{item.contact.email}</span>
           </div>
-        ) : (
-          ""
         )}
 
-        {item?.contact?.phone &&        
+        {item?.contact?.phone && (
           <div className="c-locationdetail-line mt-1 mb-3">
             <span className="c-locationdetail-imgcontainer c-locationdetail-imgcontainer--smallphone">
               <img className="" src="/images/icons/small_phone.svg" alt="Téléphone" />
@@ -177,7 +161,7 @@ const LocationDetail = ({ item, isCfa }) => {
               withPic={<img src={gotoIcon} alt={`Lien cliquable vers le numéro ${item.contact.phone}`} />}
             />
           </div>
-        }
+        )}
 
         {isCfa && (
           <Box pb={4} background="#f6f6f6" borderRadiux="8px" p="10px">
