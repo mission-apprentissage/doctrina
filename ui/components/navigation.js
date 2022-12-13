@@ -1,6 +1,6 @@
-import { Box, Flex, Image, Link, useDisclosure, Stack, Show, Container } from "@chakra-ui/react"
+import { Box, Flex, Image, Link, useDisclosure, Stack, Show, Container, Collapse } from "@chakra-ui/react"
 
-import { HamburgerIcon, LockIcon } from "@chakra-ui/icons"
+import { CloseIcon, HamburgerIcon, LockIcon } from "@chakra-ui/icons"
 
 const Navigation = ({ currentPage }) => {
   const getLogo = () => {
@@ -26,6 +26,8 @@ const Navigation = ({ currentPage }) => {
 
   const { isOpen, onOpen, onClose } = useDisclosure()
 
+  let hamburgerDisplayed = isOpen ? "inline" : "none"
+
   return (
     <Box>
       <Container variant="responsiveContainer">
@@ -43,9 +45,16 @@ const Navigation = ({ currentPage }) => {
                 </Show>
               </Box>
             </Flex>
-            <HamburgerIcon boxSize={6} onClick={isOpen ? onClose : onOpen} display={["inline", "inline", "inline", "none"]} cursor="pointer" />
+            <HamburgerIcon boxSize={6} onClick={isOpen ? onClose : onOpen} display={[hamburgerDisplayed, hamburgerDisplayed, hamburgerDisplayed, "none"]} cursor="pointer" />
+            <CloseIcon
+              boxSize={4}
+              mr={1}
+              onClick={isOpen ? onClose : onOpen}
+              display={[isOpen ? "none" : "inline", isOpen ? "none" : "inline", isOpen ? "none" : "inline", "none"]}
+              cursor="pointer"
+            />
           </Flex>
-          <Flex display={[isOpen ? "flex" : "none", isOpen ? "flex" : "none", isOpen ? "flex" : "none", "flex"]} alignItems="center">
+          <Collapse in={isOpen} animateOpacity>
             <Stack align="left" direction={["column", "column", "column", "row"]}>
               <Link href="/" aria-label="Accès espace candidat" display="inline-grid">
                 <Box as="span" ml={[0, 0, 0, 2]} mr="1" color="bluefrance.500" fontSize={14} pl={[1, 1, 1, 3]} pr={3} py={2} bg={!currentPage ? "#00000014" : "none"}>
@@ -112,7 +121,7 @@ const Navigation = ({ currentPage }) => {
                 ""
               )}
             </Stack>
-          </Flex>
+          </Collapse>
         </Flex>
       </Container>
     </Box>
