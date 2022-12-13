@@ -62,7 +62,7 @@ const Navigation = ({ currentPage }) => {
               cursor="pointer"
             />
           </Flex>
-          <Collapse in={isOpen} animateOpacity>
+          <Flex display={[isOpen ? "flex" : "none", isOpen ? "flex" : "none", isOpen ? "flex" : "none", "flex"]} alignItems="center">
             <Box display={["block", "block", "block", "flex"]} alignItems="center" height="100%">
               <Stack align="left" direction={["column", "column", "column", "row"]} mb={[2, 2, 2, 0]}>
                 <NextLink passHref href={{ pathname: "/" }}>
@@ -139,7 +139,7 @@ const Navigation = ({ currentPage }) => {
                 )}
               </Stack>
             </Box>
-          </Collapse>
+          </Flex>
         </Flex>
       </Container>
     </Box>
