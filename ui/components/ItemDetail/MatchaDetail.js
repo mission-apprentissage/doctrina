@@ -5,7 +5,7 @@ import { formatDate } from "../../utils/strutils"
 import ExternalLink from "../externalLink"
 import MatchaCompetences from "./MatchaComponents/MatchaCompetences"
 import MatchaDescription from "./MatchaComponents/MatchaDescription"
-import { Box, Link } from "@chakra-ui/react"
+import { Box, Link, Text } from "@chakra-ui/react"
 import { ExternalLinkIcon } from "@chakra-ui/icons"
 
 const getContractTypes = (contractTypes) => {
@@ -35,7 +35,9 @@ const MatchaDetail = ({ job, seeInfo, setSeeInfo }) => {
   return (
     <>
       <div className="c-detail-body mt-4">
-        <h2 className="c-locationdetail-title mt-2">Description de l&apos;offre</h2>
+        <Text as="h2" variant="itemDetailH2" mt={2}>
+          Description de l&apos;offre
+        </Text>
         <div className="c-matcha-detail-container">
           <div>
             <strong>Début du contrat le : </strong> {jobStartDate}
@@ -105,7 +107,7 @@ const MatchaDetail = ({ job, seeInfo, setSeeInfo }) => {
 
       {job?.job.romeDetails ? (
         <div className="c-detail-body mt-4">
-          <h2 className="c-locationdetail-title mt-2">{`En savoir plus sur ${job.title}`}</h2>
+          <Text as="h2" variant="itemDetailH2" mt={2}>{`En savoir plus sur ${job.title}`}</Text>
           <div className="text-left" data-testid="lbb-component">
             <div className="mb-3">
               <MatchaDescription job={job} />

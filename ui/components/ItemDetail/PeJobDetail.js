@@ -31,7 +31,9 @@ const PeJobDetail = ({ job }) => {
 
   return (
     <div className="c-detail-body mt-4">
-      <h2 className="c-locationdetail-title mt-2">Description de l&apos;offre</h2>
+      <Text as="h2" variant="itemDetailH2" mt={2}>
+        Description de l&apos;offre
+      </Text>
       <div className="c-matcha-detail-container">
         <div>
           <strong>Publiée le : </strong> {creationDate}

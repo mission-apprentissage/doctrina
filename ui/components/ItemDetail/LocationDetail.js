@@ -62,7 +62,9 @@ const LocationDetail = ({ item, isCfa }) => {
     <>
       {kind === "matcha" && item?.company?.mandataire ? (
         <div className="c-detail-body c-locationdetail mt-4">
-          <h2 className="c-locationdetail-title mt-2">{getTitle({})}</h2>
+          <Text as="h2" variant="itemDetailH2" mt={2}>
+            {getTitle({})}
+          </Text>
 
           <div className="c-locationdetail-line mt-1">
             <span className="c-detail-sizetext">
@@ -104,7 +106,9 @@ const LocationDetail = ({ item, isCfa }) => {
       )}
 
       <div className="c-detail-body c-locationdetail mt-4">
-        <h2 className="c-locationdetail-title mt-2">{getTitle(item)}</h2>
+        <Text as="h2" variant="itemDetailH2" mt={2}>
+          {getTitle(item)}
+        </Text>
 
         {item?.company?.mandataire ? (
           <div className="c-locationdetail-address mt-4">Le centre de formation peut vous renseigner sur cette offre d’emploi ainsi que les formations qu’il propose.</div>
