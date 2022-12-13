@@ -3,6 +3,7 @@ import ReactHtmlParser from "react-html-parser"
 import { formatDate } from "../../utils/strutils"
 import { SendPlausibleEvent, SendTrackEvent } from "../../utils/plausible"
 import { DisplayContext } from "../../context/DisplayContextProvider"
+import { Text } from "@chakra-ui/react"
 
 let md = require("markdown-it")().disable(["link", "image"])
 
