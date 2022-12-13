@@ -66,38 +66,29 @@ const LocationDetail = ({ item, isCfa }) => {
             {getTitle({})}
           </Text>
 
-          <div className="c-locationdetail-line mt-1">
-            <span className="c-detail-sizetext">
-              <strong>Taille de l&apos;entreprise :&nbsp;</strong> {companySize}
-            </span>
-          </div>
-          <div className="c-locationdetail-line mt-1">
-            <span className="c-detail-sizetext">
-              <strong>Secteur d&apos;activité :&nbsp;</strong> {item?.nafs[0]?.label}
-            </span>
-          </div>
+          <Box mt={2}>
+            <strong>Taille de l&apos;entreprise :&nbsp;</strong> {companySize}
+          </Box>
+          <Box mt={2}>
+            <strong>Secteur d&apos;activité :&nbsp;</strong> {item?.nafs[0]?.label}
+          </Box>
           {item?.company?.creationDate && !isNaN(new Date(item.company.creationDate)) && (
-            <div className="c-locationdetail-line mt-1">
-              <span className="c-detail-sizetext">
-                <strong>Année de création de l&apos;entreprise :&nbsp;</strong> {new Date(item.company.creationDate).getFullYear()}
-              </span>
-            </div>
+            <Box mt={2}>
+              <strong>Année de création de l&apos;entreprise :&nbsp;</strong> {new Date(item.company.creationDate).getFullYear()}
+            </Box>
           )}
-          <div className="c-locationdetail-address mt-2">{item?.company?.place?.city}</div>
-          {item?.place?.distance && <div className="c-locationdetail-distance">{`${round(item.place.distance, 1)} km(s) du lieu de recherche`}</div>}
-          <div className="c-locationdetail-line mt-3">
-            <span className="c-locationdetail-imgcontainer">
-              <img className="" src="/images/icons/small_map_point.svg" alt="Adresse" />
-            </span>
-            <span className="c-detail-sizetext">
-              <ExternalLink
-                className={`c-nice-link font-weight-normal gtm${capitalizeFirstLetter(kind)} gtmPathLink`}
-                url={getCompanyPathLink(item)}
-                title="Obtenir l'itinéraire"
-                withPic={<img className="mt-n1 ml-1" src="/images/square_link.svg" alt="" />}
-              />
-            </span>
-          </div>
+
+          <Box mt={3} color="grey.700">
+            {item?.company?.place?.city}
+          </Box>
+          {item?.place?.distance && <Box fontSize="14px" color="grey.600">{`${round(item.place.distance, 1)} km(s) du lieu de recherche`}</Box>}
+
+          <Flex mt={4} alignItems="center" direction="row">
+            <Image mt="2px" mr={2} src="/images/icons/small_map_point.svg" alt="" />
+            <Link variant="basicUnderlined" url={getCompanyPathLink(item)}>
+              Obtenir l'itinéraire <ExternalLinkIcon mb="3px" ml="2px" />
+            </Link>
+          </Flex>
         </Box>
       )}
 
