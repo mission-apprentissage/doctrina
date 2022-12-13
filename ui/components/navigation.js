@@ -58,72 +58,74 @@ const Navigation = ({ currentPage }) => {
             />
           </Flex>
           <Collapse in={isOpen} animateOpacity>
-            <Stack align="left" direction={["column", "column", "column", "row"]}>
-              <Link href="/" aria-label="Accès espace candidat" display="inline-grid">
-                <Box as="span" ml={[0, 0, 0, 2]} mr="1" color="bluefrance.500" fontSize={14} pl={[1, 1, 1, 3]} pr={3} py={2} bg={!currentPage ? "#00000014" : "none"}>
-                  Candidat
-                </Box>
-              </Link>
-              <Box display={["none", "none", "none", "block"]} borderRight="1px solid" borderColor="grey.300" marginTop="10px !important;" marginBottom="10px !important;"></Box>
-              <Link href="/acces-recruteur" aria-label="Accès espace recruteur" display="inline-grid">
-                <Box
-                  as="span"
-                  ml={[0, 0, 0, 2]}
-                  mr="1"
-                  color="bluefrance.500"
-                  fontSize={14}
-                  pl={[1, 1, 1, 3]}
-                  pr={3}
-                  py={2}
-                  bg={currentPage === "acces-recruteur" ? "#00000014" : "none"}
-                >
-                  Recruteur
-                </Box>
-              </Link>
-              <Box
-                display={["none", "none", "none", "block"]}
-                borderRight="1px solid"
-                borderColor="grey.300"
-                my="6"
-                marginTop="10px !important;"
-                marginBottom="10px !important;"
-              ></Box>
-              <Link href="/organisme-de-formation" aria-label="Accès espace organisme de formation" display="inline-grid">
-                <Box
-                  as="span"
-                  ml={[0, 0, 0, 2]}
-                  mr="1"
-                  color="bluefrance.500"
-                  fontSize={14}
-                  pl={[1, 1, 1, 3]}
-                  pr={3}
-                  py={2}
-                  bg={currentPage === "organisme-de-formation" ? "#00000014" : "none"}
-                >
-                  Organisme de formation
-                </Box>
-              </Link>
-              {currentPage === "acces-recruteur" || currentPage === "organisme-de-formation" ? (
-                <>
+            <Box display={["block", "block", "block", "flex"]} alignItems="center" height="100%">
+              <Stack align="left" direction={["column", "column", "column", "row"]}>
+                <Link href="/" aria-label="Accès espace candidat" display="inline-grid">
+                  <Box as="span" ml={[0, 0, 0, 2]} mr="1" color="bluefrance.500" fontSize={14} pl={[1, 1, 1, 3]} pr={3} py={2} bg={!currentPage ? "#00000014" : "none"}>
+                    Candidat
+                  </Box>
+                </Link>
+                <Box display={["none", "none", "none", "block"]} borderRight="1px solid" borderColor="grey.300" marginTop="10px !important;" marginBottom="10px !important;"></Box>
+                <Link href="/acces-recruteur" aria-label="Accès espace recruteur" display="inline-grid">
                   <Box
-                    display={["none", "none", "none", "block"]}
-                    borderRight="1px solid"
-                    borderColor="grey.300"
-                    my="6"
-                    marginTop="10px !important;"
-                    marginBottom="10px !important;"
-                  ></Box>
-                  <Link pl={[1, 1, 1, 3]} href="/espace-pro/authentification" cursor="pointer" display="flex" alignItems="center">
-                    <LockIcon color="bluefrance.500" />
-                    <Box as="span" color="bluefrance.500" fontSize={14} pl={[1, 1, 1, 2]} pr={2} py={2}>
-                      Connexion
-                    </Box>
-                  </Link>
-                </>
-              ) : (
-                ""
-              )}
-            </Stack>
+                    as="span"
+                    ml={[0, 0, 0, 2]}
+                    mr="1"
+                    color="bluefrance.500"
+                    fontSize={14}
+                    pl={[1, 1, 1, 3]}
+                    pr={3}
+                    py={2}
+                    bg={currentPage === "acces-recruteur" ? "#00000014" : "none"}
+                  >
+                    Recruteur
+                  </Box>
+                </Link>
+                <Box
+                  display={["none", "none", "none", "block"]}
+                  borderRight="1px solid"
+                  borderColor="grey.300"
+                  my="6"
+                  marginTop="10px !important;"
+                  marginBottom="10px !important;"
+                ></Box>
+                <Link href="/organisme-de-formation" aria-label="Accès espace organisme de formation" display="inline-grid">
+                  <Box
+                    as="span"
+                    ml={[0, 0, 0, 2]}
+                    mr="1"
+                    color="bluefrance.500"
+                    fontSize={14}
+                    pl={[1, 1, 1, 3]}
+                    pr={3}
+                    py={2}
+                    bg={currentPage === "organisme-de-formation" ? "#00000014" : "none"}
+                  >
+                    Organisme de formation
+                  </Box>
+                </Link>
+                {currentPage === "acces-recruteur" || currentPage === "organisme-de-formation" ? (
+                  <>
+                    <Box
+                      display={["none", "none", "none", "block"]}
+                      borderRight="1px solid"
+                      borderColor="grey.300"
+                      my="6"
+                      marginTop="10px !important;"
+                      marginBottom="10px !important;"
+                    ></Box>
+                    <Link pl={[1, 1, 1, 3]} href="/espace-pro/authentification" cursor="pointer" display="flex" alignItems="center">
+                      <LockIcon color="bluefrance.500" />
+                      <Box as="span" color="bluefrance.500" fontSize={14} pl={[1, 1, 1, 2]} pr={2} py={2}>
+                        Connexion
+                      </Box>
+                    </Link>
+                  </>
+                ) : (
+                  ""
+                )}
+              </Stack>
+            </Box>
           </Collapse>
         </Flex>
       </Container>
