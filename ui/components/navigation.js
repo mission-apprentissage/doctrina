@@ -1,4 +1,5 @@
 import { Box, Flex, Image, Link, useDisclosure, Stack, Show, Container, Collapse } from "@chakra-ui/react"
+import NextLink from "next/link"
 
 import { CloseIcon, HamburgerIcon, LockIcon } from "@chakra-ui/icons"
 
@@ -33,9 +34,11 @@ const Navigation = ({ currentPage }) => {
           <Flex alignItems="center" wrap="wrap">
             <Flex flexGrow={1}>
               <Box ml={0} display="flex" alignItems="center">
-                <Link href="/" aria-label="Retour à l'accueil">
-                  <Image src="/images/marianne.svg#svgView(viewBox(12 0 162 78))" alt="" width="162" height="78" />
-                </Link>
+                <NextLink passHref href={{ pathname: "/" }}>
+                  <Link aria-label="Retour à l'accueil">
+                    <Image src="/images/marianne.svg#svgView(viewBox(12 0 162 78))" alt="" width="162" height="78" />
+                  </Link>
+                </NextLink>
                 <Show above="md">
                   <Link href={getLogoTargetUrl()} aria-label="Retour">
                     <Image src={`/images/${getLogo()}`} alt="Redirection vers la page d'accueil" width="150" height="57" ml={4} />
@@ -59,12 +62,14 @@ const Navigation = ({ currentPage }) => {
           </Flex>
           <Collapse in={isOpen} animateOpacity>
             <Box display={["block", "block", "block", "flex"]} alignItems="center" height="100%">
-              <Stack align="left" direction={["column", "column", "column", "row"]}>
-                <Link href="/" aria-label="Accès espace candidat" display="inline-grid">
-                  <Box as="span" ml={[0, 0, 0, 2]} mr="1" color="bluefrance.500" fontSize={14} pl={[1, 1, 1, 3]} pr={3} py={2} bg={!currentPage ? "#00000014" : "none"}>
-                    Candidat
-                  </Box>
-                </Link>
+              <Stack align="left" direction={["column", "column", "column", "row"]} mb={[2, 2, 2, 0]}>
+                <NextLink passHref href={{ pathname: "/" }}>
+                  <Link aria-label="Accès espace candidat" display="inline-grid">
+                    <Box as="span" ml={[0, 0, 0, 2]} mr="1" color="bluefrance.500" fontSize={14} pl={[1, 1, 1, 3]} pr={3} py={2} bg={!currentPage ? "#00000014" : "none"}>
+                      Candidat
+                    </Box>
+                  </Link>
+                </NextLink>
                 <Box display={["none", "none", "none", "block"]} borderRight="1px solid" borderColor="grey.300" marginTop="10px !important;" marginBottom="10px !important;"></Box>
                 <Link href="/acces-recruteur" aria-label="Accès espace recruteur" display="inline-grid">
                   <Box
