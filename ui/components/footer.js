@@ -1,11 +1,8 @@
-import { useRouter } from "next/router"
 import React from "react"
 import { Box, Image, GridItem, Grid, Link, UnorderedList, ListItem, Flex, Divider } from "@chakra-ui/react"
 import NextLink from "next/link"
 
 const Footer = () => {
-  const router = useRouter()
-
   return (
     <Box as="footer" borderTop="1px solid" borderTopColor="info" pt={6}>
       <Box maxWidth="1350px" mx="auto" pl={{ base: 0, lg: 6 }}>
