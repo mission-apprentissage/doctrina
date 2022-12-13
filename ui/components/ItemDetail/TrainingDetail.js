@@ -107,7 +107,7 @@ const TrainingDetail = ({ training, hasAlsoJob }) => {
   }
 
   return (
-    <div className="c-detail-body mt-4">
+    <Box pb="0px" mt={6} position="relative" background="white" padding={["1px 12px 50px 12px", "1px 24px 50px 24px", "1px 12px 24px 12px"]} mx={["0", "30px"]}>
       {getLoading()}
       {getTrainingDetails(training.training)}
       <Box background="#f6f6f6" borderRadius="8px" mt={8} pl={8} py="10px" pr="10px">
@@ -141,7 +141,7 @@ const TrainingDetail = ({ training, hasAlsoJob }) => {
           </Link>
         </Box>
       </Box>
-    </div>
+    </Box>
   )
 }
 

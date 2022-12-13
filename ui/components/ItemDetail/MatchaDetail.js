@@ -33,7 +33,7 @@ const MatchaDetail = ({ job, seeInfo, setSeeInfo }) => {
 
   return (
     <>
-      <div className="c-detail-body mt-4">
+      <Box pb="0px" mt={6} position="relative" background="white" padding={["1px 12px 50px 12px", "1px 24px 50px 24px", "1px 12px 24px 12px"]} mx={["0", "30px"]}>
         <Text as="h2" variant="itemDetailH2" mt={2}>
           Description de l&apos;offre
         </Text>
@@ -102,10 +102,10 @@ const MatchaDetail = ({ job, seeInfo, setSeeInfo }) => {
             </Box>
           </>
         )}
-      </div>
+      </Box>
 
-      {job?.job.romeDetails ? (
-        <div className="c-detail-body mt-4">
+      {job?.job.romeDetails && (
+        <Box pb="0px" mt={6} position="relative" background="white" padding={["1px 12px 50px 12px", "1px 24px 50px 24px", "1px 12px 24px 12px"]} mx={["0", "30px"]}>
           <Text as="h2" variant="itemDetailH2" mt={2}>{`En savoir plus sur ${job.title}`}</Text>
           <div className="text-left" data-testid="lbb-component">
             <div className="mb-3">
@@ -113,9 +113,7 @@ const MatchaDetail = ({ job, seeInfo, setSeeInfo }) => {
               <MatchaCompetences job={job} />
             </div>
           </div>
-        </div>
-      ) : (
-        ""
+        </Box>
       )}
     </>
   )
