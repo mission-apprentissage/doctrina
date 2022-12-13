@@ -1,4 +1,4 @@
-import { Box, Flex, Image, Link, useDisclosure, Stack, Show, Container, Fade } from "@chakra-ui/react"
+import { Box, Flex, Image, Link, useDisclosure, Stack, Show, Container, keyframes, usePrefersReducedMotion } from "@chakra-ui/react"
 import NextLink from "next/link"
 
 import { CloseIcon, HamburgerIcon, LockIcon } from "@chakra-ui/icons"
@@ -26,6 +26,18 @@ const Navigation = ({ currentPage }) => {
   }
 
   const { isOpen, onOpen, onClose } = useDisclosure()
+
+  const spin = keyframes`
+     0% {
+          opacity: 0;
+     }
+
+     100% {
+          opacity: 1;
+     }
+  `
+  const prefersReducedMotion = usePrefersReducedMotion()
+  const animation = prefersReducedMotion ? undefined : `${spin} .7s`
 
   return (
     <Box>
@@ -62,7 +74,7 @@ const Navigation = ({ currentPage }) => {
               cursor="pointer"
             />
           </Flex>
-          <Box display={[isOpen ? "block" : "none", isOpen ? "block" : "none", isOpen ? "block" : "none", "block"]} alignItems="center">
+          <Box animation={animation} display={[isOpen ? "block" : "none", isOpen ? "block" : "none", isOpen ? "block" : "none", "block"]}>
             <Box display={["block", "block", "block", "flex"]} alignItems="center" height="100%">
               <Stack align="left" direction={["column", "column", "column", "row"]} mb={[2, 2, 2, 0]}>
                 <NextLink passHref href={{ pathname: "/" }}>
