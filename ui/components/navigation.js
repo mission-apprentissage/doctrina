@@ -40,9 +40,11 @@ const Navigation = ({ currentPage }) => {
                   </Link>
                 </NextLink>
                 <Show above="md">
-                  <Link href={getLogoTargetUrl()} aria-label="Retour">
-                    <Image src={`/images/${getLogo()}`} alt="Redirection vers la page d'accueil" width="150" height="57" ml={4} />
-                  </Link>
+                  <NextLink passHref href={{ pathname: getLogoTargetUrl() }}>
+                    <Link aria-label="Retour">
+                      <Image src={`/images/${getLogo()}`} alt="Redirection vers la page d'accueil" width="150" height="57" ml={4} />
+                    </Link>
+                  </NextLink>
                 </Show>
               </Box>
             </Flex>
