@@ -23,7 +23,7 @@ import { buttonJePostuleShouldBeDisplayed, buttonPRDVShouldBeDisplayed, buildPrd
 
 import GoingToContactQuestion, { getGoingtoId } from "./GoingToContactQuestion"
 import { SendPlausibleEvent } from "../../utils/plausible"
-import { Box, Divider, Flex, Link, ListItem, Text, UnorderedList } from "@chakra-ui/react"
+import { Box, Divider, Flex, Link, Text } from "@chakra-ui/react"
 import { ExternalLinkIcon } from "@chakra-ui/icons"
 
 const ItemDetail = ({ selectedItem, handleClose, handleSelectItem, activeFilter }) => {
@@ -170,8 +170,9 @@ const ItemDetail = ({ selectedItem, handleClose, handleSelectItem, activeFilter 
             Besoin d&apos;aide ?
           </Box>
           <Box color="grey.700">Découvrez les modules de formation de La bonne alternance. Des modules de quelques minutes pour bien préparer vos candidatures.</Box>
-          <UnorderedList pl={6}>
-            <ListItem pt={4}>
+          <Box pl={6}>
+            <Box pt={4}>
+              &bull;
               <Link
                 sx={{
                   textDecoration: "underline",
@@ -179,13 +180,15 @@ const ItemDetail = ({ selectedItem, handleClose, handleSelectItem, activeFilter 
                     textDecoration: "underline",
                   },
                 }}
+                ml={4}
                 isExternal
                 href="https://dinum-beta.didask.com/courses/demonstration/60d21bf5be76560000ae916e"
               >
                 Chercher un employeur <ExternalLinkIcon mb="3px" mx="2px" />
               </Link>
-            </ListItem>
-            <ListItem pt={4}>
+            </Box>
+            <Box pt={4}>
+              &bull;
               <Link
                 sx={{
                   textDecoration: "underline",
@@ -193,13 +196,14 @@ const ItemDetail = ({ selectedItem, handleClose, handleSelectItem, activeFilter 
                     textDecoration: "underline",
                   },
                 }}
+                ml={4}
                 isExternal
                 href="https://dinum-beta.didask.com/courses/demonstration/60d1adbb877dae00003f0eac"
               >
                 Préparer un entretien avec un employeur <ExternalLinkIcon mb="3px" mx="2px" />
               </Link>
-            </ListItem>
-          </UnorderedList>
+            </Box>
+          </Box>
         </Box>
       )}
 
