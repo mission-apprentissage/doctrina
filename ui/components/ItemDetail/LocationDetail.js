@@ -2,11 +2,9 @@ import { ExternalLinkIcon } from "@chakra-ui/icons"
 import { Box, Flex, Image, Link, Text } from "@chakra-ui/react"
 import { round } from "lodash"
 import React from "react"
-import gotoIcon from "../../public/images/icons/goto.svg"
 import { endsWithNumber } from "../../utils/strutils"
 import { getCompanyPathLink, getPathLink } from "../../utils/tools"
 import { string_wrapper as with_str } from "../../utils/wrapper_utils"
-import ExternalLink from "../externalLink"
 
 const LocationDetail = ({ item, isCfa }) => {
   const kind = item?.ideaType
@@ -201,31 +199,26 @@ const LocationDetail = ({ item, isCfa }) => {
 
         {(kind === "matcha" || kind === "lbb" || kind === "lba") && (
           <>
-            <div className="c-locationdetail-line mt-1">
-              <span className="c-locationdetail-imgcontainer">
-                <img className="" src="/images/info.svg" alt="A noter" />
-              </span>
-              <span className="c-detail-sizetext mb-0">
-                En savoir plus sur&nbsp;
-                <ExternalLink
-                  className="c-nice-link gtmGoogleLink"
-                  url={`https://www.google.fr/search?q=${getGoogleSearchParameters()}`}
-                  title={item.company.name}
-                  withPic={<img className="mt-n1 ml-1" src="/images/square_link.svg" alt="Ouverture dans un nouvel onglet" />}
-                />
-              </span>
-            </div>
-            <div className="c-locationdetail-line mt-1 mb-1">
-              <span className="c-locationdetail-imgcontainer"></span>
-              <span className="c-detail-sizetext c-locationdetail-hint">Renseignez-vous sur l&apos;établissement pour préparer votre candidature</span>
-            </div>
+            <Flex mt={2} mb={4}>
+              <Box width="30px" pl="2px" minWidth="30px" mr={2}>
+                <Image mt="2px" src="/images/info.svg" alt="A noter" />
+              </Box>
+              <Text as="span">
+                En savoir plus sur
+                <Link ml="2px" isExternal variant="basicUnderlined" href={`https://www.google.fr/search?q=${getGoogleSearchParameters()}`}>
+                  {item.company.name} <ExternalLinkIcon mb="3px" ml="2px" />
+                </Link>
+              </Text>
+            </Flex>
+            <Box pl={10}>
+              <Text fontSize="14px" fontStyle="italic" color="grey.500">
+                Renseignez-vous sur l&apos;établissement pour préparer votre candidature
+              </Text>
+            </Box>
             {!item?.company?.mandataire && (
-              <div className="c-locationdetail-line mb-1">
-                <span className="c-locationdetail-imgcontainer"></span>
-                <span className="c-detail-sizetext">
-                  <strong>Taille de l&apos;entreprise :&nbsp;</strong> {companySize}
-                </span>
-              </div>
+              <Box mt={4} mb={1}>
+                <strong>Taille de l&apos;entreprise :&nbsp;</strong> {companySize}
+              </Box>
             )}
           </>
         )}
