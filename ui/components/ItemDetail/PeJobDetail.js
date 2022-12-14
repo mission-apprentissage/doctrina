@@ -51,7 +51,9 @@ const PeJobDetail = ({ job }) => {
       </div>
       {description && (
         <div className="c-detail-description">
-          <div className="c-detail-description-text">{ReactHtmlParser(md.render(description))}</div>
+          <Box whiteSpace="pre-wrap" pl={4}>
+            {ReactHtmlParser(md.render(description))}
+          </Box>
         </div>
       )}
     </Box>
