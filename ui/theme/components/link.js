@@ -54,6 +54,7 @@ const Link = {
       color: "grey.700",
       textDecoration: "underline",
       textUnderlineOffset: "5px",
+      wordBreak: "break-word",
       _hover: {
         color: "grey.700",
         textDecoration: "underline",

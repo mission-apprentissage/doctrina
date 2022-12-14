@@ -3,7 +3,7 @@ import { Box, Flex, Image, Link, Text } from "@chakra-ui/react"
 import { round } from "lodash"
 import React from "react"
 import gotoIcon from "../../public/images/icons/goto.svg"
-import { capitalizeFirstLetter, endsWithNumber } from "../../utils/strutils"
+import { endsWithNumber } from "../../utils/strutils"
 import { getCompanyPathLink, getPathLink } from "../../utils/tools"
 import { string_wrapper as with_str } from "../../utils/wrapper_utils"
 import ExternalLink from "../externalLink"
@@ -84,7 +84,9 @@ const LocationDetail = ({ item, isCfa }) => {
           {item?.place?.distance && <Box fontSize="14px" color="grey.600">{`${round(item.place.distance, 1)} km(s) du lieu de recherche`}</Box>}
 
           <Flex mt={4} alignItems="center" direction="row">
-            <Image mt="2px" mr={2} src="/images/icons/small_map_point.svg" alt="" />
+            <Box width="30px" minWidth="30px" pl="1px" mr={2}>
+              <Image mt="2px" mr={2} src="/images/icons/small_map_point.svg" alt="" />
+            </Box>
             <Link variant="basicUnderlined" url={getCompanyPathLink(item)}>
               Obtenir l'itinéraire <ExternalLinkIcon mb="3px" ml="2px" />
             </Link>
@@ -110,49 +112,52 @@ const LocationDetail = ({ item, isCfa }) => {
         {item?.place?.distance && !item?.company?.mandataire && <Box color="grey.600" fontSize="14px">{`${round(item.place.distance, 1)} km(s) du lieu de recherche`}</Box>}
 
         <Flex mt={4} alignItems="center" direction="row">
-          <Image mt="2px" mr={2} src="/images/icons/small_map_point.svg" alt="" />
-          <Link variant="basicUnderlined" url={getPathLink(item)}>
+          <Box width="30px" minWidth="30px" pl="1px" mr={2}>
+            <Image mt="2px" src="/images/icons/small_map_point.svg" alt="" />
+          </Box>
+          <Link variant="basicUnderlined" href={getPathLink(item)}>
             Obtenir l'itinéraire <ExternalLinkIcon mb="3px" ml="2px" />
           </Link>
         </Flex>
 
         {item?.company?.url && (
-          <div className="c-locationdetail-line mt-1">
-            <span className="c-locationdetail-imgcontainer">
-              <img className="" src="/images/icons/small_info.svg" alt="A noter" />
-            </span>
-            <span className="c-detail-sizetext">
-              <span className="">En savoir plus sur &nbsp;</span>
-              <ExternalLink className="c-nice-link gtmTrainingLink" url={item.company.url} title={item.company.url} />
-            </span>
-          </div>
+          <Flex alignItems="center" mt={2} direction="row">
+            <Box width="30px" minWidth="30px" mr={2}>
+              <Image mt="2px" src="/images/icons/small_info.svg" alt="" />
+            </Box>
+            <Text as="span">
+              En savoir plus sur
+              <Link ml="2px" isExternal variant="basicUnderlined" href={item?.company?.url}>
+                {item?.company?.url} <ExternalLinkIcon mb="3px" ml="2px" />
+              </Link>
+            </Text>
+          </Flex>
         )}
 
         {shouldDisplayEmail(item) && (
-          <div className="c-locationdetail-line mt-1">
-            <span className="c-locationdetail-imgcontainer">
-              <img className="" src="/images/icons/small_email.svg" alt="Email" />
-            </span>
-            <span className="c-detail-sizetext">{item.contact.email}</span>
-          </div>
+          <Flex alignItems="center" mt={2} direction="row">
+            <Box width="30px" minWidth="30px" mr={2}>
+              <Image mt="2px" src="/images/icons/small_email.svg" alt="" />
+            </Box>
+            <Link ml="2px" isExternal variant="basicUnderlined" href={`mailto:${item.contact.email}`}>
+              {item.contact.email}
+            </Link>
+          </Flex>
         )}
 
         {item?.contact?.phone && (
-          <div className="c-locationdetail-line mt-1 mb-3">
-            <span className="c-locationdetail-imgcontainer c-locationdetail-imgcontainer--smallphone">
-              <img className="" src="/images/icons/small_phone.svg" alt="Téléphone" />
-            </span>
-            <ExternalLink
-              className="c-nice-link"
-              url={`tel:${item.contact.phone}`}
-              title={item.contact.phone}
-              withPic={<img src={gotoIcon} alt={`Lien cliquable vers le numéro ${item.contact.phone}`} />}
-            />
-          </div>
+          <Flex mt={2} mb={4}>
+            <Box width="30px" pl="2px" minWidth="30px" mr={2}>
+              <Image mt="2px" src="/images/icons/small_phone.svg" alt="" />
+            </Box>
+            <Link ml="2px" isExternal variant="basicUnderlined" href={`tel:${item.contact.phone}`}>
+              {item.contact.phone}
+            </Link>
+          </Flex>
         )}
 
         {isCfa && (
-          <Box pb={4} background="#f6f6f6" borderRadiux="8px" p="10px">
+          <Box background="#f6f6f6" borderRadius="8px" mt={6} p={4}>
             <Flex alignItems="center" pt={1} pb={2}>
               <Image src="/images/info.svg" alt="" width="24px" height="24px" />
               <Text as="span" ml={2} fontWeight={700}>
