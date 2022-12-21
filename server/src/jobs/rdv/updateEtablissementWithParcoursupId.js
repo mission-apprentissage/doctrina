@@ -1,6 +1,7 @@
 import axios from "axios"
 import { logger } from "../../common/logger.js"
 import { WidgetParameter } from "../../common/model/index.js"
+import config from "../../config.js"
 import { runScript } from "../scriptWrapper.js"
 
 const getApiInstance = async () => {
@@ -8,8 +9,8 @@ const getApiInstance = async () => {
 
   try {
     const response = await axios.post("https://catalogue.apprentissage.education.gouv.fr/api/v1/auth/login", {
-      username: "kevin.barnoin",
-      password: "*Missionapprentissage2022",
+      username: config.catalogueMe.username,
+      password: config.catalogueMe.password,
     })
 
     API.defaults.headers.common["Cookie"] = response.headers["set-cookie"][0]
