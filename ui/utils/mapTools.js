@@ -12,20 +12,19 @@ let currentPopup = null
 let map = null
 let isMapInitialized = false
 
+const franceCenter = [2.2, 47]
+const zoomWholeFrance = 5
+
 const initializeMap = ({ mapContainer, unselectItem, trainings, jobs, selectItemOnMap, onMapHasMoved, unselectMapPopupItem, setSelectedItem, setSelectedMapPopupItem }) => {
   isMapInitialized = true
 
   mapboxgl.accessToken = "pk.eyJ1IjoiYWxhbmxyIiwiYSI6ImNrYWlwYWYyZDAyejQzMHBpYzE0d2hoZWwifQ.FnAOzwsIKsYFRnTUwneUSA"
 
-  /*lat: 47,    affichage centre France plus zoom France métropolitaine en entier
-    lon: 2.2,
-    zoom: 5,*/
-
   map = new mapboxgl.Map({
     container: mapContainer.current,
-    style: "mapbox://styles/alanlr/ckkcqqf4e0dxz17r5xa3fkn1f", // stylesheet location
-    center: [2.2, 47],
-    zoom: 5,
+    style: "mapbox://styles/alanlr/ckkcqqf4e0dxz17r5xa3fkn1f",
+    center: franceCenter,
+    zoom: zoomWholeFrance,
     maxZoom: 17,
     minZoom: 3,
     dragRotate: false,
