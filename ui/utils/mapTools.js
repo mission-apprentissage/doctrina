@@ -61,54 +61,6 @@ const initializeMap = ({ mapContainer, unselectItem, trainings, jobs, selectItem
       })
     }
 
-    // ajout layers et events liés aux jobs
-    map.addSource("job-points", {
-      type: "geojson",
-      data: {
-        type: "FeatureCollection",
-        features: [],
-      },
-      cluster: true,
-      clusterMaxZoom: 14, // Max zoom to cluster points on
-      clusterRadius: 50,
-    })
-
-    // Ajout de la layer des emplois en premier pour que les points soient en dessous des formations
-    map.addLayer({
-      id: "job-points-layer",
-      source: "job-points",
-      type: "symbol",
-      layout: {
-        "icon-image": "job", // cf. images chargées plus haut
-        "icon-padding": 0,
-        "icon-allow-overlap": true,
-      },
-    })
-
-    map.on("click", "job-points-layer", function (e) {
-      const features = e.features
-      setTimeout(() => {
-        // setTimeout de 5 ms pour que l'event soit traité au niveau de la layer training et que le flag stop puisse être posé
-        // en effet la layer job reçoit l'event en premier du fait de son positionnement dans la liste des layers de la map
-        if (e?.originalEvent) {
-          if (!e.originalEvent.STOP) {
-            e.features = features // on réinsert les features de l'event qui sinon sont perdues en raison du setTimeout
-            onLayerClick(e, "job", selectItemOnMap, unselectItem, unselectMapPopupItem, setSelectedItem, setSelectedMapPopupItem)
-          }
-        }
-      }, 5)
-    })
-
-    map.on("click", "selected-job-point-layer", function (e) {
-      e.originalEvent.STOP = "STOP" // un classique stopPropagation ne suffit pour empêcher d'ouvrir deux popups si des points de deux layers se superposent
-      e.originalEvent.STOP_SOURCE = "selected-job"
-    })
-    map.on("click", "selected-training-point-layer", function (e) {
-      e.originalEvent.STOP = "STOP" // un classique stopPropagation ne suffit pour empêcher d'ouvrir deux popups si des points de deux layers se superposent
-      e.originalEvent.STOP_SOURCE = "selected-training"
-    })
-
-    // layer contenant les pastilles de compte des
     let clusterCountParams = {
       id: "job-points-cluster-count",
       source: "job-points",
@@ -128,94 +80,147 @@ const initializeMap = ({ mapContainer, unselectItem, trainings, jobs, selectItem
         "text-halo-width": 3,
       },
     }
-    map.addLayer(clusterCountParams)
+
+    if (!map.getLayer("job-points-layer")) {
+      map.addSource("job-points", {
+        type: "geojson",
+        data: {
+          type: "FeatureCollection",
+          features: [],
+        },
+        cluster: true,
+        clusterMaxZoom: 14, // Max zoom to cluster points on
+        clusterRadius: 50,
+      })
+
+      // Ajout de la layer des emplois en premier pour que les points soient en dessous des formations
+      map.addLayer({
+        id: "job-points-layer",
+        source: "job-points",
+        type: "symbol",
+        layout: {
+          "icon-image": "job", // cf. images chargées plus haut
+          "icon-padding": 0,
+          "icon-allow-overlap": true,
+        },
+      })
+
+      map.on("click", "job-points-layer", function (e) {
+        const features = e.features
+        setTimeout(() => {
+          // setTimeout de 5 ms pour que l'event soit traité au niveau de la layer training et que le flag stop puisse être posé
+          // en effet la layer job reçoit l'event en premier du fait de son positionnement dans la liste des layers de la map
+          if (e?.originalEvent) {
+            if (!e.originalEvent.STOP) {
+              e.features = features // on réinsert les features de l'event qui sinon sont perdues en raison du setTimeout
+              onLayerClick(e, "job", selectItemOnMap, unselectItem, unselectMapPopupItem, setSelectedItem, setSelectedMapPopupItem)
+            }
+          }
+        }, 5)
+      })
+
+      // layer contenant les pastilles de compte des emplois
+      map.addLayer(clusterCountParams)
+
+      // ajout des layers et events liés à l'emploi sélectionné
+      map.addSource("selected-job-point", {
+        type: "geojson",
+        data: {
+          type: "FeatureCollection",
+          features: [],
+        },
+      })
+
+      // Ajout de la layer emploi sélectionné
+      map.addLayer({
+        id: "selected-job-point-layer",
+        source: "selected-job-point",
+        type: "symbol",
+        layout: {
+          "icon-image": "job-large", // cf. images chargées plus haut
+          "icon-padding": 0,
+          "icon-allow-overlap": true,
+        },
+      })
+
+      map.on("click", "selected-job-point-layer", function (e) {
+        e.originalEvent.STOP = "STOP" // un classique stopPropagation ne suffit pour empêcher d'ouvrir deux popups si des points de deux layers se superposent
+        e.originalEvent.STOP_SOURCE = "selected-job"
+      })
+    }
 
     // ajout des layers et events liés aux formations
-    map.addSource("training-points", {
-      type: "geojson",
-      data: {
-        type: "FeatureCollection",
-        features: [],
-      },
-      cluster: true,
-      clusterMaxZoom: 14, // Max zoom to cluster points on
-      clusterRadius: 50,
-    })
+    if (!map.getLayer("training-points-layer")) {
+      map.addSource("training-points", {
+        type: "geojson",
+        data: {
+          type: "FeatureCollection",
+          features: [],
+        },
+        cluster: true,
+        clusterMaxZoom: 14, // Max zoom to cluster points on
+        clusterRadius: 50,
+      })
 
-    // Ajout de la layer des formations
-    map.addLayer({
-      id: "training-points-layer",
-      source: "training-points",
-      type: "symbol",
-      layout: {
-        "icon-image": "training", // cf. images chargées plus haut
-        "icon-padding": 0,
-        "icon-allow-overlap": true,
-      },
-    })
+      // Ajout de la layer des formations
+      map.addLayer({
+        id: "training-points-layer",
+        source: "training-points",
+        type: "symbol",
+        layout: {
+          "icon-image": "training", // cf. images chargées plus haut
+          "icon-padding": 0,
+          "icon-allow-overlap": true,
+        },
+      })
 
-    clusterCountParams.id = "training-points-cluster-count"
-    clusterCountParams.source = "training-points"
+      clusterCountParams.id = "training-points-cluster-count"
+      clusterCountParams.source = "training-points"
 
-    map.addLayer(clusterCountParams)
+      map.addLayer(clusterCountParams)
 
-    map.on("click", "training-points-layer", function (e) {
-      e.originalEvent.STOP = "STOP" // un classique stopPropagation ne suffit pour empêcher d'ouvrir deux popups si des points de deux layers se superposent
+      map.on("click", "training-points-layer", function (e) {
+        e.originalEvent.STOP = "STOP" // un classique stopPropagation ne suffit pour empêcher d'ouvrir deux popups si des points de deux layers se superposent
 
-      const features = e.features
-      setTimeout(() => {
-        // setTimeout de 5 ms pour que l'event soit traité au niveau de la layer training et que le flag stop puisse être posé
-        // en effet la layer job reçoit l'event en premier du fait de son positionnement dans la liste des layers de la map
-        if (e?.originalEvent) {
-          if (!e.originalEvent.STOP_SOURCE) {
-            e.features = features // on réinsert les features de l'event qui sinon sont perdues en raison du setTimeout
-            onLayerClick(e, "training", selectItemOnMap, unselectItem, unselectMapPopupItem, setSelectedItem, setSelectedMapPopupItem)
+        const features = e.features
+        setTimeout(() => {
+          // setTimeout de 5 ms pour que l'event soit traité au niveau de la layer training et que le flag stop puisse être posé
+          // en effet la layer job reçoit l'event en premier du fait de son positionnement dans la liste des layers de la map
+          if (e?.originalEvent) {
+            if (!e.originalEvent.STOP_SOURCE) {
+              e.features = features // on réinsert les features de l'event qui sinon sont perdues en raison du setTimeout
+              onLayerClick(e, "training", selectItemOnMap, unselectItem, unselectMapPopupItem, setSelectedItem, setSelectedMapPopupItem)
+            }
           }
-        }
-      }, 5)
-    })
+        }, 5)
+      })
 
-    // ajout des layers et events liés à l'emploi sélectionné
-    map.addSource("selected-job-point", {
-      type: "geojson",
-      data: {
-        type: "FeatureCollection",
-        features: [],
-      },
-    })
+      // ajout des layers et events liés à la formation sélectionnée
+      map.addSource("selected-training-point", {
+        type: "geojson",
+        data: {
+          type: "FeatureCollection",
+          features: [],
+        },
+      })
 
-    // Ajout de la layer emploi sélectionné
-    map.addLayer({
-      id: "selected-job-point-layer",
-      source: "selected-job-point",
-      type: "symbol",
-      layout: {
-        "icon-image": "job-large", // cf. images chargées plus haut
-        "icon-padding": 0,
-        "icon-allow-overlap": true,
-      },
-    })
+      // Ajout de la layer formation sélectionnée
+      map.addLayer({
+        id: "selected-training-point-layer",
+        source: "selected-training-point",
+        type: "symbol",
+        layout: {
+          "icon-image": "training-large", // cf. images chargées plus haut
+          "icon-padding": 0,
+          "icon-allow-overlap": true,
+        },
+      })
 
-    // ajout des layers et events liés à la formation sélectionnée
-    map.addSource("selected-training-point", {
-      type: "geojson",
-      data: {
-        type: "FeatureCollection",
-        features: [],
-      },
-    })
-
-    // Ajout de la layer formation sélectionnée
-    map.addLayer({
-      id: "selected-training-point-layer",
-      source: "selected-training-point",
-      type: "symbol",
-      layout: {
-        "icon-image": "training-large", // cf. images chargées plus haut
-        "icon-padding": 0,
-        "icon-allow-overlap": true,
-      },
-    })
+      map.on("click", "selected-training-point-layer", function (e) {
+        e.originalEvent.STOP = "STOP" // un classique stopPropagation ne suffit pour empêcher d'ouvrir deux popups si des points de deux layers se superposent
+        e.originalEvent.STOP_SOURCE = "selected-training"
+      })
+    }
 
     if (jobs && jobs.peJobs && (jobs.peJobs.length || jobs?.lbaCompanies?.length || jobs?.lbbCompanies?.length || jobs?.matchas?.length)) {
       setJobMarkers(factorJobsForMap(jobs))
