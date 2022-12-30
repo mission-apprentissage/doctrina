@@ -33,25 +33,33 @@ const initializeMap = ({ mapContainer, unselectItem, trainings, jobs, selectItem
   map.on("load", async () => {
     map.resize()
 
-    map.loadImage("/images/icons/book.png", function (error, image) {
-      if (error) throw error
-      map.addImage("training", image)
-    })
+    if (!map.hasImage("training")) {
+      map.loadImage("/images/icons/book.png", function (error, image) {
+        if (error) throw error
+        map.addImage("training", image)
+      })
+    }
 
-    map.loadImage("/images/icons/job.png", function (error, image) {
-      if (error) throw error
-      map.addImage("job", image)
-    })
+    if (!map.hasImage("job")) {
+      map.loadImage("/images/icons/job.png", function (error, image) {
+        if (error) throw error
+        map.addImage("job", image)
+      })
+    }
 
-    map.loadImage("/images/icons/book_large_shadow.png", function (error, image) {
-      if (error) throw error
-      map.addImage("training-large", image)
-    })
+    if (!map.hasImage("training-large")) {
+      map.loadImage("/images/icons/book_large_shadow.png", function (error, image) {
+        if (error) throw error
+        map.addImage("training-large", image)
+      })
+    }
 
-    map.loadImage("/images/icons/job_large_shadow.png", function (error, image) {
-      if (error) throw error
-      map.addImage("job-large", image)
-    })
+    if (!map.hasImage("job-large")) {
+      map.loadImage("/images/icons/job_large_shadow.png", function (error, image) {
+        if (error) throw error
+        map.addImage("job-large", image)
+      })
+    }
 
     // ajout layers et events liés aux jobs
     map.addSource("job-points", {
