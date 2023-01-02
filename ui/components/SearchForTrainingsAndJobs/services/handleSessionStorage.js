@@ -42,7 +42,7 @@ export const restoreSearchFromSession = ({ searchTimestamp, setTrainings, setJob
 
   if (search?.jobs) {
     setJobs(search.jobs)
-    setJobMarkers(factorJobsForMap(search.jobs))
+    setJobMarkers({ jobList: factorJobsForMap(search.jobs) })
   }
 
   if (search?.trainings) {

@@ -151,7 +151,7 @@ export const loadItem = async ({
 
         setHasSearch(true)
 
-        setJobMarkers(factorJobsForMap(results), null)
+        setJobMarkers({ jobList: factorJobsForMap(results) })
 
         setSelectedItem(loadedItem)
         setSelectedMarker(loadedItem)

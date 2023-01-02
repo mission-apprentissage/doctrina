@@ -149,7 +149,7 @@ const initializeMap = ({ mapContainer, unselectItem, trainings, jobs, selectItem
       })
 
       if (jobs?.peJobs?.length || jobs?.lbaCompanies?.length || jobs?.lbbCompanies?.length || jobs?.matchas?.length) {
-        setJobMarkers(factorJobsForMap(jobs))
+        setJobMarkers({ jobList: factorJobsForMap(jobs) })
       }
     }
 
@@ -510,14 +510,14 @@ const resizeMap = () => {
   }
 }
 
-const setJobMarkers = async (jobList, searchCenter, tryCount) => {
+const setJobMarkers = async ({ jobList, searchCenter = null, hasTrainings = false, tryCount = 0 }) => {
   if (isMapInitialized) {
     await waitForMapReadiness()
 
     // centrage et zoom si searchCenter est précisé (scope emploi seulement)
     if (searchCenter) {
       map.flyTo({ center: searchCenter, zoom: 9 })
-    } else {
+    } else if (!hasTrainings) {
       // hack de contournement du bug d'initialisation de mapbox n'affichant pas les markers sur le niveau de zoom initial (part 2)
       map.flyTo({ zoom: zoomWholeFrance })
     }
@@ -543,9 +543,9 @@ const setJobMarkers = async (jobList, searchCenter, tryCount) => {
 
     map.getSource("job-points").setData(results)
   } else {
-    if (!tryCount || tryCount < 5)
+    if (tryCount < 5)
       setTimeout(() => {
-        setJobMarkers(jobList, searchCenter, tryCount ? tryCount++ : 1)
+        setJobMarkers({ jobList, searchCenter, hasTrainings, tryCount: tryCount++ })
       }, 100)
   }
 }
@@ -618,6 +618,9 @@ const setTrainingMarkers = async (trainingList, options, tryCount = 0) => {
         // centrage sur formation la plus proche
         let newZoom = getZoomLevelForDistance(trainingList[0].items[0].place.distance)
         map.flyTo({ center: trainingList[0].coords, zoom: newZoom })
+      } else {
+        // hack de contournement du bug d'initialisation de mapbox n'affichant pas les markers sur le niveau de zoom initial (part 3)
+        map.flyTo({ zoom: zoomWholeFrance })
       }
 
       let features = []
