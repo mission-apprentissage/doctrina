@@ -608,7 +608,7 @@ const updateSelectedMarkerCollection = async (item, layer) => {
   }
 }
 
-const setTrainingMarkers = async (trainingList, options, tryCount) => {
+const setTrainingMarkers = async (trainingList, options, tryCount = 0) => {
   if (isMapInitialized) {
     await waitForMapReadiness()
 
@@ -645,7 +645,7 @@ const setTrainingMarkers = async (trainingList, options, tryCount) => {
   } else {
     if (!tryCount || tryCount < 5)
       setTimeout(() => {
-        setTrainingMarkers(trainingList, options, tryCount ? tryCount++ : 1)
+        setTrainingMarkers(trainingList, options, tryCount++)
       }, 100)
   }
 }
