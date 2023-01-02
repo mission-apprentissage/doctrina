@@ -24,7 +24,7 @@ const initializeMap = ({ mapContainer, unselectItem, trainings, jobs, selectItem
     container: mapContainer.current,
     style: "mapbox://styles/alanlr/ckkcqqf4e0dxz17r5xa3fkn1f",
     center: franceCenter,
-    zoom: zoomWholeFrance,
+    zoom: zoomWholeFrance - 2, // hack de contournement du bug d'initialisation de mapbox n'affichant pas les markers sur le niveau de zoom initial (part 1)
     maxZoom: 17,
     minZoom: 3,
     dragRotate: false,
@@ -516,6 +516,9 @@ const setJobMarkers = async (jobList, searchCenter, tryCount) => {
     // centrage et zoom si searchCenter est précisé (scope emploi seulement)
     if (searchCenter) {
       map.flyTo({ center: searchCenter, zoom: 9 })
+    } else {
+      // hack de contournement du bug d'initialisation de mapbox n'affichant pas les markers sur le niveau de zoom initial (part 2)
+      map.flyTo({ zoom: zoomWholeFrance })
     }
 
     let features = []
