@@ -147,6 +147,10 @@ const initializeMap = ({ mapContainer, unselectItem, trainings, jobs, selectItem
         e.originalEvent.STOP = "STOP" // un classique stopPropagation ne suffit pour empêcher d'ouvrir deux popups si des points de deux layers se superposent
         e.originalEvent.STOP_SOURCE = "selected-job"
       })
+
+      if (jobs?.peJobs?.length || jobs?.lbaCompanies?.length || jobs?.lbbCompanies?.length || jobs?.matchas?.length) {
+        setJobMarkers(factorJobsForMap(jobs))
+      }
     }
 
     // ajout des layers et events liés aux formations
@@ -220,14 +224,10 @@ const initializeMap = ({ mapContainer, unselectItem, trainings, jobs, selectItem
         e.originalEvent.STOP = "STOP" // un classique stopPropagation ne suffit pour empêcher d'ouvrir deux popups si des points de deux layers se superposent
         e.originalEvent.STOP_SOURCE = "selected-training"
       })
-    }
 
-    if (jobs && jobs.peJobs && (jobs.peJobs.length || jobs?.lbaCompanies?.length || jobs?.lbbCompanies?.length || jobs?.matchas?.length)) {
-      setJobMarkers(factorJobsForMap(jobs))
-    }
-
-    if (trainings && trainings.length) {
-      setTrainingMarkers(factorTrainingsForMap(trainings), { centerMapOnTraining: false })
+      if (trainings?.length) {
+        setTrainingMarkers(factorTrainingsForMap(trainings), { centerMapOnTraining: false })
+      }
     }
   })
 
