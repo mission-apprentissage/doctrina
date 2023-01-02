@@ -226,7 +226,7 @@ const initializeMap = ({ mapContainer, unselectItem, trainings, jobs, selectItem
       })
 
       if (trainings?.length) {
-        setTrainingMarkers(factorTrainingsForMap(trainings), { centerMapOnTraining: false })
+        setTrainingMarkers({ trainingList: factorTrainingsForMap(trainings), options: { centerMapOnTraining: false } })
       }
     }
   })
@@ -609,7 +609,7 @@ const updateSelectedMarkerCollection = async (item, layer) => {
   }
 }
 
-const setTrainingMarkers = async (trainingList, options, tryCount = 0) => {
+const setTrainingMarkers = async ({ trainingList, options, tryCount = 0 }) => {
   if (isMapInitialized) {
     await waitForMapReadiness()
 
@@ -649,7 +649,7 @@ const setTrainingMarkers = async (trainingList, options, tryCount = 0) => {
   } else {
     if (!tryCount || tryCount < 5)
       setTimeout(() => {
-        setTrainingMarkers(trainingList, options, tryCount++)
+        setTrainingMarkers({ trainingList, options, tryCount: tryCount++ })
       }, 100)
   }
 }

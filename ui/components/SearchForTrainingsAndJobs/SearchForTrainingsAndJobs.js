@@ -252,7 +252,7 @@ const SearchForTrainingsAndJobs = () => {
   const clearTrainings = () => {
     if (trainings?.length) {
       setTrainings([])
-      setTrainingMarkers(null)
+      setTrainingMarkers({ trainingList: null })
       closeMapPopups()
     }
   }

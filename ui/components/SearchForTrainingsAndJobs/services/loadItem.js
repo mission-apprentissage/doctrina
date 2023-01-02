@@ -45,7 +45,7 @@ export const loadItem = async ({
       storeTrainingsInSession({ trainings: response.data.results, searchTimestamp })
 
       if (response.data.results.length) {
-        setTrainingMarkers(factorTrainingsForMap(response.data.results))
+        setTrainingMarkers({ trainingList: factorTrainingsForMap(response.data.results) })
       }
       setSelectedItem(response.data.results[0])
       setSelectedMarker(response.data.results[0])
