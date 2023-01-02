@@ -495,10 +495,11 @@ const filterLayers = (filter) => {
 
 const waitForMapReadiness = async () => {
   while (
-    !map.getSource("job-points") ||
-    !map.getSource("training-points") // attente que la map soit prête
-  )
+    !map.getLayer("job-points-layer") ||
+    !map.getLayer("training-points-layer") // attente que la map soit prête
+  ) {
     await new Promise((resolve) => setTimeout(resolve, 50))
+  }
 
   return
 }
