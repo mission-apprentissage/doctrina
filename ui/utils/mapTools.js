@@ -641,7 +641,7 @@ const setTrainingMarkers = async ({ trainingList, options, tryCount = 0 }) => {
 
     map.getSource("training-points").setData({ type: "FeatureCollection", features })
   } else {
-    if (!tryCount || tryCount < 5)
+    if (tryCount < 5)
       setTimeout(() => {
         setTrainingMarkers({ trainingList, options, tryCount: tryCount++ })
       }, 100)
