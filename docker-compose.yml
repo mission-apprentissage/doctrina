@@ -70,7 +70,8 @@ services:
   mongodb:
     image: mongo:5.0.6-focal
     container_name: lba_mongodb
-    mem_limit: 3g
+    mem_limit: 4g
+    command: --wiredTigerCacheSizeGB 3.8
     restart: unless-stopped
     networks:
       - lba_network
