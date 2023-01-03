@@ -1,25 +1,7 @@
 .widgetTestPage {
   max-width: 99%;
 }
-.widgetTestPage header {
-  background: none;
-  padding: 0px 10px;
-}
-.widgetTestPage .bold {
-  font-weight: bold;
-}
-.widgetTestPage form {
-  margin-top: 20px;
-}
-.widgetTestPage .hiddenResultList,
-.widgetTestPage .hiddenSearchForm,
-.widgetTestPage .hiddenItemDetail {
-  display: none;
-}
-.widgetTestPage .inFormIcon {
-  margin-top: 13px;
-  margin-left: 15px;
-}
+
 .widgetTestPage form .apiResult {
   text-align: left;
 }
