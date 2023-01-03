@@ -85,24 +85,3 @@ li.c-autocomplete_option {
   background-color: #aaaaaa;
 }
 
-.c-input-work {
-  color: #2a2a2a;
-  padding-left: 2.3rem;
-  text-align: left;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  height: calc(1.75em + 0.7rem + 13px);
-  @include media-breakpoint-up(sm) {
-    height: calc(1.75em + 0.7rem + 9px);
-    padding-left: 3rem;
-  }
-  &.is-text-too-long {
-    font-size: $small-font-size;
-  }
-  &.is-text-not-too-long {
-    font-size: $small-font-size;
-    @include media-breakpoint-up(sm) {
-      font-size: $font-size-base;
-    }
-  }
-}
