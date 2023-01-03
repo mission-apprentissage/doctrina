@@ -539,9 +539,7 @@ const setJobMarkers = async ({ jobList, searchCenter = null, hasTrainings = fals
       })
     })
 
-    let results = { type: "FeatureCollection", features }
-
-    map.getSource("job-points").setData(results)
+    map.getSource("job-points").setData({ type: "FeatureCollection", features })
   } else {
     if (tryCount < 5)
       setTimeout(() => {
@@ -613,7 +611,9 @@ const setTrainingMarkers = async ({ trainingList, options, tryCount = 0 }) => {
   if (isMapInitialized) {
     await waitForMapReadiness()
 
-    if (trainingList) {
+    let features = []
+
+    if (trainingList?.length) {
       if (!options || options.centerMapOnTraining) {
         // centrage sur formation la plus proche
         let newZoom = getZoomLevelForDistance(trainingList[0].items[0].place.distance)
@@ -622,8 +622,6 @@ const setTrainingMarkers = async ({ trainingList, options, tryCount = 0 }) => {
         // hack de contournement du bug d'initialisation de mapbox n'affichant pas les markers sur le niveau de zoom initial (part 3)
         map.flyTo({ zoom: zoomWholeFrance })
       }
-
-      let features = []
 
       trainingList.map((training, idx) => {
         training.ideaType = "formation"
@@ -639,13 +637,9 @@ const setTrainingMarkers = async ({ trainingList, options, tryCount = 0 }) => {
           },
         })
       })
-
-      let results = { type: "FeatureCollection", features }
-
-      map.getSource("training-points").setData(results)
-    } else {
-      map.getSource("training-points").setData({ type: "FeatureCollection", features: [] })
     }
+
+    map.getSource("training-points").setData({ type: "FeatureCollection", features })
   } else {
     if (!tryCount || tryCount < 5)
       setTimeout(() => {
