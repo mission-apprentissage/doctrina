@@ -62,7 +62,7 @@ export const searchForTrainingsFunction = async ({
       setTrainingMarkers({
         trainingList: factorTrainingsForMap(response.data.results),
         options: {
-          centerMapOnTraining: hasLocation ?? false,
+          centerMapOnTraining: hasLocation,
         },
       })
 
