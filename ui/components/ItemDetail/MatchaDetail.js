@@ -39,30 +39,28 @@ const MatchaDetail = ({ job, seeInfo, setSeeInfo }) => {
           Description de l&apos;offre
         </Text>
         <Box p={4} mb={6} borderRadius="8px" background="#f6f6f6">
-          <div>
+          <Box>
             <strong>Début du contrat le : </strong> {jobStartDate}
-          </div>
-          <div className="my-2">
+          </Box>
+          <Box my={2}>
             <strong>Nature du contrat : </strong> {getContractTypes(job?.job?.contractType)}
-          </div>
-          <div>
+          </Box>
+          <Box>
             <strong>Niveau visé en fin d&apos;études :</strong>{" "}
             {job?.diplomaLevel ? (
-              <>
-                <div className="c-required-levels">
-                  {job?.diplomaLevel.split(", ").map(function (d, idx) {
-                    return (
-                      <span key={idx} className="c-required-level">
-                        {d}
-                      </span>
-                    )
-                  })}
-                </div>
-              </>
+              <Flex direction="row" wrap="wrap">
+                {job?.diplomaLevel.split(", ").map(function (d, idx) {
+                  return (
+                    <Text as="span" key={idx} fontSize="14px" textAlign="center" color="bluefrance.500" background="#e3e3fd" py={1} px={4} borderRadius="40px" ml={2} mt={1}>
+                      {d}
+                    </Text>
+                  )
+                })}
+              </Flex>
             ) : (
               "non défini"
             )}
-          </div>
+          </Box>
 
           {job?.job?.elligibleHandicap && (
             <Flex mt={4} p={2} background="white" justifyContent="center" fontSize="12px" alignItems="center" direction="row">
