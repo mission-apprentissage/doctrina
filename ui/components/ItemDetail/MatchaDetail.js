@@ -38,7 +38,7 @@ const MatchaDetail = ({ job, seeInfo, setSeeInfo }) => {
         <Text as="h2" variant="itemDetailH2" mt={2}>
           Description de l&apos;offre
         </Text>
-        <div className="c-matcha-detail-container">
+        <Box p={4} mb={6} borderRadius="8px" background="#f6f6f6">
           <div>
             <strong>Début du contrat le : </strong> {jobStartDate}
           </div>
@@ -74,7 +74,7 @@ const MatchaDetail = ({ job, seeInfo, setSeeInfo }) => {
           ) : (
             ""
           )}
-        </div>
+        </Box>
         {job?.company?.mandataire ? (
           <>
             <p>
