@@ -1,5 +1,5 @@
 import { ExternalLinkIcon } from "@chakra-ui/icons"
-import { Box, Link, Text } from "@chakra-ui/react"
+import { Box, Flex, Image, Link, Text } from "@chakra-ui/react"
 import React, { useEffect } from "react"
 import { DisplayContext } from "../../context/DisplayContextProvider"
 import { SendPlausibleEvent, SendTrackEvent } from "../../utils/plausible"
@@ -64,30 +64,36 @@ const MatchaDetail = ({ job, seeInfo, setSeeInfo }) => {
             )}
           </div>
 
-          {job?.job?.elligibleHandicap ? (
-            <div className="c-eligible mt-3">
-              <div>
-                <img className="" src="/images/info.svg" alt="A noter" />
-              </div>
-              <div className="ml-2">À compétences égales, une attention particulière sera apportée aux personnes en situation de handicap.</div>
-            </div>
-          ) : (
-            ""
+          {job?.job?.elligibleHandicap && (
+            <Flex mt={4} p={2} background="white" justifyContent="center" fontSize="12px" alignItems="center" direction="row">
+              <Box width="30px" minWidth="30px" mr={2}>
+                <Image mt="2px" src="/images/info.svg" alt="" />
+              </Box>
+              <Box>À compétences égales, une attention particulière sera apportée aux personnes en situation de handicap.</Box>
+            </Flex>
           )}
         </Box>
         {job?.company?.mandataire ? (
-          <>
-            <p>
-              Offre publiée par <span className="c-detail-bolded">{job.company.name}</span> pour une entreprise partenaire du centre de formation.
-            </p>
-          </>
+          <Text>
+            Offre publiée par{" "}
+            <Text as="span" color="pinksoft.600" fontWeight={700}>
+              {job.company.name}
+            </Text>{" "}
+            pour une entreprise partenaire du centre de formation.
+          </Text>
         ) : (
           <>
-            <p>
-              <span className="c-detail-bolded">{job.company.name}</span> recrute dans le domaine suivant <span className="c-detail-bolded">{job.title}</span>. Cela signifie que
-              l&apos;établissement est activement à la recherche d&apos;un.e candidat.e.
-            </p>
-            <p>Vous avez donc tout intérêt à le contacter rapidement, avant que l&apos;offre ne soit pourvue !</p>
+            <Text>
+              <Text as="span" color="pinksoft.600" fontWeight={700}>
+                {job.company.name}
+              </Text>{" "}
+              recrute dans le domaine suivant
+              <Text as="span" color="pinksoft.600" fontWeight={700}>
+                {job.title}
+              </Text>
+              . Cela signifie que l&apos;établissement est activement à la recherche d&apos;un.e candidat.e.
+            </Text>
+            <Text>Vous avez donc tout intérêt à le contacter rapidement, avant que l&apos;offre ne soit pourvue !</Text>
             <Box mb="0">
               Trouver et convaincre une entreprise de vous embaucher ?
               <br />
@@ -108,13 +114,13 @@ const MatchaDetail = ({ job, seeInfo, setSeeInfo }) => {
       {job?.job.romeDetails && (
         <Box pb="0px" mt={6} position="relative" background="white" padding={["1px 12px 50px 12px", "1px 24px 50px 24px", "1px 12px 24px 12px"]} mx={["0", "30px"]}>
           <Text as="h2" variant="itemDetailH2" mt={2}>{`En savoir plus sur ${job.title}`}</Text>
-          <div className="text-left" data-testid="lbb-component">
-            <div className="mb-3">
+          <Box data-testid="lbb-component">
+            <Box mb={4}>
               <MatchaDescription job={job} />
               <MatchaCompetences job={job} />
               <MatchaAcces job={job} />
-            </div>
-          </div>
+            </Box>
+          </Box>
         </Box>
       )}
     </>
