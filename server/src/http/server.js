@@ -38,6 +38,7 @@ import jobDiploma from "./routes/jobDiploma.js"
 import jobEtFormationV1 from "./routes/jobEtFormationV1.js"
 import jobV1 from "./routes/jobV1.js"
 import metiers from "./routes/metiers.js"
+import metiersDAvenir from "./routes/metiersDAvenir.js"
 import optoutRoute from "./routes/optout.js"
 import partnersRoute from "./routes/partners.js"
 import rome from "./routes/rome.js"
@@ -186,6 +187,7 @@ export default async (components) => {
   app.use("/api/mail", limiter1Per20Second, sendMail(components))
   app.use("/api/application", sendApplication(components))
   app.use("/api/V1/application", limiter5PerSecond, sendApplicationAPI(components))
+  app.use("/api/metiersdavenir", limiter3PerSecond, metiersDAvenir())
 
   /**
    * Admin / Auth
