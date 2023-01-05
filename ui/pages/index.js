@@ -19,6 +19,21 @@ import csvToArray from "../utils/csvToArray.js"
 import { some } from "lodash"
 import { ParameterContext } from "../context/ParameterContextProvider"
 import AmeliorerLBA from "../components/HomeComponents/AmeliorerLBA"
+import { Box, Image } from "@chakra-ui/react"
+
+const blockCssProperties = {
+  position: "relative",
+  borderRadius: "10px",
+  marginLeft: "auto",
+  marginRight: "auto",
+  maxWidth: [null, null, null, "1310px"],
+}
+
+const circleImgCssProperties = {
+  position: "absolute",
+  zIndex: 0,
+  display: ["none", "none", "none", "block"],
+}
 
 const Home = (props) => {
   const router = useRouter()
@@ -30,30 +45,31 @@ const Home = (props) => {
   }, [])
 
   return (
-    <div>
+    <Box>
       <ScrollToTop />
       <Navigation />
-      <div className="c-homebg c-homebg--light">
-        <img src={howtocircle1} className="c-homebg-img c-homebg-img--circle c-homebg-img--circle1" alt="" />
-        <img src={howtocircle2} className="c-homebg-img c-homebg-img--circle c-homebg-img--circle2" alt="" />
-        <img src={howtocircle3} className="c-homebg-img c-homebg-img--circle c-homebg-img--circle3" alt="" />
-        <img src={howtocircle4} className="c-homebg-img c-homebg-img--circle c-homebg-img--circle4" alt="" />
-        <img src={howtocircle5} className="c-homebg-img c-homebg-img--circle c-homebg-img--circle5" alt="" />
+      <Box background="beige" {...blockCssProperties}>
+        <Image src={howtocircle1} {...circleImgCssProperties} top="60px" left="50px" alt="" />
+        <Image src={howtocircle2} {...circleImgCssProperties} bottom="-28px" left="444px" alt="" />
+        <Image src={howtocircle3} {...circleImgCssProperties} top="182px" right="512px" alt="" />
+        <Image src={howtocircle4} {...circleImgCssProperties} top="12px" right="312px" alt="" />
+        <Image src={howtocircle5} {...circleImgCssProperties} bottom="112px" right="-12px" alt="" />
         <HomeHero />
         <HowTo />
-      </div>
-      <div className="c-homebg py-5">
-        <AlgoHome />
-      </div>
+      </Box>
 
-      <div className="c-homebg">
+      <Box {...blockCssProperties} py={12}>
+        <AlgoHome />
+      </Box>
+
+      <Box {...blockCssProperties}>
         <AmeliorerLBA />
-      </div>
+      </Box>
 
       <HomeReview reviews={props.reviews} />
 
       <Footer />
-    </div>
+    </Box>
   )
 }
 
@@ -116,7 +132,7 @@ async function getAllReviews() {
 
   let result = cleanedCsv[0] || {}
 
-  return {} /*result*/
+  return result
 }
 
 export default Home
