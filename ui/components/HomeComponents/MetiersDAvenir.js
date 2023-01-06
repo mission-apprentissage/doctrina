@@ -1,5 +1,6 @@
 import React, { useQuery } from "react"
-import { Image, Text, UnorderedList, ListItem, Divider, GridItem, Grid, Container, Box, SimpleGrid, Link, Flex } from "@chakra-ui/react"
+import NextLink from "next/link"
+import { Text, Divider, GridItem, Grid, Container, Box, SimpleGrid, Link, Flex } from "@chakra-ui/react"
 import { ArrowForwardIcon } from "@chakra-ui/icons"
 
 const jobCssProperties = {
@@ -14,14 +15,18 @@ const jobCssProperties = {
   cursor: "pointer",
 }
 
-const buildJobBlock = () => {
+const buildJobBlock = ({ title = "Boulanger pâtissier", romes = ["D1102", "D1104"] }) => {
   return (
-    <Flex {...jobCssProperties}>
-      <Text fontSize="20px" fontWeight={700} color="info">
-        Tralala
-      </Text>
-      <ArrowForwardIcon color="info" fontSize="20px" marginLeft="auto" />
-    </Flex>
+    <NextLink passHref href={`/recherche-apprentissage?&display=list&job_name=${title}&romes=${romes}&radius=60`}>
+      <Link _hover={{ textDecoration: "none" }}>
+        <Flex {...jobCssProperties}>
+          <Text fontSize="20px" fontWeight={700} color="info">
+            {title}
+          </Text>
+          <ArrowForwardIcon color="info" fontSize="20px" marginLeft="auto" />
+        </Flex>
+      </Link>
+    </NextLink>
   )
 }
 
@@ -54,14 +59,14 @@ const MetiersDAvenir = () => {
         </GridItem>
         <GridItem colSpan="8" height="100%">
           <SimpleGrid columns={[1, 1, 1, 2]} spacingX={8} spacingY={4}>
-            {buildJobBlock()}
-            {buildJobBlock()}
-            {buildJobBlock()}
-            {buildJobBlock()}
-            {buildJobBlock()}
-            {buildJobBlock()}
-            {buildJobBlock()}
-            {buildJobBlock()}
+            {buildJobBlock({})}
+            {buildJobBlock({})}
+            {buildJobBlock({})}
+            {buildJobBlock({})}
+            {buildJobBlock({})}
+            {buildJobBlock({})}
+            {buildJobBlock({})}
+            {buildJobBlock({})}
           </SimpleGrid>
         </GridItem>
       </Grid>
