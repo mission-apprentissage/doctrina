@@ -68,8 +68,23 @@ export const getMetiersDAvenir = async () => {
 
       return { peJobs: [peJob] }
     }*/
-    return token
+    return {
+      metiersDAvenir: [
+        {
+          title: "metier d'avcenir 1",
+          romes: ["A1000", "V1000"],
+        },
+        {
+          title: "metier d'avcenir 2",
+          romes: ["C1000", "D1000"],
+        },
+      ],
+    }
   } catch (error) {
+    console.log("error")
+    return {
+      error: "pshiiit",
+    }
     //return manageApiError({ error, api: "jobV1/job", caller, errorTitle: "getting job by id from PE" })
   }
 }

@@ -3,7 +3,7 @@ import Navigation from "../components/navigation"
 import HomeHero from "../components/HomeHero"
 import HowTo from "../components/HowTo"
 import AlgoHome from "../components/HomeComponents/AlgoHome"
-import HomeReview from "../components/HomeReview"
+import MetiersDAvenir from "../components/HomeComponents/MetiersDAvenir"
 import { initParametersFromQuery } from "../services/config"
 import Footer from "../components/footer"
 import { useRouter } from "next/router"
@@ -18,7 +18,8 @@ import axios from "axios"
 import csvToArray from "../utils/csvToArray.js"
 import { some } from "lodash"
 import { ParameterContext } from "../context/ParameterContextProvider"
-import AmeliorerLBA from "../components/HomeComponents/AmeliorerLBA"
+//import AmeliorerLBA from "../components/HomeComponents/AmeliorerLBA"
+import HomeReview from "../components/HomeReview/HomeReview"
 import { Box, Image } from "@chakra-ui/react"
 
 const blockCssProperties = {
@@ -58,13 +59,19 @@ const Home = (props) => {
         <HowTo />
       </Box>
 
+      <Box {...blockCssProperties} pt={12} pb={0}>
+        <MetiersDAvenir />
+      </Box>
+
       <Box {...blockCssProperties} py={12}>
         <AlgoHome />
       </Box>
 
+      {/*
       <Box {...blockCssProperties}>
         <AmeliorerLBA />
       </Box>
+      */}
 
       <HomeReview reviews={props.reviews} />
 
