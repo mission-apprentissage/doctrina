@@ -18,7 +18,11 @@ const jobCssProperties = {
 const buildJobBlock = ({ title = "Boulanger pâtissier", romes = ["D1102", "D1104"] }) => {
   return (
     <NextLink passHref href={`/recherche-apprentissage?&display=list&job_name=${title}&romes=${romes}&radius=60`}>
-      <Link _hover={{ textDecoration: "none" }}>
+      <Link
+        _focus={{ borderRadius: "8px", boxShadow: "0 4px 12px 2px rgb(0 0 0 / 21%)" }}
+        _hover={{ textDecoration: "none" }}
+        title={`Voir la liste des formations et opportunités d'emploi en alternance pour le métier d'avenir ${title}`}
+      >
         <Flex {...jobCssProperties}>
           <Text fontSize="20px" fontWeight={700} color="info">
             {title}
