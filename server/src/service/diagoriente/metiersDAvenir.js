@@ -41,7 +41,7 @@ const getAccessToken = async () => {
 
 export const getMetiersDAvenir = async () => {
   try {
-    const token = await getAccessToken()
+    //const token = await getAccessToken()
 
     /*
     let headers = peApiHeaders
@@ -71,11 +71,11 @@ export const getMetiersDAvenir = async () => {
     return {
       metiersDAvenir: [
         {
-          title: "metier d'avcenir 1",
+          title: "metier d'avenir 1",
           romes: ["A1000", "V1000"],
         },
         {
-          title: "metier d'avcenir 2",
+          title: "metier d'avenir 2",
           romes: ["C1000", "D1000"],
         },
       ],
