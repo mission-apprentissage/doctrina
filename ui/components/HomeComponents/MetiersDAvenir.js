@@ -11,11 +11,16 @@ const jobCssProperties = {
   borderRadius: "8px",
   border: "1.2px solid",
   borderColor: "bluefrance.200",
-  height: "70px",
-  padding: 8,
-  alignItems: "center",
-  direction: "row",
   cursor: "pointer",
+  _focus: {
+    background: "#E8EDFF",
+    borderColor: "info",
+    textDecoration: "none",
+  },
+  _hover: {
+    background: "#E8EDFF",
+    textDecoration: "none",
+  },
 }
 
 const diagorienteLink = "https://diagoriente.gitbook.io/base-unifiee-competences-formations-metiers/presentation-generale/genese"
@@ -23,12 +28,8 @@ const diagorienteLink = "https://diagoriente.gitbook.io/base-unifiee-competences
 const buildJobBlock = ({ idx, title = "Boulanger pâtissier", romes = ["D1102", "D1104"] }) => {
   return (
     <NextLink key={idx} passHref href={`/recherche-apprentissage?&display=list&job_name=${title}&romes=${romes}&radius=60`}>
-      <Link
-        _focus={{ borderRadius: "8px", boxShadow: "0 4px 12px 2px rgb(0 0 0 / 21%)" }}
-        _hover={{ textDecoration: "none" }}
-        title={`Voir la liste des formations et opportunités d'emploi en alternance pour le métier d'avenir ${title}`}
-      >
-        <Flex {...jobCssProperties}>
+      <Link {...jobCssProperties} title={`Voir la liste des formations et opportunités d'emploi en alternance pour le métier d'avenir ${title}`}>
+        <Flex height="70px" padding={8} alignItems="center" direction="row">
           <Text fontSize="20px" fontWeight={700} color="info">
             {title}
           </Text>
