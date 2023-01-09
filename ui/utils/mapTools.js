@@ -149,7 +149,7 @@ const initializeMap = ({ mapContainer, unselectItem, trainings, jobs, selectItem
       })
 
       if (jobs?.peJobs?.length || jobs?.lbaCompanies?.length || jobs?.lbbCompanies?.length || jobs?.matchas?.length) {
-        setJobMarkers({ jobList: factorJobsForMap(jobs) })
+        setJobMarkers({ jobList: factorJobsForMap(jobs), hasTrainings: trainings?.length })
       }
     }
 
@@ -515,12 +515,16 @@ const setJobMarkers = async ({ jobList, searchCenter = null, hasTrainings = fals
     await waitForMapReadiness()
 
     // centrage et zoom si searchCenter est précisé (scope emploi seulement)
-    if (searchCenter) {
-      map.flyTo({ center: searchCenter, zoom: 9 })
-    } else if (!hasTrainings) {
-      // hack de contournement du bug d'initialisation de mapbox n'affichant pas les markers sur le niveau de zoom initial (part 2)
-      map.flyTo({ zoom: zoomWholeFrance })
+    console.log("LLLLLAAAAA hasTraining ", hasTrainings)
+    if (!hasTrainings) {
+      if (searchCenter) {
+        map.flyTo({ center: searchCenter, zoom: 9 })
+      } else {
+        // hack de contournement du bug d'initialisation de mapbox n'affichant pas les markers sur le niveau de zoom initial (part 2)
+        map.flyTo({ zoom: zoomWholeFrance })
+      }
     }
+    console.log("ICIICICI")
 
     let features = []
     jobList.map((job, idx) => {
@@ -614,12 +618,16 @@ const setTrainingMarkers = async ({ trainingList, options, tryCount = 0 }) => {
     let features = []
 
     if (trainingList?.length) {
+      console.log("OPTIONS options ", options)
+
       if (!options || options.centerMapOnTraining) {
         // centrage sur formation la plus proche
         let newZoom = getZoomLevelForDistance(trainingList[0].items[0].place.distance)
+        console.log("CENTER")
         map.flyTo({ center: trainingList[0].coords, zoom: newZoom })
       } else {
         // hack de contournement du bug d'initialisation de mapbox n'affichant pas les markers sur le niveau de zoom initial (part 3)
+        console.log("WHOLEFRANCE")
         map.flyTo({ zoom: zoomWholeFrance })
       }
 
