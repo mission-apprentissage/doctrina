@@ -622,7 +622,7 @@ const setTrainingMarkers = async ({ trainingList, options, tryCount = 0 }) => {
         map.flyTo({ center: trainingList[0].coords, zoom: newZoom })
       } else {
         // hack de contournement du bug d'initialisation de mapbox n'affichant pas les markers sur le niveau de zoom initial (part 3)
-        map.flyTo({ zoom: zoomWholeFrance })
+        map.flyTo({ center: franceCenter, zoom: zoomWholeFrance })
       }
 
       trainingList.map((training, idx) => {
