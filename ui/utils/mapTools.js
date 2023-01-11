@@ -15,18 +15,7 @@ let isMapInitialized = false
 const franceCenter = [2.2, 47]
 const zoomWholeFrance = 5
 
-const initializeMap = ({
-  mapContainer,
-  unselectItem,
-  trainings,
-  jobs,
-  selectItemOnMap,
-  onMapHasMoved,
-  unselectMapPopupItem,
-  setSelectedItem,
-  setSelectedMapPopupIte,
-  formValues,
-}) => {
+const initializeMap = ({ mapContainer, unselectItem, selectItemOnMap, onMapHasMoved, unselectMapPopupItem, setSelectedItem, setSelectedMapPopupItem }) => {
   isMapInitialized = true
 
   mapboxgl.accessToken = "pk.eyJ1IjoiYWxhbmxyIiwiYSI6ImNrYWlwYWYyZDAyejQzMHBpYzE0d2hoZWwifQ.FnAOzwsIKsYFRnTUwneUSA"

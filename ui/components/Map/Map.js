@@ -117,14 +117,11 @@ const Map = ({ handleSearchSubmit, showSearchForm, selectItemOnMap }) => {
       initializeMap({
         mapContainer,
         unselectItem,
-        trainings,
-        jobs,
         selectItemOnMap,
         onMapHasMoved,
         unselectMapPopupItem,
         setSelectedItem,
         setSelectedMapPopupItem,
-        formValues,
       })
     }
   }, [trainings, jobs, shouldMapBeVisible])
@@ -137,8 +134,6 @@ const Map = ({ handleSearchSubmit, showSearchForm, selectItemOnMap }) => {
         initializeMap({
           mapContainer,
           unselectItem,
-          trainings,
-          jobs,
           selectItemOnMap,
           onMapHasMoved,
           unselectMapPopupItem,
