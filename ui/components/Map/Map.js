@@ -124,6 +124,7 @@ const Map = ({ handleSearchSubmit, showSearchForm, selectItemOnMap }) => {
         unselectMapPopupItem,
         setSelectedItem,
         setSelectedMapPopupItem,
+        formValues,
       })
     }
   }, [trainings, jobs, shouldMapBeVisible])

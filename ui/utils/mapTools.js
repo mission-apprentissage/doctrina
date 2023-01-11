@@ -15,7 +15,18 @@ let isMapInitialized = false
 const franceCenter = [2.2, 47]
 const zoomWholeFrance = 5
 
-const initializeMap = ({ mapContainer, unselectItem, trainings, jobs, selectItemOnMap, onMapHasMoved, unselectMapPopupItem, setSelectedItem, setSelectedMapPopupItem }) => {
+const initializeMap = ({
+  mapContainer,
+  unselectItem,
+  trainings,
+  jobs,
+  selectItemOnMap,
+  onMapHasMoved,
+  unselectMapPopupItem,
+  setSelectedItem,
+  setSelectedMapPopupIte,
+  formValues,
+}) => {
   isMapInitialized = true
 
   mapboxgl.accessToken = "pk.eyJ1IjoiYWxhbmxyIiwiYSI6ImNrYWlwYWYyZDAyejQzMHBpYzE0d2hoZWwifQ.FnAOzwsIKsYFRnTUwneUSA"
@@ -149,7 +160,7 @@ const initializeMap = ({ mapContainer, unselectItem, trainings, jobs, selectItem
       })
 
       if (jobs?.peJobs?.length || jobs?.lbaCompanies?.length || jobs?.lbbCompanies?.length || jobs?.matchas?.length) {
-        setJobMarkers({ jobList: factorJobsForMap(jobs), hasTrainings: trainings?.length })
+        setJobMarkers({ jobList: factorJobsForMap(jobs), searchCenter: formValues?.location?.value?.coordinates, hasTrainings: trainings?.length })
       }
     }
 
@@ -520,7 +531,7 @@ const setJobMarkers = async ({ jobList, searchCenter = null, hasTrainings = fals
         map.flyTo({ center: searchCenter, zoom: 9 })
       } else {
         // hack de contournement du bug d'initialisation de mapbox n'affichant pas les markers sur le niveau de zoom initial (part 2)
-        map.flyTo({ zoom: zoomWholeFrance })
+        map.flyTo({ center: franceCenter, zoom: zoomWholeFrance })
       }
     }
 
