@@ -12,4 +12,6 @@ export default function (components) {
       return res.json({ result: "ok" })
     })
   )
+
+  return router
 }
