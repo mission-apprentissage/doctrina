@@ -8,7 +8,7 @@ import swaggerUi from "swagger-ui-express"
 import __dirname from "../common/dirname.js"
 import { logger } from "../common/logger.js"
 import config from "../config.js"
-import { initWebhook } from "../service/sendinblue/webhookSendinBlue.js"
+import { initSendinblueWebhooks } from "../service/sendinblue/webhookSendinBlue.js"
 import campaignWebhook from "./routes/campaignWebhook.js"
 import authMiddleware from "./middlewares/authMiddleware.js"
 import { corsMiddleware } from "./middlewares/corsMiddleware.js"
@@ -223,7 +223,7 @@ export default async (components) => {
   app.use("/api/optout", optoutRoute())
   app.use("/api/etablissement", etablissementsRecruteurRoute(components))
 
-  initWebhook()
+  initSendinblueWebhooks()
 
   app.use(errorMiddleware())
 
