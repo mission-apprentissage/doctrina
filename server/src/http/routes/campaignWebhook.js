@@ -6,7 +6,7 @@ export default function (components) {
   const router = express.Router()
 
   router.post(
-    "/webhook",
+    "/",
     tryCatch(async (req, res) => {
       updateHardBounceEmails({ payload: req.body, ...components })
       return res.json({ result: "ok" })
